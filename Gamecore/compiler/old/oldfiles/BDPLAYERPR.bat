@@ -1,0 +1,1 @@
+bison -oplayeryacc.cpp -d -p player PlParserRules.txt

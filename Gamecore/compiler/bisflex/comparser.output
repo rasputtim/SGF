@@ -1,0 +1,1377 @@
+Terminals unused in grammar
+
+   LOGICAL_OPERATORS
+   '!'
+   '&'
+   '|'
+   CMD_XOR
+   CMD_LOGXOR
+   CMD_LOGOR
+   CMD_LOGAND
+   COMP_OPERATORS
+   '<'
+   CMD_GREATERTHANEQ
+   CMD_LESSTHANEQ
+   CMD_NOTEQ
+   MATH_OPERATORS
+   '-'
+   '*'
+   '%'
+   CMD_SQUARE
+   LN
+   FLOOR
+   EXP
+   UPLUS
+   UMINUS
+   KEYWORD
+   FUNC_GETHITVAR
+   FUNC_IDENTIFIER
+   SELFANIMEXIST
+   PROJCANCELTIME
+   PLAYERIDEXIST
+   PROJGUARDEDTIME
+   PROJCONTACTTIME
+   VAR
+   TAN
+   FUNC_FVAR
+   FUNC_VAR
+   FUNC_SYSVAR
+   FUNC_CONST
+   FUNC_LOG
+   FUNC_PROJGUARDED
+   FUNC_PROJHIT
+   FUNC_PROJCONTACT
+   KANIM
+   FUNC_IFELSE
+   KEY_TRIGGER
+   ID
+   NEGONE
+   DATA
+   ATTACK
+   DEFENCE
+   FALLDEFUP
+   LIEDOWTIME
+   AIRJUGGLE
+   SPARKNO
+   GUARDSPARKNO
+   KOECHO
+   VOLUME
+   INTEGERINDEX
+   FLOATINDEX
+   SIZE
+   XSCALE
+   YSCALE
+   GROUNDBACK
+   GROUNDFRONT
+   AIRBACK
+   AIRFRONT
+   HEIGHT
+   ATTACKDIST
+   PROJATTDIST
+   PROJDOSCALE
+   HEADPOSX
+   HEADPOSY
+   MIDPOSX
+   MIDPOSY
+   SHADOWOFFSET
+   DRAWOFFSETX
+   DRAWOFFSETY
+   VELOCITY
+   WALKFWD
+   WALKBACK
+   RUNFWDX
+   RUNFWDY
+   RUNBACKX
+   RUNBACKY
+   JUMPNEU
+   JUMPBACK
+   JUMPFWD
+   RUNJUMPBACK
+   RUNJUMPFWD
+   AIRJUMPNEU
+   AIRJUMPBACK
+   AIRJUMPFWD
+   MOVEMENT
+   AIRJUMPNUM
+   AIRJUMPHEIGHT
+   YACCEL
+   STANDFRICTION
+   CROUCHFRICTION
+   KEY_TRIGGERALL
+   CMD_STATEDEF
+   KEY_PHYSICS
+   CMD_STATE
+   ANIMELEM
+   FVAR
+   HITCOUNT
+   HITDEFATTR
+   ISHELPER
+   MOVECONTACT
+   PROJGUARDED
+   PROJHITTIME
+   STATENO
+   TNULL
+   AFTERIMAGE
+   AFTERIMAGETIME
+   ALLPALFX
+   ANGLEADD
+   ANGLEDRAW
+   ANGLEMUL
+   ANGLESET
+   APPENDTOCLIPBOARD
+   ASSERTSPECIAL
+   ATTACKMULSET
+   BGPALFX
+   BINDTOPARENT
+   BINDTOROOT
+   BINDTOTARGET
+   CHANGEANIME
+   CHANGEANIME2
+   CHANGESTATE
+   CLEARCLIPBOARD
+   CTRLSET
+   DEFENCEMULSET
+   DESTROYSELF
+   DISPLAYTOCLIPBOARD
+   ENVSHAKE
+   EXPLOD
+   EXPLODBINDTIME
+   FALLENVSHAKE
+   FORCEFEDDBACK
+   GAMEMAKEANIM
+   GRAVITY
+   HELPER
+   HITADD
+   HITBY
+   KEY_HITDEF
+   HITFALLDAMAGE
+   HITFALLSET
+   HITFALLVEL
+   HITOVERRIDE
+   HITVELSET
+   LIFEADD
+   LIFESET
+   MAKEDUST
+   MODIFYEXPLOD
+   MOVEHITRESET
+   NOTHITBY
+   NUL
+   OFFSET
+   PALFX
+   PARENTVARADD
+   PARENTVARSET
+   PAUSE
+   PLAYERPUSH
+   PLAYSND
+   POSADD
+   POSFREEZ
+   POSSET
+   POWERSET
+   PROJECTILE
+   REMOVEEXPLOD
+   REVERSALDEF
+   SCREENBOUND
+   SELFSTATE
+   SNDPAN
+   STATETYPESET
+   STOPSND
+   SUPERPAUSE
+   TARGETBIND
+   TARGETDROP
+   TARGETFACING
+   TARGETLIFEADD
+   TARGETPOWERADD
+   TARGETSTATE
+   TARGETVELADD
+   TARGETVELSET
+   TURN
+   VARADD
+   VARRANDOM
+   VARRANGESET
+   VARSET
+   VELADD
+   VELMUL
+   WIDTH
+   LENGTH
+   PALCOLOR
+   PALINVERTALL
+   PALBRIGHT
+   PALCONTRAST
+   PALPOSTBRIGHT
+   PALADD
+   PALMUL
+   TIMEGAP
+   FRAMEGAP
+   TRANS
+   ACBEGIN
+   ACTION
+   LOOPSTART
+   CLSN2DEFAULT
+   CLSN1DEFAULT
+   CLSN2
+   CLSN1
+   HORIZONTALFLIP
+   VERTIKALFLIP
+   HVFLIP
+   ALPHA
+   INFO
+   DISPLAYNAME
+   VERSIONSDATA
+   MUGENVERSION
+   AUTHOR
+   FILES
+   CMD
+   CNS
+   ST
+   STCOMMON
+   SPRITE
+   SOUND
+   PAL
+   PALDEF
+   ARCADE
+   INTROSTORYBOARD
+   ENDINGSTORYBOARD
+   JUMPNEUY
+   AIRJUMPNEUY
+   KEY_FX
+   KEY_SX
+   KEY_STATETYPE
+   KEY_TYPE
+   HELPER_IDENTIFIER
+   CONST_PARAM
+
+
+Grammar
+
+    0 $accept: lines "end of file"
+
+    1 $@1: /* empty */
+
+    2 lines: $@1 COMMENT
+    3      | "end of line"
+    4      | lines COMMANDSECTION end_or_comment
+    5      | error
+
+    6 end_or_comment: "end of line"
+    7               | COMMENT
+
+    8 range: '[' NUMBER ',' NUMBER ']'
+    9      | '(' NUMBER ',' NUMBER ')'
+   10      | '[' NUMBER ',' NUMBER ')'
+   11      | '(' NUMBER ',' NUMBER ']'
+
+   12 simple_value: range
+   13             | QUOTESTRING
+   14             | NUMBER
+   15             | KEY_IDENTIFIER
+   16             | IDENTIFIER
+   17             | KEY_ANIM
+
+   18 COMMANDSECTION: '[' KEY_COMMAND ']'
+   19               | '[' KEY_DEFAULTS ']'
+   20               | command_identifier
+
+   21 command_identifier: /* empty */
+   22                   | KEY_COMMAND '=' keylist
+   23                   | KEY_TIME '=' simple_value
+   24                   | KEY_BUFFERTIME '=' simple_value
+   25                   | KEY_NAME '=' simple_value
+
+   26 keylist: super_key
+   27        | super_key ',' keylist
+
+   28 super_key: key_modified
+   29          | combined_key
+   30          | plain_key
+
+   31 key_modified: super_key_modifier plain_key
+
+   32 super_key_modifier: key_modifier
+   33                   | super_key_modifier key_modifier
+
+   34 key_modifier: '~'
+   35             | '~' NUMBER
+   36             | '/'
+   37             | '$'
+   38             | '>'
+
+   39 combined_key: plain_key '+' plain_key
+   40             | combined_key '+' plain_key
+
+   41 plain_key: CMD_KEY_DOWN
+   42          | CMD_KEY_FORWARD
+   43          | CMD_KEY_DOWN_FORWARD
+   44          | CMD_KEY_BACK
+   45          | CMD_KEY_DOWN_BACK
+   46          | CMD_KEY_UP_FORWARD
+   47          | CMD_KEY_UP
+   48          | CMD_KEY_UP_BACK
+   49          | CMD_BUTTON_A
+   50          | CMD_BUTTON_B
+   51          | CMD_BUTTON_C
+   52          | CMD_BUTTON_X
+   53          | CMD_BUTTON_Y
+   54          | CMD_BUTTON_Z
+   55          | CMD_BUTTON_S
+
+
+Terminals, with rules where they appear
+
+"end of file" (0) 0
+'!' (33)
+'$' (36) 37
+'%' (37)
+'&' (38)
+'(' (40) 9 11
+')' (41) 9 10
+'*' (42)
+'+' (43) 39 40
+',' (44) 8 9 10 11 27
+'-' (45)
+'/' (47) 36
+'<' (60)
+'=' (61) 22 23 24 25
+'>' (62) 38
+'[' (91) 8 10 18 19
+']' (93) 8 11 18 19
+'|' (124)
+'~' (126) 34 35
+error (256) 5
+NUMBER (258) 8 9 10 11 14 35
+LOGICAL_OPERATORS (259)
+CMD_XOR (260)
+CMD_LOGXOR (261)
+CMD_LOGOR (262)
+CMD_LOGAND (263)
+COMP_OPERATORS (264)
+CMD_GREATERTHANEQ (265)
+CMD_LESSTHANEQ (266)
+CMD_NOTEQ (267)
+MATH_OPERATORS (268)
+CMD_SQUARE (269)
+LN (270)
+FLOOR (271)
+EXP (272)
+UPLUS (273)
+UMINUS (274)
+KEY_TIME (275) 23
+KEY_BUFFERTIME (276) 24
+KEY_NAME (277) 25
+KEYWORD (278)
+KEY_IDENTIFIER (279) 15
+FUNC_GETHITVAR (280)
+FUNC_IDENTIFIER (281)
+SELFANIMEXIST (282)
+PROJCANCELTIME (283)
+PLAYERIDEXIST (284)
+PROJGUARDEDTIME (285)
+PROJCONTACTTIME (286)
+VAR (287)
+TAN (288)
+FUNC_FVAR (289)
+FUNC_VAR (290)
+FUNC_SYSVAR (291)
+FUNC_CONST (292)
+FUNC_LOG (293)
+FUNC_PROJGUARDED (294)
+FUNC_PROJHIT (295)
+FUNC_PROJCONTACT (296)
+KANIM (297)
+FUNC_IFELSE (298)
+KEY_TRIGGER (299)
+"end of line" (300) 3 6
+ID (301)
+QUOTESTRING (302) 13
+NEGONE (303)
+DATA (304)
+ATTACK (305)
+DEFENCE (306)
+FALLDEFUP (307)
+LIEDOWTIME (308)
+AIRJUGGLE (309)
+SPARKNO (310)
+GUARDSPARKNO (311)
+KOECHO (312)
+VOLUME (313)
+INTEGERINDEX (314)
+FLOATINDEX (315)
+SIZE (316)
+XSCALE (317)
+YSCALE (318)
+GROUNDBACK (319)
+GROUNDFRONT (320)
+AIRBACK (321)
+AIRFRONT (322)
+HEIGHT (323)
+ATTACKDIST (324)
+PROJATTDIST (325)
+PROJDOSCALE (326)
+HEADPOSX (327)
+HEADPOSY (328)
+MIDPOSX (329)
+MIDPOSY (330)
+SHADOWOFFSET (331)
+DRAWOFFSETX (332)
+DRAWOFFSETY (333)
+VELOCITY (334)
+WALKFWD (335)
+WALKBACK (336)
+RUNFWDX (337)
+RUNFWDY (338)
+RUNBACKX (339)
+RUNBACKY (340)
+JUMPNEU (341)
+JUMPBACK (342)
+JUMPFWD (343)
+RUNJUMPBACK (344)
+RUNJUMPFWD (345)
+AIRJUMPNEU (346)
+AIRJUMPBACK (347)
+AIRJUMPFWD (348)
+MOVEMENT (349)
+AIRJUMPNUM (350)
+AIRJUMPHEIGHT (351)
+YACCEL (352)
+STANDFRICTION (353)
+CROUCHFRICTION (354)
+KEY_TRIGGERALL (355)
+IDENTIFIER (356) 16
+CMD_STATEDEF (357)
+KEY_PHYSICS (358)
+CMD_STATE (359)
+ANIMELEM (360)
+FVAR (361)
+HITCOUNT (362)
+HITDEFATTR (363)
+ISHELPER (364)
+MOVECONTACT (365)
+PROJGUARDED (366)
+PROJHITTIME (367)
+STATENO (368)
+TNULL (369)
+AFTERIMAGE (370)
+AFTERIMAGETIME (371)
+ALLPALFX (372)
+ANGLEADD (373)
+ANGLEDRAW (374)
+ANGLEMUL (375)
+ANGLESET (376)
+APPENDTOCLIPBOARD (377)
+ASSERTSPECIAL (378)
+ATTACKMULSET (379)
+BGPALFX (380)
+BINDTOPARENT (381)
+BINDTOROOT (382)
+BINDTOTARGET (383)
+CHANGEANIME (384)
+CHANGEANIME2 (385)
+CHANGESTATE (386)
+CLEARCLIPBOARD (387)
+CTRLSET (388)
+DEFENCEMULSET (389)
+DESTROYSELF (390)
+DISPLAYTOCLIPBOARD (391)
+ENVSHAKE (392)
+EXPLOD (393)
+EXPLODBINDTIME (394)
+FALLENVSHAKE (395)
+FORCEFEDDBACK (396)
+GAMEMAKEANIM (397)
+GRAVITY (398)
+HELPER (399)
+HITADD (400)
+HITBY (401)
+KEY_HITDEF (402)
+HITFALLDAMAGE (403)
+HITFALLSET (404)
+HITFALLVEL (405)
+HITOVERRIDE (406)
+HITVELSET (407)
+LIFEADD (408)
+LIFESET (409)
+MAKEDUST (410)
+MODIFYEXPLOD (411)
+MOVEHITRESET (412)
+NOTHITBY (413)
+NUL (414)
+OFFSET (415)
+PALFX (416)
+PARENTVARADD (417)
+PARENTVARSET (418)
+PAUSE (419)
+PLAYERPUSH (420)
+PLAYSND (421)
+POSADD (422)
+POSFREEZ (423)
+POSSET (424)
+POWERSET (425)
+PROJECTILE (426)
+REMOVEEXPLOD (427)
+REVERSALDEF (428)
+SCREENBOUND (429)
+SELFSTATE (430)
+SNDPAN (431)
+STATETYPESET (432)
+STOPSND (433)
+SUPERPAUSE (434)
+TARGETBIND (435)
+TARGETDROP (436)
+TARGETFACING (437)
+TARGETLIFEADD (438)
+TARGETPOWERADD (439)
+TARGETSTATE (440)
+TARGETVELADD (441)
+TARGETVELSET (442)
+TURN (443)
+VARADD (444)
+VARRANDOM (445)
+VARRANGESET (446)
+VARSET (447)
+VELADD (448)
+VELMUL (449)
+WIDTH (450)
+LENGTH (451)
+PALCOLOR (452)
+PALINVERTALL (453)
+PALBRIGHT (454)
+PALCONTRAST (455)
+PALPOSTBRIGHT (456)
+PALADD (457)
+PALMUL (458)
+TIMEGAP (459)
+FRAMEGAP (460)
+TRANS (461)
+ACBEGIN (462)
+ACTION (463)
+LOOPSTART (464)
+CLSN2DEFAULT (465)
+CLSN1DEFAULT (466)
+CLSN2 (467)
+CLSN1 (468)
+HORIZONTALFLIP (469)
+VERTIKALFLIP (470)
+HVFLIP (471)
+ALPHA (472)
+INFO (473)
+DISPLAYNAME (474)
+VERSIONSDATA (475)
+MUGENVERSION (476)
+AUTHOR (477)
+FILES (478)
+CMD (479)
+CNS (480)
+ST (481)
+STCOMMON (482)
+SPRITE (483)
+SOUND (484)
+PAL (485)
+PALDEF (486)
+ARCADE (487)
+INTROSTORYBOARD (488)
+ENDINGSTORYBOARD (489)
+JUMPNEUY (490)
+AIRJUMPNEUY (491)
+KEY_FX (492)
+KEY_SX (493)
+CMD_KEY_DOWN (494) 41
+CMD_KEY_FORWARD (495) 42
+CMD_KEY_DOWN_FORWARD (496) 43
+CMD_KEY_BACK (497) 44
+CMD_KEY_DOWN_BACK (498) 45
+CMD_KEY_UP_FORWARD (499) 46
+CMD_KEY_UP (500) 47
+CMD_KEY_UP_BACK (501) 48
+CMD_BUTTON_A (502) 49
+CMD_BUTTON_B (503) 50
+CMD_BUTTON_C (504) 51
+CMD_BUTTON_X (505) 52
+CMD_BUTTON_Y (506) 53
+CMD_BUTTON_Z (507) 54
+CMD_BUTTON_S (508) 55
+KEY_COMMAND (509) 18 22
+KEY_DEFAULTS (510) 19
+KEY_STATETYPE (511)
+KEY_TYPE (512)
+KEY_ANIM (513) 17
+HELPER_IDENTIFIER (514)
+CONST_PARAM (515)
+COMMENT (516) 2 7
+
+
+Nonterminals, with rules where they appear
+
+$accept (280)
+    on left: 0
+lines (281)
+    on left: 2 3 4 5, on right: 0 4
+$@1 (282)
+    on left: 1, on right: 2
+end_or_comment (283)
+    on left: 6 7, on right: 4
+range (284)
+    on left: 8 9 10 11, on right: 12
+simple_value (285)
+    on left: 12 13 14 15 16 17, on right: 23 24 25
+COMMANDSECTION (286)
+    on left: 18 19 20, on right: 4
+command_identifier (287)
+    on left: 21 22 23 24 25, on right: 20
+keylist (288)
+    on left: 26 27, on right: 22 27
+super_key (289)
+    on left: 28 29 30, on right: 26 27
+key_modified (290)
+    on left: 31, on right: 28
+super_key_modifier (291)
+    on left: 32 33, on right: 31 33
+key_modifier (292)
+    on left: 34 35 36 37 38, on right: 32 33
+combined_key (293)
+    on left: 39 40, on right: 29 40
+plain_key (294)
+    on left: 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55, on right:
+    30 31 39 40
+
+
+state 0
+
+    0 $accept: . lines "end of file"
+
+    error          shift, and go to state 1
+    "end of line"  shift, and go to state 2
+
+    COMMENT  reduce using rule 1 ($@1)
+
+    lines  go to state 3
+    $@1    go to state 4
+
+
+state 1
+
+    5 lines: error .
+
+    $default  reduce using rule 5 (lines)
+
+
+state 2
+
+    3 lines: "end of line" .
+
+    $default  reduce using rule 3 (lines)
+
+
+state 3
+
+    0 $accept: lines . "end of file"
+    4 lines: lines . COMMANDSECTION end_or_comment
+
+    "end of file"   shift, and go to state 5
+    KEY_TIME        shift, and go to state 6
+    KEY_BUFFERTIME  shift, and go to state 7
+    KEY_NAME        shift, and go to state 8
+    KEY_COMMAND     shift, and go to state 9
+    '['             shift, and go to state 10
+
+    $default  reduce using rule 21 (command_identifier)
+
+    COMMANDSECTION      go to state 11
+    command_identifier  go to state 12
+
+
+state 4
+
+    2 lines: $@1 . COMMENT
+
+    COMMENT  shift, and go to state 13
+
+
+state 5
+
+    0 $accept: lines "end of file" .
+
+    $default  accept
+
+
+state 6
+
+   23 command_identifier: KEY_TIME . '=' simple_value
+
+    '='  shift, and go to state 14
+
+
+state 7
+
+   24 command_identifier: KEY_BUFFERTIME . '=' simple_value
+
+    '='  shift, and go to state 15
+
+
+state 8
+
+   25 command_identifier: KEY_NAME . '=' simple_value
+
+    '='  shift, and go to state 16
+
+
+state 9
+
+   22 command_identifier: KEY_COMMAND . '=' keylist
+
+    '='  shift, and go to state 17
+
+
+state 10
+
+   18 COMMANDSECTION: '[' . KEY_COMMAND ']'
+   19               | '[' . KEY_DEFAULTS ']'
+
+    KEY_COMMAND   shift, and go to state 18
+    KEY_DEFAULTS  shift, and go to state 19
+
+
+state 11
+
+    4 lines: lines COMMANDSECTION . end_or_comment
+
+    "end of line"  shift, and go to state 20
+    COMMENT        shift, and go to state 21
+
+    end_or_comment  go to state 22
+
+
+state 12
+
+   20 COMMANDSECTION: command_identifier .
+
+    $default  reduce using rule 20 (COMMANDSECTION)
+
+
+state 13
+
+    2 lines: $@1 COMMENT .
+
+    $default  reduce using rule 2 (lines)
+
+
+state 14
+
+   23 command_identifier: KEY_TIME '=' . simple_value
+
+    NUMBER          shift, and go to state 23
+    KEY_IDENTIFIER  shift, and go to state 24
+    QUOTESTRING     shift, and go to state 25
+    IDENTIFIER      shift, and go to state 26
+    KEY_ANIM        shift, and go to state 27
+    '['             shift, and go to state 28
+    '('             shift, and go to state 29
+
+    range         go to state 30
+    simple_value  go to state 31
+
+
+state 15
+
+   24 command_identifier: KEY_BUFFERTIME '=' . simple_value
+
+    NUMBER          shift, and go to state 23
+    KEY_IDENTIFIER  shift, and go to state 24
+    QUOTESTRING     shift, and go to state 25
+    IDENTIFIER      shift, and go to state 26
+    KEY_ANIM        shift, and go to state 27
+    '['             shift, and go to state 28
+    '('             shift, and go to state 29
+
+    range         go to state 30
+    simple_value  go to state 32
+
+
+state 16
+
+   25 command_identifier: KEY_NAME '=' . simple_value
+
+    NUMBER          shift, and go to state 23
+    KEY_IDENTIFIER  shift, and go to state 24
+    QUOTESTRING     shift, and go to state 25
+    IDENTIFIER      shift, and go to state 26
+    KEY_ANIM        shift, and go to state 27
+    '['             shift, and go to state 28
+    '('             shift, and go to state 29
+
+    range         go to state 30
+    simple_value  go to state 33
+
+
+state 17
+
+   22 command_identifier: KEY_COMMAND '=' . keylist
+
+    '~'                   shift, and go to state 34
+    '>'                   shift, and go to state 35
+    '/'                   shift, and go to state 36
+    CMD_KEY_DOWN          shift, and go to state 37
+    CMD_KEY_FORWARD       shift, and go to state 38
+    CMD_KEY_DOWN_FORWARD  shift, and go to state 39
+    CMD_KEY_BACK          shift, and go to state 40
+    CMD_KEY_DOWN_BACK     shift, and go to state 41
+    CMD_KEY_UP_FORWARD    shift, and go to state 42
+    CMD_KEY_UP            shift, and go to state 43
+    CMD_KEY_UP_BACK       shift, and go to state 44
+    CMD_BUTTON_A          shift, and go to state 45
+    CMD_BUTTON_B          shift, and go to state 46
+    CMD_BUTTON_C          shift, and go to state 47
+    CMD_BUTTON_X          shift, and go to state 48
+    CMD_BUTTON_Y          shift, and go to state 49
+    CMD_BUTTON_Z          shift, and go to state 50
+    CMD_BUTTON_S          shift, and go to state 51
+    '$'                   shift, and go to state 52
+
+    keylist             go to state 53
+    super_key           go to state 54
+    key_modified        go to state 55
+    super_key_modifier  go to state 56
+    key_modifier        go to state 57
+    combined_key        go to state 58
+    plain_key           go to state 59
+
+
+state 18
+
+   18 COMMANDSECTION: '[' KEY_COMMAND . ']'
+
+    ']'  shift, and go to state 60
+
+
+state 19
+
+   19 COMMANDSECTION: '[' KEY_DEFAULTS . ']'
+
+    ']'  shift, and go to state 61
+
+
+state 20
+
+    6 end_or_comment: "end of line" .
+
+    $default  reduce using rule 6 (end_or_comment)
+
+
+state 21
+
+    7 end_or_comment: COMMENT .
+
+    $default  reduce using rule 7 (end_or_comment)
+
+
+state 22
+
+    4 lines: lines COMMANDSECTION end_or_comment .
+
+    $default  reduce using rule 4 (lines)
+
+
+state 23
+
+   14 simple_value: NUMBER .
+
+    $default  reduce using rule 14 (simple_value)
+
+
+state 24
+
+   15 simple_value: KEY_IDENTIFIER .
+
+    $default  reduce using rule 15 (simple_value)
+
+
+state 25
+
+   13 simple_value: QUOTESTRING .
+
+    $default  reduce using rule 13 (simple_value)
+
+
+state 26
+
+   16 simple_value: IDENTIFIER .
+
+    $default  reduce using rule 16 (simple_value)
+
+
+state 27
+
+   17 simple_value: KEY_ANIM .
+
+    $default  reduce using rule 17 (simple_value)
+
+
+state 28
+
+    8 range: '[' . NUMBER ',' NUMBER ']'
+   10      | '[' . NUMBER ',' NUMBER ')'
+
+    NUMBER  shift, and go to state 62
+
+
+state 29
+
+    9 range: '(' . NUMBER ',' NUMBER ')'
+   11      | '(' . NUMBER ',' NUMBER ']'
+
+    NUMBER  shift, and go to state 63
+
+
+state 30
+
+   12 simple_value: range .
+
+    $default  reduce using rule 12 (simple_value)
+
+
+state 31
+
+   23 command_identifier: KEY_TIME '=' simple_value .
+
+    $default  reduce using rule 23 (command_identifier)
+
+
+state 32
+
+   24 command_identifier: KEY_BUFFERTIME '=' simple_value .
+
+    $default  reduce using rule 24 (command_identifier)
+
+
+state 33
+
+   25 command_identifier: KEY_NAME '=' simple_value .
+
+    $default  reduce using rule 25 (command_identifier)
+
+
+state 34
+
+   34 key_modifier: '~' .
+   35             | '~' . NUMBER
+
+    NUMBER  shift, and go to state 64
+
+    $default  reduce using rule 34 (key_modifier)
+
+
+state 35
+
+   38 key_modifier: '>' .
+
+    $default  reduce using rule 38 (key_modifier)
+
+
+state 36
+
+   36 key_modifier: '/' .
+
+    $default  reduce using rule 36 (key_modifier)
+
+
+state 37
+
+   41 plain_key: CMD_KEY_DOWN .
+
+    $default  reduce using rule 41 (plain_key)
+
+
+state 38
+
+   42 plain_key: CMD_KEY_FORWARD .
+
+    $default  reduce using rule 42 (plain_key)
+
+
+state 39
+
+   43 plain_key: CMD_KEY_DOWN_FORWARD .
+
+    $default  reduce using rule 43 (plain_key)
+
+
+state 40
+
+   44 plain_key: CMD_KEY_BACK .
+
+    $default  reduce using rule 44 (plain_key)
+
+
+state 41
+
+   45 plain_key: CMD_KEY_DOWN_BACK .
+
+    $default  reduce using rule 45 (plain_key)
+
+
+state 42
+
+   46 plain_key: CMD_KEY_UP_FORWARD .
+
+    $default  reduce using rule 46 (plain_key)
+
+
+state 43
+
+   47 plain_key: CMD_KEY_UP .
+
+    $default  reduce using rule 47 (plain_key)
+
+
+state 44
+
+   48 plain_key: CMD_KEY_UP_BACK .
+
+    $default  reduce using rule 48 (plain_key)
+
+
+state 45
+
+   49 plain_key: CMD_BUTTON_A .
+
+    $default  reduce using rule 49 (plain_key)
+
+
+state 46
+
+   50 plain_key: CMD_BUTTON_B .
+
+    $default  reduce using rule 50 (plain_key)
+
+
+state 47
+
+   51 plain_key: CMD_BUTTON_C .
+
+    $default  reduce using rule 51 (plain_key)
+
+
+state 48
+
+   52 plain_key: CMD_BUTTON_X .
+
+    $default  reduce using rule 52 (plain_key)
+
+
+state 49
+
+   53 plain_key: CMD_BUTTON_Y .
+
+    $default  reduce using rule 53 (plain_key)
+
+
+state 50
+
+   54 plain_key: CMD_BUTTON_Z .
+
+    $default  reduce using rule 54 (plain_key)
+
+
+state 51
+
+   55 plain_key: CMD_BUTTON_S .
+
+    $default  reduce using rule 55 (plain_key)
+
+
+state 52
+
+   37 key_modifier: '$' .
+
+    $default  reduce using rule 37 (key_modifier)
+
+
+state 53
+
+   22 command_identifier: KEY_COMMAND '=' keylist .
+
+    $default  reduce using rule 22 (command_identifier)
+
+
+state 54
+
+   26 keylist: super_key .
+   27        | super_key . ',' keylist
+
+    ','  shift, and go to state 65
+
+    $default  reduce using rule 26 (keylist)
+
+
+state 55
+
+   28 super_key: key_modified .
+
+    $default  reduce using rule 28 (super_key)
+
+
+state 56
+
+   31 key_modified: super_key_modifier . plain_key
+   33 super_key_modifier: super_key_modifier . key_modifier
+
+    '~'                   shift, and go to state 34
+    '>'                   shift, and go to state 35
+    '/'                   shift, and go to state 36
+    CMD_KEY_DOWN          shift, and go to state 37
+    CMD_KEY_FORWARD       shift, and go to state 38
+    CMD_KEY_DOWN_FORWARD  shift, and go to state 39
+    CMD_KEY_BACK          shift, and go to state 40
+    CMD_KEY_DOWN_BACK     shift, and go to state 41
+    CMD_KEY_UP_FORWARD    shift, and go to state 42
+    CMD_KEY_UP            shift, and go to state 43
+    CMD_KEY_UP_BACK       shift, and go to state 44
+    CMD_BUTTON_A          shift, and go to state 45
+    CMD_BUTTON_B          shift, and go to state 46
+    CMD_BUTTON_C          shift, and go to state 47
+    CMD_BUTTON_X          shift, and go to state 48
+    CMD_BUTTON_Y          shift, and go to state 49
+    CMD_BUTTON_Z          shift, and go to state 50
+    CMD_BUTTON_S          shift, and go to state 51
+    '$'                   shift, and go to state 52
+
+    key_modifier  go to state 66
+    plain_key     go to state 67
+
+
+state 57
+
+   32 super_key_modifier: key_modifier .
+
+    $default  reduce using rule 32 (super_key_modifier)
+
+
+state 58
+
+   29 super_key: combined_key .
+   40 combined_key: combined_key . '+' plain_key
+
+    '+'  shift, and go to state 68
+
+    $default  reduce using rule 29 (super_key)
+
+
+state 59
+
+   30 super_key: plain_key .
+   39 combined_key: plain_key . '+' plain_key
+
+    '+'  shift, and go to state 69
+
+    $default  reduce using rule 30 (super_key)
+
+
+state 60
+
+   18 COMMANDSECTION: '[' KEY_COMMAND ']' .
+
+    $default  reduce using rule 18 (COMMANDSECTION)
+
+
+state 61
+
+   19 COMMANDSECTION: '[' KEY_DEFAULTS ']' .
+
+    $default  reduce using rule 19 (COMMANDSECTION)
+
+
+state 62
+
+    8 range: '[' NUMBER . ',' NUMBER ']'
+   10      | '[' NUMBER . ',' NUMBER ')'
+
+    ','  shift, and go to state 70
+
+
+state 63
+
+    9 range: '(' NUMBER . ',' NUMBER ')'
+   11      | '(' NUMBER . ',' NUMBER ']'
+
+    ','  shift, and go to state 71
+
+
+state 64
+
+   35 key_modifier: '~' NUMBER .
+
+    $default  reduce using rule 35 (key_modifier)
+
+
+state 65
+
+   27 keylist: super_key ',' . keylist
+
+    '~'                   shift, and go to state 34
+    '>'                   shift, and go to state 35
+    '/'                   shift, and go to state 36
+    CMD_KEY_DOWN          shift, and go to state 37
+    CMD_KEY_FORWARD       shift, and go to state 38
+    CMD_KEY_DOWN_FORWARD  shift, and go to state 39
+    CMD_KEY_BACK          shift, and go to state 40
+    CMD_KEY_DOWN_BACK     shift, and go to state 41
+    CMD_KEY_UP_FORWARD    shift, and go to state 42
+    CMD_KEY_UP            shift, and go to state 43
+    CMD_KEY_UP_BACK       shift, and go to state 44
+    CMD_BUTTON_A          shift, and go to state 45
+    CMD_BUTTON_B          shift, and go to state 46
+    CMD_BUTTON_C          shift, and go to state 47
+    CMD_BUTTON_X          shift, and go to state 48
+    CMD_BUTTON_Y          shift, and go to state 49
+    CMD_BUTTON_Z          shift, and go to state 50
+    CMD_BUTTON_S          shift, and go to state 51
+    '$'                   shift, and go to state 52
+
+    keylist             go to state 72
+    super_key           go to state 54
+    key_modified        go to state 55
+    super_key_modifier  go to state 56
+    key_modifier        go to state 57
+    combined_key        go to state 58
+    plain_key           go to state 59
+
+
+state 66
+
+   33 super_key_modifier: super_key_modifier key_modifier .
+
+    $default  reduce using rule 33 (super_key_modifier)
+
+
+state 67
+
+   31 key_modified: super_key_modifier plain_key .
+
+    $default  reduce using rule 31 (key_modified)
+
+
+state 68
+
+   40 combined_key: combined_key '+' . plain_key
+
+    CMD_KEY_DOWN          shift, and go to state 37
+    CMD_KEY_FORWARD       shift, and go to state 38
+    CMD_KEY_DOWN_FORWARD  shift, and go to state 39
+    CMD_KEY_BACK          shift, and go to state 40
+    CMD_KEY_DOWN_BACK     shift, and go to state 41
+    CMD_KEY_UP_FORWARD    shift, and go to state 42
+    CMD_KEY_UP            shift, and go to state 43
+    CMD_KEY_UP_BACK       shift, and go to state 44
+    CMD_BUTTON_A          shift, and go to state 45
+    CMD_BUTTON_B          shift, and go to state 46
+    CMD_BUTTON_C          shift, and go to state 47
+    CMD_BUTTON_X          shift, and go to state 48
+    CMD_BUTTON_Y          shift, and go to state 49
+    CMD_BUTTON_Z          shift, and go to state 50
+    CMD_BUTTON_S          shift, and go to state 51
+
+    plain_key  go to state 73
+
+
+state 69
+
+   39 combined_key: plain_key '+' . plain_key
+
+    CMD_KEY_DOWN          shift, and go to state 37
+    CMD_KEY_FORWARD       shift, and go to state 38
+    CMD_KEY_DOWN_FORWARD  shift, and go to state 39
+    CMD_KEY_BACK          shift, and go to state 40
+    CMD_KEY_DOWN_BACK     shift, and go to state 41
+    CMD_KEY_UP_FORWARD    shift, and go to state 42
+    CMD_KEY_UP            shift, and go to state 43
+    CMD_KEY_UP_BACK       shift, and go to state 44
+    CMD_BUTTON_A          shift, and go to state 45
+    CMD_BUTTON_B          shift, and go to state 46
+    CMD_BUTTON_C          shift, and go to state 47
+    CMD_BUTTON_X          shift, and go to state 48
+    CMD_BUTTON_Y          shift, and go to state 49
+    CMD_BUTTON_Z          shift, and go to state 50
+    CMD_BUTTON_S          shift, and go to state 51
+
+    plain_key  go to state 74
+
+
+state 70
+
+    8 range: '[' NUMBER ',' . NUMBER ']'
+   10      | '[' NUMBER ',' . NUMBER ')'
+
+    NUMBER  shift, and go to state 75
+
+
+state 71
+
+    9 range: '(' NUMBER ',' . NUMBER ')'
+   11      | '(' NUMBER ',' . NUMBER ']'
+
+    NUMBER  shift, and go to state 76
+
+
+state 72
+
+   27 keylist: super_key ',' keylist .
+
+    $default  reduce using rule 27 (keylist)
+
+
+state 73
+
+   40 combined_key: combined_key '+' plain_key .
+
+    $default  reduce using rule 40 (combined_key)
+
+
+state 74
+
+   39 combined_key: plain_key '+' plain_key .
+
+    $default  reduce using rule 39 (combined_key)
+
+
+state 75
+
+    8 range: '[' NUMBER ',' NUMBER . ']'
+   10      | '[' NUMBER ',' NUMBER . ')'
+
+    ']'  shift, and go to state 77
+    ')'  shift, and go to state 78
+
+
+state 76
+
+    9 range: '(' NUMBER ',' NUMBER . ')'
+   11      | '(' NUMBER ',' NUMBER . ']'
+
+    ']'  shift, and go to state 79
+    ')'  shift, and go to state 80
+
+
+state 77
+
+    8 range: '[' NUMBER ',' NUMBER ']' .
+
+    $default  reduce using rule 8 (range)
+
+
+state 78
+
+   10 range: '[' NUMBER ',' NUMBER ')' .
+
+    $default  reduce using rule 10 (range)
+
+
+state 79
+
+   11 range: '(' NUMBER ',' NUMBER ']' .
+
+    $default  reduce using rule 11 (range)
+
+
+state 80
+
+    9 range: '(' NUMBER ',' NUMBER ')' .
+
+    $default  reduce using rule 9 (range)

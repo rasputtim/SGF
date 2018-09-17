@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Tutorial_2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\tutorial_2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="D:\projetos\VC10\GameEngine\SGF\Gamecore" />
+			<Add directory="..\..\..\..\..\ambiente\Mingw\SDL-1.3.0\include" />
+			<Add directory="..\..\..\..\..\ambiente\Mingw\expat-2.1.0\lib" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="libSDLmain" />
+			<Add library="libSGF" />
+			<Add library="ws2_32" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="libSDL" />
+			<Add library="libexpat" />
+			<Add library="libfreetype" />
+			<Add directory="..\..\..\..\..\ambiente\Mingw\SDL-1.3.0\build\.libs" />
+			<Add directory="..\..\..\CB" />
+			<Add directory="..\..\..\..\..\ambiente\Mingw\expat-2.1.0\.libs" />
+			<Add directory="..\..\..\..\..\ambiente\Mingw\freetype-2.4.9\objs\.libs" />
+			<Add directory="D:\projetos\VC10\GameEngine\SGF\build\Debug" />
+		</Linker>
+		<Unit filename="..\src\Game.cpp" />
+		<Unit filename="..\src\Game.h" />
+		<Unit filename="..\src\main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

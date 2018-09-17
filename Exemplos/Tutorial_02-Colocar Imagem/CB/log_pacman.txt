@@ -1,0 +1,1494 @@
+Setting debug: 
+Setting debug: 100
+Setting debug: 101
+Setting debug: 102
+Setting debug: 103
+Setting debug: 104
+Setting debug: 105
+Setting debug: 106
+Setting debug: 107
+Setting debug: 108
+Setting debug: 109
+Setting debug: 110
+Setting debug: 111
+Setting debug: 112
+Setting debug: 113
+Setting debug: 114
+Setting debug: 115
+Setting debug: 116
+Setting debug: 117
+Setting debug: 118
+Setting debug: 119
+Setting debug: 120
+Setting debug: 121
+Setting debug: 122
+Setting debug: 123
+Setting debug: 124
+Setting debug: 125
+[100:~ScopedLock]  Releasing Lock 
+[109:findFonts] BEGIN 
+CRelativePath - Constructor: mypath: fonts
+CRelativePath - BEGIN CREATING LOCAL PATH 
+getInstance BEGIN
+getInstance - CREATING NEW FILESYSTEM OBJECT
+getDataPath2 BEGIN GET DATA PATH
+getDataPath2 END GET DATA PATH BASEPATH: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+getDataPath2 END GET DATA PATH REALPATH: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+CGameFileSystem  CONSTRUCTOR dataPath:  D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+[100:~ScopedLock]  Releasing Lock 
+find  -  Path to find: fonts
+lookup Will try to find: 'fonts'
+-----------------------------------------------------
+localJoin to join: fonts
+localJoin joined: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\fonts
+getInstance BEGIN
+[100:~ScopedLock]  Releasing Lock 
+localJoinPath Joined and not exists D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\fonts
+-----------------------------------------------------
+lookupTry in current directory : 'D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\fonts'
+lookup Try in current directory NOT FOUND: 
+lookup--------------------------------------------------------
+lookup Try in Main Data directory : 
+-----------------------------------------------------
+join to join: fonts
+join to join complete path: fonts
+join to join isComplete: 0
+join to join existes: 0
+join will try is not complete join: 
+join to join this path: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+join complete made string: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\fonts
+joinjoined and not exists: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+-----------------------------------------------------
+lookup  Try in Main  Data directory dataPAth From CGameFilesystem:  D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\fonts
+lookup Try in Main Data directory NOT FOUND: 
+lookup--------------------------------------------------------
+lookup Try in Main GAmeEngine directory 
+getGamePath BEGIN GET GAME PATH
+getGamePath END GET GAME PATH BASEPATH: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\
+getGamePath END GET GAME PATH REALPATH: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\
+operator=Coping Path Object: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\
+operator=Object copied: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\
+-----------------------------------------------------
+-----------------------------------------------------
+localJoin to join: fonts
+localJoin joined: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\fonts
+getInstance BEGIN
+[100:~ScopedLock]  Releasing Lock 
+localJoinPath Joined and not exists D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\fonts
+-----------------------------------------------------
+lookup Try in Main GAmeEngine directory : 'D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\fonts'
+lookup Try in Main GameEngine NOT FOUND: 
+lookup--------------------------------------------------------
+lookup Try in User directory : 'D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\fonts'
+CAbsolutePathFrom String: Path found and exists D:\Usuarios\usuariolocal\AppData\Roaming
+-----------------------------------------------------
+join to join: fonts
+join to join complete path: fonts
+join to join isComplete: 0
+join to join existes: 0
+join will try is not complete join: 
+join to join this path: D:\Usuarios\usuariolocal\AppData\Roaming
+join complete made string: D:\Usuarios\usuariolocal\AppData\Roaming\fonts
+joinjoined and exists: D:\Usuarios\usuariolocal\AppData\Roaming
+-----------------------------------------------------
+operator=Coping Path Object: D:\Usuarios\usuariolocal\AppData\Roaming\fonts
+operator=Object copied: D:\Usuarios\usuariolocal\AppData\Roaming\fonts
+-----------------------------------------------------
+lookup Try in User Directory NOT FOUND: 
+lookup--------------------------------------------------------
+lookup Try in CWD only - IS NOT A ABSOLUTE PATH : 'D:\Usuarios\usuariolocal\AppData\Roaming\fonts'
+operator=Coping Path Object: fonts
+operator=Object copied: fonts
+-----------------------------------------------------
+CAbsolutePathFrom String: Path found and exists D:\Usuarios\usuariolocal\AppData\Roaming
+-----------------------------------------------------
+join to join: fonts
+join to join complete path: fonts
+join to join isComplete: 0
+join to join existes: 0
+join will try is not complete join: 
+join to join this path: D:\Usuarios\usuariolocal\AppData\Roaming
+join complete made string: D:\Usuarios\usuariolocal\AppData\Roaming\fonts
+joinjoined and exists: D:\Usuarios\usuariolocal\AppData\Roaming
+-----------------------------------------------------
+-----------------------------------------------------
+join to join: fonts
+join to join complete path: fonts
+join to join isComplete: 0
+join to join existes: 0
+join will try is not complete join: 
+join to join this path: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+join complete made string: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\fonts
+joinjoined and not exists: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\data\
+-----------------------------------------------------
+CRelativePath::CRelativePath(const std::string & path) not found and not exists fonts
+CRelativePath END Path initialized and NOT exists fonts
+[109:findSystemFonts] BEGIN 
+getInstance BEGIN
+[100:~ScopedLock]  Releasing Lock 
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\AGENCYB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\AGENCYR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ahronbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ALGER.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\andlso.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsa.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsau.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsaub.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsaui.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsauz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\angsaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ANTQUAB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ANTQUABI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ANTQUAI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\aparaj.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\aparajb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\aparajbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\aparaji.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\arabtype.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\arial.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\arialbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\arialbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ariali.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARIALN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARIALNB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARIALNBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARIALNI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARIALUNI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\arial_0.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ariblk.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ARLRDBD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BASKVILL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BAUHS93.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BELL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BELLB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BELLI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BERNHC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BKANT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_B.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_BI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_BLAI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_BLAR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_CB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_CBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_CI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_CR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_I.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_PSTC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOD_R.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOOKOS.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOOKOSB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOOKOSBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BOOKOSI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRADHITC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRITANIC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRLNSB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRLNSDB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRLNSR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BROADW.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browa.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browau.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browaub.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browaui.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browauz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\browaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BRUSHSCI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\BSSYM7.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\calibri.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\calibrib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\calibrii.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\calibriz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALIFB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALIFI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALIFR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALIST.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALISTB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALISTBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CALISTI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CAMBRIAB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CAMBRIAI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CAMBRIAZ.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Candara.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Candarab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Candarai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Candaraz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CASTELAR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CENSCBK.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CENTAUR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CENTURY.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CHILLER.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\COLONNA.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\comic.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\comicbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\consola.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\consolab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\consolai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\consolaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\constan.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\constanb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\constani.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\constanz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\COOPBL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\COPRGTB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\COPRGTL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\corbel.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\corbelb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\corbeli.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\corbelz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordia.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiau.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiaub.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiaui.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiauz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cordiaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\cour.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\courbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\courbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\couri.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\CURLZ___.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\daunpenh.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\david.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\davidbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\dokchamp.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ebrima.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ebrimabd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ELEPHNT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ELEPHNTI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ENGR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ERASBD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ERASDEMI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ERASLGHT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ERASMD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\estre.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\euphemia.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FELIXTI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FORTE.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRABK.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRABKIT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRADM.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRADMCN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRADMIT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRAHV.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRAHVIT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\framd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRAMDCN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\framdit.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\frank.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FREESCPT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FRSCRIPT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\FTLTLT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Gabriola.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GARA.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GARABD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GARAIT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\gautami.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\gautamib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\georgia.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\georgiab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\georgiai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\georgiaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GIGI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILBI___.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILB____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILC____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILI____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILLUBCD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GILSANUB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GIL_____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\gio_bk.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\gisha.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\gishabd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GLECB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GLSNECB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOTHIC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOTHICB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOTHICBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOTHICI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOUDOS.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOUDOSB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOUDOSI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\GOUDYSTO.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\HARLOWSI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\HARNGTON.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\HATTEN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\himalaya.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\HTOWERT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\HTOWERTI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\impact.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\IMPRISHA.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\INFROMAN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\iskpota.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\iskpotab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ITCBLKAD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ITCEDSCR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ITCKRIST.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\JOKERMAN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\JUICE___.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kaiu.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kalinga.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kalingab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kartika.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kartikab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\KhmerUI.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\KhmerUIb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kokila.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kokilab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kokilabi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\kokilai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\KUNSTLER.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LaoUI.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LaoUIb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\latha.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\lathab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LATINWD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LBRITE.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LBRITED.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LBRITEDI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LBRITEI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LCALLIG.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\leelawad.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\leelawdb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LFAX.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LFAXD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LFAXDI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LFAXI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LHANDW.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LSANS.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LSANSD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LSANSDI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LSANSI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LTYPE.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LTYPEB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LTYPEBO.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\LTYPEO.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\lucon.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\lvnm.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\lvnmbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\l_10646.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MAGNETOB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MAIAN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\majalla.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\majallab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\malgun.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\malgunbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\mangal.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\mangalb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\marlett.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MATURASC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\micross.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MISTRAL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MOD20.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\monbaiti.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\moolbor.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\mriam.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\mriamc.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msjh.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msjhbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msuighur.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msyh.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msyhbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\msyi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\MTCORSVA.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\mvboli.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\NIAGENG.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\NIAGSOL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\nrkis.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ntailu.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ntailub.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\nyala.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\OCRAEXT.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\OLDENGL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ONYX.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\OUTLOOK.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\pala.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\palab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\palabi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\palai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PALSCRI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PAPYRUS.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PARCHM.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PERBI___.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PERB____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PERI____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PERTIBD.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PERTILI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PER_____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\phagspa.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\phagspab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\plantc.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PLAYBILL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\POORICH.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\PRISTINA.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\raavi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\raavib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\RAGE.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\RAVIE.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\REFSAN.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\REFSPCL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCCB___.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCC____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCK.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCKB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCKBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCKEB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\ROCKI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\rod.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SCHLBKB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SCHLBKBI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SCHLBKI.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SCRIPTBL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoepr.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeprb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoesc.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoescb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeui.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeuib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeuii.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeuil.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\segoeuiz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\seguisb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\seguisym.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Shonar.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Shonarb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SHOWG.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\shruti.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\shrutib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simfang.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simhei.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simkai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simpbdo.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simpfxo.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simpo.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\simsunb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\SNAP____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\STENCIL.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\sylfaen.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\symbol.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\tahoma.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\tahomabd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\taile.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\taileb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCBI____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCB_____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCCB____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCCEB.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCCM____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCMI____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TCM_____.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\TEMPSITC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\times.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\timesbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\timesbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\timesi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\tradbdo.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\trado.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\trebuc.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\trebucbd.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\trebucbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\trebucit.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\tunga.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\tungab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcdb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcdbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcdi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcdl.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upceb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcebi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcei.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcel.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcfb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcfbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcfi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcfl.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcibi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcii.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcil.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcjb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcjbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcji.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcjl.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upckb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upckbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcki.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upckl.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upclb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upclbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcli.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\upcll.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\utsaah.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\utsaahb.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\utsaahbi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\utsaahi.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Vani.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\Vanib.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\verdana.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\verdanab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\verdanai.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\verdanaz.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\vijaya.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\vijayab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\VINERITC.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\VIVALDII.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\VLADIMIR.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\vrinda.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\vrindab.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\webdings.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\wingding.ttf
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\WINGDNG2.TTF
+CAbsolutePathFrom String: Path found and exists C:\Windows\fonts\WINGDNG3.TTF
+[100:~ScopedLock]  Releasing Lock 
+[109:findFonts] Adding system font `C:\Windows\fonts\AGENCYB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\AGENCYR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ahronbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ALGER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\andlso.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUAB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUABI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUAI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparaj.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparajb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparajbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparaji.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arabtype.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arial.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arialbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arialbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ariali.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALUNI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\arial_0.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ariblk.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARLRDBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BASKVILL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BAUHS93.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELLB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELLI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BERNHC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BKANT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_B.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BLAI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BLAR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_I.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_PSTC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_R.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRADHITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRITANIC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSDB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BROADW.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\browa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRUSHSCI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BSSYM7.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibri.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibrib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibrii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibriz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIST.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CAMBRIAB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CAMBRIAI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CAMBRIAZ.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candara.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candarab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candarai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candaraz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CASTELAR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENSCBK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENTAUR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENTURY.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CHILLER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COLONNA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\comic.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\comicbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consola.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constan.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constanb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constani.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constanz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\COOPBL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COPRGTB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COPRGTL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbel.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbelb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbeli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbelz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cour.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\courbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\courbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\couri.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CURLZ___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\daunpenh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\david.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\davidbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\dokchamp.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ebrima.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ebrimabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ELEPHNT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ELEPHNTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ENGR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASDEMI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASLGHT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASMD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\estre.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\euphemia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FELIXTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FORTE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRABK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRABKIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADM.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADMCN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADMIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAHV.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAHVIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\framd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAMDCN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\framdit.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\frank.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FREESCPT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRSCRIPT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FTLTLT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\Gabriola.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARABD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARAIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\gautami.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\gautamib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GIGI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILBI___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILC____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILLUBCD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILSANUB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GIL_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\gio_bk.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\gisha.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\gishabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GLECB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GLSNECB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHIC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDYSTO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HARLOWSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HARNGTON.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HATTEN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\himalaya.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\HTOWERT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HTOWERTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\impact.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\IMPRISHA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\INFROMAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\iskpota.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\iskpotab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCBLKAD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCEDSCR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCKRIST.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\JOKERMAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\JUICE___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\kaiu.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kalinga.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kalingab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kartika.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kartikab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KhmerUI.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KhmerUIb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokila.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilabi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KUNSTLER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LaoUI.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LaoUIb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\latha.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lathab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LATINWD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITED.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITEDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITEI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LCALLIG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\leelawad.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\leelawdb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAX.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LHANDW.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEBO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\lucon.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lvnm.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lvnmbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\l_10646.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MAGNETOB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\MAIAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\majalla.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\majallab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\malgun.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\malgunbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mangal.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mangalb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\marlett.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MATURASC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\micross.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MISTRAL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\MOD20.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\monbaiti.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\moolbor.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mriam.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mriamc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msjh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msjhbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msuighur.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyhbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MTCORSVA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\mvboli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\NIAGENG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\NIAGSOL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\nrkis.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ntailu.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ntailub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\nyala.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\OCRAEXT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\OLDENGL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ONYX.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\OUTLOOK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\pala.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palabi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\PALSCRI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PAPYRUS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PARCHM.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERBI___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERTIBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERTILI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PER_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\phagspa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\phagspab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\plantc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\PLAYBILL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\POORICH.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PRISTINA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\raavi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\raavib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\RAGE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\RAVIE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\REFSAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\REFSPCL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCCB___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCC____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\rod.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCRIPTBL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoepr.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeprb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoesc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoescb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuil.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuiz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\seguisb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\seguisym.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Shonar.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Shonarb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SHOWG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\shruti.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\shrutib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simfang.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simhei.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simkai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpbdo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpfxo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simsunb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SNAP____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\STENCIL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\sylfaen.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\symbol.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tahoma.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tahomabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\taile.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\taileb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCBI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCB_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCM____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCMI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCM_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TEMPSITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\times.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tradbdo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trado.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebuc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucit.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tunga.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tungab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upceb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcebi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcei.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcel.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcibi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcil.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcji.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcki.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upclb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upclbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcll.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaah.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Vani.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Vanib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdana.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vijaya.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vijayab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\VINERITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\VIVALDII.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\VLADIMIR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\vrinda.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vrindab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\webdings.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\wingding.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\WINGDNG2.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\WINGDNG3.TTF'
+[109:findFonts] WILL SORT FONTS `
+[109:findFonts] END SORTING FONTS `
+[109:findFonts] Fonts added and sorted - Returning 
+[109:findFonts] END 
+[118:CGameControl] Welcome to SGF Version: Beta FSM
+[118:CGameControl] START LOADING CONFIGURATIONS (CConfiguration)================
+[118:sm_loadConfigurations] START LOADING CONFIGURATION 
+getInstance BEGIN
+[100:~ScopedLock]  Releasing Lock 
+operator=Coping Path Object: D:\Usuarios\usuariolocal\AppData\Roaming\sge_eng_configuration.xml
+operator=Object copied: D:\Usuarios\usuariolocal\AppData\Roaming\sge_eng_configuration.xml
+-----------------------------------------------------
+CIsolatedPath - Constructor: mypath: open\sge_eng_configuration.xml
+CIsolatedPath END - Path initialized open\sge_eng_configuration.xml
+-----------------------------------------------------
+joinToCurrent to join: open\sge_eng_configuration.xml
+joinToCurrentjoined: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\sge_eng_configuration.xml
+CAbsolutePath CAbsolutePath not found and not exists D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\sge_eng_configuration.xml
+-----------------------------------------------------
+getInstance BEGIN
+[100:~ScopedLock]  Releasing Lock 
+operator=Coping Path Object: D:\Usuarios\usuariolocal\AppData\Roaming\sge_eng_configuration.xml
+operator=Object copied: D:\Usuarios\usuariolocal\AppData\Roaming\sge_eng_configuration.xml
+-----------------------------------------------------
+CIsolatedPath - Constructor: mypath: open\sge_eng_configuration.xml
+CIsolatedPath END - Path initialized open\sge_eng_configuration.xml
+-----------------------------------------------------
+joinToCurrent to join: open\sge_eng_configuration.xml
+joinToCurrentjoined: D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\sge_eng_configuration.xml
+CAbsolutePath CAbsolutePath not found and not exists D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\sge_eng_configuration.xml
+-----------------------------------------------------
+[118:sm_loadConfigurations] Notice: Could not load configuration file D:\projetos\VC10\GameEngine\SGF\Exemplos\Tutorial_02-Colocar Imagem\CB\open\sge_eng_configuration.xml: D:\projetos\VC10\GameEngine\SGF\Source\configuration\SGF_Configuration.cpp:1285 Config file  Does Not Exist - Using Default Configuration Parâmeters
+[118:sm_loadConfigurations] END LOADING CONFIGURATION 
+[118:CGameControl] END LOADING CONFIGURATIONS (CConfiguration)================
+[118:CGameControl] START LOADING MOD (OpenMugen::Mod)================
+[118:CGameControl] END LOADING MOD (OpenMugen::Mod)================
+[118:CGameControl] START SDL PHASE 1 (CSDLMANAGER)================
+[124:Init] CSDLManager::Init()
+[118:Init] STATE = 0x1644658
+[124:Init] CSDLManager::Init() // Requesting glSDL. // 
+[124:Init] CSDLManager::Init() // Display size: // 640 , 480
+[124:CommonInit] CSDLManager::CommonInit // -------------------------------------------
+[124:CommonInit] Number of displays:: 1
+[124:CommonInit] Displays : 0
+[124:CommonInit] Current mode:   windows
+[124:CommonInit] Width:          1280
+[124:CommonInit] Height:	        800
+[124:CommonInit] Refr. Rate:     60 Hz
+[124:CommonInit] Bits per pixel: 32
+[124:CommonInit] Pixel Format:   SDL_PIXELFORMAT_RGB888
+[124:CommonInit] Pixel Format:   2249594884
+[124:CommonInit] Red Mask:   16711680
+[124:CommonInit] Green Mask:   65280
+[124:CommonInit] Blue Mask:   255
+[124:Init] VIDEO OK
+[124:Init] AUDIO OK
+[124:Init] JOYSTICK OK
+[124:Init] TIMER OK
+[124:Init] CSDLManager::SDL_Init Timer Seconds OK
+[124:Init] CSDLManager::SDL_Init Timer Speed OK
+[124:Init] FRAME MANAGER OK
+[124:Init] WILL INIT FASTEVENTS: 1 : 1
+[124:Init] FASTEVENTS OK
+[124:Init] TTF OK
+[111:getTTFont] BEGIN // fonte:arial.ttf
+[102:CTTFFont] Constructor // Fontes Disponíveis=416
+[102:LoadFont] Iniciando a fonte : arial.ttf
+[111:LoadFont] Will get fonte Path to : arial.ttf
+[111:GetFontPath] fonte : arial.ttf
+[111:findFontVector] caminho da fonte encontrado : C:\Windows\fonts\arial.ttf
+[111:GetFontPath] Achou o caminho para a fonte:C:\Windows\fonts\arial.ttf
+[111:LoadFont] caminho para a fonte Encontrado: C:\Windows\fonts\arial.ttf
+[111:LoadFont] Font initiated OK
+[111:_getTTFont] set size and initialize font:file,sizearial.ttf ' 30
+[109:PrintFonts] Printing List of Available Fonts 
+AGENCYB.TTF - Path: C:\Windows\fonts\AGENCYB.TTF
+AGENCYR.TTF - Path: C:\Windows\fonts\AGENCYR.TTF
+ahronbd.ttf - Path: C:\Windows\fonts\ahronbd.ttf
+ALGER.TTF - Path: C:\Windows\fonts\ALGER.TTF
+andlso.ttf - Path: C:\Windows\fonts\andlso.ttf
+angsa.ttf - Path: C:\Windows\fonts\angsa.ttf
+angsab.ttf - Path: C:\Windows\fonts\angsab.ttf
+angsai.ttf - Path: C:\Windows\fonts\angsai.ttf
+angsau.ttf - Path: C:\Windows\fonts\angsau.ttf
+angsaub.ttf - Path: C:\Windows\fonts\angsaub.ttf
+angsaui.ttf - Path: C:\Windows\fonts\angsaui.ttf
+angsauz.ttf - Path: C:\Windows\fonts\angsauz.ttf
+angsaz.ttf - Path: C:\Windows\fonts\angsaz.ttf
+ANTQUAB.TTF - Path: C:\Windows\fonts\ANTQUAB.TTF
+ANTQUABI.TTF - Path: C:\Windows\fonts\ANTQUABI.TTF
+ANTQUAI.TTF - Path: C:\Windows\fonts\ANTQUAI.TTF
+aparaj.ttf - Path: C:\Windows\fonts\aparaj.ttf
+aparajb.ttf - Path: C:\Windows\fonts\aparajb.ttf
+aparajbi.ttf - Path: C:\Windows\fonts\aparajbi.ttf
+aparaji.ttf - Path: C:\Windows\fonts\aparaji.ttf
+arabtype.ttf - Path: C:\Windows\fonts\arabtype.ttf
+arial.ttf - Path: C:\Windows\fonts\arial.ttf
+arial_0.ttf - Path: C:\Windows\fonts\arial_0.ttf
+arialbd.ttf - Path: C:\Windows\fonts\arialbd.ttf
+arialbi.ttf - Path: C:\Windows\fonts\arialbi.ttf
+ariali.ttf - Path: C:\Windows\fonts\ariali.ttf
+ARIALN.TTF - Path: C:\Windows\fonts\ARIALN.TTF
+ARIALNB.TTF - Path: C:\Windows\fonts\ARIALNB.TTF
+ARIALNBI.TTF - Path: C:\Windows\fonts\ARIALNBI.TTF
+ARIALNI.TTF - Path: C:\Windows\fonts\ARIALNI.TTF
+ARIALUNI.TTF - Path: C:\Windows\fonts\ARIALUNI.TTF
+ariblk.ttf - Path: C:\Windows\fonts\ariblk.ttf
+ARLRDBD.TTF - Path: C:\Windows\fonts\ARLRDBD.TTF
+BASKVILL.TTF - Path: C:\Windows\fonts\BASKVILL.TTF
+BAUHS93.TTF - Path: C:\Windows\fonts\BAUHS93.TTF
+BELL.TTF - Path: C:\Windows\fonts\BELL.TTF
+BELLB.TTF - Path: C:\Windows\fonts\BELLB.TTF
+BELLI.TTF - Path: C:\Windows\fonts\BELLI.TTF
+BERNHC.TTF - Path: C:\Windows\fonts\BERNHC.TTF
+BKANT.TTF - Path: C:\Windows\fonts\BKANT.TTF
+BOD_B.TTF - Path: C:\Windows\fonts\BOD_B.TTF
+BOD_BI.TTF - Path: C:\Windows\fonts\BOD_BI.TTF
+BOD_BLAI.TTF - Path: C:\Windows\fonts\BOD_BLAI.TTF
+BOD_BLAR.TTF - Path: C:\Windows\fonts\BOD_BLAR.TTF
+BOD_CB.TTF - Path: C:\Windows\fonts\BOD_CB.TTF
+BOD_CBI.TTF - Path: C:\Windows\fonts\BOD_CBI.TTF
+BOD_CI.TTF - Path: C:\Windows\fonts\BOD_CI.TTF
+BOD_CR.TTF - Path: C:\Windows\fonts\BOD_CR.TTF
+BOD_I.TTF - Path: C:\Windows\fonts\BOD_I.TTF
+BOD_PSTC.TTF - Path: C:\Windows\fonts\BOD_PSTC.TTF
+BOD_R.TTF - Path: C:\Windows\fonts\BOD_R.TTF
+BOOKOS.TTF - Path: C:\Windows\fonts\BOOKOS.TTF
+BOOKOSB.TTF - Path: C:\Windows\fonts\BOOKOSB.TTF
+BOOKOSBI.TTF - Path: C:\Windows\fonts\BOOKOSBI.TTF
+BOOKOSI.TTF - Path: C:\Windows\fonts\BOOKOSI.TTF
+BRADHITC.TTF - Path: C:\Windows\fonts\BRADHITC.TTF
+BRITANIC.TTF - Path: C:\Windows\fonts\BRITANIC.TTF
+BRLNSB.TTF - Path: C:\Windows\fonts\BRLNSB.TTF
+BRLNSDB.TTF - Path: C:\Windows\fonts\BRLNSDB.TTF
+BRLNSR.TTF - Path: C:\Windows\fonts\BRLNSR.TTF
+BROADW.TTF - Path: C:\Windows\fonts\BROADW.TTF
+browa.ttf - Path: C:\Windows\fonts\browa.ttf
+browab.ttf - Path: C:\Windows\fonts\browab.ttf
+browai.ttf - Path: C:\Windows\fonts\browai.ttf
+browau.ttf - Path: C:\Windows\fonts\browau.ttf
+browaub.ttf - Path: C:\Windows\fonts\browaub.ttf
+browaui.ttf - Path: C:\Windows\fonts\browaui.ttf
+browauz.ttf - Path: C:\Windows\fonts\browauz.ttf
+browaz.ttf - Path: C:\Windows\fonts\browaz.ttf
+BRUSHSCI.TTF - Path: C:\Windows\fonts\BRUSHSCI.TTF
+BSSYM7.TTF - Path: C:\Windows\fonts\BSSYM7.TTF
+calibri.ttf - Path: C:\Windows\fonts\calibri.ttf
+calibrib.ttf - Path: C:\Windows\fonts\calibrib.ttf
+calibrii.ttf - Path: C:\Windows\fonts\calibrii.ttf
+calibriz.ttf - Path: C:\Windows\fonts\calibriz.ttf
+CALIFB.TTF - Path: C:\Windows\fonts\CALIFB.TTF
+CALIFI.TTF - Path: C:\Windows\fonts\CALIFI.TTF
+CALIFR.TTF - Path: C:\Windows\fonts\CALIFR.TTF
+CALIST.TTF - Path: C:\Windows\fonts\CALIST.TTF
+CALISTB.TTF - Path: C:\Windows\fonts\CALISTB.TTF
+CALISTBI.TTF - Path: C:\Windows\fonts\CALISTBI.TTF
+CALISTI.TTF - Path: C:\Windows\fonts\CALISTI.TTF
+CAMBRIAB.TTF - Path: C:\Windows\fonts\CAMBRIAB.TTF
+CAMBRIAI.TTF - Path: C:\Windows\fonts\CAMBRIAI.TTF
+CAMBRIAZ.TTF - Path: C:\Windows\fonts\CAMBRIAZ.TTF
+Candara.ttf - Path: C:\Windows\fonts\Candara.ttf
+Candarab.ttf - Path: C:\Windows\fonts\Candarab.ttf
+Candarai.ttf - Path: C:\Windows\fonts\Candarai.ttf
+Candaraz.ttf - Path: C:\Windows\fonts\Candaraz.ttf
+CASTELAR.TTF - Path: C:\Windows\fonts\CASTELAR.TTF
+CENSCBK.TTF - Path: C:\Windows\fonts\CENSCBK.TTF
+CENTAUR.TTF - Path: C:\Windows\fonts\CENTAUR.TTF
+CENTURY.TTF - Path: C:\Windows\fonts\CENTURY.TTF
+CHILLER.TTF - Path: C:\Windows\fonts\CHILLER.TTF
+COLONNA.TTF - Path: C:\Windows\fonts\COLONNA.TTF
+comic.ttf - Path: C:\Windows\fonts\comic.ttf
+comicbd.ttf - Path: C:\Windows\fonts\comicbd.ttf
+consola.ttf - Path: C:\Windows\fonts\consola.ttf
+consolab.ttf - Path: C:\Windows\fonts\consolab.ttf
+consolai.ttf - Path: C:\Windows\fonts\consolai.ttf
+consolaz.ttf - Path: C:\Windows\fonts\consolaz.ttf
+constan.ttf - Path: C:\Windows\fonts\constan.ttf
+constanb.ttf - Path: C:\Windows\fonts\constanb.ttf
+constani.ttf - Path: C:\Windows\fonts\constani.ttf
+constanz.ttf - Path: C:\Windows\fonts\constanz.ttf
+COOPBL.TTF - Path: C:\Windows\fonts\COOPBL.TTF
+COPRGTB.TTF - Path: C:\Windows\fonts\COPRGTB.TTF
+COPRGTL.TTF - Path: C:\Windows\fonts\COPRGTL.TTF
+corbel.ttf - Path: C:\Windows\fonts\corbel.ttf
+corbelb.ttf - Path: C:\Windows\fonts\corbelb.ttf
+corbeli.ttf - Path: C:\Windows\fonts\corbeli.ttf
+corbelz.ttf - Path: C:\Windows\fonts\corbelz.ttf
+cordia.ttf - Path: C:\Windows\fonts\cordia.ttf
+cordiab.ttf - Path: C:\Windows\fonts\cordiab.ttf
+cordiai.ttf - Path: C:\Windows\fonts\cordiai.ttf
+cordiau.ttf - Path: C:\Windows\fonts\cordiau.ttf
+cordiaub.ttf - Path: C:\Windows\fonts\cordiaub.ttf
+cordiaui.ttf - Path: C:\Windows\fonts\cordiaui.ttf
+cordiauz.ttf - Path: C:\Windows\fonts\cordiauz.ttf
+cordiaz.ttf - Path: C:\Windows\fonts\cordiaz.ttf
+cour.ttf - Path: C:\Windows\fonts\cour.ttf
+courbd.ttf - Path: C:\Windows\fonts\courbd.ttf
+courbi.ttf - Path: C:\Windows\fonts\courbi.ttf
+couri.ttf - Path: C:\Windows\fonts\couri.ttf
+CURLZ___.TTF - Path: C:\Windows\fonts\CURLZ___.TTF
+daunpenh.ttf - Path: C:\Windows\fonts\daunpenh.ttf
+david.ttf - Path: C:\Windows\fonts\david.ttf
+davidbd.ttf - Path: C:\Windows\fonts\davidbd.ttf
+dokchamp.ttf - Path: C:\Windows\fonts\dokchamp.ttf
+ebrima.ttf - Path: C:\Windows\fonts\ebrima.ttf
+ebrimabd.ttf - Path: C:\Windows\fonts\ebrimabd.ttf
+ELEPHNT.TTF - Path: C:\Windows\fonts\ELEPHNT.TTF
+ELEPHNTI.TTF - Path: C:\Windows\fonts\ELEPHNTI.TTF
+ENGR.TTF - Path: C:\Windows\fonts\ENGR.TTF
+ERASBD.TTF - Path: C:\Windows\fonts\ERASBD.TTF
+ERASDEMI.TTF - Path: C:\Windows\fonts\ERASDEMI.TTF
+ERASLGHT.TTF - Path: C:\Windows\fonts\ERASLGHT.TTF
+ERASMD.TTF - Path: C:\Windows\fonts\ERASMD.TTF
+estre.ttf - Path: C:\Windows\fonts\estre.ttf
+euphemia.ttf - Path: C:\Windows\fonts\euphemia.ttf
+FELIXTI.TTF - Path: C:\Windows\fonts\FELIXTI.TTF
+FORTE.TTF - Path: C:\Windows\fonts\FORTE.TTF
+FRABK.TTF - Path: C:\Windows\fonts\FRABK.TTF
+FRABKIT.TTF - Path: C:\Windows\fonts\FRABKIT.TTF
+FRADM.TTF - Path: C:\Windows\fonts\FRADM.TTF
+FRADMCN.TTF - Path: C:\Windows\fonts\FRADMCN.TTF
+FRADMIT.TTF - Path: C:\Windows\fonts\FRADMIT.TTF
+FRAHV.TTF - Path: C:\Windows\fonts\FRAHV.TTF
+FRAHVIT.TTF - Path: C:\Windows\fonts\FRAHVIT.TTF
+framd.ttf - Path: C:\Windows\fonts\framd.ttf
+FRAMDCN.TTF - Path: C:\Windows\fonts\FRAMDCN.TTF
+framdit.ttf - Path: C:\Windows\fonts\framdit.ttf
+frank.ttf - Path: C:\Windows\fonts\frank.ttf
+FREESCPT.TTF - Path: C:\Windows\fonts\FREESCPT.TTF
+FRSCRIPT.TTF - Path: C:\Windows\fonts\FRSCRIPT.TTF
+FTLTLT.TTF - Path: C:\Windows\fonts\FTLTLT.TTF
+Gabriola.ttf - Path: C:\Windows\fonts\Gabriola.ttf
+GARA.TTF - Path: C:\Windows\fonts\GARA.TTF
+GARABD.TTF - Path: C:\Windows\fonts\GARABD.TTF
+GARAIT.TTF - Path: C:\Windows\fonts\GARAIT.TTF
+gautami.ttf - Path: C:\Windows\fonts\gautami.ttf
+gautamib.ttf - Path: C:\Windows\fonts\gautamib.ttf
+georgia.ttf - Path: C:\Windows\fonts\georgia.ttf
+georgiab.ttf - Path: C:\Windows\fonts\georgiab.ttf
+georgiai.ttf - Path: C:\Windows\fonts\georgiai.ttf
+georgiaz.ttf - Path: C:\Windows\fonts\georgiaz.ttf
+GIGI.TTF - Path: C:\Windows\fonts\GIGI.TTF
+GIL_____.TTF - Path: C:\Windows\fonts\GIL_____.TTF
+GILB____.TTF - Path: C:\Windows\fonts\GILB____.TTF
+GILBI___.TTF - Path: C:\Windows\fonts\GILBI___.TTF
+GILC____.TTF - Path: C:\Windows\fonts\GILC____.TTF
+GILI____.TTF - Path: C:\Windows\fonts\GILI____.TTF
+GILLUBCD.TTF - Path: C:\Windows\fonts\GILLUBCD.TTF
+GILSANUB.TTF - Path: C:\Windows\fonts\GILSANUB.TTF
+gio_bk.ttf - Path: C:\Windows\fonts\gio_bk.ttf
+gisha.ttf - Path: C:\Windows\fonts\gisha.ttf
+gishabd.ttf - Path: C:\Windows\fonts\gishabd.ttf
+GLECB.TTF - Path: C:\Windows\fonts\GLECB.TTF
+GLSNECB.TTF - Path: C:\Windows\fonts\GLSNECB.TTF
+GOTHIC.TTF - Path: C:\Windows\fonts\GOTHIC.TTF
+GOTHICB.TTF - Path: C:\Windows\fonts\GOTHICB.TTF
+GOTHICBI.TTF - Path: C:\Windows\fonts\GOTHICBI.TTF
+GOTHICI.TTF - Path: C:\Windows\fonts\GOTHICI.TTF
+GOUDOS.TTF - Path: C:\Windows\fonts\GOUDOS.TTF
+GOUDOSB.TTF - Path: C:\Windows\fonts\GOUDOSB.TTF
+GOUDOSI.TTF - Path: C:\Windows\fonts\GOUDOSI.TTF
+GOUDYSTO.TTF - Path: C:\Windows\fonts\GOUDYSTO.TTF
+HARLOWSI.TTF - Path: C:\Windows\fonts\HARLOWSI.TTF
+HARNGTON.TTF - Path: C:\Windows\fonts\HARNGTON.TTF
+HATTEN.TTF - Path: C:\Windows\fonts\HATTEN.TTF
+himalaya.ttf - Path: C:\Windows\fonts\himalaya.ttf
+HTOWERT.TTF - Path: C:\Windows\fonts\HTOWERT.TTF
+HTOWERTI.TTF - Path: C:\Windows\fonts\HTOWERTI.TTF
+impact.ttf - Path: C:\Windows\fonts\impact.ttf
+IMPRISHA.TTF - Path: C:\Windows\fonts\IMPRISHA.TTF
+INFROMAN.TTF - Path: C:\Windows\fonts\INFROMAN.TTF
+iskpota.ttf - Path: C:\Windows\fonts\iskpota.ttf
+iskpotab.ttf - Path: C:\Windows\fonts\iskpotab.ttf
+ITCBLKAD.TTF - Path: C:\Windows\fonts\ITCBLKAD.TTF
+ITCEDSCR.TTF - Path: C:\Windows\fonts\ITCEDSCR.TTF
+ITCKRIST.TTF - Path: C:\Windows\fonts\ITCKRIST.TTF
+JOKERMAN.TTF - Path: C:\Windows\fonts\JOKERMAN.TTF
+JUICE___.TTF - Path: C:\Windows\fonts\JUICE___.TTF
+kaiu.ttf - Path: C:\Windows\fonts\kaiu.ttf
+kalinga.ttf - Path: C:\Windows\fonts\kalinga.ttf
+kalingab.ttf - Path: C:\Windows\fonts\kalingab.ttf
+kartika.ttf - Path: C:\Windows\fonts\kartika.ttf
+kartikab.ttf - Path: C:\Windows\fonts\kartikab.ttf
+KhmerUI.ttf - Path: C:\Windows\fonts\KhmerUI.ttf
+KhmerUIb.ttf - Path: C:\Windows\fonts\KhmerUIb.ttf
+kokila.ttf - Path: C:\Windows\fonts\kokila.ttf
+kokilab.ttf - Path: C:\Windows\fonts\kokilab.ttf
+kokilabi.ttf - Path: C:\Windows\fonts\kokilabi.ttf
+kokilai.ttf - Path: C:\Windows\fonts\kokilai.ttf
+KUNSTLER.TTF - Path: C:\Windows\fonts\KUNSTLER.TTF
+l_10646.ttf - Path: C:\Windows\fonts\l_10646.ttf
+LaoUI.ttf - Path: C:\Windows\fonts\LaoUI.ttf
+LaoUIb.ttf - Path: C:\Windows\fonts\LaoUIb.ttf
+latha.ttf - Path: C:\Windows\fonts\latha.ttf
+lathab.ttf - Path: C:\Windows\fonts\lathab.ttf
+LATINWD.TTF - Path: C:\Windows\fonts\LATINWD.TTF
+LBRITE.TTF - Path: C:\Windows\fonts\LBRITE.TTF
+LBRITED.TTF - Path: C:\Windows\fonts\LBRITED.TTF
+LBRITEDI.TTF - Path: C:\Windows\fonts\LBRITEDI.TTF
+LBRITEI.TTF - Path: C:\Windows\fonts\LBRITEI.TTF
+LCALLIG.TTF - Path: C:\Windows\fonts\LCALLIG.TTF
+leelawad.ttf - Path: C:\Windows\fonts\leelawad.ttf
+leelawdb.ttf - Path: C:\Windows\fonts\leelawdb.ttf
+LFAX.TTF - Path: C:\Windows\fonts\LFAX.TTF
+LFAXD.TTF - Path: C:\Windows\fonts\LFAXD.TTF
+LFAXDI.TTF - Path: C:\Windows\fonts\LFAXDI.TTF
+LFAXI.TTF - Path: C:\Windows\fonts\LFAXI.TTF
+LHANDW.TTF - Path: C:\Windows\fonts\LHANDW.TTF
+LSANS.TTF - Path: C:\Windows\fonts\LSANS.TTF
+LSANSD.TTF - Path: C:\Windows\fonts\LSANSD.TTF
+LSANSDI.TTF - Path: C:\Windows\fonts\LSANSDI.TTF
+LSANSI.TTF - Path: C:\Windows\fonts\LSANSI.TTF
+LTYPE.TTF - Path: C:\Windows\fonts\LTYPE.TTF
+LTYPEB.TTF - Path: C:\Windows\fonts\LTYPEB.TTF
+LTYPEBO.TTF - Path: C:\Windows\fonts\LTYPEBO.TTF
+LTYPEO.TTF - Path: C:\Windows\fonts\LTYPEO.TTF
+lucon.ttf - Path: C:\Windows\fonts\lucon.ttf
+lvnm.ttf - Path: C:\Windows\fonts\lvnm.ttf
+lvnmbd.ttf - Path: C:\Windows\fonts\lvnmbd.ttf
+MAGNETOB.TTF - Path: C:\Windows\fonts\MAGNETOB.TTF
+MAIAN.TTF - Path: C:\Windows\fonts\MAIAN.TTF
+majalla.ttf - Path: C:\Windows\fonts\majalla.ttf
+majallab.ttf - Path: C:\Windows\fonts\majallab.ttf
+malgun.ttf - Path: C:\Windows\fonts\malgun.ttf
+malgunbd.ttf - Path: C:\Windows\fonts\malgunbd.ttf
+mangal.ttf - Path: C:\Windows\fonts\mangal.ttf
+mangalb.ttf - Path: C:\Windows\fonts\mangalb.ttf
+marlett.ttf - Path: C:\Windows\fonts\marlett.ttf
+MATURASC.TTF - Path: C:\Windows\fonts\MATURASC.TTF
+micross.ttf - Path: C:\Windows\fonts\micross.ttf
+MISTRAL.TTF - Path: C:\Windows\fonts\MISTRAL.TTF
+MOD20.TTF - Path: C:\Windows\fonts\MOD20.TTF
+monbaiti.ttf - Path: C:\Windows\fonts\monbaiti.ttf
+moolbor.ttf - Path: C:\Windows\fonts\moolbor.ttf
+mriam.ttf - Path: C:\Windows\fonts\mriam.ttf
+mriamc.ttf - Path: C:\Windows\fonts\mriamc.ttf
+msjh.ttf - Path: C:\Windows\fonts\msjh.ttf
+msjhbd.ttf - Path: C:\Windows\fonts\msjhbd.ttf
+msuighur.ttf - Path: C:\Windows\fonts\msuighur.ttf
+msyh.ttf - Path: C:\Windows\fonts\msyh.ttf
+msyhbd.ttf - Path: C:\Windows\fonts\msyhbd.ttf
+msyi.ttf - Path: C:\Windows\fonts\msyi.ttf
+MTCORSVA.TTF - Path: C:\Windows\fonts\MTCORSVA.TTF
+mvboli.ttf - Path: C:\Windows\fonts\mvboli.ttf
+NIAGENG.TTF - Path: C:\Windows\fonts\NIAGENG.TTF
+NIAGSOL.TTF - Path: C:\Windows\fonts\NIAGSOL.TTF
+nrkis.ttf - Path: C:\Windows\fonts\nrkis.ttf
+ntailu.ttf - Path: C:\Windows\fonts\ntailu.ttf
+ntailub.ttf - Path: C:\Windows\fonts\ntailub.ttf
+nyala.ttf - Path: C:\Windows\fonts\nyala.ttf
+OCRAEXT.TTF - Path: C:\Windows\fonts\OCRAEXT.TTF
+OLDENGL.TTF - Path: C:\Windows\fonts\OLDENGL.TTF
+ONYX.TTF - Path: C:\Windows\fonts\ONYX.TTF
+OUTLOOK.TTF - Path: C:\Windows\fonts\OUTLOOK.TTF
+pala.ttf - Path: C:\Windows\fonts\pala.ttf
+palab.ttf - Path: C:\Windows\fonts\palab.ttf
+palabi.ttf - Path: C:\Windows\fonts\palabi.ttf
+palai.ttf - Path: C:\Windows\fonts\palai.ttf
+PALSCRI.TTF - Path: C:\Windows\fonts\PALSCRI.TTF
+PAPYRUS.TTF - Path: C:\Windows\fonts\PAPYRUS.TTF
+PARCHM.TTF - Path: C:\Windows\fonts\PARCHM.TTF
+PER_____.TTF - Path: C:\Windows\fonts\PER_____.TTF
+PERB____.TTF - Path: C:\Windows\fonts\PERB____.TTF
+PERBI___.TTF - Path: C:\Windows\fonts\PERBI___.TTF
+PERI____.TTF - Path: C:\Windows\fonts\PERI____.TTF
+PERTIBD.TTF - Path: C:\Windows\fonts\PERTIBD.TTF
+PERTILI.TTF - Path: C:\Windows\fonts\PERTILI.TTF
+phagspa.ttf - Path: C:\Windows\fonts\phagspa.ttf
+phagspab.ttf - Path: C:\Windows\fonts\phagspab.ttf
+plantc.ttf - Path: C:\Windows\fonts\plantc.ttf
+PLAYBILL.TTF - Path: C:\Windows\fonts\PLAYBILL.TTF
+POORICH.TTF - Path: C:\Windows\fonts\POORICH.TTF
+PRISTINA.TTF - Path: C:\Windows\fonts\PRISTINA.TTF
+raavi.ttf - Path: C:\Windows\fonts\raavi.ttf
+raavib.ttf - Path: C:\Windows\fonts\raavib.ttf
+RAGE.TTF - Path: C:\Windows\fonts\RAGE.TTF
+RAVIE.TTF - Path: C:\Windows\fonts\RAVIE.TTF
+REFSAN.TTF - Path: C:\Windows\fonts\REFSAN.TTF
+REFSPCL.TTF - Path: C:\Windows\fonts\REFSPCL.TTF
+ROCC____.TTF - Path: C:\Windows\fonts\ROCC____.TTF
+ROCCB___.TTF - Path: C:\Windows\fonts\ROCCB___.TTF
+ROCK.TTF - Path: C:\Windows\fonts\ROCK.TTF
+ROCKB.TTF - Path: C:\Windows\fonts\ROCKB.TTF
+ROCKBI.TTF - Path: C:\Windows\fonts\ROCKBI.TTF
+ROCKEB.TTF - Path: C:\Windows\fonts\ROCKEB.TTF
+ROCKI.TTF - Path: C:\Windows\fonts\ROCKI.TTF
+rod.ttf - Path: C:\Windows\fonts\rod.ttf
+SCHLBKB.TTF - Path: C:\Windows\fonts\SCHLBKB.TTF
+SCHLBKBI.TTF - Path: C:\Windows\fonts\SCHLBKBI.TTF
+SCHLBKI.TTF - Path: C:\Windows\fonts\SCHLBKI.TTF
+SCRIPTBL.TTF - Path: C:\Windows\fonts\SCRIPTBL.TTF
+segoepr.ttf - Path: C:\Windows\fonts\segoepr.ttf
+segoeprb.ttf - Path: C:\Windows\fonts\segoeprb.ttf
+segoesc.ttf - Path: C:\Windows\fonts\segoesc.ttf
+segoescb.ttf - Path: C:\Windows\fonts\segoescb.ttf
+segoeui.ttf - Path: C:\Windows\fonts\segoeui.ttf
+segoeuib.ttf - Path: C:\Windows\fonts\segoeuib.ttf
+segoeuii.ttf - Path: C:\Windows\fonts\segoeuii.ttf
+segoeuil.ttf - Path: C:\Windows\fonts\segoeuil.ttf
+segoeuiz.ttf - Path: C:\Windows\fonts\segoeuiz.ttf
+seguisb.ttf - Path: C:\Windows\fonts\seguisb.ttf
+seguisym.ttf - Path: C:\Windows\fonts\seguisym.ttf
+Shonar.ttf - Path: C:\Windows\fonts\Shonar.ttf
+Shonarb.ttf - Path: C:\Windows\fonts\Shonarb.ttf
+SHOWG.TTF - Path: C:\Windows\fonts\SHOWG.TTF
+shruti.ttf - Path: C:\Windows\fonts\shruti.ttf
+shrutib.ttf - Path: C:\Windows\fonts\shrutib.ttf
+simfang.ttf - Path: C:\Windows\fonts\simfang.ttf
+simhei.ttf - Path: C:\Windows\fonts\simhei.ttf
+simkai.ttf - Path: C:\Windows\fonts\simkai.ttf
+simpbdo.ttf - Path: C:\Windows\fonts\simpbdo.ttf
+simpfxo.ttf - Path: C:\Windows\fonts\simpfxo.ttf
+simpo.ttf - Path: C:\Windows\fonts\simpo.ttf
+simsunb.ttf - Path: C:\Windows\fonts\simsunb.ttf
+SNAP____.TTF - Path: C:\Windows\fonts\SNAP____.TTF
+STENCIL.TTF - Path: C:\Windows\fonts\STENCIL.TTF
+sylfaen.ttf - Path: C:\Windows\fonts\sylfaen.ttf
+symbol.ttf - Path: C:\Windows\fonts\symbol.ttf
+tahoma.ttf - Path: C:\Windows\fonts\tahoma.ttf
+tahomabd.ttf - Path: C:\Windows\fonts\tahomabd.ttf
+taile.ttf - Path: C:\Windows\fonts\taile.ttf
+taileb.ttf - Path: C:\Windows\fonts\taileb.ttf
+TCB_____.TTF - Path: C:\Windows\fonts\TCB_____.TTF
+TCBI____.TTF - Path: C:\Windows\fonts\TCBI____.TTF
+TCCB____.TTF - Path: C:\Windows\fonts\TCCB____.TTF
+TCCEB.TTF - Path: C:\Windows\fonts\TCCEB.TTF
+TCCM____.TTF - Path: C:\Windows\fonts\TCCM____.TTF
+TCM_____.TTF - Path: C:\Windows\fonts\TCM_____.TTF
+TCMI____.TTF - Path: C:\Windows\fonts\TCMI____.TTF
+TEMPSITC.TTF - Path: C:\Windows\fonts\TEMPSITC.TTF
+times.ttf - Path: C:\Windows\fonts\times.ttf
+timesbd.ttf - Path: C:\Windows\fonts\timesbd.ttf
+timesbi.ttf - Path: C:\Windows\fonts\timesbi.ttf
+timesi.ttf - Path: C:\Windows\fonts\timesi.ttf
+tradbdo.ttf - Path: C:\Windows\fonts\tradbdo.ttf
+trado.ttf - Path: C:\Windows\fonts\trado.ttf
+trebuc.ttf - Path: C:\Windows\fonts\trebuc.ttf
+trebucbd.ttf - Path: C:\Windows\fonts\trebucbd.ttf
+trebucbi.ttf - Path: C:\Windows\fonts\trebucbi.ttf
+trebucit.ttf - Path: C:\Windows\fonts\trebucit.ttf
+tunga.ttf - Path: C:\Windows\fonts\tunga.ttf
+tungab.ttf - Path: C:\Windows\fonts\tungab.ttf
+upcdb.ttf - Path: C:\Windows\fonts\upcdb.ttf
+upcdbi.ttf - Path: C:\Windows\fonts\upcdbi.ttf
+upcdi.ttf - Path: C:\Windows\fonts\upcdi.ttf
+upcdl.ttf - Path: C:\Windows\fonts\upcdl.ttf
+upceb.ttf - Path: C:\Windows\fonts\upceb.ttf
+upcebi.ttf - Path: C:\Windows\fonts\upcebi.ttf
+upcei.ttf - Path: C:\Windows\fonts\upcei.ttf
+upcel.ttf - Path: C:\Windows\fonts\upcel.ttf
+upcfb.ttf - Path: C:\Windows\fonts\upcfb.ttf
+upcfbi.ttf - Path: C:\Windows\fonts\upcfbi.ttf
+upcfi.ttf - Path: C:\Windows\fonts\upcfi.ttf
+upcfl.ttf - Path: C:\Windows\fonts\upcfl.ttf
+upcib.ttf - Path: C:\Windows\fonts\upcib.ttf
+upcibi.ttf - Path: C:\Windows\fonts\upcibi.ttf
+upcii.ttf - Path: C:\Windows\fonts\upcii.ttf
+upcil.ttf - Path: C:\Windows\fonts\upcil.ttf
+upcjb.ttf - Path: C:\Windows\fonts\upcjb.ttf
+upcjbi.ttf - Path: C:\Windows\fonts\upcjbi.ttf
+upcji.ttf - Path: C:\Windows\fonts\upcji.ttf
+upcjl.ttf - Path: C:\Windows\fonts\upcjl.ttf
+upckb.ttf - Path: C:\Windows\fonts\upckb.ttf
+upckbi.ttf - Path: C:\Windows\fonts\upckbi.ttf
+upcki.ttf - Path: C:\Windows\fonts\upcki.ttf
+upckl.ttf - Path: C:\Windows\fonts\upckl.ttf
+upclb.ttf - Path: C:\Windows\fonts\upclb.ttf
+upclbi.ttf - Path: C:\Windows\fonts\upclbi.ttf
+upcli.ttf - Path: C:\Windows\fonts\upcli.ttf
+upcll.ttf - Path: C:\Windows\fonts\upcll.ttf
+utsaah.ttf - Path: C:\Windows\fonts\utsaah.ttf
+utsaahb.ttf - Path: C:\Windows\fonts\utsaahb.ttf
+utsaahbi.ttf - Path: C:\Windows\fonts\utsaahbi.ttf
+utsaahi.ttf - Path: C:\Windows\fonts\utsaahi.ttf
+Vani.ttf - Path: C:\Windows\fonts\Vani.ttf
+Vanib.ttf - Path: C:\Windows\fonts\Vanib.ttf
+verdana.ttf - Path: C:\Windows\fonts\verdana.ttf
+verdanab.ttf - Path: C:\Windows\fonts\verdanab.ttf
+verdanai.ttf - Path: C:\Windows\fonts\verdanai.ttf
+verdanaz.ttf - Path: C:\Windows\fonts\verdanaz.ttf
+vijaya.ttf - Path: C:\Windows\fonts\vijaya.ttf
+vijayab.ttf - Path: C:\Windows\fonts\vijayab.ttf
+VINERITC.TTF - Path: C:\Windows\fonts\VINERITC.TTF
+VIVALDII.TTF - Path: C:\Windows\fonts\VIVALDII.TTF
+VLADIMIR.TTF - Path: C:\Windows\fonts\VLADIMIR.TTF
+vrinda.ttf - Path: C:\Windows\fonts\vrinda.ttf
+vrindab.ttf - Path: C:\Windows\fonts\vrindab.ttf
+webdings.ttf - Path: C:\Windows\fonts\webdings.ttf
+wingding.ttf - Path: C:\Windows\fonts\wingding.ttf
+WINGDNG2.TTF - Path: C:\Windows\fonts\WINGDNG2.TTF
+WINGDNG3.TTF - Path: C:\Windows\fonts\WINGDNG3.TTF
+[102:Init] ENABLING SDL UNICODE
+[102:Init] INIT NETWORK
+[124:InitWindows]  -------------------------------------------
+[101:setGraphicsMode] Parameters: 
+[101:setGraphicsMode] state: 0x1644658
+[101:setGraphicsMode] mode: 32
+[101:setGraphicsMode] width: 300
+[101:setGraphicsMode] height: 300
+[101:setGraphicsMode] SDL Compatibility: 0
+[101:setGraphicsMode] Screen[0]: 0
+[101:setGraphicsMode] ok: 0x28cf370
+[101:CBitmap] CBitmap::CBitmap // Constructor //=> CBitmap Created Window Who: 0x28cf370
+[100:~ScopedLock]  Releasing Lock 
+[124:InitWindows] CSDLManager::Init() // CALL setGraphicsMode // ret = 0
+[118:CGameControl] END STARTING SDL PHASE 1 (CSDLMANAGER)================
+[118:CGameControl] START SDL PHASE 2 (CSDLMANAGER)================
+[100:~ScopedLock]  Releasing Lock 
+[100:~ScopedLock]  Releasing Lock 
+[118:CGameControl] END SDL PHASE 2 (CSDLMANAGER)================
+[118:CGameControl] END CONSTRUCTING CGAME OBJECT ================
+[104:create] Will Create a Mouse
+[100:~ScopedLock]  Releasing Lock 
+[101:CreateSurface] Create Surface ok 0x28d50f8
+[101:CBitmap] Creating Internal Texture
+[101:CreateTexture] 
+[118:act] BEGIN RENDER GAME
+[118:draw] WILL SHOW OUR BITMAP
+[102:CTTFFont] Constructor // Fontes Disponíveis=416
+[102:LoadFont] Iniciando a fonte : arial.ttf
+[111:LoadFont] Will get fonte Path to : arial.ttf
+[111:GetFontPath] fonte : arial.ttf
+[111:findFontVector] caminho da fonte encontrado : C:\Windows\fonts\arial.ttf
+[111:GetFontPath] Achou o caminho para a fonte:C:\Windows\fonts\arial.ttf
+[111:LoadFont] caminho para a fonte Encontrado: C:\Windows\fonts\arial.ttf
+[111:LoadFont] Font initiated OK
+[111:_getTTFont] set size and initialize font:file,sizearial.ttf ' 16
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x28cf370 ] x= 0 , y= 10 , w= 228, h= 19
+[118:act] END RENDER GAME
+[101:CBitmap] ( const char * load_file ) - //Constructor // filename= bitmaptoshow.bmp
+[101:load_image] Loading:bitmaptoshow.bmp

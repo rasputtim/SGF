@@ -1,0 +1,118 @@
+%{
+#include <malloc.h>  // _alloca is used by the parser
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "lex.h"
+#include "../Structs.h"
+#include "../objects/Player.h"
+#include "../util/debug.h"
+
+extern CPlayer *m_pPlayer;
+void yyerror(char *msg);
+extern std::ostream & debug(int i, const std::string & context = "OpenMugen"); 
+
+#define YYSTYPE myType
+
+%}
+
+
+%left ','
+%left EQUAL,NOTEQUAL,GREATER,LESS,LESSEQUAL,GREATEREQUAL
+%left MOD,LOGNOT,LOGAND,LOGOR,LOGXOR,NOT,AND,OR,XOR
+%left '+','-'
+%left '*',SQUARE,'/' 
+
+%token INFO
+%token NAME
+%token DISPLAYNAME 
+%token VERSIONDATE
+%token MUGENVERSION
+%token AUTHOR
+%token PALDEFAULTS
+
+%token FILES
+%token COMAND     
+%token CNS
+%token STATES
+%token COMESTATES
+%token SPRITES
+%token ANIMATION
+%token SOUNDS
+%token PALLETE1 
+%token PALLETE2
+%token PALLETE3
+%token PALLETE4
+%token PALLETE5
+%token PALLETE6
+%token PALLETE7
+%token PALLETE8
+%token PALLETE9
+%token PALLETE10
+%token PALLETE11
+%token PALLETE12
+
+%token ARCADE
+%token INTRO
+%token ENDING
+%token NUMBER
+%token STRING
+%token FILENAME
+
+%%
+lines: /* empty */
+     | lines INFOSECTION
+     | error {yyclearin;}
+     ;	
+
+
+INFOSECTION:'[' INFO ']'						{/**/}
+	| NAME EQUAL STRING            {strcpy(m_pPlayer->myPlayerData.strName,$3.str);/*Debug::debug(10) <<"NAME= "<<$3.str<<endl;*/}
+    | DISPLAYNAME EQUAL STRING     {strcpy(m_pPlayer->myPlayerData.strDisplayName,$3.str);/*Debug::debug(10) <<"Displayname= "<<$3.str<<endl;*/}
+    | VERSIONDATE EQUAL NUMBER','NUMBER','NUMBER {m_pPlayer->myPlayerData.CharVersion.Days=(int)$3.nFloat; 
+                                                 m_pPlayer->myPlayerData.CharVersion.Month=(int)$5.nFloat;
+                                                 m_pPlayer->myPlayerData.CharVersion.Years=(int)$7.nFloat;/*Debug::debug(10) <<"Versiondate (MM-DD-YYYY)= "<<(int)$3.nFloat <<" - "<< (int)$5.nFloat <<" - " <<(int)$7.nFloat<< endl;*/}
+    | MUGENVERSION EQUAL NUMBER','NUMBER','NUMBER {m_pPlayer->myPlayerData.MugenVersion.Days=(int)$3.nFloat; 
+                                                 m_pPlayer->myPlayerData.MugenVersion.Month=(int)$5.nFloat;
+                                                 m_pPlayer->myPlayerData.MugenVersion.Years=(int)$7.nFloat;/*Debug::debug(10) <<"Versiondate (MM-DD-YYYY)= "<<(int)$3.nFloat <<" - "<< (int)$5.nFloat <<" - " <<(int)$7.nFloat<< endl;*/}
+    | AUTHOR EQUAL STRING {/*Debug::debug(10) <<"Author= "<<$3.str<<endl);*/strcpy(m_pPlayer->myPlayerData.strAuthor,$3.str);}
+    | PALDEFAULTS EQUAL expression {}
+    | FILESSECTION
+	| ARCADESECTION
+    ;
+
+FILESSECTION: '[' FILES ']'						{/*Check Files Section*/}
+	| COMAND     EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strCmdFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+	| CNS        EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strCnsFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | STATES     EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strSttFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | COMESTATES EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strComFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | SPRITES    EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strSffFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | ANIMATION  EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strAirFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | SOUNDS     EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strSndFile,$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/} 
+    | PALLETE1 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[0],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE2 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[1],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE3 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[2],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE4 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[3],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE5 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[4],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE6 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[5],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE7 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[6],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE8 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[7],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE9 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[8],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE10 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[9],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE11 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[10],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    | PALLETE12 EQUAL FILENAME {strcpy(m_pPlayer->myPlayerData.strPalFile[11],$3.str);/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+    
+    ;
+
+ARCADESECTION: '[' ARCADE ']'					{/*Check Arcade Section*/}
+		| INTRO EQUAL FILENAME {/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+		| ENDING EQUAL FILENAME {/*Debug::debug(10) <<"Filename= "<<$3.str<< endl;*/}
+        ;
+
+expression: NUMBER             {Debug::debug(10) <<"PalNumber= "<<(int)$1.nFloat<< endl;}
+    | NUMBER','expression        {Debug::debug(10) <<"PalNumber= "<<(int)$1.nFloat<< endl;}
+   ;
+
+
+%%

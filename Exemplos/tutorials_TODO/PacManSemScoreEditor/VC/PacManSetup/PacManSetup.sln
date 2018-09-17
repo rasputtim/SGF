@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PacManSetup", "PacManSetup\PacManSetup.vdproj", "{27EE1EF2-FA5A-4F31-B790-C9E242553B9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27EE1EF2-FA5A-4F31-B790-C9E242553B9F}.Debug|Default.ActiveCfg = Debug
+		{27EE1EF2-FA5A-4F31-B790-C9E242553B9F}.Debug|Default.Build.0 = Debug
+		{27EE1EF2-FA5A-4F31-B790-C9E242553B9F}.Release|Default.ActiveCfg = Release
+		{27EE1EF2-FA5A-4F31-B790-C9E242553B9F}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DEF">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="DEF\Rules">
+      <UniqueIdentifier>{cba59c3a-c3bb-45ad-a029-2d1846734927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="defparser.tab.cpp">
+      <Filter>DEF</Filter>
+    </ClCompile>
+    <ClCompile Include="lex.Def.cc">
+      <Filter>DEF</Filter>
+    </ClCompile>
+    <ClCompile Include="def_driver.cc">
+      <Filter>DEF</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="defparser.tab.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FlexLexer.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unistd.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="def_driver.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="defparser.y">
+      <Filter>DEF\Rules</Filter>
+    </None>
+    <None Include="defscanner.l">
+      <Filter>DEF\Rules</Filter>
+    </None>
+  </ItemGroup>
+</Project>

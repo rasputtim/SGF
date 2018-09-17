@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Player\Rules">
+      <UniqueIdentifier>{2f8e648a-e4a0-488e-b0b0-8b390f4c9ce5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirCompiler\FlexLexer.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AirCompiler\unistd.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="driver.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="playerparser.tab.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.cc">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="lex.Player.cc">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="playerparser.tab.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="playerparser.y">
+      <Filter>Player\Rules</Filter>
+    </None>
+    <None Include="playerscanner.l">
+      <Filter>Player\Rules</Filter>
+    </None>
+  </ItemGroup>
+</Project>

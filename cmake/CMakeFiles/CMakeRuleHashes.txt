@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+bcba193eed2f216b653da39811d4fcfa CMakeFiles/uninstall
+10912ac1490dcc7866c5015ef7c312cf source/xml/CMakeFiles/DATA_COPY
+2a4a35c126fda4c8cb3c36ae0700a1b2 source/xml/resources/dream.xml
+dba4c59f020c691e27fb4b9a5d302f08 source/xml/resources/empty.xml
+f34ce2c2c4e833b4e910937fbc0506a3 source/xml/resources/utf8test.xml
+99665dc97a186428436f64e6e142e757 source/xml/resources/utf8testverify.xml

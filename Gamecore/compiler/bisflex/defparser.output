@@ -1,0 +1,1813 @@
+Terminals unused in grammar
+
+   UMINUS
+
+
+State 21 conflicts: 1 shift/reduce
+State 85 conflicts: 1 shift/reduce
+State 88 conflicts: 1 shift/reduce
+State 90 conflicts: 1 shift/reduce
+State 93 conflicts: 1 shift/reduce
+State 94 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: lines "end of file"
+
+    1 $@1: /* empty */
+
+    2 lines: $@1 coments
+    3      | ends
+    4      | lines
+    5      | section
+    6      | error
+
+    7 coments: COMMENT
+    8        | coments COMMENT
+
+    9 ends: "end of line"
+   10     | ends "end of line"
+
+   11 line: unquoted_text
+   12     | DEF_BLANK
+   13     | bg
+   14     | bgctrl
+   15     | data_list
+   16     | data
+   17     | selectbg
+   18     | selectbgctrl
+   19     | maybe_flip
+   20     | DEF_LOOPSTART
+
+   21 assignment: lhs '='
+   22           | lhs '=' rhs
+   23           | line
+
+   24 lhs: variable
+   25    | variable '(' value ')'
+
+   26 rhs: expression_list
+
+   27 expression_list: expression maybe_comma
+   28                | expression_list ',' expression
+
+   29 maybe_comma: ','
+   30            | /* empty */
+
+   31 expression: variable_rhs '=' value
+   32           | expression1
+
+   33 expression1: '(' expression ')'
+   34            | '!' value
+   35            | multiple_str_values
+   36            | multiple_num_values
+   37            | multiple_num_comma_values
+   38            | data_list
+   39            | string_value
+
+   40 multiple_str_values: NUMBER IDENTIFIER
+   41                    | string_value string_value
+   42                    | multiple_str_values string_value
+
+   43 multiple_num_comma_values: value ',' value
+   44                          | multiple_num_comma_values ',' value
+
+   45 multiple_num_values: value
+   46                    | value multiple_num_values
+
+   47 value: NUMBER
+
+   48 string_value: data
+   49             | variable_rhs '(' expression_list ')'
+   50             | variable_rhs
+
+   51 variable: identificator_lhs_list
+   52         | DEF_FILENAME
+   53         | DEF_FILENAME_2
+   54         | variable '.' IDENTIFIER
+   55         | variable '.' DEF_FILENAME
+   56         | variable '.' DEF_FILENAME_2
+   57         | variable '.' NUMBER
+
+   58 identificator_lhs_list: IDENTIFIER
+   59                       | DEF_COLOR_ADDITION
+   60                       | DEF_COLOR_SUBTRACT
+   61                       | DEF_HORIZONTAL
+   62                       | DEF_VERTICAL
+   63                       | identificator_lhs_list NUMBER
+   64                       | identificator_lhs_list IDENTIFIER
+
+   65 variable_rhs: data '.' IDENTIFIER
+   66             | data '.' NUMBER
+   67             | variable_rhs '.' IDENTIFIER
+   68             | variable_rhs '.' NUMBER
+
+   69 identificator_list: DEF_SELECTBG IDENTIFIER
+   70                   | DEF_SELECTBGCTRL IDENTIFIER
+   71                   | IDENTIFIER IDENTIFIER
+   72                   | identificator_list IDENTIFIER
+   73                   | identificator_list NUMBER
+
+   74 data_list: data ',' data
+   75          | data_list ',' data
+
+   76 data: DEF_FILENAME
+   77     | DEF_FILENAME_2
+   78     | QUOTESTRING
+   79     | IDENTIFIER pontuation
+   80     | DATE
+   81     | IDENTIFIER
+
+   82 pontuation: '!'
+   83           | '?'
+   84           | pontuation '!'
+   85           | pontuation '?'
+
+   86 unquoted_text: DEF_TEXT
+
+   87 section: '[' IDENTIFIER ']'
+   88        | '[' IDENTIFIER NUMBER ']'
+   89        | '[' identificator_list ',' IDENTIFIER ']'
+   90        | '[' identificator_list ',' NUMBER ']'
+   91        | '[' NUMBER ']'
+   92        | '[' NUMBER NUMBER ']'
+   93        | '[' NUMBER NUMBER NUMBER ']'
+   94        | '[' identificator_list ']'
+   95        | '[' DEF_SELECTBG NUMBER ']'
+   96        | '[' DEF_SELECTBG NUMBER '.' IDENTIFIER ']'
+   97        | '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_ADDITION ']'
+   98        | '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_SUBTRACT ']'
+   99        | '[' DEF_SELECTBGCTRL NUMBER ']'
+  100        | '[' DEF_SELECTBGCTRL NUMBER '.' IDENTIFIER ']'
+  101        | assignment
+  102        | /* empty */
+
+  103 maybe_flip: multiple_num_comma_values
+  104           | multiple_num_comma_values ',' flip
+  105           | multiple_num_comma_values ',' flip ',' color_sub
+  106           | multiple_num_comma_values ',' ',' color_sub
+
+  107 flip: DEF_HORIZONTAL
+  108     | IDENTIFIER
+  109     | DEF_VERTICAL
+  110     | DEF_VERTICAL_HORIZONTAL
+
+  111 color_sub: DEF_COLOR_ADDITION
+  112          | IDENTIFIER
+  113          | DEF_COLOR_SUBTRACT
+  114          | DEF_ALPHA_BLEND
+  115          | DEF_ALPHA_BLEND_SHORTHAND
+
+  116 bg: DEF_BG
+
+  117 selectbg: DEF_SELECTBG
+
+  118 bgctrl: DEF_BGCTRL
+
+  119 selectbgctrl: DEF_SELECTBGCTRL
+
+
+Terminals, with rules where they appear
+
+"end of file" (0) 0
+'!' (33) 34 82 84
+'(' (40) 25 33 49
+')' (41) 25 33 49
+',' (44) 28 29 43 44 74 75 89 90 104 105 106
+'.' (46) 54 55 56 57 65 66 67 68 96 97 98 100
+'=' (61) 21 22 31
+'?' (63) 83 85
+'[' (91) 87 88 89 90 91 92 93 94 95 96 97 98 99 100
+']' (93) 87 88 89 90 91 92 93 94 95 96 97 98 99 100
+error (256) 6
+UMINUS (258)
+"end of line" (259) 9 10
+QUOTESTRING (260) 78
+NUMBER (261) 40 47 57 63 66 68 73 88 90 91 92 93 95 96 97 98 99 100
+IDENTIFIER (262) 40 54 58 64 65 67 69 70 71 72 79 81 87 88 89 96 100
+    108 112
+DEF_TEXT (263) 86
+DEF_BLANK (264) 12
+DEF_LOOPSTART (265) 20
+DEF_VERTICAL_HORIZONTAL (266) 110
+DEF_ALPHA_BLEND (267) 114
+DEF_ALPHA_BLEND_SHORTHAND (268) 115
+DEF_COLOR_ADDITION (269) 59 97 111
+DEF_COLOR_SUBTRACT (270) 60 98 113
+DEF_HORIZONTAL (271) 61 107
+DEF_VERTICAL (272) 62 109
+DEF_BG (273) 116
+DEF_BGCTRL (274) 118
+DEF_SELECTBG (275) 69 95 96 97 98 117
+DEF_SELECTBGCTRL (276) 70 99 100 119
+DEF_FILENAME (277) 52 55 76
+DEF_FILENAME_2 (278) 53 56 77
+DATE (279) 80
+COMMENT (280) 7 8
+
+
+Nonterminals, with rules where they appear
+
+$accept (35)
+    on left: 0
+lines (36)
+    on left: 2 3 4 5 6, on right: 0 4
+$@1 (37)
+    on left: 1, on right: 2
+coments (38)
+    on left: 7 8, on right: 2 8
+ends (39)
+    on left: 9 10, on right: 3 10
+line (40)
+    on left: 11 12 13 14 15 16 17 18 19 20, on right: 23
+assignment (41)
+    on left: 21 22 23, on right: 101
+lhs (42)
+    on left: 24 25, on right: 21 22
+rhs (43)
+    on left: 26, on right: 22
+expression_list (44)
+    on left: 27 28, on right: 26 28 49
+maybe_comma (45)
+    on left: 29 30, on right: 27
+expression (46)
+    on left: 31 32, on right: 27 28 33
+expression1 (47)
+    on left: 33 34 35 36 37 38 39, on right: 32
+multiple_str_values (48)
+    on left: 40 41 42, on right: 35 42
+multiple_num_comma_values (49)
+    on left: 43 44, on right: 37 44 103 104 105 106
+multiple_num_values (50)
+    on left: 45 46, on right: 36 46
+value (51)
+    on left: 47, on right: 25 31 34 43 44 45 46
+string_value (52)
+    on left: 48 49 50, on right: 39 41 42
+variable (53)
+    on left: 51 52 53 54 55 56 57, on right: 24 25 54 55 56 57
+identificator_lhs_list (54)
+    on left: 58 59 60 61 62 63 64, on right: 51 63 64
+variable_rhs (55)
+    on left: 65 66 67 68, on right: 31 49 50 67 68
+identificator_list (56)
+    on left: 69 70 71 72 73, on right: 72 73 89 90 94
+data_list (57)
+    on left: 74 75, on right: 15 38 75
+data (58)
+    on left: 76 77 78 79 80 81, on right: 16 48 65 66 74 75
+pontuation (59)
+    on left: 82 83 84 85, on right: 79 84 85
+unquoted_text (60)
+    on left: 86, on right: 11
+section (61)
+    on left: 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102, on right:
+    5
+maybe_flip (62)
+    on left: 103 104 105 106, on right: 19
+flip (63)
+    on left: 107 108 109 110, on right: 104 105
+color_sub (64)
+    on left: 111 112 113 114 115, on right: 105 106
+bg (65)
+    on left: 116, on right: 13
+selectbg (66)
+    on left: 117, on right: 17
+bgctrl (67)
+    on left: 118, on right: 14
+selectbgctrl (68)
+    on left: 119, on right: 18
+
+
+state 0
+
+    0 $accept: . lines "end of file"
+
+    error               shift, and go to state 1
+    "end of line"       shift, and go to state 2
+    QUOTESTRING         shift, and go to state 3
+    NUMBER              shift, and go to state 4
+    IDENTIFIER          shift, and go to state 5
+    '['                 shift, and go to state 6
+    DEF_TEXT            shift, and go to state 7
+    DEF_BLANK           shift, and go to state 8
+    DEF_LOOPSTART       shift, and go to state 9
+    DEF_COLOR_ADDITION  shift, and go to state 10
+    DEF_COLOR_SUBTRACT  shift, and go to state 11
+    DEF_HORIZONTAL      shift, and go to state 12
+    DEF_VERTICAL        shift, and go to state 13
+    DEF_BG              shift, and go to state 14
+    DEF_BGCTRL          shift, and go to state 15
+    DEF_SELECTBG        shift, and go to state 16
+    DEF_SELECTBGCTRL    shift, and go to state 17
+    DEF_FILENAME        shift, and go to state 18
+    DEF_FILENAME_2      shift, and go to state 19
+    DATE                shift, and go to state 20
+
+    "end of file"  reduce using rule 102 (section)
+    COMMENT        reduce using rule 1 ($@1)
+
+    lines                      go to state 21
+    $@1                        go to state 22
+    ends                       go to state 23
+    line                       go to state 24
+    assignment                 go to state 25
+    lhs                        go to state 26
+    multiple_num_comma_values  go to state 27
+    value                      go to state 28
+    variable                   go to state 29
+    identificator_lhs_list     go to state 30
+    data_list                  go to state 31
+    data                       go to state 32
+    unquoted_text              go to state 33
+    section                    go to state 34
+    maybe_flip                 go to state 35
+    bg                         go to state 36
+    selectbg                   go to state 37
+    bgctrl                     go to state 38
+    selectbgctrl               go to state 39
+
+
+state 1
+
+    6 lines: error .
+
+    $default  reduce using rule 6 (lines)
+
+
+state 2
+
+    9 ends: "end of line" .
+
+    $default  reduce using rule 9 (ends)
+
+
+state 3
+
+   78 data: QUOTESTRING .
+
+    $default  reduce using rule 78 (data)
+
+
+state 4
+
+   47 value: NUMBER .
+
+    $default  reduce using rule 47 (value)
+
+
+state 5
+
+   58 identificator_lhs_list: IDENTIFIER .
+   79 data: IDENTIFIER . pontuation
+   81     | IDENTIFIER .
+
+    '!'  shift, and go to state 40
+    '?'  shift, and go to state 41
+
+    "end of file"  reduce using rule 81 (data)
+    ','            reduce using rule 81 (data)
+    $default       reduce using rule 58 (identificator_lhs_list)
+
+    pontuation  go to state 42
+
+
+state 6
+
+   87 section: '[' . IDENTIFIER ']'
+   88        | '[' . IDENTIFIER NUMBER ']'
+   89        | '[' . identificator_list ',' IDENTIFIER ']'
+   90        | '[' . identificator_list ',' NUMBER ']'
+   91        | '[' . NUMBER ']'
+   92        | '[' . NUMBER NUMBER ']'
+   93        | '[' . NUMBER NUMBER NUMBER ']'
+   94        | '[' . identificator_list ']'
+   95        | '[' . DEF_SELECTBG NUMBER ']'
+   96        | '[' . DEF_SELECTBG NUMBER '.' IDENTIFIER ']'
+   97        | '[' . DEF_SELECTBG NUMBER '.' DEF_COLOR_ADDITION ']'
+   98        | '[' . DEF_SELECTBG NUMBER '.' DEF_COLOR_SUBTRACT ']'
+   99        | '[' . DEF_SELECTBGCTRL NUMBER ']'
+  100        | '[' . DEF_SELECTBGCTRL NUMBER '.' IDENTIFIER ']'
+
+    NUMBER            shift, and go to state 43
+    IDENTIFIER        shift, and go to state 44
+    DEF_SELECTBG      shift, and go to state 45
+    DEF_SELECTBGCTRL  shift, and go to state 46
+
+    identificator_list  go to state 47
+
+
+state 7
+
+   86 unquoted_text: DEF_TEXT .
+
+    $default  reduce using rule 86 (unquoted_text)
+
+
+state 8
+
+   12 line: DEF_BLANK .
+
+    $default  reduce using rule 12 (line)
+
+
+state 9
+
+   20 line: DEF_LOOPSTART .
+
+    $default  reduce using rule 20 (line)
+
+
+state 10
+
+   59 identificator_lhs_list: DEF_COLOR_ADDITION .
+
+    $default  reduce using rule 59 (identificator_lhs_list)
+
+
+state 11
+
+   60 identificator_lhs_list: DEF_COLOR_SUBTRACT .
+
+    $default  reduce using rule 60 (identificator_lhs_list)
+
+
+state 12
+
+   61 identificator_lhs_list: DEF_HORIZONTAL .
+
+    $default  reduce using rule 61 (identificator_lhs_list)
+
+
+state 13
+
+   62 identificator_lhs_list: DEF_VERTICAL .
+
+    $default  reduce using rule 62 (identificator_lhs_list)
+
+
+state 14
+
+  116 bg: DEF_BG .
+
+    $default  reduce using rule 116 (bg)
+
+
+state 15
+
+  118 bgctrl: DEF_BGCTRL .
+
+    $default  reduce using rule 118 (bgctrl)
+
+
+state 16
+
+  117 selectbg: DEF_SELECTBG .
+
+    $default  reduce using rule 117 (selectbg)
+
+
+state 17
+
+  119 selectbgctrl: DEF_SELECTBGCTRL .
+
+    $default  reduce using rule 119 (selectbgctrl)
+
+
+state 18
+
+   52 variable: DEF_FILENAME .
+   76 data: DEF_FILENAME .
+
+    "end of file"  reduce using rule 76 (data)
+    ','            reduce using rule 76 (data)
+    $default       reduce using rule 52 (variable)
+
+
+state 19
+
+   53 variable: DEF_FILENAME_2 .
+   77 data: DEF_FILENAME_2 .
+
+    "end of file"  reduce using rule 77 (data)
+    ','            reduce using rule 77 (data)
+    $default       reduce using rule 53 (variable)
+
+
+state 20
+
+   80 data: DATE .
+
+    $default  reduce using rule 80 (data)
+
+
+state 21
+
+    0 $accept: lines . "end of file"
+    4 lines: lines .
+
+    "end of file"  shift, and go to state 48
+
+    "end of file"  [reduce using rule 4 (lines)]
+
+
+state 22
+
+    2 lines: $@1 . coments
+
+    COMMENT  shift, and go to state 49
+
+    coments  go to state 50
+
+
+state 23
+
+    3 lines: ends .
+   10 ends: ends . "end of line"
+
+    "end of line"  shift, and go to state 51
+
+    $default  reduce using rule 3 (lines)
+
+
+state 24
+
+   23 assignment: line .
+
+    $default  reduce using rule 23 (assignment)
+
+
+state 25
+
+  101 section: assignment .
+
+    $default  reduce using rule 101 (section)
+
+
+state 26
+
+   21 assignment: lhs . '='
+   22           | lhs . '=' rhs
+
+    '='  shift, and go to state 52
+
+
+state 27
+
+   44 multiple_num_comma_values: multiple_num_comma_values . ',' value
+  103 maybe_flip: multiple_num_comma_values .
+  104           | multiple_num_comma_values . ',' flip
+  105           | multiple_num_comma_values . ',' flip ',' color_sub
+  106           | multiple_num_comma_values . ',' ',' color_sub
+
+    ','  shift, and go to state 53
+
+    $default  reduce using rule 103 (maybe_flip)
+
+
+state 28
+
+   43 multiple_num_comma_values: value . ',' value
+
+    ','  shift, and go to state 54
+
+
+state 29
+
+   24 lhs: variable .
+   25    | variable . '(' value ')'
+   54 variable: variable . '.' IDENTIFIER
+   55         | variable . '.' DEF_FILENAME
+   56         | variable . '.' DEF_FILENAME_2
+   57         | variable . '.' NUMBER
+
+    '('  shift, and go to state 55
+    '.'  shift, and go to state 56
+
+    $default  reduce using rule 24 (lhs)
+
+
+state 30
+
+   51 variable: identificator_lhs_list .
+   63 identificator_lhs_list: identificator_lhs_list . NUMBER
+   64                       | identificator_lhs_list . IDENTIFIER
+
+    NUMBER      shift, and go to state 57
+    IDENTIFIER  shift, and go to state 58
+
+    $default  reduce using rule 51 (variable)
+
+
+state 31
+
+   15 line: data_list .
+   75 data_list: data_list . ',' data
+
+    ','  shift, and go to state 59
+
+    $default  reduce using rule 15 (line)
+
+
+state 32
+
+   16 line: data .
+   74 data_list: data . ',' data
+
+    ','  shift, and go to state 60
+
+    $default  reduce using rule 16 (line)
+
+
+state 33
+
+   11 line: unquoted_text .
+
+    $default  reduce using rule 11 (line)
+
+
+state 34
+
+    5 lines: section .
+
+    $default  reduce using rule 5 (lines)
+
+
+state 35
+
+   19 line: maybe_flip .
+
+    $default  reduce using rule 19 (line)
+
+
+state 36
+
+   13 line: bg .
+
+    $default  reduce using rule 13 (line)
+
+
+state 37
+
+   17 line: selectbg .
+
+    $default  reduce using rule 17 (line)
+
+
+state 38
+
+   14 line: bgctrl .
+
+    $default  reduce using rule 14 (line)
+
+
+state 39
+
+   18 line: selectbgctrl .
+
+    $default  reduce using rule 18 (line)
+
+
+state 40
+
+   82 pontuation: '!' .
+
+    $default  reduce using rule 82 (pontuation)
+
+
+state 41
+
+   83 pontuation: '?' .
+
+    $default  reduce using rule 83 (pontuation)
+
+
+state 42
+
+   79 data: IDENTIFIER pontuation .
+   84 pontuation: pontuation . '!'
+   85           | pontuation . '?'
+
+    '!'  shift, and go to state 61
+    '?'  shift, and go to state 62
+
+    $default  reduce using rule 79 (data)
+
+
+state 43
+
+   91 section: '[' NUMBER . ']'
+   92        | '[' NUMBER . NUMBER ']'
+   93        | '[' NUMBER . NUMBER NUMBER ']'
+
+    NUMBER  shift, and go to state 63
+    ']'     shift, and go to state 64
+
+
+state 44
+
+   71 identificator_list: IDENTIFIER . IDENTIFIER
+   87 section: '[' IDENTIFIER . ']'
+   88        | '[' IDENTIFIER . NUMBER ']'
+
+    NUMBER      shift, and go to state 65
+    IDENTIFIER  shift, and go to state 66
+    ']'         shift, and go to state 67
+
+
+state 45
+
+   69 identificator_list: DEF_SELECTBG . IDENTIFIER
+   95 section: '[' DEF_SELECTBG . NUMBER ']'
+   96        | '[' DEF_SELECTBG . NUMBER '.' IDENTIFIER ']'
+   97        | '[' DEF_SELECTBG . NUMBER '.' DEF_COLOR_ADDITION ']'
+   98        | '[' DEF_SELECTBG . NUMBER '.' DEF_COLOR_SUBTRACT ']'
+
+    NUMBER      shift, and go to state 68
+    IDENTIFIER  shift, and go to state 69
+
+
+state 46
+
+   70 identificator_list: DEF_SELECTBGCTRL . IDENTIFIER
+   99 section: '[' DEF_SELECTBGCTRL . NUMBER ']'
+  100        | '[' DEF_SELECTBGCTRL . NUMBER '.' IDENTIFIER ']'
+
+    NUMBER      shift, and go to state 70
+    IDENTIFIER  shift, and go to state 71
+
+
+state 47
+
+   72 identificator_list: identificator_list . IDENTIFIER
+   73                   | identificator_list . NUMBER
+   89 section: '[' identificator_list . ',' IDENTIFIER ']'
+   90        | '[' identificator_list . ',' NUMBER ']'
+   94        | '[' identificator_list . ']'
+
+    NUMBER      shift, and go to state 72
+    IDENTIFIER  shift, and go to state 73
+    ']'         shift, and go to state 74
+    ','         shift, and go to state 75
+
+
+state 48
+
+    0 $accept: lines "end of file" .
+
+    $default  accept
+
+
+state 49
+
+    7 coments: COMMENT .
+
+    $default  reduce using rule 7 (coments)
+
+
+state 50
+
+    2 lines: $@1 coments .
+    8 coments: coments . COMMENT
+
+    COMMENT  shift, and go to state 76
+
+    $default  reduce using rule 2 (lines)
+
+
+state 51
+
+   10 ends: ends "end of line" .
+
+    $default  reduce using rule 10 (ends)
+
+
+state 52
+
+   21 assignment: lhs '=' .
+   22           | lhs '=' . rhs
+
+    QUOTESTRING     shift, and go to state 3
+    NUMBER          shift, and go to state 77
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+    '('             shift, and go to state 81
+    '!'             shift, and go to state 82
+
+    $default  reduce using rule 21 (assignment)
+
+    rhs                        go to state 83
+    expression_list            go to state 84
+    expression                 go to state 85
+    expression1                go to state 86
+    multiple_str_values        go to state 87
+    multiple_num_comma_values  go to state 88
+    multiple_num_values        go to state 89
+    value                      go to state 90
+    string_value               go to state 91
+    variable_rhs               go to state 92
+    data_list                  go to state 93
+    data                       go to state 94
+
+
+state 53
+
+   44 multiple_num_comma_values: multiple_num_comma_values ',' . value
+  104 maybe_flip: multiple_num_comma_values ',' . flip
+  105           | multiple_num_comma_values ',' . flip ',' color_sub
+  106           | multiple_num_comma_values ',' . ',' color_sub
+
+    NUMBER                   shift, and go to state 4
+    IDENTIFIER               shift, and go to state 95
+    DEF_VERTICAL_HORIZONTAL  shift, and go to state 96
+    DEF_HORIZONTAL           shift, and go to state 97
+    DEF_VERTICAL             shift, and go to state 98
+    ','                      shift, and go to state 99
+
+    value  go to state 100
+    flip   go to state 101
+
+
+state 54
+
+   43 multiple_num_comma_values: value ',' . value
+
+    NUMBER  shift, and go to state 4
+
+    value  go to state 102
+
+
+state 55
+
+   25 lhs: variable '(' . value ')'
+
+    NUMBER  shift, and go to state 4
+
+    value  go to state 103
+
+
+state 56
+
+   54 variable: variable '.' . IDENTIFIER
+   55         | variable '.' . DEF_FILENAME
+   56         | variable '.' . DEF_FILENAME_2
+   57         | variable '.' . NUMBER
+
+    NUMBER          shift, and go to state 104
+    IDENTIFIER      shift, and go to state 105
+    DEF_FILENAME    shift, and go to state 106
+    DEF_FILENAME_2  shift, and go to state 107
+
+
+state 57
+
+   63 identificator_lhs_list: identificator_lhs_list NUMBER .
+
+    $default  reduce using rule 63 (identificator_lhs_list)
+
+
+state 58
+
+   64 identificator_lhs_list: identificator_lhs_list IDENTIFIER .
+
+    $default  reduce using rule 64 (identificator_lhs_list)
+
+
+state 59
+
+   75 data_list: data_list ',' . data
+
+    QUOTESTRING     shift, and go to state 3
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+
+    data  go to state 108
+
+
+state 60
+
+   74 data_list: data ',' . data
+
+    QUOTESTRING     shift, and go to state 3
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+
+    data  go to state 109
+
+
+state 61
+
+   84 pontuation: pontuation '!' .
+
+    $default  reduce using rule 84 (pontuation)
+
+
+state 62
+
+   85 pontuation: pontuation '?' .
+
+    $default  reduce using rule 85 (pontuation)
+
+
+state 63
+
+   92 section: '[' NUMBER NUMBER . ']'
+   93        | '[' NUMBER NUMBER . NUMBER ']'
+
+    NUMBER  shift, and go to state 110
+    ']'     shift, and go to state 111
+
+
+state 64
+
+   91 section: '[' NUMBER ']' .
+
+    $default  reduce using rule 91 (section)
+
+
+state 65
+
+   88 section: '[' IDENTIFIER NUMBER . ']'
+
+    ']'  shift, and go to state 112
+
+
+state 66
+
+   71 identificator_list: IDENTIFIER IDENTIFIER .
+
+    $default  reduce using rule 71 (identificator_list)
+
+
+state 67
+
+   87 section: '[' IDENTIFIER ']' .
+
+    $default  reduce using rule 87 (section)
+
+
+state 68
+
+   95 section: '[' DEF_SELECTBG NUMBER . ']'
+   96        | '[' DEF_SELECTBG NUMBER . '.' IDENTIFIER ']'
+   97        | '[' DEF_SELECTBG NUMBER . '.' DEF_COLOR_ADDITION ']'
+   98        | '[' DEF_SELECTBG NUMBER . '.' DEF_COLOR_SUBTRACT ']'
+
+    ']'  shift, and go to state 113
+    '.'  shift, and go to state 114
+
+
+state 69
+
+   69 identificator_list: DEF_SELECTBG IDENTIFIER .
+
+    $default  reduce using rule 69 (identificator_list)
+
+
+state 70
+
+   99 section: '[' DEF_SELECTBGCTRL NUMBER . ']'
+  100        | '[' DEF_SELECTBGCTRL NUMBER . '.' IDENTIFIER ']'
+
+    ']'  shift, and go to state 115
+    '.'  shift, and go to state 116
+
+
+state 71
+
+   70 identificator_list: DEF_SELECTBGCTRL IDENTIFIER .
+
+    $default  reduce using rule 70 (identificator_list)
+
+
+state 72
+
+   73 identificator_list: identificator_list NUMBER .
+
+    $default  reduce using rule 73 (identificator_list)
+
+
+state 73
+
+   72 identificator_list: identificator_list IDENTIFIER .
+
+    $default  reduce using rule 72 (identificator_list)
+
+
+state 74
+
+   94 section: '[' identificator_list ']' .
+
+    $default  reduce using rule 94 (section)
+
+
+state 75
+
+   89 section: '[' identificator_list ',' . IDENTIFIER ']'
+   90        | '[' identificator_list ',' . NUMBER ']'
+
+    NUMBER      shift, and go to state 117
+    IDENTIFIER  shift, and go to state 118
+
+
+state 76
+
+    8 coments: coments COMMENT .
+
+    $default  reduce using rule 8 (coments)
+
+
+state 77
+
+   40 multiple_str_values: NUMBER . IDENTIFIER
+   47 value: NUMBER .
+
+    IDENTIFIER  shift, and go to state 119
+
+    $default  reduce using rule 47 (value)
+
+
+state 78
+
+   79 data: IDENTIFIER . pontuation
+   81     | IDENTIFIER .
+
+    '!'  shift, and go to state 40
+    '?'  shift, and go to state 41
+
+    $default  reduce using rule 81 (data)
+
+    pontuation  go to state 42
+
+
+state 79
+
+   76 data: DEF_FILENAME .
+
+    $default  reduce using rule 76 (data)
+
+
+state 80
+
+   77 data: DEF_FILENAME_2 .
+
+    $default  reduce using rule 77 (data)
+
+
+state 81
+
+   33 expression1: '(' . expression ')'
+
+    QUOTESTRING     shift, and go to state 3
+    NUMBER          shift, and go to state 77
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+    '('             shift, and go to state 81
+    '!'             shift, and go to state 82
+
+    expression                 go to state 120
+    expression1                go to state 86
+    multiple_str_values        go to state 87
+    multiple_num_comma_values  go to state 88
+    multiple_num_values        go to state 89
+    value                      go to state 90
+    string_value               go to state 91
+    variable_rhs               go to state 92
+    data_list                  go to state 93
+    data                       go to state 94
+
+
+state 82
+
+   34 expression1: '!' . value
+
+    NUMBER  shift, and go to state 4
+
+    value  go to state 121
+
+
+state 83
+
+   22 assignment: lhs '=' rhs .
+
+    $default  reduce using rule 22 (assignment)
+
+
+state 84
+
+   26 rhs: expression_list .
+   28 expression_list: expression_list . ',' expression
+
+    ','  shift, and go to state 122
+
+    $default  reduce using rule 26 (rhs)
+
+
+state 85
+
+   27 expression_list: expression . maybe_comma
+
+    ','  shift, and go to state 123
+
+    ','       [reduce using rule 30 (maybe_comma)]
+    $default  reduce using rule 30 (maybe_comma)
+
+    maybe_comma  go to state 124
+
+
+state 86
+
+   32 expression: expression1 .
+
+    $default  reduce using rule 32 (expression)
+
+
+state 87
+
+   35 expression1: multiple_str_values .
+   42 multiple_str_values: multiple_str_values . string_value
+
+    QUOTESTRING     shift, and go to state 3
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+
+    $default  reduce using rule 35 (expression1)
+
+    string_value  go to state 125
+    variable_rhs  go to state 126
+    data          go to state 127
+
+
+state 88
+
+   37 expression1: multiple_num_comma_values .
+   44 multiple_num_comma_values: multiple_num_comma_values . ',' value
+
+    ','  shift, and go to state 128
+
+    ','       [reduce using rule 37 (expression1)]
+    $default  reduce using rule 37 (expression1)
+
+
+state 89
+
+   36 expression1: multiple_num_values .
+
+    $default  reduce using rule 36 (expression1)
+
+
+state 90
+
+   43 multiple_num_comma_values: value . ',' value
+   45 multiple_num_values: value .
+   46                    | value . multiple_num_values
+
+    NUMBER  shift, and go to state 4
+    ','     shift, and go to state 54
+
+    ','       [reduce using rule 45 (multiple_num_values)]
+    $default  reduce using rule 45 (multiple_num_values)
+
+    multiple_num_values  go to state 129
+    value                go to state 130
+
+
+state 91
+
+   39 expression1: string_value .
+   41 multiple_str_values: string_value . string_value
+
+    QUOTESTRING     shift, and go to state 3
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+
+    $default  reduce using rule 39 (expression1)
+
+    string_value  go to state 131
+    variable_rhs  go to state 126
+    data          go to state 127
+
+
+state 92
+
+   31 expression: variable_rhs . '=' value
+   49 string_value: variable_rhs . '(' expression_list ')'
+   50             | variable_rhs .
+   67 variable_rhs: variable_rhs . '.' IDENTIFIER
+   68             | variable_rhs . '.' NUMBER
+
+    '='  shift, and go to state 132
+    '('  shift, and go to state 133
+    '.'  shift, and go to state 134
+
+    $default  reduce using rule 50 (string_value)
+
+
+state 93
+
+   38 expression1: data_list .
+   75 data_list: data_list . ',' data
+
+    ','  shift, and go to state 59
+
+    ','       [reduce using rule 38 (expression1)]
+    $default  reduce using rule 38 (expression1)
+
+
+state 94
+
+   48 string_value: data .
+   65 variable_rhs: data . '.' IDENTIFIER
+   66             | data . '.' NUMBER
+   74 data_list: data . ',' data
+
+    ','  shift, and go to state 60
+    '.'  shift, and go to state 135
+
+    ','       [reduce using rule 48 (string_value)]
+    $default  reduce using rule 48 (string_value)
+
+
+state 95
+
+  108 flip: IDENTIFIER .
+
+    $default  reduce using rule 108 (flip)
+
+
+state 96
+
+  110 flip: DEF_VERTICAL_HORIZONTAL .
+
+    $default  reduce using rule 110 (flip)
+
+
+state 97
+
+  107 flip: DEF_HORIZONTAL .
+
+    $default  reduce using rule 107 (flip)
+
+
+state 98
+
+  109 flip: DEF_VERTICAL .
+
+    $default  reduce using rule 109 (flip)
+
+
+state 99
+
+  106 maybe_flip: multiple_num_comma_values ',' ',' . color_sub
+
+    IDENTIFIER                 shift, and go to state 136
+    DEF_ALPHA_BLEND            shift, and go to state 137
+    DEF_ALPHA_BLEND_SHORTHAND  shift, and go to state 138
+    DEF_COLOR_ADDITION         shift, and go to state 139
+    DEF_COLOR_SUBTRACT         shift, and go to state 140
+
+    color_sub  go to state 141
+
+
+state 100
+
+   44 multiple_num_comma_values: multiple_num_comma_values ',' value .
+
+    $default  reduce using rule 44 (multiple_num_comma_values)
+
+
+state 101
+
+  104 maybe_flip: multiple_num_comma_values ',' flip .
+  105           | multiple_num_comma_values ',' flip . ',' color_sub
+
+    ','  shift, and go to state 142
+
+    $default  reduce using rule 104 (maybe_flip)
+
+
+state 102
+
+   43 multiple_num_comma_values: value ',' value .
+
+    $default  reduce using rule 43 (multiple_num_comma_values)
+
+
+state 103
+
+   25 lhs: variable '(' value . ')'
+
+    ')'  shift, and go to state 143
+
+
+state 104
+
+   57 variable: variable '.' NUMBER .
+
+    $default  reduce using rule 57 (variable)
+
+
+state 105
+
+   54 variable: variable '.' IDENTIFIER .
+
+    $default  reduce using rule 54 (variable)
+
+
+state 106
+
+   55 variable: variable '.' DEF_FILENAME .
+
+    $default  reduce using rule 55 (variable)
+
+
+state 107
+
+   56 variable: variable '.' DEF_FILENAME_2 .
+
+    $default  reduce using rule 56 (variable)
+
+
+state 108
+
+   75 data_list: data_list ',' data .
+
+    $default  reduce using rule 75 (data_list)
+
+
+state 109
+
+   74 data_list: data ',' data .
+
+    $default  reduce using rule 74 (data_list)
+
+
+state 110
+
+   93 section: '[' NUMBER NUMBER NUMBER . ']'
+
+    ']'  shift, and go to state 144
+
+
+state 111
+
+   92 section: '[' NUMBER NUMBER ']' .
+
+    $default  reduce using rule 92 (section)
+
+
+state 112
+
+   88 section: '[' IDENTIFIER NUMBER ']' .
+
+    $default  reduce using rule 88 (section)
+
+
+state 113
+
+   95 section: '[' DEF_SELECTBG NUMBER ']' .
+
+    $default  reduce using rule 95 (section)
+
+
+state 114
+
+   96 section: '[' DEF_SELECTBG NUMBER '.' . IDENTIFIER ']'
+   97        | '[' DEF_SELECTBG NUMBER '.' . DEF_COLOR_ADDITION ']'
+   98        | '[' DEF_SELECTBG NUMBER '.' . DEF_COLOR_SUBTRACT ']'
+
+    IDENTIFIER          shift, and go to state 145
+    DEF_COLOR_ADDITION  shift, and go to state 146
+    DEF_COLOR_SUBTRACT  shift, and go to state 147
+
+
+state 115
+
+   99 section: '[' DEF_SELECTBGCTRL NUMBER ']' .
+
+    $default  reduce using rule 99 (section)
+
+
+state 116
+
+  100 section: '[' DEF_SELECTBGCTRL NUMBER '.' . IDENTIFIER ']'
+
+    IDENTIFIER  shift, and go to state 148
+
+
+state 117
+
+   90 section: '[' identificator_list ',' NUMBER . ']'
+
+    ']'  shift, and go to state 149
+
+
+state 118
+
+   89 section: '[' identificator_list ',' IDENTIFIER . ']'
+
+    ']'  shift, and go to state 150
+
+
+state 119
+
+   40 multiple_str_values: NUMBER IDENTIFIER .
+
+    $default  reduce using rule 40 (multiple_str_values)
+
+
+state 120
+
+   33 expression1: '(' expression . ')'
+
+    ')'  shift, and go to state 151
+
+
+state 121
+
+   34 expression1: '!' value .
+
+    $default  reduce using rule 34 (expression1)
+
+
+state 122
+
+   28 expression_list: expression_list ',' . expression
+
+    QUOTESTRING     shift, and go to state 3
+    NUMBER          shift, and go to state 77
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+    '('             shift, and go to state 81
+    '!'             shift, and go to state 82
+
+    expression                 go to state 152
+    expression1                go to state 86
+    multiple_str_values        go to state 87
+    multiple_num_comma_values  go to state 88
+    multiple_num_values        go to state 89
+    value                      go to state 90
+    string_value               go to state 91
+    variable_rhs               go to state 92
+    data_list                  go to state 93
+    data                       go to state 94
+
+
+state 123
+
+   29 maybe_comma: ',' .
+
+    $default  reduce using rule 29 (maybe_comma)
+
+
+state 124
+
+   27 expression_list: expression maybe_comma .
+
+    $default  reduce using rule 27 (expression_list)
+
+
+state 125
+
+   42 multiple_str_values: multiple_str_values string_value .
+
+    $default  reduce using rule 42 (multiple_str_values)
+
+
+state 126
+
+   49 string_value: variable_rhs . '(' expression_list ')'
+   50             | variable_rhs .
+   67 variable_rhs: variable_rhs . '.' IDENTIFIER
+   68             | variable_rhs . '.' NUMBER
+
+    '('  shift, and go to state 133
+    '.'  shift, and go to state 134
+
+    $default  reduce using rule 50 (string_value)
+
+
+state 127
+
+   48 string_value: data .
+   65 variable_rhs: data . '.' IDENTIFIER
+   66             | data . '.' NUMBER
+
+    '.'  shift, and go to state 135
+
+    $default  reduce using rule 48 (string_value)
+
+
+state 128
+
+   44 multiple_num_comma_values: multiple_num_comma_values ',' . value
+
+    NUMBER  shift, and go to state 4
+
+    value  go to state 100
+
+
+state 129
+
+   46 multiple_num_values: value multiple_num_values .
+
+    $default  reduce using rule 46 (multiple_num_values)
+
+
+state 130
+
+   45 multiple_num_values: value .
+   46                    | value . multiple_num_values
+
+    NUMBER  shift, and go to state 4
+
+    $default  reduce using rule 45 (multiple_num_values)
+
+    multiple_num_values  go to state 129
+    value                go to state 130
+
+
+state 131
+
+   41 multiple_str_values: string_value string_value .
+
+    $default  reduce using rule 41 (multiple_str_values)
+
+
+state 132
+
+   31 expression: variable_rhs '=' . value
+
+    NUMBER  shift, and go to state 4
+
+    value  go to state 153
+
+
+state 133
+
+   49 string_value: variable_rhs '(' . expression_list ')'
+
+    QUOTESTRING     shift, and go to state 3
+    NUMBER          shift, and go to state 77
+    IDENTIFIER      shift, and go to state 78
+    DEF_FILENAME    shift, and go to state 79
+    DEF_FILENAME_2  shift, and go to state 80
+    DATE            shift, and go to state 20
+    '('             shift, and go to state 81
+    '!'             shift, and go to state 82
+
+    expression_list            go to state 154
+    expression                 go to state 85
+    expression1                go to state 86
+    multiple_str_values        go to state 87
+    multiple_num_comma_values  go to state 88
+    multiple_num_values        go to state 89
+    value                      go to state 90
+    string_value               go to state 91
+    variable_rhs               go to state 92
+    data_list                  go to state 93
+    data                       go to state 94
+
+
+state 134
+
+   67 variable_rhs: variable_rhs '.' . IDENTIFIER
+   68             | variable_rhs '.' . NUMBER
+
+    NUMBER      shift, and go to state 155
+    IDENTIFIER  shift, and go to state 156
+
+
+state 135
+
+   65 variable_rhs: data '.' . IDENTIFIER
+   66             | data '.' . NUMBER
+
+    NUMBER      shift, and go to state 157
+    IDENTIFIER  shift, and go to state 158
+
+
+state 136
+
+  112 color_sub: IDENTIFIER .
+
+    $default  reduce using rule 112 (color_sub)
+
+
+state 137
+
+  114 color_sub: DEF_ALPHA_BLEND .
+
+    $default  reduce using rule 114 (color_sub)
+
+
+state 138
+
+  115 color_sub: DEF_ALPHA_BLEND_SHORTHAND .
+
+    $default  reduce using rule 115 (color_sub)
+
+
+state 139
+
+  111 color_sub: DEF_COLOR_ADDITION .
+
+    $default  reduce using rule 111 (color_sub)
+
+
+state 140
+
+  113 color_sub: DEF_COLOR_SUBTRACT .
+
+    $default  reduce using rule 113 (color_sub)
+
+
+state 141
+
+  106 maybe_flip: multiple_num_comma_values ',' ',' color_sub .
+
+    $default  reduce using rule 106 (maybe_flip)
+
+
+state 142
+
+  105 maybe_flip: multiple_num_comma_values ',' flip ',' . color_sub
+
+    IDENTIFIER                 shift, and go to state 136
+    DEF_ALPHA_BLEND            shift, and go to state 137
+    DEF_ALPHA_BLEND_SHORTHAND  shift, and go to state 138
+    DEF_COLOR_ADDITION         shift, and go to state 139
+    DEF_COLOR_SUBTRACT         shift, and go to state 140
+
+    color_sub  go to state 159
+
+
+state 143
+
+   25 lhs: variable '(' value ')' .
+
+    $default  reduce using rule 25 (lhs)
+
+
+state 144
+
+   93 section: '[' NUMBER NUMBER NUMBER ']' .
+
+    $default  reduce using rule 93 (section)
+
+
+state 145
+
+   96 section: '[' DEF_SELECTBG NUMBER '.' IDENTIFIER . ']'
+
+    ']'  shift, and go to state 160
+
+
+state 146
+
+   97 section: '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_ADDITION . ']'
+
+    ']'  shift, and go to state 161
+
+
+state 147
+
+   98 section: '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_SUBTRACT . ']'
+
+    ']'  shift, and go to state 162
+
+
+state 148
+
+  100 section: '[' DEF_SELECTBGCTRL NUMBER '.' IDENTIFIER . ']'
+
+    ']'  shift, and go to state 163
+
+
+state 149
+
+   90 section: '[' identificator_list ',' NUMBER ']' .
+
+    $default  reduce using rule 90 (section)
+
+
+state 150
+
+   89 section: '[' identificator_list ',' IDENTIFIER ']' .
+
+    $default  reduce using rule 89 (section)
+
+
+state 151
+
+   33 expression1: '(' expression ')' .
+
+    $default  reduce using rule 33 (expression1)
+
+
+state 152
+
+   28 expression_list: expression_list ',' expression .
+
+    $default  reduce using rule 28 (expression_list)
+
+
+state 153
+
+   31 expression: variable_rhs '=' value .
+
+    $default  reduce using rule 31 (expression)
+
+
+state 154
+
+   28 expression_list: expression_list . ',' expression
+   49 string_value: variable_rhs '(' expression_list . ')'
+
+    ')'  shift, and go to state 164
+    ','  shift, and go to state 122
+
+
+state 155
+
+   68 variable_rhs: variable_rhs '.' NUMBER .
+
+    $default  reduce using rule 68 (variable_rhs)
+
+
+state 156
+
+   67 variable_rhs: variable_rhs '.' IDENTIFIER .
+
+    $default  reduce using rule 67 (variable_rhs)
+
+
+state 157
+
+   66 variable_rhs: data '.' NUMBER .
+
+    $default  reduce using rule 66 (variable_rhs)
+
+
+state 158
+
+   65 variable_rhs: data '.' IDENTIFIER .
+
+    $default  reduce using rule 65 (variable_rhs)
+
+
+state 159
+
+  105 maybe_flip: multiple_num_comma_values ',' flip ',' color_sub .
+
+    $default  reduce using rule 105 (maybe_flip)
+
+
+state 160
+
+   96 section: '[' DEF_SELECTBG NUMBER '.' IDENTIFIER ']' .
+
+    $default  reduce using rule 96 (section)
+
+
+state 161
+
+   97 section: '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_ADDITION ']' .
+
+    $default  reduce using rule 97 (section)
+
+
+state 162
+
+   98 section: '[' DEF_SELECTBG NUMBER '.' DEF_COLOR_SUBTRACT ']' .
+
+    $default  reduce using rule 98 (section)
+
+
+state 163
+
+  100 section: '[' DEF_SELECTBGCTRL NUMBER '.' IDENTIFIER ']' .
+
+    $default  reduce using rule 100 (section)
+
+
+state 164
+
+   49 string_value: variable_rhs '(' expression_list ')' .
+
+    $default  reduce using rule 49 (string_value)

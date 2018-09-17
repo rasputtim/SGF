@@ -1,0 +1,2899 @@
+[118:sm_loadConfigurations] START LOADING CONFIGURATION 
+[115:getInstance]  BEGIN
+[115:getInstance]  - CREATING NEW FILESYSTEM OBJECT
+[115:getDataPath2]  BEGIN GET DATA PATH
+[115:getDataPath2]  END GET DATA PATH BASEPATH: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:getDataPath2]  END GET DATA PATH REALPATH: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:CGameFileSystem]   CONSTRUCTOR dataPath:  D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:operator=] operator=Coping Path Object: C:\Users\me\AppData\Roaming\sgf_configuration.xml
+[115:operator=] operator=Object copied: C:\Users\me\AppData\Roaming\sgf_configuration.xml
+[115:operator=] -----------------------------------------------------
+[115:CIsolatedPath]  - Constructor: mypath: open\sgf_configuration.xml
+[115:CIsolatedPath]  END - Path initialized open\sgf_configuration.xml
+[115:joinToCurrent] -----------------------------------------------------
+[115:joinToCurrent]  to join: open\sgf_configuration.xml
+[115:joinToCurrent] joined: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\sgf_configuration.xml
+[115:joinToCurrent] not found and not exists D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\sgf_configuration.xml
+[100:joinToCurrent] original path: open\sgf_configuration.xml
+[115:joinToCurrent] -----------------------------------------------------
+[115:getInstance]  BEGIN
+[115:operator=] operator=Coping Path Object: C:\Users\me\AppData\Roaming\sgf_configuration.xml
+[115:operator=] operator=Object copied: C:\Users\me\AppData\Roaming\sgf_configuration.xml
+[115:operator=] -----------------------------------------------------
+[115:CIsolatedPath]  - Constructor: mypath: open\sgf_configuration.xml
+[115:CIsolatedPath]  END - Path initialized open\sgf_configuration.xml
+[115:joinToCurrent] -----------------------------------------------------
+[115:joinToCurrent]  to join: open\sgf_configuration.xml
+[115:joinToCurrent] joined: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\sgf_configuration.xml
+[115:joinToCurrent] not found and not exists D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\sgf_configuration.xml
+[100:joinToCurrent] original path: open\sgf_configuration.xml
+[115:joinToCurrent] -----------------------------------------------------
+[118:sm_loadConfigurations] Notice: Could not load configuration file D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\sgf_configuration.xml: D:\Projetos\c++\GameEngine\sgf\Source\configuration\SGF_Configuration.cpp:2047 Config file  Does Not Exist - Using Default Configuration Parâmeters
+[118:sm_loadConfigurations] END LOADING CONFIGURATION 
+[118:CGameControl] BEGIN CREATING JANITOR (GARBAGE COLLECTOR)================
+[102:CFontList] Initializing Font List 
+[109:findFonts] BEGIN 
+[115:CRelativePath]  - Constructor: mypath: fonts
+[115:CRelativePath]  - BEGIN CREATING LOCAL PATH 
+[115:getInstance]  BEGIN
+[115:find]   -  Path to find: fonts
+[115:lookup]  Will try to find: 'fonts'
+[115:localJoin] -----------------------------------------------------
+[115:localJoin]  to join: fonts
+[115:localJoin]  joined: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\fonts
+[115:localJoin] Path Joined and not exists D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\fonts
+[115:localJoin] -----------------------------------------------------
+[115:lookup] Try in current directory : 'D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\fonts'
+[115:lookup]  Try in current directory NOT FOUND: 
+[115:lookup] --------------------------------------------------------
+[115:lookup]  Try in Main Data directory : 
+[115:join] -----------------------------------------------------
+[115:join]  to join: fonts
+[115:join]  to join complete path: fonts
+[115:join]  to join isComplete: 0
+[115:join]  to join existes: 0
+[115:join]  will try is not complete join: 
+[115:join]  to join this path: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:join]  complete made string: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\fonts
+[115:join] joined and not exists: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:join] -----------------------------------------------------
+[115:lookup]   Try in Main  Data directory dataPAth From CGameFilesystem:  D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\fonts
+[115:lookup]  Try in Main Data directory NOT FOUND: 
+[115:lookup] --------------------------------------------------------
+[115:lookup]  Try in Main GAmeEngine directory 
+[115:getGamePath]  BEGIN GET GAME PATH
+[115:getGamePath]  END GET GAME PATH BASEPATH: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\
+[115:getGamePath]  END GET GAME PATH REALPATH: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\
+[115:operator=] operator=Coping Path Object: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\
+[115:operator=] operator=Object copied: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\
+[115:operator=] -----------------------------------------------------
+[115:localJoin] -----------------------------------------------------
+[115:localJoin]  to join: fonts
+[115:localJoin]  joined: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\fonts
+[115:localJoin] Path Joined and not exists D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\fonts
+[115:localJoin] -----------------------------------------------------
+[115:lookup]  Try in Main GAmeEngine directory : 'D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\fonts'
+[115:lookup]  Try in Main GameEngine NOT FOUND: 
+[115:lookup] --------------------------------------------------------
+[115:lookup]  Try in User directory : 'D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\open\fonts'
+[115:join] -----------------------------------------------------
+[115:join]  to join: fonts
+[115:join]  to join complete path: fonts
+[115:join]  to join isComplete: 0
+[115:join]  to join existes: 0
+[115:join]  will try is not complete join: 
+[115:join]  to join this path: C:\Users\me\AppData\Roaming
+[115:join]  complete made string: C:\Users\me\AppData\Roaming\fonts
+[115:join] joined and exists: C:\Users\me\AppData\Roaming
+[115:join] -----------------------------------------------------
+[115:operator=] operator=Coping Path Object: C:\Users\me\AppData\Roaming\fonts
+[115:operator=] operator=Object copied: C:\Users\me\AppData\Roaming\fonts
+[115:operator=] -----------------------------------------------------
+[115:lookup]  Try in User CDirectory NOT FOUND: 
+[115:lookup] --------------------------------------------------------
+[115:lookup]  Try in CWD only - IS NOT A ABSOLUTE PATH : 'C:\Users\me\AppData\Roaming\fonts'
+[115:operator=] operator=Coping Path Object: fonts
+[115:operator=] operator=Object copied: fonts
+[115:operator=] -----------------------------------------------------
+[115:join] -----------------------------------------------------
+[115:join]  to join: fonts
+[115:join]  to join complete path: fonts
+[115:join]  to join isComplete: 0
+[115:join]  to join existes: 0
+[115:join]  will try is not complete join: 
+[115:join]  to join this path: C:\Users\me\AppData\Roaming
+[115:join]  complete made string: C:\Users\me\AppData\Roaming\fonts
+[115:join] joined and exists: C:\Users\me\AppData\Roaming
+[115:join] -----------------------------------------------------
+[115:join] -----------------------------------------------------
+[115:join]  to join: fonts
+[115:join]  to join complete path: fonts
+[115:join]  to join isComplete: 0
+[115:join]  to join existes: 0
+[115:join]  will try is not complete join: 
+[115:join]  to join this path: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:join]  complete made string: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\fonts
+[115:join] joined and not exists: D:\Projetos\c++\GameEngine\sgf\Exemplos\Tutorial_01-CriarJanela\build\mingw\data\
+[115:join] -----------------------------------------------------
+[100:CRelativePath]  not found and not exists fonts
+[100:CRelativePath] original path: fonts
+[115:CRelativePath]  END Path initialized and NOT exists fonts
+[109:findSystemFonts] BEGIN 
+[109:findSystemFonts] Will get windows fonts at: C:\Windows\fonts
+[115:getInstance]  BEGIN
+[109:getFiles] FOUND: 419 files.
+[109:findFonts] Adding system font `C:\Windows\fonts\AGENCYB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\AGENCYR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ahronbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ALGER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\andlso.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\angsaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUAB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUABI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ANTQUAI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparaj.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparajb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparajbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\aparaji.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arabtype.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arial.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arialbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\arialbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ariali.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALNI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARIALUNI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ariblk.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ARLRDBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BASKVILL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BAUHS93.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELLB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BELLI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BERNHC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BKANT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_B.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BLAI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_BLAR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_CR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_I.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_PSTC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOD_R.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BOOKOSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRADHITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRITANIC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSDB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRLNSR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BROADW.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\browa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\browaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\BRUSHSCI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BSSYM7.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\BuxtonSketch.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibri.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibrib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibrii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibril.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibrili.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\calibriz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIFR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALIST.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CALISTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\cambriab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cambriai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cambriaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candara.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candarab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candarai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Candaraz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CASTELAR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENSCBK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENTAUR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CENTURY.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\CHILLER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COLONNA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\comic.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\comicbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consola.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\consolaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constan.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constanb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constani.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\constanz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\COOPBL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COPRGTB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\COPRGTL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbel.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbelb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbeli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\corbelz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiau.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiauz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cordiaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\cour.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\courbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\courbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\couri.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\CURLZ___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\daunpenh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\david.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\davidbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\dokchamp.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ebrima.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ebrimabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ELEPHNT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ELEPHNTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ENGR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASDEMI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASLGHT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ERASMD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\estre.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\euphemia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FELIXTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FORTE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRABK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRABKIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADM.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADMCN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRADMIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAHV.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAHVIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\framd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRAMDCN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\framdit.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\frank.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\FREESCPT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FRSCRIPT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\FTLTLT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\Gabriola.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARABD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GARAIT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\gautami.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\gautamib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgia.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\georgiaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GIGI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILBI___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILC____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILLUBCD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GILSANUB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GIL_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\gisha.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\gishabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\GLECB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GLSNECB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHIC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOTHICI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOSB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDOSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\GOUDYSTO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HARLOWSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HARNGTON.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HATTEN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\himalaya.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\HTOWERT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\HTOWERTI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\impact.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\IMPRISHA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\INFROMAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\iskpota.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\iskpotab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCBLKAD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCEDSCR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ITCKRIST.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\JOKERMAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\JUICE___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\kaiu.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kalinga.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kalingab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kartika.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kartikab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KhmerUI.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KhmerUIb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokila.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilabi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\kokilai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\KUNSTLER.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LaoUI.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LaoUIb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\latha.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lathab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LATINWD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITED.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITEDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LBRITEI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LCALLIG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\leelawad.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\leelawdb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAX.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LFAXI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LHANDW.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSDI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LSANSI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEBO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\LTYPEO.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\lucon.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lvnm.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\lvnmbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\l_10646.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MAGNETOB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\MAIAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\majalla.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\majallab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\malgun.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\malgunbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mangal.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mangalb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\marlett.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MATURASC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\micross.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MISTRAL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\MOD20.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\monbaiti.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\moolbor.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mriam.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\mriamc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msjh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msjhbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msuighur.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyh.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyhbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\msyi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\MTCORSVA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\mvboli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\NIAGENG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\NIAGSOL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\nrkis.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ntailu.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\ntailub.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\nyala.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\OCRAEXT.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\OLDENGL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ONYX.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\OUTLOOK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\pala.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palabi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\palai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\PALSCRI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PAPYRUS.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PARCHM.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERBI___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERTIBD.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PERTILI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PER_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\phagspa.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\phagspab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\plantc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\PLAYBILL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\POORICH.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\PRISTINA.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\raavi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\raavib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\RAGE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\RAVIE.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\REFSAN.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\REFSPCL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCCB___.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCC____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCK.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\ROCKI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\rod.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKBI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCHLBKI.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SCRIPTBL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\SegoeMarker.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoepr.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeprb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoesc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoescb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeui.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuil.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\segoeuiz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\seguisb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\seguisym.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Shonar.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Shonarb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SHOWG.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\shruti.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\shrutib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simfang.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simhei.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simkai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpbdo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpfxo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simpo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\simsunb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SketchFlow Print.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\SNAP____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\STENCIL.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\sylfaen.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\symbol.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tahoma.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tahomabd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\taile.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\taileb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCBI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCB_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCB____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCEB.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCCM____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCMI____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TCM_____.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\TEMPSITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\times.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\timesi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tradbdo.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trado.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebuc.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucbd.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\trebucit.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tunga.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\tungab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcdl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upceb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcebi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcei.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcel.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcfl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcibi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcii.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcil.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcji.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcjl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcki.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upckl.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upclb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upclbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcli.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\upcll.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaah.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahb.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahbi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\utsaahi.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Vani.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\Vanib.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdana.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanai.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\verdanaz.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vijaya.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vijayab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\VINERITC.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\VIVALDII.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\VLADIMIR.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\vrinda.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\vrindab.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\webdings.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\wingding.ttf'
+[109:findFonts] Adding system font `C:\Windows\fonts\WINGDNG2.TTF'
+[109:findFonts] Adding system font `C:\Windows\fonts\WINGDNG3.TTF'
+[109:findFonts] WILL SORT FONTS `
+[109:findFonts] END SORTING FONTS `
+[109:findFonts] Fonts added and sorted - Returning 
+[109:findFonts] END 
+[118:CGameControl] END CREATING JANITOR (GARBAGE COLLECTOR)================
+[118:CGameControl] END LOADING CONFIGURATIONS (CConfiguration)================
+[118:CGameControl] START LOADING MOD (OpenMugen::Mod)================
+[125:CTokenReaderXML] CTokenReaderXML::CTokenReaderXML( const string * file ) // Constructor //=> File: open\mod\mod.xml
+[125:CTokenReaderXML] CTokenReaderXML::CTokenReaderXML( const string * file ) // Opened //=> File: open\mod\mod.xml
+[125:readToken] CTokenReaderXML::readToken() // BEGIN //
+[125:~CTokenReaderXML] CTokenReaderXML::~CTokenReaderXML // Destructor //
+[125:~CTokenReaderXML] CTokenReaderXML::~CTokenReaderXML // Closed File //
+[118:CGameControl] END LOADING MOD (OpenMugen::Mod)================
+[118:CGameControl] START SDL PHASE 1 (CSDLMANAGER)================
+[124:Init] CSDLManager::Init()
+[118:Init] STATE = 0x211e188
+[124:Init] CSDLManager::Init() // Requesting glSDL. // 
+[124:CommonInit] CSDLManager::CommonInit // -------------------------------------------
+[124:CommonInit] Number of displays:: 1
+[124:CommonInit] Displays : 0
+[124:CommonInit] Current mode:   windows
+[124:CommonInit] Width:          1366
+[124:CommonInit] Height:	        768
+[124:CommonInit] Refr. Rate:     60 Hz
+[124:CommonInit] Bits per pixel: 32
+[124:CommonInit] Pixel Format:   SDL_PIXELFORMAT_RGB888
+[124:CommonInit] Pixel Format:   370546692
+[124:CommonInit] Red Mask:   16711680
+[124:CommonInit] Green Mask:   65280
+[124:CommonInit] Blue Mask:   255
+[124:Init] VIDEO OK
+[124:Init] AUDIO OK
+[111:InitSystem] CSoundSystem::InitSystem()
+[111:InitSystem] There are 0 sample chunk deocoders available
+[124:Init] JOYSTICK OK
+[124:Init] TIMER OK
+[124:Init] WILL START NEW TIMER
+[124:Init] FRAME MANAGER OK
+[124:Init] WILL INIT FASTEVENTS: 1 : 1
+[124:Init] FASTEVENTS OK
+[124:Init] TTF OK
+[111:getTTFont] BEGIN // fonte:arial.ttf
+[102:CTTFFont] Constructor // Fontes Disponíveis=419
+[102:LoadFont] Iniciando a fonte : arial.ttf
+[111:LoadFont] Will get fonte Path to : arial.ttf
+[111:GetFontPath] fonte : arial.ttf
+[111:findFontVector] caminho da fonte encontrado : C:\Windows\fonts\arial.ttf
+[111:GetFontPath] Achou o caminho para a fonte:C:\Windows\fonts\arial.ttf
+[111:LoadFont] caminho para a fonte Encontrado: C:\Windows\fonts\arial.ttf
+[111:LoadFont] Font initiated OK
+[111:_getTTFont] set size and initialize font:file,sizearial.ttf ' 30
+[109:PrintFonts] Printing List of Available Fonts 
+AGENCYB.TTF - Path: C:\Windows\fonts\AGENCYB.TTF
+AGENCYR.TTF - Path: C:\Windows\fonts\AGENCYR.TTF
+ahronbd.ttf - Path: C:\Windows\fonts\ahronbd.ttf
+ALGER.TTF - Path: C:\Windows\fonts\ALGER.TTF
+andlso.ttf - Path: C:\Windows\fonts\andlso.ttf
+angsa.ttf - Path: C:\Windows\fonts\angsa.ttf
+angsab.ttf - Path: C:\Windows\fonts\angsab.ttf
+angsai.ttf - Path: C:\Windows\fonts\angsai.ttf
+angsau.ttf - Path: C:\Windows\fonts\angsau.ttf
+angsaub.ttf - Path: C:\Windows\fonts\angsaub.ttf
+angsaui.ttf - Path: C:\Windows\fonts\angsaui.ttf
+angsauz.ttf - Path: C:\Windows\fonts\angsauz.ttf
+angsaz.ttf - Path: C:\Windows\fonts\angsaz.ttf
+ANTQUAB.TTF - Path: C:\Windows\fonts\ANTQUAB.TTF
+ANTQUABI.TTF - Path: C:\Windows\fonts\ANTQUABI.TTF
+ANTQUAI.TTF - Path: C:\Windows\fonts\ANTQUAI.TTF
+aparaj.ttf - Path: C:\Windows\fonts\aparaj.ttf
+aparajb.ttf - Path: C:\Windows\fonts\aparajb.ttf
+aparajbi.ttf - Path: C:\Windows\fonts\aparajbi.ttf
+aparaji.ttf - Path: C:\Windows\fonts\aparaji.ttf
+arabtype.ttf - Path: C:\Windows\fonts\arabtype.ttf
+arial.ttf - Path: C:\Windows\fonts\arial.ttf
+arialbd.ttf - Path: C:\Windows\fonts\arialbd.ttf
+arialbi.ttf - Path: C:\Windows\fonts\arialbi.ttf
+ariali.ttf - Path: C:\Windows\fonts\ariali.ttf
+ARIALN.TTF - Path: C:\Windows\fonts\ARIALN.TTF
+ARIALNB.TTF - Path: C:\Windows\fonts\ARIALNB.TTF
+ARIALNBI.TTF - Path: C:\Windows\fonts\ARIALNBI.TTF
+ARIALNI.TTF - Path: C:\Windows\fonts\ARIALNI.TTF
+ARIALUNI.TTF - Path: C:\Windows\fonts\ARIALUNI.TTF
+ariblk.ttf - Path: C:\Windows\fonts\ariblk.ttf
+ARLRDBD.TTF - Path: C:\Windows\fonts\ARLRDBD.TTF
+BASKVILL.TTF - Path: C:\Windows\fonts\BASKVILL.TTF
+BAUHS93.TTF - Path: C:\Windows\fonts\BAUHS93.TTF
+BELL.TTF - Path: C:\Windows\fonts\BELL.TTF
+BELLB.TTF - Path: C:\Windows\fonts\BELLB.TTF
+BELLI.TTF - Path: C:\Windows\fonts\BELLI.TTF
+BERNHC.TTF - Path: C:\Windows\fonts\BERNHC.TTF
+BKANT.TTF - Path: C:\Windows\fonts\BKANT.TTF
+BOD_B.TTF - Path: C:\Windows\fonts\BOD_B.TTF
+BOD_BI.TTF - Path: C:\Windows\fonts\BOD_BI.TTF
+BOD_BLAI.TTF - Path: C:\Windows\fonts\BOD_BLAI.TTF
+BOD_BLAR.TTF - Path: C:\Windows\fonts\BOD_BLAR.TTF
+BOD_CB.TTF - Path: C:\Windows\fonts\BOD_CB.TTF
+BOD_CBI.TTF - Path: C:\Windows\fonts\BOD_CBI.TTF
+BOD_CI.TTF - Path: C:\Windows\fonts\BOD_CI.TTF
+BOD_CR.TTF - Path: C:\Windows\fonts\BOD_CR.TTF
+BOD_I.TTF - Path: C:\Windows\fonts\BOD_I.TTF
+BOD_PSTC.TTF - Path: C:\Windows\fonts\BOD_PSTC.TTF
+BOD_R.TTF - Path: C:\Windows\fonts\BOD_R.TTF
+BOOKOS.TTF - Path: C:\Windows\fonts\BOOKOS.TTF
+BOOKOSB.TTF - Path: C:\Windows\fonts\BOOKOSB.TTF
+BOOKOSBI.TTF - Path: C:\Windows\fonts\BOOKOSBI.TTF
+BOOKOSI.TTF - Path: C:\Windows\fonts\BOOKOSI.TTF
+BRADHITC.TTF - Path: C:\Windows\fonts\BRADHITC.TTF
+BRITANIC.TTF - Path: C:\Windows\fonts\BRITANIC.TTF
+BRLNSB.TTF - Path: C:\Windows\fonts\BRLNSB.TTF
+BRLNSDB.TTF - Path: C:\Windows\fonts\BRLNSDB.TTF
+BRLNSR.TTF - Path: C:\Windows\fonts\BRLNSR.TTF
+BROADW.TTF - Path: C:\Windows\fonts\BROADW.TTF
+browa.ttf - Path: C:\Windows\fonts\browa.ttf
+browab.ttf - Path: C:\Windows\fonts\browab.ttf
+browai.ttf - Path: C:\Windows\fonts\browai.ttf
+browau.ttf - Path: C:\Windows\fonts\browau.ttf
+browaub.ttf - Path: C:\Windows\fonts\browaub.ttf
+browaui.ttf - Path: C:\Windows\fonts\browaui.ttf
+browauz.ttf - Path: C:\Windows\fonts\browauz.ttf
+browaz.ttf - Path: C:\Windows\fonts\browaz.ttf
+BRUSHSCI.TTF - Path: C:\Windows\fonts\BRUSHSCI.TTF
+BSSYM7.TTF - Path: C:\Windows\fonts\BSSYM7.TTF
+BuxtonSketch.ttf - Path: C:\Windows\fonts\BuxtonSketch.ttf
+calibri.ttf - Path: C:\Windows\fonts\calibri.ttf
+calibrib.ttf - Path: C:\Windows\fonts\calibrib.ttf
+calibrii.ttf - Path: C:\Windows\fonts\calibrii.ttf
+calibril.ttf - Path: C:\Windows\fonts\calibril.ttf
+calibrili.ttf - Path: C:\Windows\fonts\calibrili.ttf
+calibriz.ttf - Path: C:\Windows\fonts\calibriz.ttf
+CALIFB.TTF - Path: C:\Windows\fonts\CALIFB.TTF
+CALIFI.TTF - Path: C:\Windows\fonts\CALIFI.TTF
+CALIFR.TTF - Path: C:\Windows\fonts\CALIFR.TTF
+CALIST.TTF - Path: C:\Windows\fonts\CALIST.TTF
+CALISTB.TTF - Path: C:\Windows\fonts\CALISTB.TTF
+CALISTBI.TTF - Path: C:\Windows\fonts\CALISTBI.TTF
+CALISTI.TTF - Path: C:\Windows\fonts\CALISTI.TTF
+cambriab.ttf - Path: C:\Windows\fonts\cambriab.ttf
+cambriai.ttf - Path: C:\Windows\fonts\cambriai.ttf
+cambriaz.ttf - Path: C:\Windows\fonts\cambriaz.ttf
+Candara.ttf - Path: C:\Windows\fonts\Candara.ttf
+Candarab.ttf - Path: C:\Windows\fonts\Candarab.ttf
+Candarai.ttf - Path: C:\Windows\fonts\Candarai.ttf
+Candaraz.ttf - Path: C:\Windows\fonts\Candaraz.ttf
+CASTELAR.TTF - Path: C:\Windows\fonts\CASTELAR.TTF
+CENSCBK.TTF - Path: C:\Windows\fonts\CENSCBK.TTF
+CENTAUR.TTF - Path: C:\Windows\fonts\CENTAUR.TTF
+CENTURY.TTF - Path: C:\Windows\fonts\CENTURY.TTF
+CHILLER.TTF - Path: C:\Windows\fonts\CHILLER.TTF
+COLONNA.TTF - Path: C:\Windows\fonts\COLONNA.TTF
+comic.ttf - Path: C:\Windows\fonts\comic.ttf
+comicbd.ttf - Path: C:\Windows\fonts\comicbd.ttf
+consola.ttf - Path: C:\Windows\fonts\consola.ttf
+consolab.ttf - Path: C:\Windows\fonts\consolab.ttf
+consolai.ttf - Path: C:\Windows\fonts\consolai.ttf
+consolaz.ttf - Path: C:\Windows\fonts\consolaz.ttf
+constan.ttf - Path: C:\Windows\fonts\constan.ttf
+constanb.ttf - Path: C:\Windows\fonts\constanb.ttf
+constani.ttf - Path: C:\Windows\fonts\constani.ttf
+constanz.ttf - Path: C:\Windows\fonts\constanz.ttf
+COOPBL.TTF - Path: C:\Windows\fonts\COOPBL.TTF
+COPRGTB.TTF - Path: C:\Windows\fonts\COPRGTB.TTF
+COPRGTL.TTF - Path: C:\Windows\fonts\COPRGTL.TTF
+corbel.ttf - Path: C:\Windows\fonts\corbel.ttf
+corbelb.ttf - Path: C:\Windows\fonts\corbelb.ttf
+corbeli.ttf - Path: C:\Windows\fonts\corbeli.ttf
+corbelz.ttf - Path: C:\Windows\fonts\corbelz.ttf
+cordia.ttf - Path: C:\Windows\fonts\cordia.ttf
+cordiab.ttf - Path: C:\Windows\fonts\cordiab.ttf
+cordiai.ttf - Path: C:\Windows\fonts\cordiai.ttf
+cordiau.ttf - Path: C:\Windows\fonts\cordiau.ttf
+cordiaub.ttf - Path: C:\Windows\fonts\cordiaub.ttf
+cordiaui.ttf - Path: C:\Windows\fonts\cordiaui.ttf
+cordiauz.ttf - Path: C:\Windows\fonts\cordiauz.ttf
+cordiaz.ttf - Path: C:\Windows\fonts\cordiaz.ttf
+cour.ttf - Path: C:\Windows\fonts\cour.ttf
+courbd.ttf - Path: C:\Windows\fonts\courbd.ttf
+courbi.ttf - Path: C:\Windows\fonts\courbi.ttf
+couri.ttf - Path: C:\Windows\fonts\couri.ttf
+CURLZ___.TTF - Path: C:\Windows\fonts\CURLZ___.TTF
+daunpenh.ttf - Path: C:\Windows\fonts\daunpenh.ttf
+david.ttf - Path: C:\Windows\fonts\david.ttf
+davidbd.ttf - Path: C:\Windows\fonts\davidbd.ttf
+dokchamp.ttf - Path: C:\Windows\fonts\dokchamp.ttf
+ebrima.ttf - Path: C:\Windows\fonts\ebrima.ttf
+ebrimabd.ttf - Path: C:\Windows\fonts\ebrimabd.ttf
+ELEPHNT.TTF - Path: C:\Windows\fonts\ELEPHNT.TTF
+ELEPHNTI.TTF - Path: C:\Windows\fonts\ELEPHNTI.TTF
+ENGR.TTF - Path: C:\Windows\fonts\ENGR.TTF
+ERASBD.TTF - Path: C:\Windows\fonts\ERASBD.TTF
+ERASDEMI.TTF - Path: C:\Windows\fonts\ERASDEMI.TTF
+ERASLGHT.TTF - Path: C:\Windows\fonts\ERASLGHT.TTF
+ERASMD.TTF - Path: C:\Windows\fonts\ERASMD.TTF
+estre.ttf - Path: C:\Windows\fonts\estre.ttf
+euphemia.ttf - Path: C:\Windows\fonts\euphemia.ttf
+FELIXTI.TTF - Path: C:\Windows\fonts\FELIXTI.TTF
+FORTE.TTF - Path: C:\Windows\fonts\FORTE.TTF
+FRABK.TTF - Path: C:\Windows\fonts\FRABK.TTF
+FRABKIT.TTF - Path: C:\Windows\fonts\FRABKIT.TTF
+FRADM.TTF - Path: C:\Windows\fonts\FRADM.TTF
+FRADMCN.TTF - Path: C:\Windows\fonts\FRADMCN.TTF
+FRADMIT.TTF - Path: C:\Windows\fonts\FRADMIT.TTF
+FRAHV.TTF - Path: C:\Windows\fonts\FRAHV.TTF
+FRAHVIT.TTF - Path: C:\Windows\fonts\FRAHVIT.TTF
+framd.ttf - Path: C:\Windows\fonts\framd.ttf
+FRAMDCN.TTF - Path: C:\Windows\fonts\FRAMDCN.TTF
+framdit.ttf - Path: C:\Windows\fonts\framdit.ttf
+frank.ttf - Path: C:\Windows\fonts\frank.ttf
+FREESCPT.TTF - Path: C:\Windows\fonts\FREESCPT.TTF
+FRSCRIPT.TTF - Path: C:\Windows\fonts\FRSCRIPT.TTF
+FTLTLT.TTF - Path: C:\Windows\fonts\FTLTLT.TTF
+Gabriola.ttf - Path: C:\Windows\fonts\Gabriola.ttf
+GARA.TTF - Path: C:\Windows\fonts\GARA.TTF
+GARABD.TTF - Path: C:\Windows\fonts\GARABD.TTF
+GARAIT.TTF - Path: C:\Windows\fonts\GARAIT.TTF
+gautami.ttf - Path: C:\Windows\fonts\gautami.ttf
+gautamib.ttf - Path: C:\Windows\fonts\gautamib.ttf
+georgia.ttf - Path: C:\Windows\fonts\georgia.ttf
+georgiab.ttf - Path: C:\Windows\fonts\georgiab.ttf
+georgiai.ttf - Path: C:\Windows\fonts\georgiai.ttf
+georgiaz.ttf - Path: C:\Windows\fonts\georgiaz.ttf
+GIGI.TTF - Path: C:\Windows\fonts\GIGI.TTF
+GIL_____.TTF - Path: C:\Windows\fonts\GIL_____.TTF
+GILB____.TTF - Path: C:\Windows\fonts\GILB____.TTF
+GILBI___.TTF - Path: C:\Windows\fonts\GILBI___.TTF
+GILC____.TTF - Path: C:\Windows\fonts\GILC____.TTF
+GILI____.TTF - Path: C:\Windows\fonts\GILI____.TTF
+GILLUBCD.TTF - Path: C:\Windows\fonts\GILLUBCD.TTF
+GILSANUB.TTF - Path: C:\Windows\fonts\GILSANUB.TTF
+gisha.ttf - Path: C:\Windows\fonts\gisha.ttf
+gishabd.ttf - Path: C:\Windows\fonts\gishabd.ttf
+GLECB.TTF - Path: C:\Windows\fonts\GLECB.TTF
+GLSNECB.TTF - Path: C:\Windows\fonts\GLSNECB.TTF
+GOTHIC.TTF - Path: C:\Windows\fonts\GOTHIC.TTF
+GOTHICB.TTF - Path: C:\Windows\fonts\GOTHICB.TTF
+GOTHICBI.TTF - Path: C:\Windows\fonts\GOTHICBI.TTF
+GOTHICI.TTF - Path: C:\Windows\fonts\GOTHICI.TTF
+GOUDOS.TTF - Path: C:\Windows\fonts\GOUDOS.TTF
+GOUDOSB.TTF - Path: C:\Windows\fonts\GOUDOSB.TTF
+GOUDOSI.TTF - Path: C:\Windows\fonts\GOUDOSI.TTF
+GOUDYSTO.TTF - Path: C:\Windows\fonts\GOUDYSTO.TTF
+HARLOWSI.TTF - Path: C:\Windows\fonts\HARLOWSI.TTF
+HARNGTON.TTF - Path: C:\Windows\fonts\HARNGTON.TTF
+HATTEN.TTF - Path: C:\Windows\fonts\HATTEN.TTF
+himalaya.ttf - Path: C:\Windows\fonts\himalaya.ttf
+HTOWERT.TTF - Path: C:\Windows\fonts\HTOWERT.TTF
+HTOWERTI.TTF - Path: C:\Windows\fonts\HTOWERTI.TTF
+impact.ttf - Path: C:\Windows\fonts\impact.ttf
+IMPRISHA.TTF - Path: C:\Windows\fonts\IMPRISHA.TTF
+INFROMAN.TTF - Path: C:\Windows\fonts\INFROMAN.TTF
+iskpota.ttf - Path: C:\Windows\fonts\iskpota.ttf
+iskpotab.ttf - Path: C:\Windows\fonts\iskpotab.ttf
+ITCBLKAD.TTF - Path: C:\Windows\fonts\ITCBLKAD.TTF
+ITCEDSCR.TTF - Path: C:\Windows\fonts\ITCEDSCR.TTF
+ITCKRIST.TTF - Path: C:\Windows\fonts\ITCKRIST.TTF
+JOKERMAN.TTF - Path: C:\Windows\fonts\JOKERMAN.TTF
+JUICE___.TTF - Path: C:\Windows\fonts\JUICE___.TTF
+kaiu.ttf - Path: C:\Windows\fonts\kaiu.ttf
+kalinga.ttf - Path: C:\Windows\fonts\kalinga.ttf
+kalingab.ttf - Path: C:\Windows\fonts\kalingab.ttf
+kartika.ttf - Path: C:\Windows\fonts\kartika.ttf
+kartikab.ttf - Path: C:\Windows\fonts\kartikab.ttf
+KhmerUI.ttf - Path: C:\Windows\fonts\KhmerUI.ttf
+KhmerUIb.ttf - Path: C:\Windows\fonts\KhmerUIb.ttf
+kokila.ttf - Path: C:\Windows\fonts\kokila.ttf
+kokilab.ttf - Path: C:\Windows\fonts\kokilab.ttf
+kokilabi.ttf - Path: C:\Windows\fonts\kokilabi.ttf
+kokilai.ttf - Path: C:\Windows\fonts\kokilai.ttf
+KUNSTLER.TTF - Path: C:\Windows\fonts\KUNSTLER.TTF
+l_10646.ttf - Path: C:\Windows\fonts\l_10646.ttf
+LaoUI.ttf - Path: C:\Windows\fonts\LaoUI.ttf
+LaoUIb.ttf - Path: C:\Windows\fonts\LaoUIb.ttf
+latha.ttf - Path: C:\Windows\fonts\latha.ttf
+lathab.ttf - Path: C:\Windows\fonts\lathab.ttf
+LATINWD.TTF - Path: C:\Windows\fonts\LATINWD.TTF
+LBRITE.TTF - Path: C:\Windows\fonts\LBRITE.TTF
+LBRITED.TTF - Path: C:\Windows\fonts\LBRITED.TTF
+LBRITEDI.TTF - Path: C:\Windows\fonts\LBRITEDI.TTF
+LBRITEI.TTF - Path: C:\Windows\fonts\LBRITEI.TTF
+LCALLIG.TTF - Path: C:\Windows\fonts\LCALLIG.TTF
+leelawad.ttf - Path: C:\Windows\fonts\leelawad.ttf
+leelawdb.ttf - Path: C:\Windows\fonts\leelawdb.ttf
+LFAX.TTF - Path: C:\Windows\fonts\LFAX.TTF
+LFAXD.TTF - Path: C:\Windows\fonts\LFAXD.TTF
+LFAXDI.TTF - Path: C:\Windows\fonts\LFAXDI.TTF
+LFAXI.TTF - Path: C:\Windows\fonts\LFAXI.TTF
+LHANDW.TTF - Path: C:\Windows\fonts\LHANDW.TTF
+LSANS.TTF - Path: C:\Windows\fonts\LSANS.TTF
+LSANSD.TTF - Path: C:\Windows\fonts\LSANSD.TTF
+LSANSDI.TTF - Path: C:\Windows\fonts\LSANSDI.TTF
+LSANSI.TTF - Path: C:\Windows\fonts\LSANSI.TTF
+LTYPE.TTF - Path: C:\Windows\fonts\LTYPE.TTF
+LTYPEB.TTF - Path: C:\Windows\fonts\LTYPEB.TTF
+LTYPEBO.TTF - Path: C:\Windows\fonts\LTYPEBO.TTF
+LTYPEO.TTF - Path: C:\Windows\fonts\LTYPEO.TTF
+lucon.ttf - Path: C:\Windows\fonts\lucon.ttf
+lvnm.ttf - Path: C:\Windows\fonts\lvnm.ttf
+lvnmbd.ttf - Path: C:\Windows\fonts\lvnmbd.ttf
+MAGNETOB.TTF - Path: C:\Windows\fonts\MAGNETOB.TTF
+MAIAN.TTF - Path: C:\Windows\fonts\MAIAN.TTF
+majalla.ttf - Path: C:\Windows\fonts\majalla.ttf
+majallab.ttf - Path: C:\Windows\fonts\majallab.ttf
+malgun.ttf - Path: C:\Windows\fonts\malgun.ttf
+malgunbd.ttf - Path: C:\Windows\fonts\malgunbd.ttf
+mangal.ttf - Path: C:\Windows\fonts\mangal.ttf
+mangalb.ttf - Path: C:\Windows\fonts\mangalb.ttf
+marlett.ttf - Path: C:\Windows\fonts\marlett.ttf
+MATURASC.TTF - Path: C:\Windows\fonts\MATURASC.TTF
+micross.ttf - Path: C:\Windows\fonts\micross.ttf
+MISTRAL.TTF - Path: C:\Windows\fonts\MISTRAL.TTF
+MOD20.TTF - Path: C:\Windows\fonts\MOD20.TTF
+monbaiti.ttf - Path: C:\Windows\fonts\monbaiti.ttf
+moolbor.ttf - Path: C:\Windows\fonts\moolbor.ttf
+mriam.ttf - Path: C:\Windows\fonts\mriam.ttf
+mriamc.ttf - Path: C:\Windows\fonts\mriamc.ttf
+msjh.ttf - Path: C:\Windows\fonts\msjh.ttf
+msjhbd.ttf - Path: C:\Windows\fonts\msjhbd.ttf
+msuighur.ttf - Path: C:\Windows\fonts\msuighur.ttf
+msyh.ttf - Path: C:\Windows\fonts\msyh.ttf
+msyhbd.ttf - Path: C:\Windows\fonts\msyhbd.ttf
+msyi.ttf - Path: C:\Windows\fonts\msyi.ttf
+MTCORSVA.TTF - Path: C:\Windows\fonts\MTCORSVA.TTF
+mvboli.ttf - Path: C:\Windows\fonts\mvboli.ttf
+NIAGENG.TTF - Path: C:\Windows\fonts\NIAGENG.TTF
+NIAGSOL.TTF - Path: C:\Windows\fonts\NIAGSOL.TTF
+nrkis.ttf - Path: C:\Windows\fonts\nrkis.ttf
+ntailu.ttf - Path: C:\Windows\fonts\ntailu.ttf
+ntailub.ttf - Path: C:\Windows\fonts\ntailub.ttf
+nyala.ttf - Path: C:\Windows\fonts\nyala.ttf
+OCRAEXT.TTF - Path: C:\Windows\fonts\OCRAEXT.TTF
+OLDENGL.TTF - Path: C:\Windows\fonts\OLDENGL.TTF
+ONYX.TTF - Path: C:\Windows\fonts\ONYX.TTF
+OUTLOOK.TTF - Path: C:\Windows\fonts\OUTLOOK.TTF
+pala.ttf - Path: C:\Windows\fonts\pala.ttf
+palab.ttf - Path: C:\Windows\fonts\palab.ttf
+palabi.ttf - Path: C:\Windows\fonts\palabi.ttf
+palai.ttf - Path: C:\Windows\fonts\palai.ttf
+PALSCRI.TTF - Path: C:\Windows\fonts\PALSCRI.TTF
+PAPYRUS.TTF - Path: C:\Windows\fonts\PAPYRUS.TTF
+PARCHM.TTF - Path: C:\Windows\fonts\PARCHM.TTF
+PER_____.TTF - Path: C:\Windows\fonts\PER_____.TTF
+PERB____.TTF - Path: C:\Windows\fonts\PERB____.TTF
+PERBI___.TTF - Path: C:\Windows\fonts\PERBI___.TTF
+PERI____.TTF - Path: C:\Windows\fonts\PERI____.TTF
+PERTIBD.TTF - Path: C:\Windows\fonts\PERTIBD.TTF
+PERTILI.TTF - Path: C:\Windows\fonts\PERTILI.TTF
+phagspa.ttf - Path: C:\Windows\fonts\phagspa.ttf
+phagspab.ttf - Path: C:\Windows\fonts\phagspab.ttf
+plantc.ttf - Path: C:\Windows\fonts\plantc.ttf
+PLAYBILL.TTF - Path: C:\Windows\fonts\PLAYBILL.TTF
+POORICH.TTF - Path: C:\Windows\fonts\POORICH.TTF
+PRISTINA.TTF - Path: C:\Windows\fonts\PRISTINA.TTF
+raavi.ttf - Path: C:\Windows\fonts\raavi.ttf
+raavib.ttf - Path: C:\Windows\fonts\raavib.ttf
+RAGE.TTF - Path: C:\Windows\fonts\RAGE.TTF
+RAVIE.TTF - Path: C:\Windows\fonts\RAVIE.TTF
+REFSAN.TTF - Path: C:\Windows\fonts\REFSAN.TTF
+REFSPCL.TTF - Path: C:\Windows\fonts\REFSPCL.TTF
+ROCC____.TTF - Path: C:\Windows\fonts\ROCC____.TTF
+ROCCB___.TTF - Path: C:\Windows\fonts\ROCCB___.TTF
+ROCK.TTF - Path: C:\Windows\fonts\ROCK.TTF
+ROCKB.TTF - Path: C:\Windows\fonts\ROCKB.TTF
+ROCKBI.TTF - Path: C:\Windows\fonts\ROCKBI.TTF
+ROCKEB.TTF - Path: C:\Windows\fonts\ROCKEB.TTF
+ROCKI.TTF - Path: C:\Windows\fonts\ROCKI.TTF
+rod.ttf - Path: C:\Windows\fonts\rod.ttf
+SCHLBKB.TTF - Path: C:\Windows\fonts\SCHLBKB.TTF
+SCHLBKBI.TTF - Path: C:\Windows\fonts\SCHLBKBI.TTF
+SCHLBKI.TTF - Path: C:\Windows\fonts\SCHLBKI.TTF
+SCRIPTBL.TTF - Path: C:\Windows\fonts\SCRIPTBL.TTF
+SegoeMarker.ttf - Path: C:\Windows\fonts\SegoeMarker.ttf
+segoepr.ttf - Path: C:\Windows\fonts\segoepr.ttf
+segoeprb.ttf - Path: C:\Windows\fonts\segoeprb.ttf
+segoesc.ttf - Path: C:\Windows\fonts\segoesc.ttf
+segoescb.ttf - Path: C:\Windows\fonts\segoescb.ttf
+segoeui.ttf - Path: C:\Windows\fonts\segoeui.ttf
+segoeuib.ttf - Path: C:\Windows\fonts\segoeuib.ttf
+segoeuii.ttf - Path: C:\Windows\fonts\segoeuii.ttf
+segoeuil.ttf - Path: C:\Windows\fonts\segoeuil.ttf
+segoeuiz.ttf - Path: C:\Windows\fonts\segoeuiz.ttf
+seguisb.ttf - Path: C:\Windows\fonts\seguisb.ttf
+seguisym.ttf - Path: C:\Windows\fonts\seguisym.ttf
+Shonar.ttf - Path: C:\Windows\fonts\Shonar.ttf
+Shonarb.ttf - Path: C:\Windows\fonts\Shonarb.ttf
+SHOWG.TTF - Path: C:\Windows\fonts\SHOWG.TTF
+shruti.ttf - Path: C:\Windows\fonts\shruti.ttf
+shrutib.ttf - Path: C:\Windows\fonts\shrutib.ttf
+simfang.ttf - Path: C:\Windows\fonts\simfang.ttf
+simhei.ttf - Path: C:\Windows\fonts\simhei.ttf
+simkai.ttf - Path: C:\Windows\fonts\simkai.ttf
+simpbdo.ttf - Path: C:\Windows\fonts\simpbdo.ttf
+simpfxo.ttf - Path: C:\Windows\fonts\simpfxo.ttf
+simpo.ttf - Path: C:\Windows\fonts\simpo.ttf
+simsunb.ttf - Path: C:\Windows\fonts\simsunb.ttf
+SketchFlow Print.ttf - Path: C:\Windows\fonts\SketchFlow Print.ttf
+SNAP____.TTF - Path: C:\Windows\fonts\SNAP____.TTF
+STENCIL.TTF - Path: C:\Windows\fonts\STENCIL.TTF
+sylfaen.ttf - Path: C:\Windows\fonts\sylfaen.ttf
+symbol.ttf - Path: C:\Windows\fonts\symbol.ttf
+tahoma.ttf - Path: C:\Windows\fonts\tahoma.ttf
+tahomabd.ttf - Path: C:\Windows\fonts\tahomabd.ttf
+taile.ttf - Path: C:\Windows\fonts\taile.ttf
+taileb.ttf - Path: C:\Windows\fonts\taileb.ttf
+TCB_____.TTF - Path: C:\Windows\fonts\TCB_____.TTF
+TCBI____.TTF - Path: C:\Windows\fonts\TCBI____.TTF
+TCCB____.TTF - Path: C:\Windows\fonts\TCCB____.TTF
+TCCEB.TTF - Path: C:\Windows\fonts\TCCEB.TTF
+TCCM____.TTF - Path: C:\Windows\fonts\TCCM____.TTF
+TCM_____.TTF - Path: C:\Windows\fonts\TCM_____.TTF
+TCMI____.TTF - Path: C:\Windows\fonts\TCMI____.TTF
+TEMPSITC.TTF - Path: C:\Windows\fonts\TEMPSITC.TTF
+times.ttf - Path: C:\Windows\fonts\times.ttf
+timesbd.ttf - Path: C:\Windows\fonts\timesbd.ttf
+timesbi.ttf - Path: C:\Windows\fonts\timesbi.ttf
+timesi.ttf - Path: C:\Windows\fonts\timesi.ttf
+tradbdo.ttf - Path: C:\Windows\fonts\tradbdo.ttf
+trado.ttf - Path: C:\Windows\fonts\trado.ttf
+trebuc.ttf - Path: C:\Windows\fonts\trebuc.ttf
+trebucbd.ttf - Path: C:\Windows\fonts\trebucbd.ttf
+trebucbi.ttf - Path: C:\Windows\fonts\trebucbi.ttf
+trebucit.ttf - Path: C:\Windows\fonts\trebucit.ttf
+tunga.ttf - Path: C:\Windows\fonts\tunga.ttf
+tungab.ttf - Path: C:\Windows\fonts\tungab.ttf
+upcdb.ttf - Path: C:\Windows\fonts\upcdb.ttf
+upcdbi.ttf - Path: C:\Windows\fonts\upcdbi.ttf
+upcdi.ttf - Path: C:\Windows\fonts\upcdi.ttf
+upcdl.ttf - Path: C:\Windows\fonts\upcdl.ttf
+upceb.ttf - Path: C:\Windows\fonts\upceb.ttf
+upcebi.ttf - Path: C:\Windows\fonts\upcebi.ttf
+upcei.ttf - Path: C:\Windows\fonts\upcei.ttf
+upcel.ttf - Path: C:\Windows\fonts\upcel.ttf
+upcfb.ttf - Path: C:\Windows\fonts\upcfb.ttf
+upcfbi.ttf - Path: C:\Windows\fonts\upcfbi.ttf
+upcfi.ttf - Path: C:\Windows\fonts\upcfi.ttf
+upcfl.ttf - Path: C:\Windows\fonts\upcfl.ttf
+upcib.ttf - Path: C:\Windows\fonts\upcib.ttf
+upcibi.ttf - Path: C:\Windows\fonts\upcibi.ttf
+upcii.ttf - Path: C:\Windows\fonts\upcii.ttf
+upcil.ttf - Path: C:\Windows\fonts\upcil.ttf
+upcjb.ttf - Path: C:\Windows\fonts\upcjb.ttf
+upcjbi.ttf - Path: C:\Windows\fonts\upcjbi.ttf
+upcji.ttf - Path: C:\Windows\fonts\upcji.ttf
+upcjl.ttf - Path: C:\Windows\fonts\upcjl.ttf
+upckb.ttf - Path: C:\Windows\fonts\upckb.ttf
+upckbi.ttf - Path: C:\Windows\fonts\upckbi.ttf
+upcki.ttf - Path: C:\Windows\fonts\upcki.ttf
+upckl.ttf - Path: C:\Windows\fonts\upckl.ttf
+upclb.ttf - Path: C:\Windows\fonts\upclb.ttf
+upclbi.ttf - Path: C:\Windows\fonts\upclbi.ttf
+upcli.ttf - Path: C:\Windows\fonts\upcli.ttf
+upcll.ttf - Path: C:\Windows\fonts\upcll.ttf
+utsaah.ttf - Path: C:\Windows\fonts\utsaah.ttf
+utsaahb.ttf - Path: C:\Windows\fonts\utsaahb.ttf
+utsaahbi.ttf - Path: C:\Windows\fonts\utsaahbi.ttf
+utsaahi.ttf - Path: C:\Windows\fonts\utsaahi.ttf
+Vani.ttf - Path: C:\Windows\fonts\Vani.ttf
+Vanib.ttf - Path: C:\Windows\fonts\Vanib.ttf
+verdana.ttf - Path: C:\Windows\fonts\verdana.ttf
+verdanab.ttf - Path: C:\Windows\fonts\verdanab.ttf
+verdanai.ttf - Path: C:\Windows\fonts\verdanai.ttf
+verdanaz.ttf - Path: C:\Windows\fonts\verdanaz.ttf
+vijaya.ttf - Path: C:\Windows\fonts\vijaya.ttf
+vijayab.ttf - Path: C:\Windows\fonts\vijayab.ttf
+VINERITC.TTF - Path: C:\Windows\fonts\VINERITC.TTF
+VIVALDII.TTF - Path: C:\Windows\fonts\VIVALDII.TTF
+VLADIMIR.TTF - Path: C:\Windows\fonts\VLADIMIR.TTF
+vrinda.ttf - Path: C:\Windows\fonts\vrinda.ttf
+vrindab.ttf - Path: C:\Windows\fonts\vrindab.ttf
+webdings.ttf - Path: C:\Windows\fonts\webdings.ttf
+wingding.ttf - Path: C:\Windows\fonts\wingding.ttf
+WINGDNG2.TTF - Path: C:\Windows\fonts\WINGDNG2.TTF
+WINGDNG3.TTF - Path: C:\Windows\fonts\WINGDNG3.TTF
+[102:Init] ENABLING SDL UNICODE
+[102:Init] INIT NETWORK
+[118:CGameControl] END STARTING SDL PHASE 1 (CSDLMANAGER)================
+[118:CGameControl] START SDL PHASE 2 (CSDLMANAGER)================
+[118:CGameControl] WILL INIT THE NECESSARY WINDOWS (Screens)================
+[124:InitWindows]  -------------------------------------------
+[101:init] Parameters: 
+[101:init] state: 0x211e188
+[101:init] mode: 32
+[101:init] width: 300
+[101:init] height: 300
+[101:init] Screen[0]: 0
+[101:init] ok: 0x3dfc68
+[101:CBitmap] CBitmap::CBitmap // Constructor //=> CBitmap Created Window Who: 0x3dfc68
+[101:init] New Screen[0] = 0x372aa18
+[124:InitWindows] CSDLManager::Init() // CALL setGraphicsMode // ret = 0
+[118:CGameControl] END SDL PHASE 2 (CSDLMANAGER)================
+[118:CGameControl] END CONSTRUCTING CGAME OBJECT ================
+[101:CreateSurface] Create Surface ok 0x58f03a8
+[101:CBitmap] Creating Internal Texture
+[101:createTextureStreaming] 
+[118:act] BEGIN RENDER GAME
+[102:CTTFFont] Constructor // Fontes Disponíveis=419
+[102:LoadFont] Iniciando a fonte : arial.ttf
+[111:LoadFont] Will get fonte Path to : arial.ttf
+[111:GetFontPath] fonte : arial.ttf
+[111:findFontVector] caminho da fonte encontrado : C:\Windows\fonts\arial.ttf
+[111:GetFontPath] Achou o caminho para a fonte:C:\Windows\fonts\arial.ttf
+[111:LoadFont] caminho para a fonte Encontrado: C:\Windows\fonts\arial.ttf
+[111:LoadFont] Font initiated OK
+[111:_getTTFont] set size and initialize font:file,sizearial.ttf ' 16
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:run]  BEGIN RUN THE GAME==========================
+[101:CreateSurface] Create Surface ok 0x58f3748
+[101:CBitmap] Creating Internal Texture
+[101:createTextureStreaming] 
+[118:run]  BEGIN DRAW =========================
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1537
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1562
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1562
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1562
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1562
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1587
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1587
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1587
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1587
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1612
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1612
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1612
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1612
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1637
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1637
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1637
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1637
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1662
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1662
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1662
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1662
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1687
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1687
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1687
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1687
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1712
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1712
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1712
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  505 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  12.204 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1727
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1737
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1737
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1737
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1737
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1762
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1762
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1762
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1762
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1787
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1787
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1787
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1787
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1812
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1812
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1812
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1812
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1837
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1837
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1837
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1837
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1862
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1862
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1862
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1862
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1887
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1887
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1887
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  147 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  1.812 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1891
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1912
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1912
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1912
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1912
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1937
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1937
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1937
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1937
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1962
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1962
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1962
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1962
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 1987
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 1987
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 1987
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 1987
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2013
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2013
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2013
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2013
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2037
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2037
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2037
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 6.66134e-016
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  161 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.048 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2039
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2062
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2062
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2062
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2062
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2087
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2087
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2087
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2087
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2112
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2112
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2112
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2112
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2137
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2137
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2137
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2137
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2162
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2162
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2162
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2162
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2187
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2187
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2187
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2187
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2213
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2213
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2213
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  173 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.599 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2216
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2237
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2237
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2237
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2237
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2262
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2262
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2262
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2262
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2287
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2287
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2287
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2287
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2312
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2312
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2312
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2312
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2337
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2337
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2337
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2337
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2362
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2362
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2362
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2362
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2387
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2387
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2387
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  216 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.984 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2390
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2412
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2412
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2412
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2412
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2437
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2437
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2437
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2437
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2462
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2462
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2462
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2462
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2487
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2487
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2487
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2487
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2512
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2512
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2512
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2512
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2537
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2537
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2537
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 1.11022e-015
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  74 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  1.227 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2538
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2562
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2562
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2562
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2562
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2587
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2587
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2587
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2587
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2613
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2613
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2613
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2613
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2637
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2637
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2637
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2637
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2662
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2662
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2662
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2662
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2687
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2687
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2687
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2687
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2712
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2712
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2712
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  218 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.947 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2715
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2737
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2737
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2737
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2737
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2762
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2762
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2762
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2762
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2787
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2787
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2787
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2787
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2813
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2813
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2813
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2813
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2837
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2837
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2837
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2837
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2862
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2862
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2862
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2862
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2887
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2887
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2887
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  213 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.983 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2890
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2912
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2912
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2912
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2912
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2937
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2937
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2937
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2937
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2962
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2962
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2962
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2962
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 2987
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 2987
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 2987
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 2987
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3013
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3013
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3013
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3013
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3037
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3037
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3037
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 1.55431e-015
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  130 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.447 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3040
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3063
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3063
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3063
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3063
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3088
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3088
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3088
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3088
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3112
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3112
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3112
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3112
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3137
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3137
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3137
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3137
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3162
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3162
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3162
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3162
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3187
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3187
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3187
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3187
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3212
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3212
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3212
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  125 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  1.798 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3214
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3237
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3237
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3237
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3237
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3262
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3262
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3262
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3262
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3287
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3287
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3287
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3287
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3313
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3313
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3313
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3313
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3337
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3337
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3337
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3337
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3362
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3362
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3362
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3362
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3387
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3387
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3387
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  144 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.017 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3389
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3412
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3412
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3412
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3412
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3437
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3437
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3437
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3437
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3462
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3462
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3462
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3462
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3487
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3487
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3487
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3487
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3512
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3512
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3512
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3512
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3537
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3537
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3537
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 1.9984e-015
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  67 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  1.181 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3538
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3562
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3562
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3562
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3562
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3587
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3587
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3587
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3587
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3612
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3612
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3612
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3612
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3637
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3637
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3637
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3637
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3662
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3662
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3662
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3662
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3687
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3687
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3687
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3687
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3712
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3712
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3712
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  221 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  3.257 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3716
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3737
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3737
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3737
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3737
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3762
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3762
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3762
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3762
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3788
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3788
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3788
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3788
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3812
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3812
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3812
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3812
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3837
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3837
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3837
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3837
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3862
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3862
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3862
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3862
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3887
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3887
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3887
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  222 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  3.105 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3891
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3912
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3912
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3912
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3912
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3938
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3938
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3938
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3938
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3962
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3962
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3962
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3962
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 3987
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3987
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3987
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3987
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4012
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4012
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4012
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4012
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4037
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4037
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4037
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 2.44249e-015
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  180 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  3.015 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4040
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4063
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4063
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4063
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4063
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4087
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4087
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4087
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4087
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4112
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4112
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4112
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4112
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4137
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4137
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4137
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4137
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4162
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4162
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4162
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4162
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4187
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4187
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4187
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4187
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4212
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4212
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4212
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  324 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  3.31 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4216
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4237
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4237
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4237
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4237
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4262
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4262
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4262
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4262
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4287
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4287
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4287
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4287
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4312
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4312
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4312
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4312
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4337
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4337
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4337
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4337
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4362
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4362
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4362
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4362
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4388
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4388
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4388
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.1
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  190 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.486 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4391
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4413
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4413
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.25
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4413
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4413
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4438
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4438
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.4
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4438
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4438
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4462
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4462
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.55
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4462
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4462
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4487
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4487
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.7
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4487
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4487
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4512
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4512
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.85
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4512
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4512
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4537
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4537
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4537
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 2.88658e-015
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  68 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  1.139 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4538
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4562
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4562
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.15
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4562
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4562
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4587
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4587
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.3
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4587
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4587
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4612
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4612
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.45
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4612
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4612
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4637
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4637
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.6
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4637
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4637
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4663
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4663
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.75
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4663
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4663
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4687
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4687
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.9
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4687
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4687
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4712
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4712
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.05
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4712
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[104:_poll] END // CInputManager::_poll // 
+[118:doLoop] RunCounter after get events: 0.05
+[118:doLoop] =================================================: 
+[118:doLoop] ===RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:run]  WILL RUN THE STAGE LOGIC=========================
+[118:run]  BEGIN DO THE INPUT=========================
+[118:doInput] BEGIN FASE 1 - Get Events 
+[104:_getEvents] BEGIN  Get Keyboard Events
+[104:_getEvents] Got Keyboard Events: 0
+[104:_getEvents] END
+[118:doInput] END FASE 1 - Got Events: 0
+[118:doInput] BEGIN FASE 2 - Proccess Events 
+[118:run]  END DO THE INPUT=========================
+[118:doLoop] Time to run the logic:  146 microseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END RUN LOGIC =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] ===DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0x28fc80 ) (Surface: 0x58f3748 )]=========================
+[118:act] BEGIN RENDER GAME
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:act] END RENDER GAME
+[118:draw]  EVERYTHING IS RENDERED =========================
+[101:RenderToTexture] ---------------------------
+[101:RenderToTexture] [Destino(window): 0x3dfc68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:draw]  FRAME y =========================200
+[118:doLoop] Time to draw the game:  2.432 milliseconds
+[118:doLoop] =================================================: 
+[118:doLoop] ===END DRAW GAME =================================: 
+[118:doLoop] =================================================: 
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4715
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4737
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4737
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.2
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4737
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4737
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4762
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4762
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.35
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4762
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4762
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4787
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4787
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.5
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4787
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4787
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4812
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4812
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.65
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4812
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4812
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4837
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4837
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.8
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4837
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4837
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4862
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4862
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 0.95
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4862
+[118:doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4862
+[118:doLoop] XSpeed Counter: 1 SDL ticks (ms): 4887
+[104:gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4887
+[104:gameTicks] Global::gamespeed: 0.1
+[104:gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:gameTicks] New gameticks: 0.15
+[118:doLoop] RunCounter: 1.1
+[118:doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4887
+[104:_poll] BEGIN // CInputManager::_poll // 
+[104:HandleEventInput] Num joysticks: 0
+[104:HandleEventInput] keyboard: 0x211cdb0
+[104:HandleEventInput] Mouse: 0
+[104:poll] BEGIN  
+[104:poll] END  
+[118:~CTutGameControl] BEGIN Deleting CTutGameControl
+[118:~CTutGameControl] END Deleting CTutGameControl
+[118:~CTutGameControl] END Deleting CTutGameControl
+[118:~CGameControl] BEGIN Cleaning Up
+[111:~CCollector] Cleaning Up
+[101:cleanupTemporaryBitmaps] BEGIN Cleaning Up Temporary Bitmaps
+[101:cleanupTemporaryBitmaps] END Cleaning Up Temporary Bitmaps
+[124:~CSDLManager] BEGIN CSDLManager::~CSDLManager

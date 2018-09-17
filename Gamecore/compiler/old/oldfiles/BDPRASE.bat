@@ -1,0 +1,1 @@
+bison -oyacc.cpp -d PraserRules.txt

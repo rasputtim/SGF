@@ -1,0 +1,1 @@
+flex ..\comcompiler\comscanner.l

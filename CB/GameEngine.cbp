@@ -1,0 +1,1431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="OpenMugen" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="../build/win/Debug/SGF" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../objs" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-fpermissive" />
+					<Add option="-D_LIB" />
+					<Add option="-DFT_DEBUG_LEVEL_ERROR" />
+					<Add option="-DFT_DEBUG_LEVEL_TRACE" />
+					<Add option="-DFT2_BUILD_LIBRARY" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DWIN32" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DLOAD_BMP" />
+					<Add option="-DLOAD_GIF" />
+					<Add option="-DLOAD_JPG" />
+					<Add option="-DLOAD_LBM" />
+					<Add option="-DLOAD_PCX" />
+					<Add option="-DLOAD_PNG" />
+					<Add option="-DLOAD_PNM" />
+					<Add option="-DLOAD_TGA" />
+					<Add option="-DLOAD_TIF" />
+					<Add option="-DLOAD_XPM" />
+					<Add option="-DLOAD_WEBP" />
+					<Add option="-DLOAD_XV" />
+					<Add option="-DPNG_USE_DLL" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DWAV_MUSIC" />
+					<Add option="-DMOD_MUSIC" />
+					<Add option="-DMID_MUSIC" />
+					<Add option="-DUSE_TIMIDITY_MIDI" />
+					<Add option="-DUSE_NATIVE_MIDI" />
+					<Add option="-DOGG_MUSIC" />
+					<Add option="-DMP3_MUSIC" />
+					<Add option="-DXMLTOKAPI=__declspec(dllimport)" />
+					<Add option="-DXML_DTD" />
+					<Add option="-DZLIB_WINAPI" />
+					<Add option="-D_CRT_NONSTDC_NO_DEPRECATE" />
+					<Add option="-D_CRT_SECURE_NO_DEPRECATE" />
+					<Add option="-D_CRT_NONSTDC_NO_WARNINGS" />
+					<Add directory="C:/Python33/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/expat-2.1.0/lib" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/Regex/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/pcre" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/sge2d/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/7z" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/zip" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/hawknl" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/VisualC/mikmod/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_image-2.0.0" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_image-2.0.0/VisualC/external/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_ttf-2.0.12" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_ttf-2.0.12/VisualC/external/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/freetype-2.4.12/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SFL2.0src" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2-2.0.3/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../Gamecore/compiler" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../Gamecore" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../Headers/win_external_libs" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/native_midi" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/VisualC/smpeg/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/VisualC/external/include" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/timidity" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/zlib-1.2.5" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/perl56/win32/CORE" />
+					<Add directory="D:/Projetos/c++/GameEngine/sgf/VC/../ExternalLibs/SDL2_mixer-2.0.0/external/libmikmod-3.1.12/include" />
+				</Compiler>
+				<Linker>
+					<Add library="tbb_debug.lib" />
+					<Add library="opengl32.lib" />
+					<Add library="glu32.lib" />
+					<Add library="intl.lib" />
+					<Add library="regex.lib" />
+					<Add library="Msimg32.lib" />
+					<Add library="winmm.lib" />
+					<Add library="sprig.lib" />
+					<Add library="version.lib" />
+					<Add library="imm32.lib" />
+					<Add library="SDL.lib" />
+					<Add directory="D:/projetos/VC10/OpenMugenStatic1.3/Debug/lib/" />
+					<Add directory="$(TBB30_INSTALL_DIR)/lib/ia32/vc10" />
+					<Add directory="$(TBB30_INSTALL_DIR)/lib/ia32/vc_mt" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="GameEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../objs" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="$(TBB30_INSTALL_DIR)/include" />
+				</Compiler>
+				<Linker>
+					<Add library="tbb.lib" />
+					<Add directory="$(TBB30_INSTALL_DIR)/lib/ia32/vc10" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-fpermissive" />
+		</Compiler>
+		<Unit filename="../../Gamecore/mugen/parser/lex-air.l">
+			<Option compile="1" />
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/lex-cmd.l">
+			<Option compile="1" />
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/lex-cns.l">
+			<Option compile="1" />
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/lex-def.l">
+			<Option compile="1" />
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/parse-air.yy">
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/parse-cmd.yy">
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/parse-cns.yy">
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../../Gamecore/mugen/parser/parse-def.yy">
+			<Option target="Release Win32" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7z.h" />
+		<Unit filename="../ExternalLibs/7z/7zAlloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zAlloc.h" />
+		<Unit filename="../ExternalLibs/7z/7zBuf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zBuf.h" />
+		<Unit filename="../ExternalLibs/7z/7zBuf2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zCrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zCrc.h" />
+		<Unit filename="../ExternalLibs/7z/7zCrcOpt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zDec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zFile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zFile.h" />
+		<Unit filename="../ExternalLibs/7z/7zIn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zStream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/7zVersion.h" />
+		<Unit filename="../ExternalLibs/7z/Alloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Alloc.h" />
+		<Unit filename="../ExternalLibs/7z/Bcj2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Bcj2.h" />
+		<Unit filename="../ExternalLibs/7z/Bra.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Bra.h" />
+		<Unit filename="../ExternalLibs/7z/Bra86.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/BraIA64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/CpuArch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/CpuArch.h" />
+		<Unit filename="../ExternalLibs/7z/Delta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Delta.h" />
+		<Unit filename="../ExternalLibs/7z/LzFind.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzFind.h" />
+		<Unit filename="../ExternalLibs/7z/LzFindMt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzFindMt.h" />
+		<Unit filename="../ExternalLibs/7z/LzHash.h" />
+		<Unit filename="../ExternalLibs/7z/Lzma2Dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Lzma2Dec.h" />
+		<Unit filename="../ExternalLibs/7z/Lzma2Enc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Lzma2Enc.h" />
+		<Unit filename="../ExternalLibs/7z/Lzma86.h" />
+		<Unit filename="../ExternalLibs/7z/Lzma86Dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Lzma86Enc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzmaDec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzmaDec.h" />
+		<Unit filename="../ExternalLibs/7z/LzmaEnc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzmaEnc.h" />
+		<Unit filename="../ExternalLibs/7z/LzmaLib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/LzmaLib.h" />
+		<Unit filename="../ExternalLibs/7z/MtCoder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/MtCoder.h" />
+		<Unit filename="../ExternalLibs/7z/Ppmd.h" />
+		<Unit filename="../ExternalLibs/7z/Ppmd7.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Ppmd7.h" />
+		<Unit filename="../ExternalLibs/7z/Ppmd7Dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Ppmd7Enc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/RotateDefs.h" />
+		<Unit filename="../ExternalLibs/7z/Sha256.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Sha256.h" />
+		<Unit filename="../ExternalLibs/7z/Threads.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Threads.h" />
+		<Unit filename="../ExternalLibs/7z/Types.h" />
+		<Unit filename="../ExternalLibs/7z/Xz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/Xz.h" />
+		<Unit filename="../ExternalLibs/7z/XzCrc64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/XzCrc64.h" />
+		<Unit filename="../ExternalLibs/7z/XzDec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/XzEnc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/7z/XzEnc.h" />
+		<Unit filename="../ExternalLibs/7z/XzIn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_bmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_gif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_jpg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_lbm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_pcx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_png.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_pnm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_tga.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_tif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_webp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_xcf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_xpm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_xv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_image-2.0.0/IMG_xxx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_flac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_fluidsynth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_mod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_modplug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_mp3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/dynamic_ogg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/effect_position.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/effect_stereoreverse.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/effects_internal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/fluidsynth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/load_aiff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/load_flac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/load_ogg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/load_voc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/mixer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_cmd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_flac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_mad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_mod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_modplug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/music_ogg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/native_midi/native_midi_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/native_midi/native_midi_mac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/native_midi/native_midi_macosx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/native_midi/native_midi_win32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/ctrlmode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/filter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/instrum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/mix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/output.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/playmidi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/readmidi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/resample.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/sdl_a.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/sdl_c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/tables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/timidity/timidity.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_mixer-2.0.0/wavestream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_ttf-2.0.12/SDL_ttf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL2_ttf-2.0.12/SDL_ttf.h" />
+		<Unit filename="../ExternalLibs/SDL2_ttf-2.0.12/glfont.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_framerate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxBlitFunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxBlitFunc.h" />
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives.h" />
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives_font.h" />
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_imageFilter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_imageFilter.h" />
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_rotozoom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SDL_gfx-2.0.24/SDL_rotozoom.h" />
+		<Unit filename="../ExternalLibs/SDL_image/SDL_image.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/SDL_mixer.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/dynamic_flac.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/dynamic_fluidsynth.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/dynamic_mod.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/dynamic_mp3.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/dynamic_ogg.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/effects_internal.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/fluidsynth.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/load_aiff.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/load_flac.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/load_ogg.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/load_voc.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_cmd.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_flac.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_mad.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_mod.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_modplug.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/music_ogg.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/native_midi/native_midi.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/native_midi/native_midi_common.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/common.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/config.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/ctrlmode.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/filter.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/instrum.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/mix.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/output.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/playmidi.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/readmidi.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/resample.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/tables.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/timidity/timidity.h" />
+		<Unit filename="../ExternalLibs/SDL_mixer/wavestream.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/prelude.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfl.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflcons.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflcons.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflconv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflconv.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflcvsb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfldate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfldate.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfldir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfldir.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflfile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflfile.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfllist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfllist.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflmem.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflnode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflnode.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflstr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflstr.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflsymb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflsymb.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sflsyst.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sflsyst.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfltok.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfltok.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfltron.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfltron.h" />
+		<Unit filename="../ExternalLibs/SFL2.0src/sfluid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/SFL2.0src/sfluid.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/builds/win32/ftdebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/freetype/config/ftconfig.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/freetype/config/ftheader.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/freetype/config/ftmodule.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/freetype/config/ftoption.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/freetype/config/ftstdlib.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/include/ft2build.h" />
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/autofit/autofit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftbase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftbbox.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftbitmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftfstype.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftgasp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftglyph.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftgxval.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftinit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftlcdfil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftmm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftotval.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftpatent.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftpfr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftstroke.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftsynth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftsystem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/fttype1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftwinfnt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/base/ftxf86.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/bdf/bdf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/cache/ftcache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/cff/cff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/cid/type1cid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/gzip/ftgzip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/lzw/ftlzw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pcf/pcf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pfr/pfr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/psaux/psaux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pshinter/pshglob.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pshinter/pshinter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pshinter/pshmod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/pshinter/pshrec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/psnames/psmodule.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/psnames/pspic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/raster/raster.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/sfnt/sfnt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/smooth/smooth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/truetype/truetype.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/type1/type1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/type42/type42.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/freetype-2.4.12/src/winfonts/winfnt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/hawknl/hawknl/group.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/hawklib.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/htinternal.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/ipx.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/loopback.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/nl.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/nlinternal.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/parallel.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/portable.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/serial.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/sock.h" />
+		<Unit filename="../ExternalLibs/hawknl/hawknl/wsock.h" />
+		<Unit filename="../ExternalLibs/hawknl/src/crc.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/err.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/errorstr.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/group.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/ipx.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/loopback.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/nl.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/nltime.cpp" />
+		<Unit filename="../ExternalLibs/hawknl/src/sock.cpp" />
+		<Unit filename="../ExternalLibs/pcre/config.h" />
+		<Unit filename="../ExternalLibs/pcre/dftables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre.h" />
+		<Unit filename="../ExternalLibs/pcre/pcre_chartables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_compile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_dfa_exec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_exec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_fullinfo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_get.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_globals.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_internal.h" />
+		<Unit filename="../ExternalLibs/pcre/pcre_maketables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_newline.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_ord2utf8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_refcount.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_scanner.h" />
+		<Unit filename="../ExternalLibs/pcre/pcre_stringpiece.h" />
+		<Unit filename="../ExternalLibs/pcre/pcre_study.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_tables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_try_flipped.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_ucd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_valid_utf8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_version.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcre_xclass.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/pcre/pcrecpp.h" />
+		<Unit filename="../ExternalLibs/pcre/pcrecpp_internal.h" />
+		<Unit filename="../ExternalLibs/pcre/pcrecpparg.h" />
+		<Unit filename="../ExternalLibs/pcre/pcreposix.h" />
+		<Unit filename="../ExternalLibs/pcre/ucp.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sge.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sge_bm_text.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgearray.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgedefines.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgegfx.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgeresource.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgesprite.h" />
+		<Unit filename="../ExternalLibs/sge2d/include/sgespriteimage.h" />
+		<Unit filename="../ExternalLibs/sge2d/src/sge_bm_text.cpp" />
+		<Unit filename="../ExternalLibs/sge2d/src/sgearray.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/sge2d/src/sgegfx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/sge2d/src/sgeresource.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/sge2d/src/sgesprite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/sge2d/src/sgespriteimage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zip/crypt.h" />
+		<Unit filename="../ExternalLibs/zip/ioapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zip/ioapi.h" />
+		<Unit filename="../ExternalLibs/zip/unzip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zip/unzip.h" />
+		<Unit filename="../ExternalLibs/zip/zip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zip/zip.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/adler32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/deflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/example.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/gzclose.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/gzlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/gzread.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/gzwrite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/infback.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inffast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inffast.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inffixed.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inflate.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inftrees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/inftrees.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/minigzip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/trees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/trees.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/uncompr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/zlib.h" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/zlib.map" />
+		<Unit filename="../ExternalLibs/zlib-1.2.5/zutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../ExternalLibs/zlib-1.2.5/zutil.h" />
+		<Unit filename="../Gamecore/SGF.h" />
+		<Unit filename="../Gamecore/SGFSDL.h" />
+		<Unit filename="../Gamecore/SGF_Config.h" />
+		<Unit filename="../Gamecore/SGF_Global.h" />
+		<Unit filename="../Gamecore/SGF_Types.h" />
+		<Unit filename="../Gamecore/ai/SGF_AstarHeap.h" />
+		<Unit filename="../Gamecore/ai/SGF_AstarLib.h" />
+		<Unit filename="../Gamecore/ai/SGF_Behavior.h" />
+		<Unit filename="../Gamecore/ai/SGF_Map.h" />
+		<Unit filename="../Gamecore/ai/SGF_PathFinder.h" />
+		<Unit filename="../Gamecore/ai/all.h" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/SGF_AIRFlexLexer.h" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/airScanner.h" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/air_driver.cc" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/air_driver.h" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/airparser.tab.cpp" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/airparser.tab.h" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/lex.Air.cc" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/location.hh" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/position.hh" />
+		<Unit filename="../Gamecore/compiler/AirCompiler/stack.hh" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/SGF_CMDFlexLexer.h" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmdScanner.h" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmd_driver.cc" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmd_driver.h" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmdparser.tab.cpp" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmdparser.tab.h" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmdparser.y">
+			<Option compile="1" />
+		</Unit>
+		<Unit filename="../Gamecore/compiler/CMDCompiler/cmdscanner.l">
+			<Option compile="1" />
+		</Unit>
+		<Unit filename="../Gamecore/compiler/CMDCompiler/lex.Cmd.cc" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/location.hh" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/position.hh" />
+		<Unit filename="../Gamecore/compiler/CMDCompiler/stack.hh" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/SGF_COMFlexLexer.h" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/comScanner.h" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/com_driver.cc" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/com_driver.h" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/comparser.tab.cpp" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/comparser.tab.h" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/lex.Com.cc" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/location.hh" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/position.hh" />
+		<Unit filename="../Gamecore/compiler/COMCompiler/stack.hh" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/SGF_DEFFlexLexer.h" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/defScanner.h" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/def_driver.cc" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/def_driver.h" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/defparser.tab.cpp" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/defparser.tab.h" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/lex.Def.cc" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/location.hh" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/position.hh" />
+		<Unit filename="../Gamecore/compiler/DefCompiler/stack.hh" />
+		<Unit filename="../Gamecore/configuration/SGF_CmdVars.h" />
+		<Unit filename="../Gamecore/configuration/SGF_Configuration.h" />
+		<Unit filename="../Gamecore/configuration/SGF_SysVars.h" />
+		<Unit filename="../Gamecore/configuration/all.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_Error.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_Exception.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_FileExceptions.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_MenuException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_MugenException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_NetException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_ScriptException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_TokenException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_loadException.h" />
+		<Unit filename="../Gamecore/exceptions/SGF_shutdownException.h" />
+		<Unit filename="../Gamecore/exceptions/all.h" />
+		<Unit filename="../Gamecore/external/DT_drawtext.h" />
+		<Unit filename="../Gamecore/external/SDL_console.h" />
+		<Unit filename="../Gamecore/external/fastevents.h" />
+		<Unit filename="../Gamecore/external/glSDL.h" />
+		<Unit filename="../Gamecore/external/internal.h" />
+		<Unit filename="../Gamecore/external/scale2x.h" />
+		<Unit filename="../Gamecore/game/SGF_Command.h" />
+		<Unit filename="../Gamecore/game/SGF_Console.h" />
+		<Unit filename="../Gamecore/game/SGF_Control.h" />
+		<Unit filename="../Gamecore/game/SGF_Mod.h" />
+		<Unit filename="../Gamecore/game/SGF_Stage.h" />
+		<Unit filename="../Gamecore/game/SGF_Theater.h" />
+		<Unit filename="../Gamecore/game/SGF_World.h" />
+		<Unit filename="../Gamecore/game/all.h" />
+		<Unit filename="../Gamecore/geometry/SGF_DrawVert.h" />
+		<Unit filename="../Gamecore/geometry/SGF_JointTransform.h" />
+		<Unit filename="../Gamecore/geometry/SGF_TraceModel.h" />
+		<Unit filename="../Gamecore/geometry/all.h" />
+		<Unit filename="../Gamecore/graphics/SGF_Bitmap.h" />
+		<Unit filename="../Gamecore/graphics/SGF_Color.h" />
+		<Unit filename="../Gamecore/graphics/SGF_FireEffect.h" />
+		<Unit filename="../Gamecore/graphics/SGF_GradientEffect.h" />
+		<Unit filename="../Gamecore/graphics/SGF_LitBitmap.h" />
+		<Unit filename="../Gamecore/graphics/SGF_Poligon.h" />
+		<Unit filename="../Gamecore/graphics/SGF_TransBitmap.h" />
+		<Unit filename="../Gamecore/graphics/all.h" />
+		<Unit filename="../Gamecore/gui/SGF_BoundBox.h" />
+		<Unit filename="../Gamecore/gui/SGF_Box.h" />
+		<Unit filename="../Gamecore/gui/SGF_ContextBox.h" />
+		<Unit filename="../Gamecore/gui/SGF_Coordinate.h" />
+		<Unit filename="../Gamecore/gui/SGF_FadetoolGui.h" />
+		<Unit filename="../Gamecore/gui/SGF_GuiAnimation.h" />
+		<Unit filename="../Gamecore/gui/SGF_GuiTimer.h" />
+		<Unit filename="../Gamecore/gui/SGF_LineEdit.h" />
+		<Unit filename="../Gamecore/gui/SGF_PopupBox.h" />
+		<Unit filename="../Gamecore/gui/SGF_Rectarea.h" />
+		<Unit filename="../Gamecore/gui/SGF_ScrollList.h" />
+		<Unit filename="../Gamecore/gui/SGF_SelectList.h" />
+		<Unit filename="../Gamecore/gui/SGF_TabbedBox.h" />
+		<Unit filename="../Gamecore/gui/SGF_Widget.h" />
+		<Unit filename="../Gamecore/gui/all.h" />
+		<Unit filename="../Gamecore/input/SGF_ButtonMapping.h" />
+		<Unit filename="../Gamecore/input/SGF_Events.h" />
+		<Unit filename="../Gamecore/input/SGF_Input.h" />
+		<Unit filename="../Gamecore/input/SGF_InputManager.h" />
+		<Unit filename="../Gamecore/input/SGF_InputMap.h" />
+		<Unit filename="../Gamecore/input/SGF_InputSource.h" />
+		<Unit filename="../Gamecore/input/SGF_Joystick.h" />
+		<Unit filename="../Gamecore/input/SGF_KeyMapping.h" />
+		<Unit filename="../Gamecore/input/SGF_Keyboard.h" />
+		<Unit filename="../Gamecore/input/SGF_Mouse.h" />
+		<Unit filename="../Gamecore/input/SGF_PSPJoystick.h" />
+		<Unit filename="../Gamecore/input/SGF_StructsInput.h" />
+		<Unit filename="../Gamecore/input/SGF_WIIJoystick.h" />
+		<Unit filename="../Gamecore/input/SGF_textInput.h" />
+		<Unit filename="../Gamecore/input/all.h" />
+		<Unit filename="../Gamecore/input/sdl-joystick.h" />
+		<Unit filename="../Gamecore/level/SGF_LevelUtils.h" />
+		<Unit filename="../Gamecore/lists/SGF_AirList.h" />
+		<Unit filename="../Gamecore/lists/SGF_ImageList.h" />
+		<Unit filename="../Gamecore/lists/SGF_PcxList.h" />
+		<Unit filename="../Gamecore/lists/SGF_SndList.h" />
+		<Unit filename="../Gamecore/lists/all.h" />
+		<Unit filename="../Gamecore/lists/liststructs.h" />
+		<Unit filename="../Gamecore/math/SGF_Angles.h" />
+		<Unit filename="../Gamecore/math/SGF_Complex.h" />
+		<Unit filename="../Gamecore/math/SGF_Curve.h" />
+		<Unit filename="../Gamecore/math/SGF_Extrapolate.h" />
+		<Unit filename="../Gamecore/math/SGF_Interpolation.h" />
+		<Unit filename="../Gamecore/math/SGF_Lincp.h" />
+		<Unit filename="../Gamecore/math/SGF_Math.h" />
+		<Unit filename="../Gamecore/math/SGF_Matriz.h" />
+		<Unit filename="../Gamecore/math/SGF_Odife.h" />
+		<Unit filename="../Gamecore/math/SGF_Plane.h" />
+		<Unit filename="../Gamecore/math/SGF_PlaneList.h" />
+		<Unit filename="../Gamecore/math/SGF_Pluecker.h" />
+		<Unit filename="../Gamecore/math/SGF_Polynomial.h" />
+		<Unit filename="../Gamecore/math/SGF_Quaternion.h" />
+		<Unit filename="../Gamecore/math/SGF_Random.h" />
+		<Unit filename="../Gamecore/math/SGF_Rotation.h" />
+		<Unit filename="../Gamecore/math/SGF_Simd.h" />
+		<Unit filename="../Gamecore/math/SGF_Vector.h" />
+		<Unit filename="../Gamecore/math/Simd_3DNow.h" />
+		<Unit filename="../Gamecore/math/Simd_AltiVec.h" />
+		<Unit filename="../Gamecore/math/Simd_Generic.h" />
+		<Unit filename="../Gamecore/math/Simd_MMX.h" />
+		<Unit filename="../Gamecore/math/Simd_SSE.h" />
+		<Unit filename="../Gamecore/math/Simd_SSE2.h" />
+		<Unit filename="../Gamecore/math/Simd_SSE3.h" />
+		<Unit filename="../Gamecore/math/all.h" />
+		<Unit filename="../Gamecore/menu/SGF_ActionSpeed.h" />
+		<Unit filename="../Gamecore/menu/SGF_Actionfactory.h" />
+		<Unit filename="../Gamecore/menu/SGF_Menu.h" />
+		<Unit filename="../Gamecore/menu/SGF_MenuAction.h" />
+		<Unit filename="../Gamecore/menu/SGF_MenuAnimation.h" />
+		<Unit filename="../Gamecore/menu/SGF_MenuGlobal.h" />
+		<Unit filename="../Gamecore/menu/SGF_MenuOption.h" />
+		<Unit filename="../Gamecore/menu/SGF_MenuV2.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionAdventure.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionAdventureCpu.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionChangeMod.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionConfig.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionCredits.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionDummy.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionFullscreen.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionInvencible.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionJoystick.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionKey.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionLevel.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionLives.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionMenu.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionNetworkHost.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionNetworkJoin.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionNpcBuddies.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionPlayMode.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionQuit.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionScreenSize.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionSelectFontV2.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionSpeed.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionTabMenu.h" />
+		<Unit filename="../Gamecore/menu/SGF_OptionVersus.h" />
+		<Unit filename="../Gamecore/menu/SGF_Optionfactory.h" />
+		<Unit filename="../Gamecore/menu/SGF_StructsMenu.h" />
+		<Unit filename="../Gamecore/menu/SGF_TabMenu.h" />
+		<Unit filename="../Gamecore/menu/all.h" />
+		<Unit filename="../Gamecore/menu/options.h" />
+		<Unit filename="../Gamecore/mortal/gfx.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Configuration.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Expression.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Modifier.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Section.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Stack.h" />
+		<Unit filename="../Gamecore/mugen/Ast/Value.h" />
+		<Unit filename="../Gamecore/mugen/Ast/all.h" />
+		<Unit filename="../Gamecore/mugen/Ast/argument.h" />
+		<Unit filename="../Gamecore/mugen/Ast/ast.h" />
+		<Unit filename="../Gamecore/mugen/Ast/astManager.h" />
+		<Unit filename="../Gamecore/mugen/Ast/attribute-array.h" />
+		<Unit filename="../Gamecore/mugen/Ast/attribute-keyword.h" />
+		<Unit filename="../Gamecore/mugen/Ast/attribute-simple.h" />
+		<Unit filename="../Gamecore/mugen/Ast/attribute.h" />
+		<Unit filename="../Gamecore/mugen/Ast/collectable.h" />
+		<Unit filename="../Gamecore/mugen/Ast/exception.h" />
+		<Unit filename="../Gamecore/mugen/Ast/extra.h" />
+		<Unit filename="../Gamecore/mugen/Ast/filename.h" />
+		<Unit filename="../Gamecore/mugen/Ast/function.h" />
+		<Unit filename="../Gamecore/mugen/Ast/helper.h" />
+		<Unit filename="../Gamecore/mugen/Ast/hitdef.h" />
+		<Unit filename="../Gamecore/mugen/Ast/identifier.h" />
+		<Unit filename="../Gamecore/mugen/Ast/key.h" />
+		<Unit filename="../Gamecore/mugen/Ast/keyword-array.h" />
+		<Unit filename="../Gamecore/mugen/Ast/keyword.h" />
+		<Unit filename="../Gamecore/mugen/Ast/number.h" />
+		<Unit filename="../Gamecore/mugen/Ast/operand.h" />
+		<Unit filename="../Gamecore/mugen/Ast/range.h" />
+		<Unit filename="../Gamecore/mugen/Ast/resource.h" />
+		<Unit filename="../Gamecore/mugen/Ast/string.h" />
+		<Unit filename="../Gamecore/mugen/Ast/value-list.h" />
+		<Unit filename="../Gamecore/mugen/Ast/variable.h" />
+		<Unit filename="../Gamecore/mugen/Ast/walker.h" />
+		<Unit filename="../Gamecore/mugen/gc.h" />
+		<Unit filename="../Gamecore/network/SGF_NetChat.h" />
+		<Unit filename="../Gamecore/network/SGF_NetChatClient.h" />
+		<Unit filename="../Gamecore/network/SGF_NetChatServer.h" />
+		<Unit filename="../Gamecore/network/SGF_NetChatWidget.h" />
+		<Unit filename="../Gamecore/network/SGF_NetClient.h" />
+		<Unit filename="../Gamecore/network/SGF_NetServer.h" />
+		<Unit filename="../Gamecore/network/SGF_Network.h" />
+		<Unit filename="../Gamecore/network/all.h" />
+		<Unit filename="../Gamecore/objects/SGF_Element.h" />
+		<Unit filename="../Gamecore/objects/SGF_Object.h" />
+		<Unit filename="../Gamecore/objects/SGF_ObjectCollidable.h" />
+		<Unit filename="../Gamecore/objects/SGF_ObjectMessages.h" />
+		<Unit filename="../Gamecore/objects/all.h" />
+		<Unit filename="../Gamecore/resource/SGF_Collector.h" />
+		<Unit filename="../Gamecore/resource/SGF_FontRender.h" />
+		<Unit filename="../Gamecore/resource/SGF_ResourceManager.h" />
+		<Unit filename="../Gamecore/resource/all.h" />
+		<Unit filename="../Gamecore/script/SGF_Lua.h" />
+		<Unit filename="../Gamecore/script/SGF_Perl.h" />
+		<Unit filename="../Gamecore/script/SGF_Phyton.h" />
+		<Unit filename="../Gamecore/script/SGF_Scripting.h" />
+		<Unit filename="../Gamecore/script/all.h" />
+		<Unit filename="../Gamecore/sprite/SGF_Efects.h" />
+		<Unit filename="../Gamecore/sprite/SGF_MugenSSF.h" />
+		<Unit filename="../Gamecore/sprite/SGF_MugenSprite.h" />
+		<Unit filename="../Gamecore/sprite/SGF_RleSprite.h" />
+		<Unit filename="../Gamecore/sprite/SGF_SffManager.h" />
+		<Unit filename="../Gamecore/sprite/SGF_SffSprMan.h" />
+		<Unit filename="../Gamecore/sprite/all.h" />
+		<Unit filename="../Gamecore/sprite/defs.h" />
+		<Unit filename="../Gamecore/structures/BTree.h" />
+		<Unit filename="../Gamecore/structures/BinSearch.h" />
+		<Unit filename="../Gamecore/structures/Hierarchy.h" />
+		<Unit filename="../Gamecore/structures/SGF_BHeap.h" />
+		<Unit filename="../Gamecore/structures/SGF_Btree.h" />
+		<Unit filename="../Gamecore/structures/SGF_Btree_old.h" />
+		<Unit filename="../Gamecore/structures/SGF_DynamicArray.h" />
+		<Unit filename="../Gamecore/structures/SGF_HashTable.h" />
+		<Unit filename="../Gamecore/structures/SGF_HashTableFast.h" />
+		<Unit filename="../Gamecore/structures/SGF_LinkList.h" />
+		<Unit filename="../Gamecore/structures/SGF_List.h" />
+		<Unit filename="../Gamecore/structures/SGF_ListString.h" />
+		<Unit filename="../Gamecore/structures/SGF_Parameter.h" />
+		<Unit filename="../Gamecore/structures/SGF_Queue.h" />
+		<Unit filename="../Gamecore/structures/SGF_QueueCircular.h" />
+		<Unit filename="../Gamecore/structures/SGF_Stack.h" />
+		<Unit filename="../Gamecore/structures/SGF_Stackstring.h" />
+		<Unit filename="../Gamecore/structures/StaticList.h" />
+		<Unit filename="../Gamecore/structures/StrPool.h" />
+		<Unit filename="../Gamecore/structures/VectorSet.h" />
+		<Unit filename="../Gamecore/structures/all.h" />
+		<Unit filename="../Gamecore/sys/SGF_System.h" />
+		<Unit filename="../Gamecore/sys/win32/win_public.h" />
+		<Unit filename="../Gamecore/util/AirManager.h" />
+		<Unit filename="../Gamecore/util/SGF_ArgsCmdLine.h" />
+		<Unit filename="../Gamecore/util/SGF_AudioSystem.h" />
+		<Unit filename="../Gamecore/util/SGF_Callback.h" />
+		<Unit filename="../Gamecore/util/SGF_Compress.h" />
+		<Unit filename="../Gamecore/util/SGF_Debug.h" />
+		<Unit filename="../Gamecore/util/SGF_Displayable.h" />
+		<Unit filename="../Gamecore/util/SGF_Ebox.h" />
+		<Unit filename="../Gamecore/util/SGF_FileSystem.h" />
+		<Unit filename="../Gamecore/util/SGF_FilesystemBase.cpp" />
+		<Unit filename="../Gamecore/util/SGF_FilesystemBase.h" />
+		<Unit filename="../Gamecore/util/SGF_FontInfo.h" />
+		<Unit filename="../Gamecore/util/SGF_FontSystem.h" />
+		<Unit filename="../Gamecore/util/SGF_HashUtils.h" />
+		<Unit filename="../Gamecore/util/SGF_Heap.h" />
+		<Unit filename="../Gamecore/util/SGF_LanguageString.h" />
+		<Unit filename="../Gamecore/util/SGF_Loading.h" />
+		<Unit filename="../Gamecore/util/SGF_MessageQueue.h" />
+		<Unit filename="../Gamecore/util/SGF_Messages.h" />
+		<Unit filename="../Gamecore/util/SGF_MugenSound.h" />
+		<Unit filename="../Gamecore/util/SGF_Path.h" />
+		<Unit filename="../Gamecore/util/SGF_Pointer.h" />
+		<Unit filename="../Gamecore/util/SGF_Regex.h" />
+		<Unit filename="../Gamecore/util/SGF_SdlManager.h" />
+		<Unit filename="../Gamecore/util/SGF_SndManager.h" />
+		<Unit filename="../Gamecore/util/SGF_SoundManager.h" />
+		<Unit filename="../Gamecore/util/SGF_StringUtils.h" />
+		<Unit filename="../Gamecore/util/SGF_Task.h" />
+		<Unit filename="../Gamecore/util/SGF_Thread.h" />
+		<Unit filename="../Gamecore/util/SGF_ThreadDefs.h" />
+		<Unit filename="../Gamecore/util/SGF_Timedif.h" />
+		<Unit filename="../Gamecore/util/SGF_Timer.h" />
+		<Unit filename="../Gamecore/util/SGF_Token.h" />
+		<Unit filename="../Gamecore/util/SGF_TokenReader_xml.h" />
+		<Unit filename="../Gamecore/util/SGF_Utf.h" />
+		<Unit filename="../Gamecore/util/SGF_Util.h" />
+		<Unit filename="../Gamecore/util/SGF_UtilStructs.h" />
+		<Unit filename="../Gamecore/util/SGF_Xmltools.h" />
+		<Unit filename="../Gamecore/util/XmlNode/CmnHdr.h" />
+		<Unit filename="../Gamecore/util/XmlNode/Portable.h" />
+		<Unit filename="../Gamecore/util/XmlNode/XmlNode.h" />
+		<Unit filename="../Gamecore/util/all.h" />
+		<Unit filename="../Gamecore/util/all_fonts.h" />
+		<Unit filename="../Gamecore/util/all_messages.h" />
+		<Unit filename="../Gamecore/util/all_sound.h" />
+		<Unit filename="../Gamecore/util/tokenreader.h" />
+		<Unit filename="../Source/SGF_Global.cpp" />
+		<Unit filename="../Source/ai/SGF_AstarHeap.cpp" />
+		<Unit filename="../Source/ai/SGF_AstarLib.cpp" />
+		<Unit filename="../Source/ai/SGF_Map.cpp" />
+		<Unit filename="../Source/ai/SGF_PathFinder.cpp" />
+		<Unit filename="../Source/configuration/SGF_CmdVars.cpp" />
+		<Unit filename="../Source/configuration/SGF_ConfigSystem.cpp" />
+		<Unit filename="../Source/configuration/SGF_Configuration.cpp" />
+		<Unit filename="../Source/configuration/SGF_SysVar.cpp" />
+		<Unit filename="../Source/exceptions/SGF_FileExceptions.cpp" />
+		<Unit filename="../Source/exceptions/SGF_MugenException.cpp" />
+		<Unit filename="../Source/exceptions/SGF_NetException.cpp" />
+		<Unit filename="../Source/exceptions/SGF_ScriptException.cpp" />
+		<Unit filename="../Source/exceptions/SGF_error.cpp" />
+		<Unit filename="../Source/exceptions/SGF_exception.cpp" />
+		<Unit filename="../Source/exceptions/SGF_loadException.cpp" />
+		<Unit filename="../Source/exceptions/SGF_tokenException.cpp" />
+		<Unit filename="../Source/external/DT_drawtext.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/Internal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/SDL_console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/fastevents.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/glSDL.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/scale2x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/external/scale2xSDL.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../Source/game/SGF_Console.cpp" />
+		<Unit filename="../Source/game/SGF_Control.cpp" />
+		<Unit filename="../Source/game/SGF_Mod.cpp" />
+		<Unit filename="../Source/game/SGF_Theater.cpp" />
+		<Unit filename="../Source/game/SGF_World.cpp" />
+		<Unit filename="../Source/geometry/DrawVert.cpp" />
+		<Unit filename="../Source/geometry/JointTransform.cpp" />
+		<Unit filename="../Source/geometry/TraceModel.cpp" />
+		<Unit filename="../Source/graphics/SGF_Bitmap.cpp" />
+		<Unit filename="../Source/graphics/SGF_Color.cpp" />
+		<Unit filename="../Source/graphics/SGF_FireEffect.cpp" />
+		<Unit filename="../Source/graphics/SGF_GradientEffect.cpp" />
+		<Unit filename="../Source/graphics/SGF_LitBitmap.cpp" />
+		<Unit filename="../Source/graphics/SGF_Poligon.cpp" />
+		<Unit filename="../Source/graphics/SGF_TransBitmap.cpp" />
+		<Unit filename="../Source/gui/SGF_BoundBox.cpp" />
+		<Unit filename="../Source/gui/SGF_Box.cpp" />
+		<Unit filename="../Source/gui/SGF_ContextBox.cpp" />
+		<Unit filename="../Source/gui/SGF_Coordinate.cpp" />
+		<Unit filename="../Source/gui/SGF_FadetoolGui.cpp" />
+		<Unit filename="../Source/gui/SGF_GuiAnimation.cpp" />
+		<Unit filename="../Source/gui/SGF_GuiTimer.cpp" />
+		<Unit filename="../Source/gui/SGF_LineEdit.cpp" />
+		<Unit filename="../Source/gui/SGF_PopupBox.cpp" />
+		<Unit filename="../Source/gui/SGF_Rectarea.cpp" />
+		<Unit filename="../Source/gui/SGF_ScrollList.cpp" />
+		<Unit filename="../Source/gui/SGF_SelectList.cpp" />
+		<Unit filename="../Source/gui/SGF_TabbedBox.cpp" />
+		<Unit filename="../Source/gui/SGF_Widget.cpp" />
+		<Unit filename="../Source/input/SGF_ButtonMapping.cpp" />
+		<Unit filename="../Source/input/SGF_Events.cpp" />
+		<Unit filename="../Source/input/SGF_Input.cpp" />
+		<Unit filename="../Source/input/SGF_InputManager.cpp" />
+		<Unit filename="../Source/input/SGF_InputSource.cpp" />
+		<Unit filename="../Source/input/SGF_Joystick.cpp" />
+		<Unit filename="../Source/input/SGF_Key.h" />
+		<Unit filename="../Source/input/SGF_KeyMapping.cpp" />
+		<Unit filename="../Source/input/SGF_Keyboard.cpp" />
+		<Unit filename="../Source/input/SGF_Mouse.cpp" />
+		<Unit filename="../Source/input/SGF_TextInput.cpp" />
+		<Unit filename="../Source/input/sdl-joystick.cpp" />
+		<Unit filename="../Source/level/SGF_LevelUtils.cpp" />
+		<Unit filename="../Source/lists/SGF_AirList.cpp" />
+		<Unit filename="../Source/lists/SGF_ImageList.cpp" />
+		<Unit filename="../Source/lists/SGF_PcxList.cpp" />
+		<Unit filename="../Source/lists/SGF_SndList.cpp" />
+		<Unit filename="../Source/math/SGF_Angles.cpp" />
+		<Unit filename="../Source/math/SGF_Complex.cpp" />
+		<Unit filename="../Source/math/SGF_Lcp.cpp" />
+		<Unit filename="../Source/math/SGF_Math.cpp" />
+		<Unit filename="../Source/math/SGF_Matriz.cpp" />
+		<Unit filename="../Source/math/SGF_Ode.cpp" />
+		<Unit filename="../Source/math/SGF_Plane.cpp" />
+		<Unit filename="../Source/math/SGF_Pluecker.cpp" />
+		<Unit filename="../Source/math/SGF_Polynomial.cpp" />
+		<Unit filename="../Source/math/SGF_Quat.cpp" />
+		<Unit filename="../Source/math/SGF_Rotation.cpp" />
+		<Unit filename="../Source/math/SGF_Simd.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_3DNow.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_AltiVec.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_Generic.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_MMX.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_SSE2.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_SSE3.cpp" />
+		<Unit filename="../Source/math/SGF_Simd_SSEMinGw.cpp" />
+		<Unit filename="../Source/math/SGF_Vector.cpp" />
+		<Unit filename="../Source/menu/SGF_ActionFactory.cpp" />
+		<Unit filename="../Source/menu/SGF_ActionSpeed.cpp" />
+		<Unit filename="../Source/menu/SGF_MenuAction.cpp" />
+		<Unit filename="../Source/menu/SGF_MenuAnimation.cpp" />
+		<Unit filename="../Source/menu/SGF_MenuGlobal.cpp" />
+		<Unit filename="../Source/menu/SGF_MenuOption.cpp" />
+		<Unit filename="../Source/menu/SGF_MenuV2.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionAdventure.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionAdventureCpu.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionChangeMod.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionConfig.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionCredits.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionDummy.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionFactory.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionFullscreen.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionInvencible.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionJoystick.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionKey.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionLevel.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionLives.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionMenu.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionNetworkHost.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionNetworkJoin.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionNpcBuddies.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionPlaymode.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionQuit.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionScreenSize.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionSelectFontV2.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionSpeed.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionTabMenu.cpp" />
+		<Unit filename="../Source/menu/SGF_OptionVersus.cpp" />
+		<Unit filename="../Source/mortal/gfx.cpp" />
+		<Unit filename="../Source/mugen/Ast/Ast.cpp" />
+		<Unit filename="../Source/mugen/Ast/astManager.cpp" />
+		<Unit filename="../Source/network/SGF_NetChatServer.cpp" />
+		<Unit filename="../Source/network/SGF_NetClient.cpp" />
+		<Unit filename="../Source/network/SGF_NetServer.cpp" />
+		<Unit filename="../Source/network/SGF_Network.cpp" />
+		<Unit filename="../Source/network/chat-widget.cpp" />
+		<Unit filename="../Source/network/chat_client.cpp" />
+		<Unit filename="../Source/objects/SGF_Element.cpp" />
+		<Unit filename="../Source/objects/SGF_Object.cpp" />
+		<Unit filename="../Source/objects/SGF_ObjectCollidable.cpp" />
+		<Unit filename="../Source/resource/SGF_ResourceManager.cpp" />
+		<Unit filename="../Source/resource/SGF_collector.cpp" />
+		<Unit filename="../Source/resource/font_render.cpp" />
+		<Unit filename="../Source/script/SGF_Perl.cpp" />
+		<Unit filename="../Source/script/SGF_Phyton.cpp" />
+		<Unit filename="../Source/script/SGF_Script.cpp" />
+		<Unit filename="../Source/sprite/SGF_Effects.cpp" />
+		<Unit filename="../Source/sprite/SGF_MugenSprite.cpp" />
+		<Unit filename="../Source/sprite/SGF_Mugensff.cpp" />
+		<Unit filename="../Source/sprite/SGF_RleSprite.cpp" />
+		<Unit filename="../Source/sprite/SGF_SffManager.cpp" />
+		<Unit filename="../Source/sprite/SGF_SffSprMan.cpp" />
+		<Unit filename="../Source/structures/QueueTest.cpp" />
+		<Unit filename="../Source/structures/SGF_HashTableFast.cpp" />
+		<Unit filename="../Source/structures/SGF_Stackstring.cpp" />
+		<Unit filename="../Source/sys/SGF_SystemMinGW.cpp" />
+		<Unit filename="../Source/sys/win32/SGF_FpuMingw.cpp" />
+		<Unit filename="../Source/sys/win32/SGF_WinCpuMingw.cpp" />
+		<Unit filename="../Source/sys/win32/SGF_WinShared.cpp" />
+		<Unit filename="../Source/util/AirManager.cpp" />
+		<Unit filename="../Source/util/SGF_ArgsCmdLine.cpp" />
+		<Unit filename="../Source/util/SGF_AudioSystem.cpp" />
+		<Unit filename="../Source/util/SGF_Debug.cpp" />
+		<Unit filename="../Source/util/SGF_Directory.cpp" />
+		<Unit filename="../Source/util/SGF_Ebox.cpp" />
+		<Unit filename="../Source/util/SGF_FileSystem.cpp" />
+		<Unit filename="../Source/util/SGF_FontInfo.cpp" />
+		<Unit filename="../Source/util/SGF_FontSystem.cpp" />
+		<Unit filename="../Source/util/SGF_HashUtils.cpp" />
+		<Unit filename="../Source/util/SGF_Heap.cpp" />
+		<Unit filename="../Source/util/SGF_LanguageString.cpp" />
+		<Unit filename="../Source/util/SGF_Loading.cpp" />
+		<Unit filename="../Source/util/SGF_MessageQueue.cpp" />
+		<Unit filename="../Source/util/SGF_Messages.cpp" />
+		<Unit filename="../Source/util/SGF_MugenSound.cpp" />
+		<Unit filename="../Source/util/SGF_Mutex.cpp" />
+		<Unit filename="../Source/util/SGF_Path.cpp" />
+		<Unit filename="../Source/util/SGF_Regex.cpp" />
+		<Unit filename="../Source/util/SGF_SdlManager.cpp" />
+		<Unit filename="../Source/util/SGF_SndManager.cpp" />
+		<Unit filename="../Source/util/SGF_SoundManager.cpp" />
+		<Unit filename="../Source/util/SGF_StringUtils.cpp" />
+		<Unit filename="../Source/util/SGF_Task.cpp" />
+		<Unit filename="../Source/util/SGF_Thread.cpp" />
+		<Unit filename="../Source/util/SGF_Timedif.cpp" />
+		<Unit filename="../Source/util/SGF_Timer.cpp" />
+		<Unit filename="../Source/util/SGF_Token.cpp" />
+		<Unit filename="../Source/util/SGF_TokenReader_xml.cpp" />
+		<Unit filename="../Source/util/SGF_Utf.cpp" />
+		<Unit filename="../Source/util/SGF_Util.cpp" />
+		<Unit filename="../Source/util/SGF_Xmltools.cpp" />
+		<Unit filename="../Source/util/XmlNode/XmlNode.cpp" />
+		<Unit filename="../Source/util/tokenreader.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

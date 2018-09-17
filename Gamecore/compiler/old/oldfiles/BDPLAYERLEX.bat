@@ -1,0 +1,1 @@
+flex -oplayerflex.cpp -Pplayer PlLexerRules.txt

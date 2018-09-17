@@ -1,0 +1,17 @@
+1 - class member variables 
+
+	use the prefix m_
+
+2 - class private member variables
+
+	use the prefix my_
+
+3 - structs
+   	_s no final do nome.
+   	nome sempre minusculo
+
+4 - types
+
+
+	_t no final do nome.
+   	nome sempre minusculo

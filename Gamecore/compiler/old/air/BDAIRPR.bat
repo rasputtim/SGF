@@ -1,0 +1,1 @@
+bison -oairyacc.cpp -d -p air AirRules.txt

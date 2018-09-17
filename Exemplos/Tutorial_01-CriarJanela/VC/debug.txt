@@ -1,0 +1,1440 @@
+[115:SGF::Filesystem::CIsolatedPath::CIsolatedPath]  - Constructor: mypath: open\sgf_configuration.xml
+[115:SGF::Filesystem::CIsolatedPath::CIsolatedPath]  END - Path initialized open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent]  to join: open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] joined: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] not found and not exists E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\sgf_configuration.xml
+[100:SGF::Filesystem::CAbsolutePath::joinToCurrent] original path: open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] -----------------------------------------------------
+[115:SGF::Filesystem::getInstance]  BEGIN
+[115:SGF::Filesystem::getInstance]  - CREATING NEW FILESYSTEM OBJECT
+[115:SGF::Util::getDataPath2]  BEGIN GET DATA PATH
+[115:SGF::Util::getDataPath2]  END GET DATA PATH BASEPATH: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Util::getDataPath2]  END GET DATA PATH REALPATH: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::CGameFileSystem::CGameFileSystem]   CONSTRUCTOR dataPath:  E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Filesystem::CIsolatedPath::CIsolatedPath]  - Constructor: mypath: open\sgf_configuration.xml
+[115:SGF::Filesystem::CIsolatedPath::CIsolatedPath]  END - Path initialized open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent]  to join: open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] joined: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] not found and not exists E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\sgf_configuration.xml
+[100:SGF::Filesystem::CAbsolutePath::joinToCurrent] original path: open\sgf_configuration.xml
+[115:SGF::Filesystem::CAbsolutePath::joinToCurrent] -----------------------------------------------------
+[106:SGF::CConfiguration::loadConfigurations] Notice: Could not load configuration file E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\sgf_configuration.xml: e:\biblioteca\projetos\sgf\source\configuration\sgf_configuration.cpp:2378 Config file  Does Not Exist - Using Default Configuration Parâmeters
+[106:SGF::CConfiguration::loadConfigurations] END LOADING CONFIGURATION 
+[118:SGF::CGameControl::CGameControl] BEGIN CREATING JANITOR (GARBAGE COLLECTOR)================
+[102:SGF::CFontList::CFontList] Initializing Font List 
+[109:SGF::CFontList::findFonts] BEGIN 
+[115:SGF::Filesystem::CRelativePath::CRelativePath]  - Constructor: mypath: fonts
+[115:SGF::Filesystem::CRelativePath::CRelativePath]  - BEGIN CREATING LOCAL PATH 
+[115:SGF::Filesystem::getInstance]  BEGIN
+[115:SGF::CGameFileSystem::find]   -  Path to find: fonts
+[115:SGF::CGameFileSystem::lookup]  Will try to find: 'fonts'
+[115:SGF::Filesystem::CAbsolutePath::localJoin] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::localJoin]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin]  joined: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin] Path Joined and not exists E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin] -----------------------------------------------------
+[115:SGF::CGameFileSystem::lookup] Try in current directory : 'E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\fonts'
+[115:SGF::CGameFileSystem::lookup]  Try in current directory NOT FOUND: 
+[115:SGF::CGameFileSystem::lookup] --------------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in Main Data directory : 
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join complete path: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join isComplete: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  to join existes: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  will try is not complete join: 
+[115:SGF::Filesystem::CAbsolutePath::join]  to join this path: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Filesystem::CAbsolutePath::join]  complete made string: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\fonts
+[115:SGF::Filesystem::CAbsolutePath::join] joined and not exists: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]   Try in Main  Data directory dataPAth From CGameFilesystem:  E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\fonts
+[115:SGF::CGameFileSystem::lookup]  Try in Main Data directory NOT FOUND: 
+[115:SGF::CGameFileSystem::lookup] --------------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in Main GAmeEngine directory 
+[115:SGF::Util::getGamePath]  BEGIN GET GAME PATH
+[115:SGF::Util::getGamePath]  END GET GAME PATH BASEPATH: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\
+[115:SGF::Util::getGamePath]  END GET GAME PATH REALPATH: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Coping Path Object: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Object copied: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\
+[115:SGF::Filesystem::CAbsolutePath::operator =] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::localJoin] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::localJoin]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin]  joined: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin] Path Joined and not exists E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\fonts
+[115:SGF::Filesystem::CAbsolutePath::localJoin] -----------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in Main GAmeEngine directory : 'E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\fonts'
+[115:SGF::CGameFileSystem::lookup]  Try in Main GameEngine NOT FOUND: 
+[115:SGF::CGameFileSystem::lookup] --------------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in User directory : 'E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\open\fonts'
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join complete path: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join isComplete: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  to join existes: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  will try is not complete join: 
+[115:SGF::Filesystem::CAbsolutePath::join]  to join this path: E:\User_Data\win10\dono10\AppData\Roaming
+[115:SGF::Filesystem::CAbsolutePath::join]  complete made string: E:\User_Data\win10\dono10\AppData\Roaming\fonts
+[115:SGF::Filesystem::CAbsolutePath::join] joined and exists: E:\User_Data\win10\dono10\AppData\Roaming
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Coping Path Object: E:\User_Data\win10\dono10\AppData\Roaming\fonts
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Object copied: E:\User_Data\win10\dono10\AppData\Roaming\fonts
+[115:SGF::Filesystem::CAbsolutePath::operator =] -----------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in User CDirectory NOT FOUND: 
+[115:SGF::CGameFileSystem::lookup] --------------------------------------------------------
+[115:SGF::CGameFileSystem::lookup]  Try in CWD only - IS NOT A ABSOLUTE PATH : 'E:\User_Data\win10\dono10\AppData\Roaming\fonts'
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Coping Path Object: fonts
+[115:SGF::Filesystem::CAbsolutePath::operator =] SGF::Filesystem::CAbsolutePath::operator =Object copied: fonts
+[115:SGF::Filesystem::CAbsolutePath::operator =] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join complete path: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join isComplete: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  to join existes: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  will try is not complete join: 
+[115:SGF::Filesystem::CAbsolutePath::join]  to join this path: E:\User_Data\win10\dono10\AppData\Roaming
+[115:SGF::Filesystem::CAbsolutePath::join]  complete made string: E:\User_Data\win10\dono10\AppData\Roaming\fonts
+[115:SGF::Filesystem::CAbsolutePath::join] joined and exists: E:\User_Data\win10\dono10\AppData\Roaming
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[115:SGF::Filesystem::CAbsolutePath::join]  to join: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join complete path: fonts
+[115:SGF::Filesystem::CAbsolutePath::join]  to join isComplete: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  to join existes: 0
+[115:SGF::Filesystem::CAbsolutePath::join]  will try is not complete join: 
+[115:SGF::Filesystem::CAbsolutePath::join]  to join this path: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Filesystem::CAbsolutePath::join]  complete made string: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\fonts
+[115:SGF::Filesystem::CAbsolutePath::join] joined and not exists: E:\Biblioteca\Projetos\SGF\Exemplos\Tutorial_01-CriarJanela\VC\data\
+[115:SGF::Filesystem::CAbsolutePath::join] -----------------------------------------------------
+[100:SGF::Filesystem::CRelativePath::CRelativePath]  not found and not exists fonts
+[100:SGF::Filesystem::CRelativePath::CRelativePath] original path: fonts
+[115:SGF::Filesystem::CRelativePath::CRelativePath]  END Path initialized and NOT exists fonts
+[109:SGF::CFontList::findSystemFonts] BEGIN 
+[109:SGF::CFontList::findSystemFonts] Will get windows fonts at: C:\WINDOWS\fonts
+[115:SGF::Filesystem::getInstance]  BEGIN
+[109:SGF::CGameFileSystem::getFiles] FOUND: 305 files.
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\AGENCYB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\AGENCYR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ALGER.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ANTQUAB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ANTQUABI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ANTQUAI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\arial.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\arialbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\arialbi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ariali.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ARIALN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ARIALNB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ARIALNBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ARIALNI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ariblk.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ARLRDBD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BASKVILL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BAUHS93.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BELL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BELLB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BELLI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BERNHC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BKANT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_B.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_BI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_BLAI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_BLAR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_CB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_CBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_CI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_CR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_I.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_PSTC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOD_R.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOOKOS.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOOKOSB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOOKOSBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BOOKOSI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRADHITC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRITANIC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRLNSB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRLNSDB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRLNSR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BROADW.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BRUSHSCI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\BSSYM7.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibri.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibrib.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibrii.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibril.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibrili.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\calibriz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALIFB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALIFI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALIFR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALIST.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALISTB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALISTBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CALISTI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\cambriab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\cambriai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\cambriaz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Candara.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Candarab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Candarai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Candaraz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CASTELAR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CENSCBK.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CENTAUR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CENTURY.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CHILLER.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\COLONNA.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\comic.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\comicbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\comici.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\comicz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\consola.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\consolab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\consolai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\consolaz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\constan.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\constanb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\constani.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\constanz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\COOPBL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\COPRGTB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\COPRGTL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\corbel.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\corbelb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\corbeli.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\corbelz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\cour.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\courbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\courbi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\couri.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\CURLZ___.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ebrima.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ebrimabd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ELEPHNT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ELEPHNTI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ENGR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ERASBD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ERASDEMI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ERASLGHT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ERASMD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FELIXTI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FORTE.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRABK.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRABKIT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRADM.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRADMCN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRADMIT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRAHV.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRAHVIT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\framd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRAMDCN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\framdit.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FREESCPT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FRSCRIPT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\FTLTLT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Gabriola.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\gadugi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\gadugib.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GARA.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GARABD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GARAIT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\georgia.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\georgiab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\georgiai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\georgiaz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GIGI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILBI___.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILB____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILC____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILI____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILLUBCD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GILSANUB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GIL_____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GLECB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GLSNECB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOTHIC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOTHICB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOTHICBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOTHICI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOUDOS.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOUDOSB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOUDOSI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\GOUDYSTO.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\HARLOWSI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\HARNGTON.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\HATTEN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\himalaya.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\HTOWERT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\HTOWERTI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\impact.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\IMPRISHA.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\INFROMAN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ITCBLKAD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ITCEDSCR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ITCKRIST.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\javatext.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\JOKERMAN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\JUICE___.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\KUNSTLER.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LATINWD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LBRITE.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LBRITED.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LBRITEDI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LBRITEI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LCALLIG.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LeelaUIb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LeelawUI.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LeelUIsl.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LFAX.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LFAXD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LFAXDI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LFAXI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LHANDW.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LSANS.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LSANSD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LSANSDI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LSANSI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LTYPE.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LTYPEB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LTYPEBO.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\LTYPEO.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\lucon.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\l_10646.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MAGNETOB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MAIAN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\malgun.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\malgunbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\malgunsl.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\marlett.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MATURASC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\micross.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MISTRAL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\mmrtext.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\mmrtextb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MOD20.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\monbaiti.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\msyi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\MTCORSVA.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\mvboli.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\NIAGENG.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\NIAGSOL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\Nirmala.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\NirmalaB.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\NirmalaS.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ntailu.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ntailub.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\OCRAEXT.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\OLDENGL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ONYX.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\OUTLOOK.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\pala.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\palab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\palabi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\palai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PALSCRI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PAPYRUS.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PARCHM.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PERBI___.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PERB____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PERI____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PERTIBD.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PERTILI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PER_____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\phagspa.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\phagspab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PLAYBILL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\POORICH.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\PRISTINA.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\RAGE.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\RAVIE.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\REFSAN.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\REFSPCL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCCB___.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCC____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCK.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCKB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCKBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCKEB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\ROCKI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SCHLBKB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SCHLBKBI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SCHLBKI.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SCRIPTBL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segmdl2.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoepr.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeprb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoesc.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoescb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeui.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeuib.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeuii.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeuil.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeuisl.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\segoeuiz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguibl.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguibli.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguiemj.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguihis.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguili.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguisb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguisbi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguisli.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\seguisym.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SHOWG.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\simsunb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\SNAP____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\STENCIL.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\sylfaen.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\symbol.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\tahoma.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\tahomabd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\taile.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\taileb.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCBI____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCB_____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCCB____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCCEB.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCCM____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCMI____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TCM_____.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\TEMPSITC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\times.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\timesbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\timesbi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\timesi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\trebuc.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\trebucbd.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\trebucbi.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\trebucit.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\verdana.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\verdanab.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\verdanai.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\verdanaz.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\VINERITC.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\VIVALDII.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\VLADIMIR.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\webdings.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\wingding.ttf'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\WINGDNG2.TTF'
+[109:SGF::CFontList::findFonts] Adding system font `C:\WINDOWS\fonts\WINGDNG3.TTF'
+[109:SGF::CFontList::findFonts] WILL SORT FONTS `
+[109:SGF::CFontList::findFonts] END SORTING FONTS `
+[109:SGF::CFontList::findFonts] Fonts added and sorted - Returning 
+[109:SGF::CFontList::findFonts] END 
+[118:SGF::CGameControl::CGameControl] END CREATING JANITOR (GARBAGE COLLECTOR)================
+[118:SGF::CGameControl::CGameControl] END LOADING CONFIGURATIONS (CConfiguration)================
+[118:SGF::CGameControl::CGameControl] START LOADING MOD (OpenMugen::Mod)================
+[125:SGF::CTokenReaderXML::CTokenReaderXML] CTokenReaderXML::CTokenReaderXML( const string * file ) // Constructor //=> File: open\mod\mod.xml
+[125:SGF::CTokenReaderXML::CTokenReaderXML] CTokenReaderXML::CTokenReaderXML( const string * file ) // Opened //=> File: open\mod\mod.xml
+[125:SGF::CTokenReaderXML::readToken] CTokenReaderXML::readToken() // BEGIN //
+[125:SGF::CTokenReaderXML::~CTokenReaderXML] CTokenReaderXML::~CTokenReaderXML // Destructor //
+[125:SGF::CTokenReaderXML::~CTokenReaderXML] CTokenReaderXML::~CTokenReaderXML // Closed File //
+[118:SGF::CGameControl::CGameControl] END LOADING MOD (OpenMugen::Mod)================
+[118:SGF::CGameControl::CGameControl] START SDL PHASE 1 (CSDLMANAGER)================
+[124:SGF::CSDLManager::Init] CSDLManager::Init()
+[118:SGF::CSDLManager::Init] STATE = 015DEE18
+[124:SGF::CSDLManager::Init] CSDLManager::Init() // Requesting glSDL. // 
+[124:SGF::CSDLManager::CommonInit] CSDLManager::CommonInit // -------------------------------------------
+[124:SGF::CSDLManager::CommonInit] Number of displays:: 1
+[124:SGF::CSDLManager::CommonInit] Displays : 0
+[124:SGF::CSDLManager::CommonInit] Current mode:   windows
+[124:SGF::CSDLManager::CommonInit] Width:          1366
+[124:SGF::CSDLManager::CommonInit] Height:	        768
+[124:SGF::CSDLManager::CommonInit] Refr. Rate:     59 Hz
+[124:SGF::CSDLManager::CommonInit] Bits per pixel: 32
+[124:SGF::CSDLManager::CommonInit] Pixel Format:   SDL_PIXELFORMAT_RGB888
+[124:SGF::CSDLManager::CommonInit] Pixel Format:   370546692
+[124:SGF::CSDLManager::CommonInit] Red Mask:   16711680
+[124:SGF::CSDLManager::CommonInit] Green Mask:   65280
+[124:SGF::CSDLManager::CommonInit] Blue Mask:   255
+[124:SGF::CSDLManager::Init] VIDEO OK
+[124:SGF::CSDLManager::Init] AUDIO OK
+[111:SGF::CSoundSystem::InitSystem] CSoundSystem::InitSystem()
+[111:SGF::CSoundSystem::InitSystem] There are 0 sample chunk deocoders available
+[124:SGF::CSDLManager::Init] JOYSTICK OK
+[124:SGF::CSDLManager::Init] TIMER OK
+[124:SGF::CSDLManager::Init] WILL START NEW TIMER
+[124:SGF::CSDLManager::Init] FRAME MANAGER OK
+[124:SGF::CSDLManager::Init] WILL INIT FASTEVENTS: 1 : 1
+[124:SGF::CSDLManager::Init] FASTEVENTS OK
+[124:SGF::CSDLManager::Init] TTF OK
+[111:SGF::CResource::getTTFont] BEGIN // fonte:arial.ttf
+[102:SGF::CTTFFont::CTTFFont] Constructor // Fontes Disponíveis=305
+[102:SGF::CTTFFont::LoadFont] Iniciando a fonte : arial.ttf
+[111:SGF::CTTFFont::LoadFont] Will get fonte Path to : arial.ttf
+[111:SGF::CFontList::GetFontPath] fonte : arial.ttf
+[111:SGF::CFontList::findFontVector] caminho da fonte encontrado : C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CFontList::GetFontPath] Achou o caminho para a fonte:C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CTTFFont::LoadFont] caminho para a fonte Encontrado: C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CTTFFont::LoadFont] Font initiated OK
+[111:SGF::CResource::_getTTFont] set size and initialize font:file,sizearial.ttf ' 30
+[109:SGF::CFontList::PrintFonts] Printing List of Available Fonts 
+AGENCYB.TTF - Path: C:\WINDOWS\fonts\AGENCYB.TTF
+AGENCYR.TTF - Path: C:\WINDOWS\fonts\AGENCYR.TTF
+ALGER.TTF - Path: C:\WINDOWS\fonts\ALGER.TTF
+ANTQUAB.TTF - Path: C:\WINDOWS\fonts\ANTQUAB.TTF
+ANTQUABI.TTF - Path: C:\WINDOWS\fonts\ANTQUABI.TTF
+ANTQUAI.TTF - Path: C:\WINDOWS\fonts\ANTQUAI.TTF
+arial.ttf - Path: C:\WINDOWS\fonts\arial.ttf
+arialbd.ttf - Path: C:\WINDOWS\fonts\arialbd.ttf
+arialbi.ttf - Path: C:\WINDOWS\fonts\arialbi.ttf
+ariali.ttf - Path: C:\WINDOWS\fonts\ariali.ttf
+ARIALN.TTF - Path: C:\WINDOWS\fonts\ARIALN.TTF
+ARIALNB.TTF - Path: C:\WINDOWS\fonts\ARIALNB.TTF
+ARIALNBI.TTF - Path: C:\WINDOWS\fonts\ARIALNBI.TTF
+ARIALNI.TTF - Path: C:\WINDOWS\fonts\ARIALNI.TTF
+ariblk.ttf - Path: C:\WINDOWS\fonts\ariblk.ttf
+ARLRDBD.TTF - Path: C:\WINDOWS\fonts\ARLRDBD.TTF
+BASKVILL.TTF - Path: C:\WINDOWS\fonts\BASKVILL.TTF
+BAUHS93.TTF - Path: C:\WINDOWS\fonts\BAUHS93.TTF
+BELL.TTF - Path: C:\WINDOWS\fonts\BELL.TTF
+BELLB.TTF - Path: C:\WINDOWS\fonts\BELLB.TTF
+BELLI.TTF - Path: C:\WINDOWS\fonts\BELLI.TTF
+BERNHC.TTF - Path: C:\WINDOWS\fonts\BERNHC.TTF
+BKANT.TTF - Path: C:\WINDOWS\fonts\BKANT.TTF
+BOD_B.TTF - Path: C:\WINDOWS\fonts\BOD_B.TTF
+BOD_BI.TTF - Path: C:\WINDOWS\fonts\BOD_BI.TTF
+BOD_BLAI.TTF - Path: C:\WINDOWS\fonts\BOD_BLAI.TTF
+BOD_BLAR.TTF - Path: C:\WINDOWS\fonts\BOD_BLAR.TTF
+BOD_CB.TTF - Path: C:\WINDOWS\fonts\BOD_CB.TTF
+BOD_CBI.TTF - Path: C:\WINDOWS\fonts\BOD_CBI.TTF
+BOD_CI.TTF - Path: C:\WINDOWS\fonts\BOD_CI.TTF
+BOD_CR.TTF - Path: C:\WINDOWS\fonts\BOD_CR.TTF
+BOD_I.TTF - Path: C:\WINDOWS\fonts\BOD_I.TTF
+BOD_PSTC.TTF - Path: C:\WINDOWS\fonts\BOD_PSTC.TTF
+BOD_R.TTF - Path: C:\WINDOWS\fonts\BOD_R.TTF
+BOOKOS.TTF - Path: C:\WINDOWS\fonts\BOOKOS.TTF
+BOOKOSB.TTF - Path: C:\WINDOWS\fonts\BOOKOSB.TTF
+BOOKOSBI.TTF - Path: C:\WINDOWS\fonts\BOOKOSBI.TTF
+BOOKOSI.TTF - Path: C:\WINDOWS\fonts\BOOKOSI.TTF
+BRADHITC.TTF - Path: C:\WINDOWS\fonts\BRADHITC.TTF
+BRITANIC.TTF - Path: C:\WINDOWS\fonts\BRITANIC.TTF
+BRLNSB.TTF - Path: C:\WINDOWS\fonts\BRLNSB.TTF
+BRLNSDB.TTF - Path: C:\WINDOWS\fonts\BRLNSDB.TTF
+BRLNSR.TTF - Path: C:\WINDOWS\fonts\BRLNSR.TTF
+BROADW.TTF - Path: C:\WINDOWS\fonts\BROADW.TTF
+BRUSHSCI.TTF - Path: C:\WINDOWS\fonts\BRUSHSCI.TTF
+BSSYM7.TTF - Path: C:\WINDOWS\fonts\BSSYM7.TTF
+calibri.ttf - Path: C:\WINDOWS\fonts\calibri.ttf
+calibrib.ttf - Path: C:\WINDOWS\fonts\calibrib.ttf
+calibrii.ttf - Path: C:\WINDOWS\fonts\calibrii.ttf
+calibril.ttf - Path: C:\WINDOWS\fonts\calibril.ttf
+calibrili.ttf - Path: C:\WINDOWS\fonts\calibrili.ttf
+calibriz.ttf - Path: C:\WINDOWS\fonts\calibriz.ttf
+CALIFB.TTF - Path: C:\WINDOWS\fonts\CALIFB.TTF
+CALIFI.TTF - Path: C:\WINDOWS\fonts\CALIFI.TTF
+CALIFR.TTF - Path: C:\WINDOWS\fonts\CALIFR.TTF
+CALIST.TTF - Path: C:\WINDOWS\fonts\CALIST.TTF
+CALISTB.TTF - Path: C:\WINDOWS\fonts\CALISTB.TTF
+CALISTBI.TTF - Path: C:\WINDOWS\fonts\CALISTBI.TTF
+CALISTI.TTF - Path: C:\WINDOWS\fonts\CALISTI.TTF
+cambriab.ttf - Path: C:\WINDOWS\fonts\cambriab.ttf
+cambriai.ttf - Path: C:\WINDOWS\fonts\cambriai.ttf
+cambriaz.ttf - Path: C:\WINDOWS\fonts\cambriaz.ttf
+Candara.ttf - Path: C:\WINDOWS\fonts\Candara.ttf
+Candarab.ttf - Path: C:\WINDOWS\fonts\Candarab.ttf
+Candarai.ttf - Path: C:\WINDOWS\fonts\Candarai.ttf
+Candaraz.ttf - Path: C:\WINDOWS\fonts\Candaraz.ttf
+CASTELAR.TTF - Path: C:\WINDOWS\fonts\CASTELAR.TTF
+CENSCBK.TTF - Path: C:\WINDOWS\fonts\CENSCBK.TTF
+CENTAUR.TTF - Path: C:\WINDOWS\fonts\CENTAUR.TTF
+CENTURY.TTF - Path: C:\WINDOWS\fonts\CENTURY.TTF
+CHILLER.TTF - Path: C:\WINDOWS\fonts\CHILLER.TTF
+COLONNA.TTF - Path: C:\WINDOWS\fonts\COLONNA.TTF
+comic.ttf - Path: C:\WINDOWS\fonts\comic.ttf
+comicbd.ttf - Path: C:\WINDOWS\fonts\comicbd.ttf
+comici.ttf - Path: C:\WINDOWS\fonts\comici.ttf
+comicz.ttf - Path: C:\WINDOWS\fonts\comicz.ttf
+consola.ttf - Path: C:\WINDOWS\fonts\consola.ttf
+consolab.ttf - Path: C:\WINDOWS\fonts\consolab.ttf
+consolai.ttf - Path: C:\WINDOWS\fonts\consolai.ttf
+consolaz.ttf - Path: C:\WINDOWS\fonts\consolaz.ttf
+constan.ttf - Path: C:\WINDOWS\fonts\constan.ttf
+constanb.ttf - Path: C:\WINDOWS\fonts\constanb.ttf
+constani.ttf - Path: C:\WINDOWS\fonts\constani.ttf
+constanz.ttf - Path: C:\WINDOWS\fonts\constanz.ttf
+COOPBL.TTF - Path: C:\WINDOWS\fonts\COOPBL.TTF
+COPRGTB.TTF - Path: C:\WINDOWS\fonts\COPRGTB.TTF
+COPRGTL.TTF - Path: C:\WINDOWS\fonts\COPRGTL.TTF
+corbel.ttf - Path: C:\WINDOWS\fonts\corbel.ttf
+corbelb.ttf - Path: C:\WINDOWS\fonts\corbelb.ttf
+corbeli.ttf - Path: C:\WINDOWS\fonts\corbeli.ttf
+corbelz.ttf - Path: C:\WINDOWS\fonts\corbelz.ttf
+cour.ttf - Path: C:\WINDOWS\fonts\cour.ttf
+courbd.ttf - Path: C:\WINDOWS\fonts\courbd.ttf
+courbi.ttf - Path: C:\WINDOWS\fonts\courbi.ttf
+couri.ttf - Path: C:\WINDOWS\fonts\couri.ttf
+CURLZ___.TTF - Path: C:\WINDOWS\fonts\CURLZ___.TTF
+ebrima.ttf - Path: C:\WINDOWS\fonts\ebrima.ttf
+ebrimabd.ttf - Path: C:\WINDOWS\fonts\ebrimabd.ttf
+ELEPHNT.TTF - Path: C:\WINDOWS\fonts\ELEPHNT.TTF
+ELEPHNTI.TTF - Path: C:\WINDOWS\fonts\ELEPHNTI.TTF
+ENGR.TTF - Path: C:\WINDOWS\fonts\ENGR.TTF
+ERASBD.TTF - Path: C:\WINDOWS\fonts\ERASBD.TTF
+ERASDEMI.TTF - Path: C:\WINDOWS\fonts\ERASDEMI.TTF
+ERASLGHT.TTF - Path: C:\WINDOWS\fonts\ERASLGHT.TTF
+ERASMD.TTF - Path: C:\WINDOWS\fonts\ERASMD.TTF
+FELIXTI.TTF - Path: C:\WINDOWS\fonts\FELIXTI.TTF
+FORTE.TTF - Path: C:\WINDOWS\fonts\FORTE.TTF
+FRABK.TTF - Path: C:\WINDOWS\fonts\FRABK.TTF
+FRABKIT.TTF - Path: C:\WINDOWS\fonts\FRABKIT.TTF
+FRADM.TTF - Path: C:\WINDOWS\fonts\FRADM.TTF
+FRADMCN.TTF - Path: C:\WINDOWS\fonts\FRADMCN.TTF
+FRADMIT.TTF - Path: C:\WINDOWS\fonts\FRADMIT.TTF
+FRAHV.TTF - Path: C:\WINDOWS\fonts\FRAHV.TTF
+FRAHVIT.TTF - Path: C:\WINDOWS\fonts\FRAHVIT.TTF
+framd.ttf - Path: C:\WINDOWS\fonts\framd.ttf
+FRAMDCN.TTF - Path: C:\WINDOWS\fonts\FRAMDCN.TTF
+framdit.ttf - Path: C:\WINDOWS\fonts\framdit.ttf
+FREESCPT.TTF - Path: C:\WINDOWS\fonts\FREESCPT.TTF
+FRSCRIPT.TTF - Path: C:\WINDOWS\fonts\FRSCRIPT.TTF
+FTLTLT.TTF - Path: C:\WINDOWS\fonts\FTLTLT.TTF
+Gabriola.ttf - Path: C:\WINDOWS\fonts\Gabriola.ttf
+gadugi.ttf - Path: C:\WINDOWS\fonts\gadugi.ttf
+gadugib.ttf - Path: C:\WINDOWS\fonts\gadugib.ttf
+GARA.TTF - Path: C:\WINDOWS\fonts\GARA.TTF
+GARABD.TTF - Path: C:\WINDOWS\fonts\GARABD.TTF
+GARAIT.TTF - Path: C:\WINDOWS\fonts\GARAIT.TTF
+georgia.ttf - Path: C:\WINDOWS\fonts\georgia.ttf
+georgiab.ttf - Path: C:\WINDOWS\fonts\georgiab.ttf
+georgiai.ttf - Path: C:\WINDOWS\fonts\georgiai.ttf
+georgiaz.ttf - Path: C:\WINDOWS\fonts\georgiaz.ttf
+GIGI.TTF - Path: C:\WINDOWS\fonts\GIGI.TTF
+GIL_____.TTF - Path: C:\WINDOWS\fonts\GIL_____.TTF
+GILB____.TTF - Path: C:\WINDOWS\fonts\GILB____.TTF
+GILBI___.TTF - Path: C:\WINDOWS\fonts\GILBI___.TTF
+GILC____.TTF - Path: C:\WINDOWS\fonts\GILC____.TTF
+GILI____.TTF - Path: C:\WINDOWS\fonts\GILI____.TTF
+GILLUBCD.TTF - Path: C:\WINDOWS\fonts\GILLUBCD.TTF
+GILSANUB.TTF - Path: C:\WINDOWS\fonts\GILSANUB.TTF
+GLECB.TTF - Path: C:\WINDOWS\fonts\GLECB.TTF
+GLSNECB.TTF - Path: C:\WINDOWS\fonts\GLSNECB.TTF
+GOTHIC.TTF - Path: C:\WINDOWS\fonts\GOTHIC.TTF
+GOTHICB.TTF - Path: C:\WINDOWS\fonts\GOTHICB.TTF
+GOTHICBI.TTF - Path: C:\WINDOWS\fonts\GOTHICBI.TTF
+GOTHICI.TTF - Path: C:\WINDOWS\fonts\GOTHICI.TTF
+GOUDOS.TTF - Path: C:\WINDOWS\fonts\GOUDOS.TTF
+GOUDOSB.TTF - Path: C:\WINDOWS\fonts\GOUDOSB.TTF
+GOUDOSI.TTF - Path: C:\WINDOWS\fonts\GOUDOSI.TTF
+GOUDYSTO.TTF - Path: C:\WINDOWS\fonts\GOUDYSTO.TTF
+HARLOWSI.TTF - Path: C:\WINDOWS\fonts\HARLOWSI.TTF
+HARNGTON.TTF - Path: C:\WINDOWS\fonts\HARNGTON.TTF
+HATTEN.TTF - Path: C:\WINDOWS\fonts\HATTEN.TTF
+himalaya.ttf - Path: C:\WINDOWS\fonts\himalaya.ttf
+HTOWERT.TTF - Path: C:\WINDOWS\fonts\HTOWERT.TTF
+HTOWERTI.TTF - Path: C:\WINDOWS\fonts\HTOWERTI.TTF
+impact.ttf - Path: C:\WINDOWS\fonts\impact.ttf
+IMPRISHA.TTF - Path: C:\WINDOWS\fonts\IMPRISHA.TTF
+INFROMAN.TTF - Path: C:\WINDOWS\fonts\INFROMAN.TTF
+ITCBLKAD.TTF - Path: C:\WINDOWS\fonts\ITCBLKAD.TTF
+ITCEDSCR.TTF - Path: C:\WINDOWS\fonts\ITCEDSCR.TTF
+ITCKRIST.TTF - Path: C:\WINDOWS\fonts\ITCKRIST.TTF
+javatext.ttf - Path: C:\WINDOWS\fonts\javatext.ttf
+JOKERMAN.TTF - Path: C:\WINDOWS\fonts\JOKERMAN.TTF
+JUICE___.TTF - Path: C:\WINDOWS\fonts\JUICE___.TTF
+KUNSTLER.TTF - Path: C:\WINDOWS\fonts\KUNSTLER.TTF
+l_10646.ttf - Path: C:\WINDOWS\fonts\l_10646.ttf
+LATINWD.TTF - Path: C:\WINDOWS\fonts\LATINWD.TTF
+LBRITE.TTF - Path: C:\WINDOWS\fonts\LBRITE.TTF
+LBRITED.TTF - Path: C:\WINDOWS\fonts\LBRITED.TTF
+LBRITEDI.TTF - Path: C:\WINDOWS\fonts\LBRITEDI.TTF
+LBRITEI.TTF - Path: C:\WINDOWS\fonts\LBRITEI.TTF
+LCALLIG.TTF - Path: C:\WINDOWS\fonts\LCALLIG.TTF
+LeelaUIb.ttf - Path: C:\WINDOWS\fonts\LeelaUIb.ttf
+LeelawUI.ttf - Path: C:\WINDOWS\fonts\LeelawUI.ttf
+LeelUIsl.ttf - Path: C:\WINDOWS\fonts\LeelUIsl.ttf
+LFAX.TTF - Path: C:\WINDOWS\fonts\LFAX.TTF
+LFAXD.TTF - Path: C:\WINDOWS\fonts\LFAXD.TTF
+LFAXDI.TTF - Path: C:\WINDOWS\fonts\LFAXDI.TTF
+LFAXI.TTF - Path: C:\WINDOWS\fonts\LFAXI.TTF
+LHANDW.TTF - Path: C:\WINDOWS\fonts\LHANDW.TTF
+LSANS.TTF - Path: C:\WINDOWS\fonts\LSANS.TTF
+LSANSD.TTF - Path: C:\WINDOWS\fonts\LSANSD.TTF
+LSANSDI.TTF - Path: C:\WINDOWS\fonts\LSANSDI.TTF
+LSANSI.TTF - Path: C:\WINDOWS\fonts\LSANSI.TTF
+LTYPE.TTF - Path: C:\WINDOWS\fonts\LTYPE.TTF
+LTYPEB.TTF - Path: C:\WINDOWS\fonts\LTYPEB.TTF
+LTYPEBO.TTF - Path: C:\WINDOWS\fonts\LTYPEBO.TTF
+LTYPEO.TTF - Path: C:\WINDOWS\fonts\LTYPEO.TTF
+lucon.ttf - Path: C:\WINDOWS\fonts\lucon.ttf
+MAGNETOB.TTF - Path: C:\WINDOWS\fonts\MAGNETOB.TTF
+MAIAN.TTF - Path: C:\WINDOWS\fonts\MAIAN.TTF
+malgun.ttf - Path: C:\WINDOWS\fonts\malgun.ttf
+malgunbd.ttf - Path: C:\WINDOWS\fonts\malgunbd.ttf
+malgunsl.ttf - Path: C:\WINDOWS\fonts\malgunsl.ttf
+marlett.ttf - Path: C:\WINDOWS\fonts\marlett.ttf
+MATURASC.TTF - Path: C:\WINDOWS\fonts\MATURASC.TTF
+micross.ttf - Path: C:\WINDOWS\fonts\micross.ttf
+MISTRAL.TTF - Path: C:\WINDOWS\fonts\MISTRAL.TTF
+mmrtext.ttf - Path: C:\WINDOWS\fonts\mmrtext.ttf
+mmrtextb.ttf - Path: C:\WINDOWS\fonts\mmrtextb.ttf
+MOD20.TTF - Path: C:\WINDOWS\fonts\MOD20.TTF
+monbaiti.ttf - Path: C:\WINDOWS\fonts\monbaiti.ttf
+msyi.ttf - Path: C:\WINDOWS\fonts\msyi.ttf
+MTCORSVA.TTF - Path: C:\WINDOWS\fonts\MTCORSVA.TTF
+mvboli.ttf - Path: C:\WINDOWS\fonts\mvboli.ttf
+NIAGENG.TTF - Path: C:\WINDOWS\fonts\NIAGENG.TTF
+NIAGSOL.TTF - Path: C:\WINDOWS\fonts\NIAGSOL.TTF
+Nirmala.ttf - Path: C:\WINDOWS\fonts\Nirmala.ttf
+NirmalaB.ttf - Path: C:\WINDOWS\fonts\NirmalaB.ttf
+NirmalaS.ttf - Path: C:\WINDOWS\fonts\NirmalaS.ttf
+ntailu.ttf - Path: C:\WINDOWS\fonts\ntailu.ttf
+ntailub.ttf - Path: C:\WINDOWS\fonts\ntailub.ttf
+OCRAEXT.TTF - Path: C:\WINDOWS\fonts\OCRAEXT.TTF
+OLDENGL.TTF - Path: C:\WINDOWS\fonts\OLDENGL.TTF
+ONYX.TTF - Path: C:\WINDOWS\fonts\ONYX.TTF
+OUTLOOK.TTF - Path: C:\WINDOWS\fonts\OUTLOOK.TTF
+pala.ttf - Path: C:\WINDOWS\fonts\pala.ttf
+palab.ttf - Path: C:\WINDOWS\fonts\palab.ttf
+palabi.ttf - Path: C:\WINDOWS\fonts\palabi.ttf
+palai.ttf - Path: C:\WINDOWS\fonts\palai.ttf
+PALSCRI.TTF - Path: C:\WINDOWS\fonts\PALSCRI.TTF
+PAPYRUS.TTF - Path: C:\WINDOWS\fonts\PAPYRUS.TTF
+PARCHM.TTF - Path: C:\WINDOWS\fonts\PARCHM.TTF
+PER_____.TTF - Path: C:\WINDOWS\fonts\PER_____.TTF
+PERB____.TTF - Path: C:\WINDOWS\fonts\PERB____.TTF
+PERBI___.TTF - Path: C:\WINDOWS\fonts\PERBI___.TTF
+PERI____.TTF - Path: C:\WINDOWS\fonts\PERI____.TTF
+PERTIBD.TTF - Path: C:\WINDOWS\fonts\PERTIBD.TTF
+PERTILI.TTF - Path: C:\WINDOWS\fonts\PERTILI.TTF
+phagspa.ttf - Path: C:\WINDOWS\fonts\phagspa.ttf
+phagspab.ttf - Path: C:\WINDOWS\fonts\phagspab.ttf
+PLAYBILL.TTF - Path: C:\WINDOWS\fonts\PLAYBILL.TTF
+POORICH.TTF - Path: C:\WINDOWS\fonts\POORICH.TTF
+PRISTINA.TTF - Path: C:\WINDOWS\fonts\PRISTINA.TTF
+RAGE.TTF - Path: C:\WINDOWS\fonts\RAGE.TTF
+RAVIE.TTF - Path: C:\WINDOWS\fonts\RAVIE.TTF
+REFSAN.TTF - Path: C:\WINDOWS\fonts\REFSAN.TTF
+REFSPCL.TTF - Path: C:\WINDOWS\fonts\REFSPCL.TTF
+ROCC____.TTF - Path: C:\WINDOWS\fonts\ROCC____.TTF
+ROCCB___.TTF - Path: C:\WINDOWS\fonts\ROCCB___.TTF
+ROCK.TTF - Path: C:\WINDOWS\fonts\ROCK.TTF
+ROCKB.TTF - Path: C:\WINDOWS\fonts\ROCKB.TTF
+ROCKBI.TTF - Path: C:\WINDOWS\fonts\ROCKBI.TTF
+ROCKEB.TTF - Path: C:\WINDOWS\fonts\ROCKEB.TTF
+ROCKI.TTF - Path: C:\WINDOWS\fonts\ROCKI.TTF
+SCHLBKB.TTF - Path: C:\WINDOWS\fonts\SCHLBKB.TTF
+SCHLBKBI.TTF - Path: C:\WINDOWS\fonts\SCHLBKBI.TTF
+SCHLBKI.TTF - Path: C:\WINDOWS\fonts\SCHLBKI.TTF
+SCRIPTBL.TTF - Path: C:\WINDOWS\fonts\SCRIPTBL.TTF
+segmdl2.ttf - Path: C:\WINDOWS\fonts\segmdl2.ttf
+segoepr.ttf - Path: C:\WINDOWS\fonts\segoepr.ttf
+segoeprb.ttf - Path: C:\WINDOWS\fonts\segoeprb.ttf
+segoesc.ttf - Path: C:\WINDOWS\fonts\segoesc.ttf
+segoescb.ttf - Path: C:\WINDOWS\fonts\segoescb.ttf
+segoeui.ttf - Path: C:\WINDOWS\fonts\segoeui.ttf
+segoeuib.ttf - Path: C:\WINDOWS\fonts\segoeuib.ttf
+segoeuii.ttf - Path: C:\WINDOWS\fonts\segoeuii.ttf
+segoeuil.ttf - Path: C:\WINDOWS\fonts\segoeuil.ttf
+segoeuisl.ttf - Path: C:\WINDOWS\fonts\segoeuisl.ttf
+segoeuiz.ttf - Path: C:\WINDOWS\fonts\segoeuiz.ttf
+seguibl.ttf - Path: C:\WINDOWS\fonts\seguibl.ttf
+seguibli.ttf - Path: C:\WINDOWS\fonts\seguibli.ttf
+seguiemj.ttf - Path: C:\WINDOWS\fonts\seguiemj.ttf
+seguihis.ttf - Path: C:\WINDOWS\fonts\seguihis.ttf
+seguili.ttf - Path: C:\WINDOWS\fonts\seguili.ttf
+seguisb.ttf - Path: C:\WINDOWS\fonts\seguisb.ttf
+seguisbi.ttf - Path: C:\WINDOWS\fonts\seguisbi.ttf
+seguisli.ttf - Path: C:\WINDOWS\fonts\seguisli.ttf
+seguisym.ttf - Path: C:\WINDOWS\fonts\seguisym.ttf
+SHOWG.TTF - Path: C:\WINDOWS\fonts\SHOWG.TTF
+simsunb.ttf - Path: C:\WINDOWS\fonts\simsunb.ttf
+SNAP____.TTF - Path: C:\WINDOWS\fonts\SNAP____.TTF
+STENCIL.TTF - Path: C:\WINDOWS\fonts\STENCIL.TTF
+sylfaen.ttf - Path: C:\WINDOWS\fonts\sylfaen.ttf
+symbol.ttf - Path: C:\WINDOWS\fonts\symbol.ttf
+tahoma.ttf - Path: C:\WINDOWS\fonts\tahoma.ttf
+tahomabd.ttf - Path: C:\WINDOWS\fonts\tahomabd.ttf
+taile.ttf - Path: C:\WINDOWS\fonts\taile.ttf
+taileb.ttf - Path: C:\WINDOWS\fonts\taileb.ttf
+TCB_____.TTF - Path: C:\WINDOWS\fonts\TCB_____.TTF
+TCBI____.TTF - Path: C:\WINDOWS\fonts\TCBI____.TTF
+TCCB____.TTF - Path: C:\WINDOWS\fonts\TCCB____.TTF
+TCCEB.TTF - Path: C:\WINDOWS\fonts\TCCEB.TTF
+TCCM____.TTF - Path: C:\WINDOWS\fonts\TCCM____.TTF
+TCM_____.TTF - Path: C:\WINDOWS\fonts\TCM_____.TTF
+TCMI____.TTF - Path: C:\WINDOWS\fonts\TCMI____.TTF
+TEMPSITC.TTF - Path: C:\WINDOWS\fonts\TEMPSITC.TTF
+times.ttf - Path: C:\WINDOWS\fonts\times.ttf
+timesbd.ttf - Path: C:\WINDOWS\fonts\timesbd.ttf
+timesbi.ttf - Path: C:\WINDOWS\fonts\timesbi.ttf
+timesi.ttf - Path: C:\WINDOWS\fonts\timesi.ttf
+trebuc.ttf - Path: C:\WINDOWS\fonts\trebuc.ttf
+trebucbd.ttf - Path: C:\WINDOWS\fonts\trebucbd.ttf
+trebucbi.ttf - Path: C:\WINDOWS\fonts\trebucbi.ttf
+trebucit.ttf - Path: C:\WINDOWS\fonts\trebucit.ttf
+verdana.ttf - Path: C:\WINDOWS\fonts\verdana.ttf
+verdanab.ttf - Path: C:\WINDOWS\fonts\verdanab.ttf
+verdanai.ttf - Path: C:\WINDOWS\fonts\verdanai.ttf
+verdanaz.ttf - Path: C:\WINDOWS\fonts\verdanaz.ttf
+VINERITC.TTF - Path: C:\WINDOWS\fonts\VINERITC.TTF
+VIVALDII.TTF - Path: C:\WINDOWS\fonts\VIVALDII.TTF
+VLADIMIR.TTF - Path: C:\WINDOWS\fonts\VLADIMIR.TTF
+webdings.ttf - Path: C:\WINDOWS\fonts\webdings.ttf
+wingding.ttf - Path: C:\WINDOWS\fonts\wingding.ttf
+WINGDNG2.TTF - Path: C:\WINDOWS\fonts\WINGDNG2.TTF
+WINGDNG3.TTF - Path: C:\WINDOWS\fonts\WINGDNG3.TTF
+[102:SGF::CSDLManager::Init] ENABLING SDL UNICODE
+[102:SGF::CSDLManager::Init] INIT NETWORK
+[118:SGF::CGameControl::CGameControl] END STARTING SDL PHASE 1 (CSDLMANAGER)================
+[118:SGF::CGameControl::CGameControl] START SDL PHASE 2 (CSDLMANAGER)================
+[118:SGF::CGameControl::CGameControl] WILL INIT THE NECESSARY WINDOWS (Screens)================
+[124:SGF::CSDLManager::InitWindows]  -------------------------------------------
+[101:SGF::CBitmap::init] Parameters: 
+[101:SGF::CBitmap::init] state: 015DEE18
+[101:SGF::CBitmap::init] mode: 32
+[101:SGF::CBitmap::init] width: 300
+[101:SGF::CBitmap::init] height: 300
+[101:SGF::CBitmap::init] Screen[0]: 00000000
+[101:SGF::CBitmap::init] ok: 03967C68
+[101:SGF::CBitmap::CBitmap] CBitmap::CBitmap // Constructor //=> CBitmap Created Window Who: 03967C68
+[101:SGF::CBitmap::init] New Screen[0] = 03F0B828
+[124:SGF::CSDLManager::InitWindows] CSDLManager::Init() // CALL setGraphicsMode // ret = 0
+[118:SGF::CGameControl::CGameControl] END SDL PHASE 2 (CSDLMANAGER)================
+[118:SGF::CGameControl::CGameControl] END CONSTRUCTING CGAME OBJECT ================
+[101:SGF::CBitmap::CreateSurface] Create Surface ok 039681F0
+[101:SGF::CBitmap::CBitmap] Creating Internal Texture
+[101:SGF::CBitmap::createTextureStreaming] 
+[118:Game::act] BEGIN RENDER GAME
+[102:SGF::CTTFFont::CTTFFont] Constructor // Fontes Disponíveis=305
+[102:SGF::CTTFFont::LoadFont] Iniciando a fonte : arial.ttf
+[111:SGF::CTTFFont::LoadFont] Will get fonte Path to : arial.ttf
+[111:SGF::CFontList::GetFontPath] fonte : arial.ttf
+[111:SGF::CFontList::findFontVector] caminho da fonte encontrado : C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CFontList::GetFontPath] Achou o caminho para a fonte:C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CTTFFont::LoadFont] caminho para a fonte Encontrado: C:\WINDOWS\fonts\arial.ttf
+[111:SGF::CTTFFont::LoadFont] Font initiated OK
+[111:SGF::CResource::_getTTFont] set size and initialize font:file,sizearial.ttf ' 16
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run]  BEGIN RUN THE GAME==========================
+[101:SGF::CBitmap::CreateSurface] Create Surface ok 0396A918
+[101:SGF::CBitmap::CBitmap] Creating Internal Texture
+[101:SGF::CBitmap::createTextureStreaming] 
+[118:Game::run]  BEGIN DRAW =========================
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3977
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 3989
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 3989
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.15
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 3990
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 3990
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4014
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4014
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.3
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4015
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4015
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4038
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4038
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.45
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4039
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4039
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4063
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4063
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.6
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4064
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4064
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4089
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4089
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.75
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4090
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4090
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4115
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4115
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.9
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4115
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4115
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4140
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4140
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1.05
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4140
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 0.05
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  762 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  6.102 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4148
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4164
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4164
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.2
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4165
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4165
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4190
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4190
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.35
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4191
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4191
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4213
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4213
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.5
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4214
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4214
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4240
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4240
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.65
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4240
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4240
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4265
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4265
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.8
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4265
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4265
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4289
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4289
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.95
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4290
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4290
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4315
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4315
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1.1
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4315
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 0.1
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  365 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  2.11 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4318
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4339
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4339
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.25
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4340
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4340
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4365
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4365
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.4
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4366
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4366
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4389
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4389
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.55
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4390
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4390
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4414
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4414
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.7
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4414
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4414
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4438
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4438
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.85
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4439
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4439
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4465
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4465
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4465
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 2.22045e-16
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  384 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  2.469 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4468
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4489
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4489
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.15
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4489
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4489
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4513
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4513
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.3
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4514
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4514
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4540
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4540
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.45
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4541
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4541
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4565
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4565
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.6
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4565
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4565
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4589
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4589
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.75
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4589
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4589
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4616
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4616
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.9
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4616
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4616
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4641
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4641
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1.05
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4641
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 0.05
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  416 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  2.093 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4644
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4665
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4665
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.2
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4665
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4665
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4691
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4691
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.35
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4691
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4691
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4714
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4714
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.5
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4714
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4714
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4738
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4738
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.65
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4738
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4738
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4765
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4765
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.8
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4766
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4766
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4791
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4791
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.95
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4791
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4791
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4814
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4814
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1.1
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4815
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 0.1
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  674 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  3.638 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4820
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4838
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4838
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.25
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4838
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4838
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4864
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4864
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.4
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4864
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4865
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4890
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4890
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.55
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4890
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4890
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4915
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4915
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.7
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4915
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4916
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4940
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4940
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.85
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4941
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4941
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4964
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4964
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4965
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[104:SGF::CInputManager::_poll] END // CInputManager::_poll // 
+[118:SGF::Input::doLoop] RunCounter after get events: 4.44089e-16
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Logic::run]  WILL RUN THE STAGE LOGIC=========================
+[118:Game::run::Logic::run]  BEGIN DO THE INPUT=========================
+[118:Game::run::Logic::doInput] BEGIN FASE 1 - Get Events 
+[104:SGF::CInputManager::_getEvents] BEGIN  Get Keyboard Events
+[104:SGF::CInputManager::_getEvents] Got Keyboard Events: 0
+[104:SGF::CInputManager::_getEvents] END
+[118:Game::run::Logic::doInput] END FASE 1 - Got Events: 0
+[118:Game::run::Logic::doInput] BEGIN FASE 2 - Proccess Events 
+[118:Game::run::Logic::run]  END DO THE INPUT=========================
+[118:SGF::Input::doLoop] Time to run the logic:  382 microseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END RUN LOGIC =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:Game::run::Draw::draw]  WILL RENDER EVERYTHING to Work: [(CBitmao:: 0156F6A0 ) (Surface: 0396A918 )]=========================
+[118:Game::act] BEGIN RENDER GAME
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 10 , w= 147, h= 19
+[118:Game::act] END RENDER GAME
+[118:Game::run::Draw::draw]  EVERYTHING IS RENDERED =========================
+[101:SGF::CBitmap::RenderToTexture] ---------------------------
+[101:SGF::CBitmap::RenderToTexture] [Destino(window): 03967C68 ] x= 0 , y= 220 , w= 67, h= 19
+[118:Game::run::Draw::draw]  FRAME y =========================200
+[118:SGF::Input::doLoop] Time to draw the game:  2.043 milliseconds
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] ===END DRAW GAME =================================: 
+[118:SGF::Input::doLoop] =================================================: 
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4968
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 4990
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 4990
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.15
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 4990
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 4990
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5015
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5015
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.3
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5015
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 5015
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5039
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5039
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.45
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5040
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 5040
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5065
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5065
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.6
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5065
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 5065
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5090
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5090
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.75
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5090
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 5090
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5114
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5114
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 0.9
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5115
+[118:SGF::Input::doLoop] Speed Counter after logic and draw: 0 SDL ticks (ms): 5115
+[118:SGF::Input::doLoop] XSpeed Counter: 1 SDL ticks (ms): 5140
+[104:SGF::Util::gameTicks] Global::Speed Counter: 1 SDL ticks (ms): 5140
+[104:SGF::Util::gameTicks] Global::gamespeed: 0.1
+[104:SGF::Util::gameTicks] Conta: ( 1 * 0.1 *  60 ) / 40 = 0.15
+[104:SGF::Util::gameTicks] New gameticks: 0.15
+[118:SGF::Input::doLoop] RunCounter: 1.05
+[118:SGF::Input::doLoop] Speed Counter should be 0: 0 SDL ticks (ms): 5140
+[104:SGF::CInputManager::_poll] BEGIN // CInputManager::_poll // 
+[104:SGF::Input::CEventManager::HandleEventInput] Num joysticks: 0
+[104:SGF::Input::CEventManager::HandleEventInput] keyboard: 03F0A6BC
+[104:SGF::Input::CEventManager::HandleEventInput] Mouse: 00000000
+[104:SGF::CKeyboard::poll] BEGIN  
+[104:SGF::CKeyboard::poll] END  
+[118:SDL_main] Shutdown

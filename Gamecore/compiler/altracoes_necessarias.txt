@@ -1,0 +1,26 @@
+renomear parser.tab.c para .cpp
+
+
+adicionar as linhas no arquivo flexlexer.h
+
+#include <iostream>
+
+#include <fstream>
+
+using std::ostream;
+using std::istream;
+
+adicionar o seguinte código no arquivo lex.yy.cc
+
+alterar a linha: #include <unistd.h> para:
+
+#include "unistd.h"
+
+#include <iostream>
+using namespace std;
+using std::ostream;
+using std::istream;
+
+alterar a linha #include <FlexLexer.h>   para:
+
+#include "FlexLexer.h"

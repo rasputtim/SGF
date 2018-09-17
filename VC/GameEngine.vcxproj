@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{17883FD9-A414-4970-B159-27B8340D7B2A}</ProjectGuid>
+    <RootNamespace>OpenMugen</RootNamespace>
+    <ProjectName>SGF</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>
+    </CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="Nasm_Integration_VS\nasm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <ReferencePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Debug\bin\chars;$(ReferencePath)</ReferencePath>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\build\win\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\objs\$(Configuration)\VC_Objs</IntDir>
+    <ReferencePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Debug\bin\chars;$(ReferencePath)</ReferencePath>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCGAMEAMBIENTE)\estatico\libs\$(Configuration)\;$(VCGAMEAMBIENTE)\vc\libs\$(Configuration)\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Python33\include;$(ProjectDir)\..\ExternalLibs\expat-2.1.0\lib;$(ProjectDir)\..\ExternalLibs\Regex\include;$(ProjectDir)\..\ExternalLibs\pcre;$(ProjectDir)\..\ExternalLibs\sge2d\include;$(ProjectDir)\..\ExternalLibs\7z;$(ProjectDir)\..\ExternalLibs\zip;$(ProjectDir)\..\ExternalLibs\hawknl;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\mikmod\include;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.0;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.0\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\freetype-2.4.12\include;$(ProjectDir)\..\ExternalLibs\SFL2.0src;$(ProjectDir)\..\ExternalLibs\SDL2\include;$(ProjectDir)\..\Gamecore\compiler;$(ProjectDir)\..\Gamecore;$(ProjectDir)\..\Headers\win_external_libs;$(ProjectDir)\..\Compilers;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\native_midi;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\smpeg\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\timidity;$(ProjectDir)\..\ExternalLibs\zlib-1.2.5;$(ProjectDir)\..\ExternalLibs\perl56\win32\CORE;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.0\external\libmikmod-3.1.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ShowIncludes>false</ShowIncludes>
+      <ErrorReporting>None</ErrorReporting>
+      <PreprocessorDefinitions>_LIB;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_DEBUG;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;XMLTOKAPI=__declspec(dllimport);XML_DTD;ZLIB_WINAPI;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;COMPILED_FROM_DSP;WIN_STATIC_LIB;MUSIC_OGG;LIBVORBIS_EXPORTS;LIBVORBISFILE_EXPORTS;LIBOGG_EXPORTS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>tbb_debug.lib;opengl32.lib;glu32.lib;intl.lib;regex.lib;Msimg32.lib;winmm.lib;sprig.lib;version.lib;imm32.lib;SDL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\projetos\VC10\OpenMugenStatic1.3\Debug\lib\;$(TBB30_INSTALL_DIR)\lib\ia32\vc10;$(TBB30_INSTALL_DIR)\lib\ia32\vc_mt;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <OutputFile>$(SolutionDir)$(Configuration)\bin\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Bscmake>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+    <ResourceCompile>
+      <Culture>0x0416</Culture>
+    </ResourceCompile>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(TBB30_INSTALL_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(TBB30_INSTALL_DIR)\lib\ia32\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tbb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ExternalLibs\7z\7zAlloc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zBuf.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zBuf2.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zCrc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zCrcOpt.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zDec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zFile.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zIn.c" />
+    <ClCompile Include="..\ExternalLibs\7z\7zStream.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Alloc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Bcj2.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Bra.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Bra86.c" />
+    <ClCompile Include="..\ExternalLibs\7z\BraIA64.c" />
+    <ClCompile Include="..\ExternalLibs\7z\CpuArch.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Delta.c" />
+    <ClCompile Include="..\ExternalLibs\7z\LzFind.c" />
+    <ClCompile Include="..\ExternalLibs\7z\LzFindMt.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Lzma2Dec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Lzma2Enc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Lzma86Dec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Lzma86Enc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\LzmaDec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\LzmaEnc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\LzmaLib.c" />
+    <ClCompile Include="..\ExternalLibs\7z\MtCoder.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Ppmd7.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Ppmd7Dec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Ppmd7Enc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Sha256.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Threads.c" />
+    <ClCompile Include="..\ExternalLibs\7z\Xz.c" />
+    <ClCompile Include="..\ExternalLibs\7z\XzCrc64.c" />
+    <ClCompile Include="..\ExternalLibs\7z\XzDec.c" />
+    <ClCompile Include="..\ExternalLibs\7z\XzEnc.c" />
+    <ClCompile Include="..\ExternalLibs\7z\XzIn.c" />
+    <ClCompile Include="..\ExternalLibs\expat-2.1.0\lib\xmlparse.c" />
+    <ClCompile Include="..\ExternalLibs\expat-2.1.0\lib\xmlrole.c" />
+    <ClCompile Include="..\ExternalLibs\expat-2.1.0\lib\xmltok.c" />
+    <ClCompile Include="..\ExternalLibs\expat-2.1.0\lib\xmltok_impl.c" />
+    <ClCompile Include="..\ExternalLibs\expat-2.1.0\lib\xmltok_ns.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\builds\win32\ftdebug.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\autofit\autofit.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftbase.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftbbox.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftbitmap.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftfstype.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftgasp.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftglyph.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftgxval.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftinit.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftlcdfil.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftmm.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftotval.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftpatent.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftpfr.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftstroke.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftsynth.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftsystem.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\fttype1.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftwinfnt.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\base\ftxf86.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\bdf\bdf.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\cache\ftcache.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\cff\cff.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\cid\type1cid.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\gzip\ftgzip.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\lzw\ftlzw.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\pcf\pcf.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\pfr\pfr.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\psaux\psaux.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\pshinter\pshinter.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\psnames\psmodule.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\psnames\pspic.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\raster\raster.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\sfnt\sfnt.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\smooth\smooth.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\truetype\truetype.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\type1\type1.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\type42\type42.c" />
+    <ClCompile Include="..\ExternalLibs\freetype-2.4.12\src\winfonts\winfnt.c" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\crc.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\err.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\errorstr.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\group.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\ipx.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\loopback.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\nl.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\nltime.cpp" />
+    <ClCompile Include="..\ExternalLibs\hawknl\src\sock.cpp" />
+    <ClCompile Include="..\ExternalLibs\pcre\dftables.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_chartables.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_compile.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_config.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_dfa_exec.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_exec.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_fullinfo.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_get.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_globals.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_info.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_maketables.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_newline.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_ord2utf8.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_refcount.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_study.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_tables.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_try_flipped.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_ucd.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_valid_utf8.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_version.c" />
+    <ClCompile Include="..\ExternalLibs\pcre\pcre_xclass.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\atomic\SDL_atomic.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\atomic\SDL_spinlock.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\directsound\SDL_directsound.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\disk\SDL_diskaudio.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\dummy\SDL_dummyaudio.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_audio.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_audiocvt.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_audiodev.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_audiotypecvt.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_mixer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\SDL_wave.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\wasapi\SDL_wasapi.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\wasapi\SDL_wasapi_win32.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\audio\winmm\SDL_winmm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\core\windows\SDL_windows.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\core\windows\SDL_xinput.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\cpuinfo\SDL_cpuinfo.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\dynapi\SDL_dynapi.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_clipboardevents.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_dropevents.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_events.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_gesture.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_keyboard.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_mouse.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_quit.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_touch.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\events\SDL_windowevents.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\filesystem\windows\SDL_sysfilesystem.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\file\SDL_rwops.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\haptic\SDL_haptic.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\haptic\windows\SDL_dinputhaptic.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\haptic\windows\SDL_windowshaptic.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\haptic\windows\SDL_xinputhaptic.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\SDL_gamecontroller.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\SDL_joystick.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\windows\SDL_dinputjoystick.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\windows\SDL_mmjoystick.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\windows\SDL_windowsjoystick.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\joystick\windows\SDL_xinputjoystick.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_atan2.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_fmod.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_log.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_log10.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_pow.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_rem_pio2.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\e_sqrt.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\k_cos.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\k_rem_pio2.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\k_sin.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\k_tan.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_atan.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_copysign.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_cos.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_fabs.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_floor.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_scalbn.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_sin.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\libm\s_tan.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\loadso\windows\SDL_sysloadso.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\main\windows\SDL_windows_main.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\power\SDL_power.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\power\windows\SDL_syspower.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\direct3d11\SDL_render_d3d11.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\direct3d11\SDL_shaders_d3d11.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\direct3d\SDL_render_d3d.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\direct3d\SDL_shaders_d3d.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\opengles2\SDL_render_gles2.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\opengles2\SDL_shaders_gles2.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\opengl\SDL_render_gl.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\opengl\SDL_shaders_gl.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\SDL_d3dmath.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\SDL_render.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\SDL_yuv_sw.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_blendfillrect.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_blendline.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_blendpoint.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_drawline.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_drawpoint.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_render_sw.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\render\software\SDL_rotate.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL_assert.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL_dataqueue.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL_error.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL_hints.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\SDL_log.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_getenv.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_iconv.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_malloc.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_qsort.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_stdlib.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\stdlib\SDL_string.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\generic\SDL_syscond.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\SDL_thread.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\windows\SDL_sysmutex.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\windows\SDL_syssem.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\windows\SDL_systhread.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\thread\windows\SDL_systls.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\timer\SDL_timer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\timer\windows\SDL_systimer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\dummy\SDL_nullevents.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\dummy\SDL_nullframebuffer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\dummy\SDL_nullvideo.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_0.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_1.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_A.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_auto.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_copy.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_N.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_blit_slow.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_bmp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_clipboard.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_egl.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_fillrect.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_pixels.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_rect.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_RLEaccel.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_shape.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_stretch.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_surface.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_video.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_vulkan_utils.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\SDL_yuv.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsclipboard.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsevents.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsframebuffer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowskeyboard.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsmessagebox.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsmodes.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsmouse.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsopengl.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsopengles.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsshape.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsvideo.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsvulkan.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowswindow.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2\src\video\yuv2rgb\yuv_rgb.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_bmp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_gif.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_jpg.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_lbm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_pcx.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_png.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_pnm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_tga.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_tif.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_webp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xcf.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xpm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xv.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xxx.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effects_internal.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effect_position.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effect_stereoreverse.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libogg-1.3.2\src\bitwise.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libogg-1.3.2\src\framing.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\analysis.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\bitrate.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\block.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\codebook.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\envelope.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\floor0.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\floor1.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\info.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\lookup.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\lpc.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\lsp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\mapping0.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\mdct.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\psy.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\registry.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\res0.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\sharedbook.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\smallft.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\synthesis.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\vorbisenc.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\vorbisfile.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\lib\window.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_aiff.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_voc.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\mixer.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_cmd.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_flac.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_fluidsynth.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_mad.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_mikmod.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_modplug.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_mpg123.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_nativemidi.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_ogg.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_smpeg.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_timidity.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_wav.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_common.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_haiku.cpp" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_mac.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_macosx.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_win32.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\playmus.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\playwave.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\common.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\instrum.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\mix.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\output.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\playmidi.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\readmidi.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\resample.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\tables.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\timidity.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_ttf-2.0.12\glfont.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_ttf-2.0.12\SDL_ttf.c" />
+    <ClCompile Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_framerate.c" />
+    <ClCompile Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxBlitFunc.c" />
+    <ClCompile Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxPrimitives.c" />
+    <ClCompile Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_imageFilter.c" />
+    <ClCompile Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_rotozoom.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflcons.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflconv.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflcvsb.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfldate.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfldir.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflfile.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfllist.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflmem.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflnode.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflstr.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflsymb.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sflsyst.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfltok.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfltron.c" />
+    <ClCompile Include="..\ExternalLibs\SFL2.0src\sfluid.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sgearray.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sgegfx.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sgeresource.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sgesprite.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sgespriteimage.c" />
+    <ClCompile Include="..\ExternalLibs\sge2d\src\sge_bm_text.cpp" />
+    <ClCompile Include="..\ExternalLibs\zip\ioapi.c" />
+    <ClCompile Include="..\ExternalLibs\zip\unzip.c" />
+    <ClCompile Include="..\ExternalLibs\zip\zip.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\adler32.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\compress.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\crc32.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\deflate.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\example.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzclose.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzlib.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzread.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzwrite.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\infback.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inffast.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inflate.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inftrees.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\minigzip.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\trees.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\uncompr.c" />
+    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\zutil.c" />
+    <ClCompile Include="..\Gamecore\Compiler\AirCompiler\airparser.tab.cpp" />
+    <ClCompile Include="..\Gamecore\Compiler\AirCompiler\air_driver.cc" />
+    <ClCompile Include="..\Gamecore\Compiler\AirCompiler\lex.Air.cc" />
+    <ClCompile Include="..\Gamecore\Compiler\CMDCompiler\cmdparser.tab.cpp" />
+    <ClCompile Include="..\Gamecore\Compiler\CMDCompiler\cmd_driver.cc" />
+    <ClCompile Include="..\Gamecore\Compiler\CMDCompiler\lex.Cmd.cc" />
+    <ClCompile Include="..\Gamecore\compiler\COMCompiler\comparser.tab.cpp" />
+    <ClCompile Include="..\Gamecore\compiler\COMCompiler\com_driver.cc" />
+    <ClCompile Include="..\Gamecore\compiler\COMCompiler\lex.Com.cc" />
+    <ClCompile Include="..\Gamecore\Compiler\DefCompiler\defparser.tab.cpp" />
+    <ClCompile Include="..\Gamecore\Compiler\DefCompiler\def_driver.cc" />
+    <ClCompile Include="..\Gamecore\Compiler\DefCompiler\lex.Def.cc" />
+    <ClCompile Include="..\Gamecore\util\SGF_FilesystemBase.cpp" />
+    <ClCompile Include="..\Source\ai\SGF_AstarHeap.cpp" />
+    <ClCompile Include="..\Source\ai\SGF_AstarLib.cpp" />
+    <ClCompile Include="..\Source\ai\SGF_Map.cpp" />
+    <ClCompile Include="..\Source\ai\SGF_PathFinder.cpp" />
+    <ClCompile Include="..\Source\configuration\SGF_CmdVars.cpp" />
+    <ClCompile Include="..\Source\configuration\SGF_ConfigSystem.cpp" />
+    <ClCompile Include="..\Source\configuration\SGF_Configuration.cpp" />
+    <ClCompile Include="..\Source\configuration\SGF_SysVar.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_error.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_exception.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_FileExceptions.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_loadException.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_MugenException.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_NetException.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_ScriptException.cpp" />
+    <ClCompile Include="..\Source\exceptions\SGF_tokenException.cpp" />
+    <ClCompile Include="..\Source\external\DT_drawtext.c" />
+    <ClCompile Include="..\Source\external\fastevents.c" />
+    <ClCompile Include="..\Source\external\glSDL.c" />
+    <ClCompile Include="..\Source\external\Internal.c" />
+    <ClCompile Include="..\Source\external\scale2x.c" />
+    <ClCompile Include="..\Source\external\scale2xSDL.c" />
+    <ClCompile Include="..\Source\external\SDL_console.c" />
+    <ClCompile Include="..\Source\game\SGF_Console.cpp" />
+    <ClCompile Include="..\Source\game\SGF_Control.cpp" />
+    <ClCompile Include="..\Source\game\SGF_Mod.cpp" />
+    <ClCompile Include="..\Source\game\SGF_Theater.cpp" />
+    <ClCompile Include="..\Source\game\SGF_World.cpp" />
+    <ClCompile Include="..\Source\geometry\DrawVert.cpp" />
+    <ClCompile Include="..\Source\geometry\JointTransform.cpp" />
+    <ClCompile Include="..\Source\geometry\TraceModel.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_Bitmap.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_Color.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_FireEffect.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_GradientEffect.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_LitBitmap.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_Poligon.cpp" />
+    <ClCompile Include="..\Source\graphics\SGF_TransBitmap.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_BoundBox.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_LineEdit.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_GuiAnimation.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_Box.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_ContextBox.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_Coordinate.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_FadetoolGui.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_PopupBox.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_Rectarea.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_ScrollList.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_SelectList.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_TabbedBox.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_Widget.cpp" />
+    <ClCompile Include="..\Source\gui\SGF_GuiTimer.cpp" />
+    <ClCompile Include="..\Source\input\sdl-joystick.cpp" />
+    <ClCompile Include="..\Source\input\SGF_ButtonMapping.cpp" />
+    <ClCompile Include="..\Source\input\SGF_Events.cpp" />
+    <ClCompile Include="..\Source\input\SGF_Input.cpp" />
+    <ClCompile Include="..\Source\input\SGF_InputManager.cpp" />
+    <ClCompile Include="..\Source\input\SGF_InputSource.cpp" />
+    <ClCompile Include="..\Source\input\SGF_Joystick.cpp" />
+    <ClCompile Include="..\Source\input\SGF_Keyboard.cpp" />
+    <ClCompile Include="..\Source\input\SGF_KeyMapping.cpp" />
+    <ClCompile Include="..\Source\input\SGF_Mouse.cpp" />
+    <ClCompile Include="..\Source\input\SGF_TextInput.cpp" />
+    <ClCompile Include="..\Source\level\SGF_LevelUtils.cpp" />
+    <ClCompile Include="..\Source\lists\SGF_AirList.cpp" />
+    <ClCompile Include="..\Source\lists\SGF_ImageList.cpp" />
+    <ClCompile Include="..\Source\lists\SGF_PcxList.cpp" />
+    <ClCompile Include="..\Source\lists\SGF_SndList.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Angles.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Complex.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Lcp.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Math.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Matriz.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Ode.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Plane.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Pluecker.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Polynomial.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Quat.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Rotation.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_3DNow.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_AltiVec.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_Generic.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_MMX.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_SSE.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_SSE2.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Simd_SSE3.cpp" />
+    <ClCompile Include="..\Source\math\SGF_Vector.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_ActionFactory.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_ActionSpeed.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_MenuAction.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_MenuAnimation.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_MenuGlobal.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_MenuOption.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_MenuV2.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionAdventure.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionAdventureCpu.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionChangeMod.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionConfig.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionCredits.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionDummy.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionFactory.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionFullscreen.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionInvencible.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionJoystick.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionKey.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionLevel.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionLives.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionMenu.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionNetworkHost.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionNetworkJoin.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionNpcBuddies.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionPlaymode.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionQuit.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionScreenSize.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionSelectFontV2.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionSpeed.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionTabMenu.cpp" />
+    <ClCompile Include="..\Source\menu\SGF_OptionVersus.cpp" />
+    <ClCompile Include="..\Source\mortal\gfx.cpp" />
+    <ClCompile Include="..\Source\mugen\Ast\ast.cpp" />
+    <ClCompile Include="..\Source\mugen\Ast\astManager.cpp" />
+    <ClCompile Include="..\Source\network\chat-widget.cpp" />
+    <ClCompile Include="..\Source\network\chat_client.cpp" />
+    <ClCompile Include="..\Source\network\SGF_NetChatServer.cpp" />
+    <ClCompile Include="..\Source\network\SGF_NetClient.cpp" />
+    <ClCompile Include="..\Source\network\SGF_NetServer.cpp" />
+    <ClCompile Include="..\Source\network\SGF_Network.cpp" />
+    <ClCompile Include="..\Source\objects\SGF_Element.cpp" />
+    <ClCompile Include="..\Source\objects\SGF_Object.cpp" />
+    <ClCompile Include="..\Source\objects\SGF_ObjectCollidable.cpp" />
+    <ClCompile Include="..\Source\resource\font_render.cpp" />
+    <ClCompile Include="..\Source\resource\SGF_collector.cpp" />
+    <ClCompile Include="..\Source\resource\SGF_ResourceManager.cpp" />
+    <ClCompile Include="..\Source\script\SGF_Perl.cpp" />
+    <ClCompile Include="..\Source\script\SGF_Phyton.cpp" />
+    <ClCompile Include="..\Source\script\SGF_Script.cpp" />
+    <ClCompile Include="..\Source\SGF_Global.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_Effects.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_Mugensff.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_MugenSprite.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_RleSprite.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_SffManager.cpp" />
+    <ClCompile Include="..\Source\sprite\SGF_SffSprMan.cpp" />
+    <ClCompile Include="..\Source\structures\SGF_HashTableFast.cpp" />
+    <ClCompile Include="..\Source\structures\QueueTest.cpp" />
+    <ClCompile Include="..\Source\structures\SGF_Stackstring.cpp" />
+    <ClCompile Include="..\Source\sys\SGF_System.cpp" />
+    <ClCompile Include="..\Source\sys\win32\SGF_Fpu.cpp" />
+    <ClCompile Include="..\Source\sys\win32\SGF_WinCpu.cpp" />
+    <ClCompile Include="..\Source\sys\win32\SGF_WinShared.cpp" />
+    <ClCompile Include="..\Source\util\AirManager.cpp" />
+    <ClCompile Include="..\Source\util\SGF_ArgsCmdLine.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Heap.cpp" />
+    <ClCompile Include="..\Source\util\SGF_AudioSystem.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Debug.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Directory.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Ebox.cpp" />
+    <ClCompile Include="..\Source\util\SGF_FileSystem.cpp" />
+    <ClCompile Include="..\Source\util\SGF_FontInfo.cpp" />
+    <ClCompile Include="..\Source\util\SGF_FontSystem.cpp" />
+    <ClCompile Include="..\Source\util\SGF_HashUtils.cpp" />
+    <ClCompile Include="..\Source\util\SGF_LanguageString.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Loading.cpp" />
+    <ClCompile Include="..\Source\util\SGF_MessageQueue.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Messages.cpp" />
+    <ClCompile Include="..\Source\util\SGF_MugenSound.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Mutex.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Path.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Regex.cpp" />
+    <ClCompile Include="..\Source\util\SGF_SdlManager.cpp" />
+    <ClCompile Include="..\Source\util\SGF_SndManager.cpp" />
+    <ClCompile Include="..\Source\util\SGF_SoundManager.cpp" />
+    <ClCompile Include="..\Source\util\SGF_StringUtils.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Task.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Thread.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Timedif.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Timer.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Token.cpp" />
+    <ClCompile Include="..\Source\util\SGF_TokenReader_xml.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Utf.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Util.cpp" />
+    <ClCompile Include="..\Source\util\SGF_Xmltools.cpp" />
+    <ClCompile Include="..\Source\util\tokenreader.cpp" />
+    <ClCompile Include="..\Source\util\XmlNode\XmlNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ExternalLibs\7z\7z.h" />
+    <ClInclude Include="..\ExternalLibs\7z\7zAlloc.h" />
+    <ClInclude Include="..\ExternalLibs\7z\7zBuf.h" />
+    <ClInclude Include="..\ExternalLibs\7z\7zCrc.h" />
+    <ClInclude Include="..\ExternalLibs\7z\7zFile.h" />
+    <ClInclude Include="..\ExternalLibs\7z\7zVersion.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Alloc.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Bcj2.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Bra.h" />
+    <ClInclude Include="..\ExternalLibs\7z\CpuArch.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Delta.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzFind.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzFindMt.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzHash.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Lzma2Dec.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Lzma2Enc.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Lzma86.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzmaDec.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzmaEnc.h" />
+    <ClInclude Include="..\ExternalLibs\7z\LzmaLib.h" />
+    <ClInclude Include="..\ExternalLibs\7z\MtCoder.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Ppmd.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Ppmd7.h" />
+    <ClInclude Include="..\ExternalLibs\7z\RotateDefs.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Sha256.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Threads.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Types.h" />
+    <ClInclude Include="..\ExternalLibs\7z\Xz.h" />
+    <ClInclude Include="..\ExternalLibs\7z\XzCrc64.h" />
+    <ClInclude Include="..\ExternalLibs\7z\XzEnc.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\freetype\config\ftheader.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\freetype\config\ftoption.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="..\ExternalLibs\freetype-2.4.12\include\ft2build.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\group.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\hawklib.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\htinternal.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\ipx.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\loopback.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\nl.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\nlinternal.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\parallel.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\portable.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\serial.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\sock.h" />
+    <ClInclude Include="..\ExternalLibs\hawknl\hawknl\wsock.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\config.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcre.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcrecpp.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcrecpparg.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcrecpp_internal.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcreposix.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcre_internal.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcre_scanner.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\pcre_stringpiece.h" />
+    <ClInclude Include="..\ExternalLibs\pcre\ucp.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\begin_code.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\close_code.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_assert.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_atomic.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_audio.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_bits.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_blendmode.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_clipboard.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_config.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_config_windows.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_copying.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_cpuinfo.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_egl.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_endian.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_error.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_events.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_filesystem.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_gamecontroller.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_gesture.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_haptic.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_hints.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_joystick.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_keyboard.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_keycode.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_loadso.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_log.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_main.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_messagebox.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_mouse.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_mutex.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_name.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengl.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles2.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles2_gl2.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_opengl_glext.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_pixels.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_platform.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_power.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_quit.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_rect.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_render.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_revision.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_rwops.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_scancode.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_shape.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_stdinc.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_surface.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_system.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_syswm.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_thread.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_timer.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_touch.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_types.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_version.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_video.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_vulkan.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.0\SDL_image.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.0\SDL_mixer.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_ttf-2.0.12\SDL_ttf.h" />
+    <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxBlitFunc.h" />
+    <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxPrimitives.h" />
+    <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxPrimitives_font.h" />
+    <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_imageFilter.h" />
+    <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_rotozoom.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\dynamic_flac.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\dynamic_fluidsynth.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\dynamic_mod.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\dynamic_mp3.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\dynamic_ogg.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\effects_internal.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\fluidsynth.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_aiff.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_flac.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_ogg.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\load_voc.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_cmd.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_flac.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_mad.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_mod.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_modplug.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\music_ogg.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\native_midi\native_midi_common.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\common.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\config.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\ctrlmode.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\filter.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\instrum.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\mix.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\output.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\playmidi.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\readmidi.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\resample.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\tables.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\timidity\timidity.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.2\wavestream.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\prelude.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfl.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflcons.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflconv.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfldate.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfldir.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflfile.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfllist.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflmem.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflnode.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflstr.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflsymb.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sflsyst.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfltok.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfltron.h" />
+    <ClInclude Include="..\ExternalLibs\SFL2.0src\sfluid.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sge.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgearray.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgedefines.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgegfx.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgeresource.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgesprite.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sgespriteimage.h" />
+    <ClInclude Include="..\ExternalLibs\sge2d\include\sge_bm_text.h" />
+    <ClInclude Include="..\ExternalLibs\zip\crypt.h" />
+    <ClInclude Include="..\ExternalLibs\zip\ioapi.h" />
+    <ClInclude Include="..\ExternalLibs\zip\unzip.h" />
+    <ClInclude Include="..\ExternalLibs\zip\zip.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inffast.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inffixed.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inflate.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inftrees.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\trees.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\zlib.h" />
+    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\zutil.h" />
+    <ClInclude Include="..\Gamecore\ai\all.h" />
+    <ClInclude Include="..\Gamecore\ai\SGF_AstarHeap.h" />
+    <ClInclude Include="..\Gamecore\ai\SGF_AstarLib.h" />
+    <ClInclude Include="..\Gamecore\ai\SGF_Behavior.h" />
+    <ClInclude Include="..\Gamecore\ai\SGF_Map.h" />
+    <ClInclude Include="..\Gamecore\ai\SGF_PathFinder.h" />
+    <ClInclude Include="..\Gamecore\Compiler\AirCompiler\airparser.tab.h" />
+    <ClInclude Include="..\Gamecore\Compiler\AirCompiler\air_driver.h" />
+    <ClInclude Include="..\Gamecore\Compiler\AirCompiler\airScanner.h" />
+    <ClInclude Include="..\Gamecore\Compiler\CMDCompiler\cmdparser.tab.h" />
+    <ClInclude Include="..\Gamecore\compiler\CMDCompiler\cmdScanner.h" />
+    <ClInclude Include="..\Gamecore\Compiler\CMDCompiler\cmd_driver.h" />
+    <ClInclude Include="..\Gamecore\compiler\CMDCompiler\comScanner.h" />
+    <ClInclude Include="..\Gamecore\compiler\CMDCompiler\SGF_CMDFlexLexer.h" />
+    <ClInclude Include="..\Gamecore\compiler\COMCompiler\comparser.tab.h" />
+    <ClInclude Include="..\Gamecore\compiler\COMCompiler\comScanner.h" />
+    <ClInclude Include="..\Gamecore\compiler\COMCompiler\com_driver.h" />
+    <ClInclude Include="..\Gamecore\compiler\COMCompiler\SGF_COMFlexLexer.h" />
+    <ClInclude Include="..\Gamecore\Compiler\DefCompiler\defparser.tab.h" />
+    <ClInclude Include="..\Gamecore\compiler\DefCompiler\defScanner.h" />
+    <ClInclude Include="..\Gamecore\Compiler\DefCompiler\def_driver.h" />
+    <ClInclude Include="..\Gamecore\compiler\DefCompiler\SGF_DEFFlexLexer.h" />
+    <ClInclude Include="..\Gamecore\configuration\all.h" />
+    <ClInclude Include="..\Gamecore\configuration\SGF_CmdVars.h" />
+    <ClInclude Include="..\Gamecore\configuration\SGF_ConfigVars.h" />
+    <ClInclude Include="..\Gamecore\configuration\SGF_SysVars.h" />
+    <ClInclude Include="..\Gamecore\configuration\SGF_Configuration.h" />
+    <ClInclude Include="..\Gamecore\exceptions\all.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_Error.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_Exception.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_FileExceptions.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_loadException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_MenuException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_MugenException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_NetException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_ScriptException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_shutdownException.h" />
+    <ClInclude Include="..\Gamecore\exceptions\SGF_TokenException.h" />
+    <ClInclude Include="..\Gamecore\external\DT_drawtext.h" />
+    <ClInclude Include="..\Gamecore\external\fastevents.h" />
+    <ClInclude Include="..\Gamecore\external\glSDL.h" />
+    <ClInclude Include="..\Gamecore\external\internal.h" />
+    <ClInclude Include="..\Gamecore\external\scale2x.h" />
+    <ClInclude Include="..\Gamecore\external\SDL_console.h" />
+    <ClInclude Include="..\Gamecore\game\all.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Command.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Console.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Control.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Mod.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Stage.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_Theater.h" />
+    <ClInclude Include="..\Gamecore\game\SGF_World.h" />
+    <ClInclude Include="..\Gamecore\geometry\all.h" />
+    <ClInclude Include="..\Gamecore\geometry\SGF_DrawVert.h" />
+    <ClInclude Include="..\Gamecore\geometry\SGF_JointTransform.h" />
+    <ClInclude Include="..\Gamecore\geometry\SGF_TraceModel.h" />
+    <ClInclude Include="..\Gamecore\graphics\all.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_Bitmap.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_Color.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_FireEffect.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_GradientEffect.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_LitBitmap.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_Poligon.h" />
+    <ClInclude Include="..\Gamecore\graphics\SGF_TransBitmap.h" />
+    <ClInclude Include="..\Gamecore\gui\all.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_BoundBox.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_LineEdit.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_GuiAnimation.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_Box.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_ContextBox.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_Coordinate.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_FadetoolGui.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_PopupBox.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_Rectarea.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_ScrollList.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_SelectList.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_TabbedBox.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_GuiTimer.h" />
+    <ClInclude Include="..\Gamecore\gui\SGF_Widget.h" />
+    <ClInclude Include="..\Gamecore\input\all.h" />
+    <ClInclude Include="..\Gamecore\input\sdl-joystick.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_ButtonMapping.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_Events.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_Input.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_InputManager.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_InputMap.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_InputSource.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_Joystick.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_Keyboard.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_KeyMapping.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_Mouse.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_PSPJoystick.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_StructsInput.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_textInput.h" />
+    <ClInclude Include="..\Gamecore\input\SGF_WIIJoystick.h" />
+    <ClInclude Include="..\Gamecore\level\SGF_LevelUtils.h" />
+    <ClInclude Include="..\Gamecore\lists\all.h" />
+    <ClInclude Include="..\Gamecore\lists\liststructs.h" />
+    <ClInclude Include="..\Gamecore\lists\SGF_AirList.h" />
+    <ClInclude Include="..\Gamecore\lists\SGF_ImageList.h" />
+    <ClInclude Include="..\Gamecore\lists\SGF_PcxList.h" />
+    <ClInclude Include="..\Gamecore\lists\SGF_SndList.h" />
+    <ClInclude Include="..\Gamecore\math\all.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Angles.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Complex.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Curve.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Extrapolate.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Interpolation.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Lincp.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Math.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Matriz.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Odife.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Plane.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_PlaneList.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Pluecker.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Polynomial.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Quaternion.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Random.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Rotation.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Simd.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_3DNow.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_AltiVec.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_Generic.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_MMX.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_SSE.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_SSE2.h" />
+    <ClInclude Include="..\Gamecore\math\Simd_SSE3.h" />
+    <ClInclude Include="..\Gamecore\math\SGF_Vector.h" />
+    <ClInclude Include="..\Gamecore\menu\all.h" />
+    <ClInclude Include="..\Gamecore\menu\options.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_Actionfactory.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_ActionSpeed.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_Menu.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_MenuAction.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_MenuAnimation.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_MenuGlobal.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_MenuOption.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_MenuV2.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionAdventure.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionAdventureCpu.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionChangeMod.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionConfig.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionCredits.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionDummy.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_Optionfactory.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionFullscreen.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionInvencible.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionJoystick.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionKey.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionLevel.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionLives.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionMenu.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionNetworkHost.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionNetworkJoin.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionNpcBuddies.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionPlayMode.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionQuit.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionScreenSize.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionSelectFontV2.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionSpeed.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionTabMenu.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_OptionVersus.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_StructsMenu.h" />
+    <ClInclude Include="..\Gamecore\menu\SGF_TabMenu.h" />
+    <ClInclude Include="..\Gamecore\mortal\common.h" />
+    <ClInclude Include="..\Gamecore\mortal\event.h" />
+    <ClInclude Include="..\Gamecore\mortal\gfx.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\all.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\argument.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\ast.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\astManager.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\attribute-array.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\attribute-keyword.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\attribute-simple.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\attribute.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\collectable.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Configuration.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\exception.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Expression.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\extra.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\filename.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\function.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\helper.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\hitdef.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\identifier.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\key.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\keyword-array.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\keyword.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Modifier.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\number.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\operand.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\range.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\resource.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Section.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Stack.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\string.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\value-list.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\Value.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\variable.h" />
+    <ClInclude Include="..\Gamecore\mugen\Ast\walker.h" />
+    <ClInclude Include="..\Gamecore\mugen\gc.h" />
+    <ClInclude Include="..\Gamecore\network\all.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetChatWidget.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetChatServer.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetChatClient.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetChat.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetClient.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_NetServer.h" />
+    <ClInclude Include="..\Gamecore\network\SGF_Network.h" />
+    <ClInclude Include="..\Gamecore\objects\all.h" />
+    <ClInclude Include="..\Gamecore\objects\SGF_Element.h" />
+    <ClInclude Include="..\Gamecore\objects\SGF_Object.h" />
+    <ClInclude Include="..\Gamecore\objects\SGF_ObjectCollidable.h" />
+    <ClInclude Include="..\Gamecore\objects\SGF_ObjectMessages.h" />
+    <ClInclude Include="..\Gamecore\resource\all.h" />
+    <ClInclude Include="..\Gamecore\resource\SGF_FontRender.h" />
+    <ClInclude Include="..\Gamecore\resource\SGF_Collector.h" />
+    <ClInclude Include="..\Gamecore\resource\SGF_ResourceManager.h" />
+    <ClInclude Include="..\Gamecore\script\all.h" />
+    <ClInclude Include="..\Gamecore\script\SGF_Lua.h" />
+    <ClInclude Include="..\Gamecore\script\SGF_Perl.h" />
+    <ClInclude Include="..\Gamecore\script\SGF_Phyton.h" />
+    <ClInclude Include="..\Gamecore\script\SGF_Scripting.h" />
+    <ClInclude Include="..\Gamecore\sdl.h" />
+    <ClInclude Include="..\Gamecore\SGF.h" />
+    <ClInclude Include="..\Gamecore\SGF_Config.h" />
+    <ClInclude Include="..\Gamecore\SGF_Global.h" />
+    <ClInclude Include="..\Gamecore\SGF_Types.h" />
+    <ClInclude Include="..\Gamecore\sprite\all.h" />
+    <ClInclude Include="..\Gamecore\sprite\defs.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_Efects.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_MugenSprite.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_MugenSSF.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_RleSprite.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_SffManager.h" />
+    <ClInclude Include="..\Gamecore\sprite\SGF_SffSprMan.h" />
+    <ClInclude Include="..\Gamecore\structures\all.h" />
+    <ClInclude Include="..\Gamecore\structures\BinSearch.h" />
+    <ClInclude Include="..\Gamecore\structures\BTree.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_HashTableFast.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_HashTable.h" />
+    <ClInclude Include="..\Gamecore\structures\Hierarchy.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_LinkList.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_List.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_BHeap.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Btree.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Btree_old.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_DynamicArray.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Parameter.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Queue.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_QueueCircular.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Stack.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_Stackstring.h" />
+    <ClInclude Include="..\Gamecore\structures\StaticList.h" />
+    <ClInclude Include="..\Gamecore\structures\SGF_ListString.h" />
+    <ClInclude Include="..\Gamecore\structures\StrPool.h" />
+    <ClInclude Include="..\Gamecore\structures\VectorSet.h" />
+    <ClInclude Include="..\Gamecore\sys\SGF_System.h" />
+    <ClInclude Include="..\Gamecore\sys\win32\win_public.h" />
+    <ClInclude Include="..\Gamecore\util\AirManager.h" />
+    <ClInclude Include="..\Gamecore\util\all.h" />
+    <ClInclude Include="..\Gamecore\util\all_fonts.h" />
+    <ClInclude Include="..\Gamecore\util\all_messages.h" />
+    <ClInclude Include="..\Gamecore\util\all_sound.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_ArgsCmdLine.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Heap.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_AudioSystem.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Callback.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Compress.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Debug.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Displayable.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Ebox.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_FileSystem.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_FilesystemBase.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_FontInfo.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_FontSystem.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_HashUtils.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_LanguageString.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Loading.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_MessageQueue.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Messages.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_MugenSound.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Path.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Pointer.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Regex.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_SdlManager.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_SndManager.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_SoundManager.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_StringUtils.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Task.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Thread.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_ThreadDefs.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Timedif.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Timer.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Token.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_TokenReader_xml.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Utf.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Util.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_UtilStructs.h" />
+    <ClInclude Include="..\Gamecore\util\SGF_Xmltools.h" />
+    <ClInclude Include="..\Gamecore\util\tokenreader.h" />
+    <ClInclude Include="..\Gamecore\util\XmlNode\CmnHdr.h" />
+    <ClInclude Include="..\Gamecore\util\XmlNode\Portable.h" />
+    <ClInclude Include="..\Gamecore\util\XmlNode\XmlNode.h" />
+    <ClInclude Include="..\Source\input\SGF_Key.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Gamecore\mugen\parser\lex-air.l" />
+    <None Include="..\..\Gamecore\mugen\parser\lex-cmd.l" />
+    <None Include="..\..\Gamecore\mugen\parser\lex-cns.l" />
+    <None Include="..\..\Gamecore\mugen\parser\lex-def.l" />
+    <None Include="..\..\Gamecore\mugen\parser\parse-air.yy" />
+    <None Include="..\..\Gamecore\mugen\parser\parse-cmd.yy" />
+    <None Include="..\..\Gamecore\mugen\parser\parse-cns.yy" />
+    <None Include="..\..\Gamecore\mugen\parser\parse-def.yy" />
+    <None Include="..\ExternalLibs\zlib-1.2.5\zlib.map" />
+    <None Include="..\Gamecore\Compiler\AirCompiler\location.hh" />
+    <None Include="..\Gamecore\Compiler\AirCompiler\position.hh" />
+    <None Include="..\Gamecore\Compiler\AirCompiler\stack.hh" />
+    <None Include="..\Gamecore\Compiler\CMDCompiler\cmdparser.y" />
+    <None Include="..\Gamecore\Compiler\CMDCompiler\cmdscanner.l" />
+    <None Include="..\Gamecore\Compiler\CMDCompiler\location.hh" />
+    <None Include="..\Gamecore\Compiler\CMDCompiler\position.hh" />
+    <None Include="..\Gamecore\Compiler\CMDCompiler\stack.hh" />
+    <None Include="..\Gamecore\compiler\COMCompiler\location.hh" />
+    <None Include="..\Gamecore\compiler\COMCompiler\position.hh" />
+    <None Include="..\Gamecore\compiler\COMCompiler\stack.hh" />
+    <None Include="..\Gamecore\Compiler\DefCompiler\location.hh" />
+    <None Include="..\Gamecore\Compiler\DefCompiler\position.hh" />
+    <None Include="..\Gamecore\Compiler\DefCompiler\stack.hh" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="Nasm_Integration_VS\nasm.targets" />
+  </ImportGroup>
+</Project>

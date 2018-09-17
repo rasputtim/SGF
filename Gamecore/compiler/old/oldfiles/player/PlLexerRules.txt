@@ -1,0 +1,176 @@
+%{
+#include <io.h>
+#include <stdio.h>
+#include <string.h>
+#include "playeryacc.hpp"
+#include "lex.h"
+#include "../Structs.h"
+#include "../objects/Player.h"
+#include "../util/debug.h"
+
+#ifdef MSVC
+#define  isatty _isatty  // for some reason isatty is called _isatty in VC..
+#endif
+
+void PlayerDestroyComment();
+void PlayerCopyString();
+int  PlayerCharToInt();	
+void PlayerFileName();
+int playerLineNr=1;
+
+%}
+
+%option caseless
+
+digit	[0123456789]
+STR      \"[^\"]*\"
+CHAR	[a-zA-z_]
+IDENT [\32-\176]+
+
+
+
+
+%%
+{digit}+"."{digit}+	|
+"."{digit}+		|
+{digit}+ 		{sscanf(playertext,"%f",&playerlval.nFloat); 
+				     return NUMBER;}
+
+
+[ \t]+		{/*NOTHING*/}
+
+\n		{playerLineNr++;}
+","		return ',';
+
+"[data]" {/**/}     
+
+"+"		return '+';
+"-"		return '-';
+"*"		return '*';
+"/"		return '/';
+"("		return '(';
+")"		return ')';
+";"		{PlayerDestroyComment();}
+":"     return ':';
+{STR}		{PlayerCopyString();return STRING;}
+"["		return '[';
+"]"		return ']';
+
+"%"     return MOD;
+"**"    return SQUARE;
+
+"!"     return LOGNOT;
+"&&"    return LOGAND;
+"||"    return LOGOR;
+"^^"    return LOGXOR;
+"~"     return NOT;
+"&"     return AND;
+"|"     return OR;
+"^"     return XOR;
+
+
+"="			return EQUAL;
+"!="			return NOTEQUAL;
+">"			return GREATER;
+"<"			return LESS;
+"<="			return LESSEQUAL;
+">="			return GREATEREQUAL;
+
+
+"Info"       return INFO;
+"Name"       return NAME;
+"displayname"       return DISPLAYNAME; 
+"versiondate"       return VERSIONDATE;
+"mugenversion"      return MUGENVERSION;
+"author"            return AUTHOR;
+"pal.defaults"      return PALDEFAULTS;
+
+"Files"             return FILES;
+"cmd"               return COMAND;     
+"cns"               return CNS;
+"st"                return STATES;
+"stcommon"          return COMESTATES;
+"sprite"            return SPRITES;
+"anim"              return ANIMATION;
+"sound"             return SOUNDS;
+"pal1"              return PALLETE1; 
+"pal2"              return PALLETE2;
+"pal3"              return PALLETE3;
+"pal4"              return PALLETE4;
+"pal5"              return PALLETE5;
+"pal6"              return PALLETE6;
+"pal7"              return PALLETE7;
+"pal8"              return PALLETE8;
+"pal9"              return PALLETE9;
+"pal10"             return PALLETE10;
+"pal11"             return PALLETE11;
+"pal12"             return PALLETE12;
+
+"Arcade"            return ARCADE;
+"intro.storyboard"  return INTRO;
+"ending.storyboard" return ENDING;
+
+{CHAR}+".air"  |
+{CHAR}+{digit}+".air" |        
+{CHAR}+".cmd"  |
+{CHAR}+{digit}+".cmd" |        
+{CHAR}+".cns"         |
+{CHAR}+{digit}+".cns" |
+{CHAR}+".sff"         |
+{CHAR}+{digit}+".sff" |
+{CHAR}+".snd"         |
+{CHAR}+{digit}+".snd" |
+{CHAR}+".act"         |
+{CHAR}+{digit}+".act" |
+{CHAR}+".def"         |
+{CHAR}+{digit}+".def" {PlayerFileName(); return FILENAME;}
+
+
+{CHAR}         return PlayerCharToInt();
+
+
+%%
+
+void PlayerDestroyComment()
+{
+char c;
+
+   c= yyinput();
+   while (c != '\n' && c != 0)
+   {	
+	c=yyinput();
+
+   }
+   playerLineNr++;
+ 
+}
+
+void PlayerCopyString()
+{
+   int l = strlen(playertext)-2;
+   //Debug::debug(10) <<"TESTE - PLAYER TEXT = "<< playertext<<endl;
+   strncpy (playerlval.str, &playertext[1], l); playerlval.str[l] = 0;
+   //Debug::debug(10) <<"TESTE - PLAYER TEXT STRING = "<< playerlval.str <<endl;
+}
+
+
+void PlayerFileName()
+{
+    int l = strlen(playertext);
+   
+   strncpy (playerlval.str, &playertext[0], l); playerlval.str[l] = 0;
+    
+     }
+
+int PlayerCharToInt()
+{	
+	char c;
+	c = playertext[0];
+	if(c > 90)
+	   c-=32;
+	playerlval.nFloat=(float)c;
+	return NUMBER; 
+
+
+}
+

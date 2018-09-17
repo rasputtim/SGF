@@ -1,0 +1,18 @@
+HEADER
+------
+Bytes
+00-11  "ElecbyteSnd\0" signature
+12-15  Version key; 4
+16-19  Number of sounds
+20-23  File offset where first subfile is located.
+24-511 c
+
+SUBFILEHEADER
+-------
+Bytes
+00-03 File offset where next subfile in the linked list is located.
+     0 if last subfile.
+04-07 Subfile length (not including this subfileheader).
+08-11 Group number
+12-15 Sample number
+16-   Sound data (WAV format; PCM, 8- or 16-bit, mono or stereo)

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="driver.cc">
+      <Filter>AIR</Filter>
+    </ClCompile>
+    <ClCompile Include="lex.Air.cc">
+      <Filter>AIR</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.tab.cpp">
+      <Filter>AIR</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\FlexLexer.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unistd.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="driver.h">
+      <Filter>AIR</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.tab.h">
+      <Filter>AIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>AIR</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="parser.y">
+      <Filter>AIR\Rules</Filter>
+    </None>
+    <None Include="scanner.l">
+      <Filter>AIR\Rules</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{543f4ed5-2f9a-4b76-919a-be49280c98de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIR">
+      <UniqueIdentifier>{62c2381c-8d3c-44ef-8baa-a4d99e160d04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIR\Rules">
+      <UniqueIdentifier>{38bee83a-926e-42e3-ad8f-d0dab8ac1523}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

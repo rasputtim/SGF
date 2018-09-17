@@ -1,0 +1,45 @@
+ 
+
+BUILDING IN LINUX
+mkdir Projetos
+mkdir Gameengine
+clone the repository
+git clone git://git.code.sf.net/p/sgfabric/code sgf
+for me
+git clone ssh://carygrant@git.code.sf.net/p/sgfabric/code sgf
+
+
+
+install cmake
+apt-get install cmake
+
+sudo apt-get install gcc-multilib lib32stdc++6 libx32stdc++6
+ 
+ before use cmake:
+
+ 
+1 - build SDL2
+cd ExternalLibs/SDL2-2.0.0
+./configure
+make
+sudo make install
+
+2 - install freetype
+sudo apt-get install libfreetype6-dev
+it is possible to use the SDL_ttf png code to build and install it too
+3 - install png
+sudo apt-get install libpng++-dev
+it is possible to use the SDL_Image png code to build and install it too
+
+4 - configure tiff
+# must configure tiff to generate the header file
+# todo: use cmake to generate this file
+cd ExternalLibs/SDL2_image-2.0.0/external/tiff-4.0.3
+./configure
+
+5 - configure libwebp
+
+
+mkdir build
+cd build 
+cmake ..

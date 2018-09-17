@@ -1,0 +1,54 @@
+#ifndef YYSTYPE
+#define YYSTYPE int
+#endif
+#define	EQUAL	258
+#define	NOTEQUAL	259
+#define	GREATER	260
+#define	LESS	261
+#define	LESSEQUAL	262
+#define	GREATEREQUAL	263
+#define	MOD	264
+#define	LOGNOT	265
+#define	LOGAND	266
+#define	LOGOR	267
+#define	LOGXOR	268
+#define	NOT	269
+#define	AND	270
+#define	OR	271
+#define	XOR	272
+#define	SQUARE	273
+#define	INFO	274
+#define	NAME	275
+#define	DISPLAYNAME	276
+#define	VERSIONDATE	277
+#define	MUGENVERSION	278
+#define	AUTHOR	279
+#define	PALDEFAULTS	280
+#define	FILES	281
+#define	COMAND	282
+#define	CNS	283
+#define	STATES	284
+#define	COMESTATES	285
+#define	SPRITES	286
+#define	ANIMATION	287
+#define	SOUNDS	288
+#define	PALLETE1	289
+#define	PALLETE2	290
+#define	PALLETE3	291
+#define	PALLETE4	292
+#define	PALLETE5	293
+#define	PALLETE6	294
+#define	PALLETE7	295
+#define	PALLETE8	296
+#define	PALLETE9	297
+#define	PALLETE10	298
+#define	PALLETE11	299
+#define	PALLETE12	300
+#define	ARCADE	301
+#define	INTRO	302
+#define	ENDING	303
+#define	NUMBER	304
+#define	STRING	305
+#define	FILENAME	306
+
+

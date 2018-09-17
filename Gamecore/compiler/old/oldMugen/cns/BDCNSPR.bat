@@ -1,0 +1,1 @@
+bison -ocnsyacc.cpp -d -p cns CnsConstPrase.txt

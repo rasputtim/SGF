@@ -1,0 +1,52 @@
+# -------------------------------------------------------
+# util cmake build script for sgffabric.
+# Written by: Salvatore
+# Modified by: Salvatore
+# -------------------------------------------------------
+
+# -------------------------------------------------------
+# Source directories containing all the necessary .cpp files
+# -------------------------------------------------------
+set(UTIL_DIR ${CMAKE_SOURCE_DIR}/Source/util)
+set(UTIL_SRC
+${UTIL_DIR}/XmlNode/XmlNode.cpp
+${UTIL_DIR}/SGF_ArgsCmdLine.cpp
+${UTIL_DIR}/SGF_AudioSystem.cpp
+${UTIL_DIR}/SGF_Debug.cpp
+${UTIL_DIR}/SGF_Directory.cpp
+${UTIL_DIR}/SGF_Ebox.cpp
+${UTIL_DIR}/SGF_FileSystem.cpp
+${UTIL_DIR}/SGF_FontInfo.cpp
+${UTIL_DIR}/SGF_FontSystem.cpp
+${UTIL_DIR}/SGF_HashUtils.cpp
+${UTIL_DIR}/SGF_Heap.cpp
+${UTIL_DIR}/SGF_LanguageString.cpp
+${UTIL_DIR}/SGF_Loading.cpp
+${UTIL_DIR}/SGF_MessageQueue.cpp
+${UTIL_DIR}/SGF_Messages.cpp
+${UTIL_DIR}/SGF_MugenSound.cpp
+${UTIL_DIR}/SGF_Path.cpp
+${UTIL_DIR}/SGF_Regex.cpp
+${UTIL_DIR}/SGF_SdlManager.cpp
+${UTIL_DIR}/SGF_SndManager.cpp
+${UTIL_DIR}/SGF_SoundManager.cpp
+${UTIL_DIR}/SGF_StringUtils.cpp
+${UTIL_DIR}/SGF_Thread.cpp
+${UTIL_DIR}/SGF_Timedif.cpp
+${UTIL_DIR}/SGF_Timer.cpp
+${UTIL_DIR}/SGF_Token.cpp
+${UTIL_DIR}/SGF_TokenReader_xml.cpp
+${UTIL_DIR}/SGF_Utf.cpp
+${UTIL_DIR}/SGF_Util.cpp
+${UTIL_DIR}/SGF_Xmltools.cpp
+)
+
+# -------------------------------------------------------
+# Include directory
+# -------------------------------------------------------
+#include_directories(include include/internal)
+
+# -------------------------------------------------------
+# module
+# -------------------------------------------------------
+#add_library (util_module ${UTIL_SRC})

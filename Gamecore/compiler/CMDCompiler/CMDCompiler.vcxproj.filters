@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CMD">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CMD\Rules">
+      <UniqueIdentifier>{8c63910d-0b07-4165-8141-2dd95cd5db2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cmdparser.tab.cpp">
+      <Filter>CMD</Filter>
+    </ClCompile>
+    <ClCompile Include="lex.Cmd.cc">
+      <Filter>CMD</Filter>
+    </ClCompile>
+    <ClCompile Include="cmd_driver.cc">
+      <Filter>CMD</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmdparser.tab.h">
+      <Filter>CMD</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>CMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FlexLexer.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unistd.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cmd_driver.h">
+      <Filter>CMD</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cmdparser.y">
+      <Filter>CMD\Rules</Filter>
+    </None>
+    <None Include="cmdscanner.l">
+      <Filter>CMD\Rules</Filter>
+    </None>
+  </ItemGroup>
+</Project>

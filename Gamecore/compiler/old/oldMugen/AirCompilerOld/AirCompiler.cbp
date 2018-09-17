@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AirCompiler" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="libaircompilerlib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Debug Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-w" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add directory="$(SolutionDir)\SDL-1.3.0-4904\include" />
+					<Add directory="$(SolutionDir)\Gamecore\lists" />
+					<Add directory="$(SolutionDir)\Headers\external_libs" />
+					<Add directory="$(SolutionDir)\gamecore\compiler" />
+					<Add directory="$(SolutionDir)\Headers\environment" />
+					<Add directory="$(SolutionDir)\Headers" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(SolutionDir)\SDL-1.3.0-4904\include" />
+					<Add directory="$(SolutionDir)\Gamecore\lists" />
+					<Add directory="$(SolutionDir)\Headers\external_libs" />
+					<Add directory="$(SolutionDir)\gamecore\compiler" />
+					<Add directory="$(SolutionDir)\Headers\environment" />
+					<Add directory="$(SolutionDir)\Headers" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="AirCompiler" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release Win32" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-O2" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Unit filename="AirCompiler\FlexLexer.h" />
+		<Unit filename="AirCompiler\unistd.h" />
+		<Unit filename="Scanner.h" />
+		<Unit filename="driver.cc" />
+		<Unit filename="driver.h" />
+		<Unit filename="lex.Air.cc" />
+		<Unit filename="parser.tab.cpp" />
+		<Unit filename="parser.tab.h" />
+		<Unit filename="parser.y" />
+		<Unit filename="scanner.l" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

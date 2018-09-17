@@ -1,0 +1,33 @@
+Don't install Bison for windows in a directory which contain spaces, it causes 
+the error.
+
+ 
+
+For example, you can install bison in "d:\GNU32\bin", but not in "d:\program 
+files\gnu32\bin".
+
+
+ 
+> Date: Thu, 11 Mar 2010 13:33:23 +1100
+> From: address@hidden
+> To: address@hidden
+> CC: address@hidden
+> Subject: Re: Bison Windows m4 problems
+> 
+> > ====
+> > 1>------ Build started: Project: parser, Configuration: Debug Win32 ------
+> > 1>[BISON][MyParser] Building parser with bison 2.4.1
+> > 1>m4: cannot open `Files\GnuWin32/share/bison': No such file or directory
+> > 1>m4: cannot open `C:\Program': No such file or directory
+> > 1>m4: cannot open `Files\GnuWin32/share/bison/m4sugar/m4sugar.m4': No
+> > such file or directory
+> > ====
+> >
+> > And it hangs there, m4 doesnt seem to be able to handle the <Program
+> > Files> path. There must be a way around this hope you guys might know,
+> 
+> yes, i've seen this, and i solved it by installing to C:\GnuWin32.
+> couldn't be bothered debugging this.
+> 
+> ta, jack.
+> 
