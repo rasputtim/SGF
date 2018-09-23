@@ -546,6 +546,7 @@ add_definitions(-DMP3_MUSIC)
 # List of preprocessor include file search directories.
 # -------------------------------------------------------
 include_directories(${CMAKE_SOURCE_DIR}/Gamecore 
+${CMAKE_SOURCE_DIR}/Gamecore/compiler
 ${CMAKE_SOURCE_DIR}/Header 
 ${CMAKE_SOURCE_DIR}/ExternalLibs/7z
 ${CMAKE_SOURCE_DIR}/ExternalLibs/hawkln
@@ -791,16 +792,16 @@ ${CMAKE_SOURCE_DIR}/Gamecore/menu/options.h
 
 )
 set(SGF_MUGEN_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Configuration.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Expression.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Modifier.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Section.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Stack.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/Value.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/argument.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/ast.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/astManager.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/all.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Configuration.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Expression.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Modifier.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Section.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Stack.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Value.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/argument.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/ast.h
+${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/astManager.h
 ${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-array.h
 ${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-keyword.h
 ${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-simple.h
@@ -1050,6 +1051,39 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgestage.h
 ${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgestring.h
 )
 
+set(COMPILERS_MUGEN_DIR ${CMAKE_SOURCE_DIR}/Gamecore/compiler )
+set(COMPILERS_MUGEN_HDR
+${COMPILERS_MUGEN_DIR}/AirCompiler/airparser.tab.h
+${COMPILERS_MUGEN_DIR}/AirCompiler/air_driver.h
+${COMPILERS_MUGEN_DIR}/AirCompiler/airScanner.h
+${COMPILERS_MUGEN_DIR}/CMDCompiler/cmdparser.tab.h
+${COMPILERS_MUGEN_DIR}/CMDCompiler/cmdScanner.h
+${COMPILERS_MUGEN_DIR}/CMDCompiler/cmd_driver.h
+${COMPILERS_MUGEN_DIR}/CMDCompiler/comScanner.h
+${COMPILERS_MUGEN_DIR}/CMDCompiler/SGF_CMDFlexLexer.h
+${COMPILERS_MUGEN_DIR}/COMCompiler/comparser.tab.h
+${COMPILERS_MUGEN_DIR}/COMCompiler/comScanner.h
+${COMPILERS_MUGEN_DIR}/COMCompiler/com_driver.h
+${COMPILERS_MUGEN_DIR}/COMCompiler/SGF_COMFlexLexer.h
+${COMPILERS_MUGEN_DIR}/DefCompiler/defparser.tab.h
+${COMPILERS_MUGEN_DIR}/DefCompiler/defScanner.h
+${COMPILERS_MUGEN_DIR}/DefCompiler/def_driver.h
+${COMPILERS_MUGEN_DIR}/DefCompiler/SGF_DEFFlexLexer.h)
+
+set(COMPILERS_MUGEN_SRC
+${COMPILERS_MUGEN_DIR}/AirCompiler/airparser.tab.cpp
+${COMPILERS_MUGEN_DIR}/AirCompiler/air_driver.cc
+${COMPILERS_MUGEN_DIR}/AirCompiler/lex.Air.cc
+${COMPILERS_MUGEN_DIR}/CMDCompiler/cmdparser.tab.cpp
+${COMPILERS_MUGEN_DIR}/CMDCompiler/cmd_driver.cc
+${COMPILERS_MUGEN_DIR}/CMDCompiler/lex.Cmd.cc
+${COMPILERS_MUGEN_DIR}/COMCompiler/comparser.tab.cpp
+${COMPILERS_MUGEN_DIR}/COMCompiler/com_driver.cc
+${COMPILERS_MUGEN_DIR}/COMCompiler/lex.Com.cc
+${COMPILERS_MUGEN_DIR}/DefCompiler/defparser.tab.cpp
+${COMPILERS_MUGEN_DIR}/DefCompiler/def_driver.cc
+${COMPILERS_MUGEN_DIR}/DefCompiler/lex.Def.cc
+)
 # -------------------------------------------------------
 # Put the linked libraries together
 # -------------------------------------------------------
@@ -1273,7 +1307,7 @@ endif()
 # The extension is already found. Any number of sources could be listed here.
 add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
 ${FREE_BASE_SRCS}
-
+${COMPILERS_MUGEN_SRC}
 ${expat_SRCS}
 ${SDL2_SOURCE_FILES} ${CONFIGURATION_SRC} ${AI_SRC}  ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
 ${GAME_SRC} ${GRAPHICS_SRC} ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}

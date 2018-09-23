@@ -3,7 +3,7 @@
 
 #include <string>
 #include "../input/all.h"
-#include "../mugen/Ast/all.h"
+#include "../mugen/ast/all.h"
 
 using namespace std;
 namespace SGF{

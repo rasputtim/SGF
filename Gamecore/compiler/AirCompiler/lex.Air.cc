@@ -21,10 +21,17 @@
 
 
 #ifdef __cplusplus
-
-#include <stdlib.h>
-class istream;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+#include <SGF_unistd.h>
+//class istream;
+#else
 #include <unistd.h>
+#include <iostream>     // std::istream, std::cout
+#include <stdlib.h>
+using std::ostream;
+using std::istream;
+
+#endif
 
 /* Use prototypes in function declarations. */
 #define YY_USE_PROTOS

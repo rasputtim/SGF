@@ -107,7 +107,9 @@ void CSysLocal::DebugVPrintf( const char *fmt, va_list arg ) {
 }
 
 double CSysLocal::GetClockTicks() {
-    //return System::getClockTicks();
+#if defined(WINDOWS)
+    return System::getClockTicks();
+#endif
 }
 
 double CSysLocal::ClockTicksPerSecond() {
@@ -156,27 +158,42 @@ const char * CSysLocal::GetCallStackStr( const address_t *callStack, const int c
 */
 const char * CSysLocal::GetCallStackCurStr( int depth ) {
     //sal todo:implement to linux:
-    //sal return Sys_GetCallStackCurStr( depth );
+    //sal 
+#if defined(WINDOWS)
+	return Sys_GetCallStackCurStr( depth );
+#endif
 }
 
 void CSysLocal::ShutdownSymbols() {
     //sal todo:implement to linux:
-    //sal Sys_ShutdownSymbols();
+    //sal
+#if defined(WINDOWS)
+	Sys_ShutdownSymbols();
+#endif
 }
 
 void * CSysLocal::DLL_Load( const char *dllName ) {
     //sal todo:implement to linux:
-    //sal return Sys_DLL_Load( dllName );
+    //sal 
+#if defined(WINDOWS)
+	return Sys_DLL_Load( dllName );
+#endif
 }
 
 void *CSysLocal::DLL_GetProcAddress( void * dllHandle, const char *procName ) {
     //sal todo:implement to linux:
-    //sal return Sys_DLL_GetProcAddress( dllHandle, procName );
+    //sal 
+#if defined(WINDOWS)
+	return Sys_DLL_GetProcAddress( dllHandle, procName );
+#endif
 }
 
 void CSysLocal::DLL_Unload( void * dllHandle ) {
     //sal todo:implement to linux:
-    //sal Sys_DLL_Unload( dllHandle );
+    //sal 
+#if defined(WINDOWS)
+	Sys_DLL_Unload( dllHandle );
+#endif
 }
 
 void CSysLocal::DLL_GetFileName( const char *baseName, char *dllName, int maxLength ) {

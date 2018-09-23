@@ -5,8 +5,8 @@
 #include <sstream>
 
 #include "air_driver.h"
-#include "AIRcompiler/airScanner.h"
-#include "mugen/Ast/astmanager.h"
+#include "AirCompiler/airScanner.h"
+#include "mugen/ast/astManager.h"
 #include "util/SGF_Debug.h"
 
 namespace AirCompiler {

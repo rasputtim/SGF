@@ -5,8 +5,8 @@
 #include <sstream>
 
 #include "cmd_driver.h"
-#include "CMDcompiler/cmdScanner.h"
-#include "mugen/Ast/astmanager.h"
+#include "CMDCompiler/cmdScanner.h"
+#include "mugen/ast/astManager.h"
 #include "util/SGF_Debug.h"
 
 

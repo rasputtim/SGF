@@ -276,7 +276,7 @@ public:
 	virtual CTranslucentBitmap translucent(int red, int green, int blue, int alpha) const;
     //virtual CLitBitmap lit() const;
 
-	virtual CPolygon polygon() const;
+    CPolygon polygon() const;
 	virtual void save( const string & str );
 
 	CBitmap & operator=( const CBitmap & );

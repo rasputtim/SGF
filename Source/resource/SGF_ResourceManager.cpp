@@ -25,7 +25,7 @@
 #include "../Gamecore/compiler/CMDCompiler/cmd_driver.h"
 #include "../Gamecore/compiler/AirCompiler/air_driver.h"
 #include "../Gamecore/compiler/COMCompiler/com_driver.h"
-#include "../Gamecore/mugen/Ast/astManager.h"
+#include "../Gamecore/mugen/ast/astManager.h"
 
 
 

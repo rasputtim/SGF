@@ -5,8 +5,8 @@
 #include <sstream>
 
 #include "com_driver.h"
-#include "Comcompiler/comScanner.h"
-#include "mugen/Ast/astmanager.h"
+#include "COMCompiler/comScanner.h"
+#include "mugen/ast/astManager.h"
 #include "util/SGF_Debug.h"
 
 

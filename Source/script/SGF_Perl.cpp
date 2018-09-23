@@ -24,7 +24,12 @@
 
 
 #include "script/SGF_Perl.h"
+#if !defined(WINDOWS)
+#include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
 
+#endif
 #ifdef SGF_PERL_SCRIPTING
 /***************************************************************************
                   		BACKEND CLASS IMPLEMENTATION
@@ -115,8 +120,9 @@ bool CPerlEngine::Construct(string &diretorio, char *script)
 //	sFileName += "/script";
 //	string dir = Filesystem::getDirName(path);
 //	const char *diretorio = dir.c_str();
-#ifndef _WIN32_
-	chdir( diretorio.c_str());
+#if !defined (WINDOWS)
+#include <unistd.h>
+    chdir( diretorio.c_str());
 #endif
 	
 //	char *perl_argv[] = {"", "-d:Trace", "CPerlEngine.pl"};

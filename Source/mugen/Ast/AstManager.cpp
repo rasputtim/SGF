@@ -20,7 +20,7 @@
 
 
 
-#include "mugen/Ast/astManager.h"
+#include "mugen/ast/astManager.h"
 #include "mugen/gc.h"
 #include "util/SGF_Debug.h"
 #include <string>

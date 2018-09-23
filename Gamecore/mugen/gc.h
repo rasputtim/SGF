@@ -21,7 +21,7 @@
 #define _parser_gc_h
 
 #include <list>
-#include "Ast/all.h"
+#include "ast/all.h"
 using namespace std;
 namespace SGF{
 

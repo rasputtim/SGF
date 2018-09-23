@@ -23,11 +23,11 @@ This file helps include perl.h
 The windows version of perl.h contains a lot of stupid #defines, this
 file helps undefine them.
 */
- #include <string>
+
 
 #ifndef _S_G_F_PERL_SCRIPTING_h
 #define _S_G_F_PERL_SCRIPTING_h
-
+#include <string>
 #include "../SGF_Config.h"
 
 #ifdef SGF_SCRIPTING

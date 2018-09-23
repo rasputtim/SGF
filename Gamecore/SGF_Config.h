@@ -25,7 +25,11 @@
 
 //for SDL_IMAGE
 
-
+#if defined (__GNUC__) && (__GNUC__ >= 2)
+#ifndef __STRICT_ANSI__
+#define __STRICT_ANSI__
+#endif
+#endif
 
 // copy operators
 #define SGFCpField(name) name = copy.name;

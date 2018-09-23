@@ -5,8 +5,8 @@
 #include <sstream>
 
 #include "def_driver.h"
-#include "Defcompiler/defScanner.h"
-#include "mugen/Ast/astmanager.h"
+#include "DefCompiler/defScanner.h"
+#include "mugen/ast/astManager.h"
 #include "util/SGF_Debug.h"
 
 namespace DefCompiler {
