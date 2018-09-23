@@ -93,11 +93,9 @@ private:
 	ItemType *			owner;
 };
 
-/*
-CLinkedList<ItemType>::CLinkedList
-Node is initialized to be the head of an empty list
-/
-/** \brief construtor da lista ligada
+/**
+ \brief Node is initialized to be the head of an empty list
+ \brief construtor da lista ligada
 * \note O nó é inicializado para ser o nó cabeça
 */
 template< class ItemType >
@@ -108,13 +106,10 @@ CLinkedList<ItemType>::CLinkedList() {
 	prev	= this;
 }
 
-/*
+/**
 CLinkedList<ItemType>::~CLinkedList
 Removes the node from the list, or if it's the head of a list, removes
 all the nodes from the list.
-*/
-
-/** \brief remove o nó da lista
 * \note se o nó a ser removido for o nó cabeça, remove a lista toda
 */
 template< class ItemType >

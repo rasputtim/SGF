@@ -19,6 +19,7 @@ ${INPUT_DIR}/SGF_Keyboard.cpp
 ${INPUT_DIR}/SGF_KeyMapping.cpp
 ${INPUT_DIR}/SGF_Mouse.cpp
 ${INPUT_DIR}/SGF_TextInput.cpp
+${INPUT_DIR}/sdl-joystick.cpp
 )
 
 # -------------------------------------------------------

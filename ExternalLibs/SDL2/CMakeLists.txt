@@ -2,8 +2,12 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
   message(FATAL_ERROR "Prevented in-tree built. Please create a build directory outside of the SDL source code and call cmake from there")
 endif()
 
+#sal todo verificar a necessidade desta definição adicionada para compilar os arquivos de timing
+set(SDL_TIMERS 1)
+
+
 cmake_minimum_required(VERSION 2.8.11)
-project(SDL2 C)
+#project(SDL2 C)
 
 # !!! FIXME: this should probably do "MACOSX_RPATH ON" as a target property
 # !!! FIXME:  for the SDL2 shared library (so you get an
@@ -28,9 +32,24 @@ include(CheckStructHasMember)
 include(CMakeDependentOption)
 include(FindPkgConfig)
 include(GNUInstallDirs)
+set (SDL2_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2)
+message(STATUS "===============================")
+message(STATUS ${SDL2_SOURCE_DIR})
+
 set(CMAKE_MODULE_PATH "${SDL2_SOURCE_DIR}/cmake")
+message(STATUS "===============================")
+message(STATUS ${CMAKE_MODULE_PATH})
+message(STATUS "===============================RUN MACROS.CMAKE======")
+
 include(${SDL2_SOURCE_DIR}/cmake/macros.cmake)
+message(STATUS "===============================RUN MACROS.CMAKE======")
+message(STATUS "===============================RUN SDLCHECKS.CMAKE======")
 include(${SDL2_SOURCE_DIR}/cmake/sdlchecks.cmake)
+message(STATUS "===============================END RUN SDLCHECKS.CMAKE======")
+
+message(STATUS "=========BINARY DIR======================")
+message(STATUS ${SDL2_BINARY_DIR})
+message(STATUS "===============================")
 
 # General settings
 # Edit include/SDL_version.h and change the version, then:
@@ -343,7 +362,7 @@ dep_option(SDL_STATIC_PIC      "Static version of the library should be built wi
 set_option(SDL_TEST            "Build the test directory" OFF)
 
 # General source files
-file(GLOB SOURCE_FILES
+file(GLOB SDL2_SOURCE_FILES
   ${SDL2_SOURCE_DIR}/src/*.c
   ${SDL2_SOURCE_DIR}/src/atomic/*.c
   ${SDL2_SOURCE_DIR}/src/audio/*.c
@@ -733,7 +752,7 @@ foreach(_SUB ${SDL_SUBSYSTEMS})
 endforeach()
 if(SDL_JOYSTICK)
   file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${JOYSTICK_SOURCES})
 endif()
 if(SDL_HAPTIC)
   if(NOT SDL_JOYSTICK)
@@ -741,16 +760,18 @@ if(SDL_HAPTIC)
     message_error("SDL_HAPTIC requires SDL_JOYSTICK, which is not enabled")
   endif()
   file(GLOB HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${HAPTIC_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAPTIC_SOURCES})
 endif()
 if(SDL_POWER)
   file(GLOB POWER_SOURCES ${SDL2_SOURCE_DIR}/src/power/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${POWER_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${POWER_SOURCES})
 endif()
 # TODO: in configure.in, the test for LOADSO and SDL_DLOPEN is a bit weird:
 # if LOADSO is not wanted, SDL_LOADSO_DISABLED is set
 # If however on Unix or APPLE dlopen() is detected via CheckDLOPEN(),
 # SDL_LOADSO_DISABLED will not be set, regardless of the LOADSO settings
+
+CheckDLOPEN()
 
 # General SDL subsystem options, valid for all platforms
 if(SDL_AUDIO)
@@ -758,13 +779,13 @@ if(SDL_AUDIO)
   if(DUMMYAUDIO)
     set(SDL_AUDIO_DRIVER_DUMMY 1)
     file(GLOB DUMMYAUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/dummy/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${DUMMYAUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${DUMMYAUDIO_SOURCES})
     set(HAVE_DUMMYAUDIO TRUE)
   endif()
   if(DISKAUDIO)
     set(SDL_AUDIO_DRIVER_DISK 1)
     file(GLOB DISKAUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/disk/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${DISKAUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${DISKAUDIO_SOURCES})
     set(HAVE_DISKAUDIO TRUE)
   endif()
 endif()
@@ -780,7 +801,7 @@ if(SDL_VIDEO)
   if(VIDEO_DUMMY)
     set(SDL_VIDEO_DRIVER_DUMMY 1)
     file(GLOB VIDEO_DUMMY_SOURCES ${SDL2_SOURCE_DIR}/src/video/dummy/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${VIDEO_DUMMY_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${VIDEO_DUMMY_SOURCES})
     set(HAVE_VIDEO_DUMMY TRUE)
     set(HAVE_SDL_VIDEO TRUE)
   endif()
@@ -788,7 +809,7 @@ endif()
 
 if(ANDROID)
   file(GLOB ANDROID_CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/android/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_CORE_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_CORE_SOURCES})
 
   # SDL_spinlock.c Needs to be compiled in ARM mode.
   # There seems to be no better way currently to set the ARM mode.
@@ -805,49 +826,49 @@ if(ANDROID)
   if(SDL_AUDIO)
     set(SDL_AUDIO_DRIVER_ANDROID 1)
     file(GLOB ANDROID_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/android/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_AUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_AUDIO_SOURCES})
     set(HAVE_SDL_AUDIO TRUE)
   endif()
   if(SDL_FILESYSTEM)
     set(SDL_FILESYSTEM_ANDROID 1)
     file(GLOB ANDROID_FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/android/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
   if(SDL_HAPTIC)
     set(SDL_HAPTIC_ANDROID 1)
     file(GLOB ANDROID_HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/android/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_HAPTIC_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_HAPTIC_SOURCES})
     set(HAVE_SDL_HAPTIC TRUE)
   endif()
   if(SDL_JOYSTICK)
     set(SDL_JOYSTICK_ANDROID 1)
     file(GLOB ANDROID_JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/android/*.c ${SDL2_SOURCE_DIR}/src/joystick/steam/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_JOYSTICK_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_JOYSTICK_SOURCES})
     set(HAVE_SDL_JOYSTICK TRUE)
   endif()
   if(SDL_LOADSO)
     set(SDL_LOADSO_DLOPEN 1)
     file(GLOB LOADSO_SOURCES ${SDL2_SOURCE_DIR}/src/loadso/dlopen/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${LOADSO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${LOADSO_SOURCES})
     set(HAVE_SDL_LOADSO TRUE)
   endif()
   if(SDL_POWER)
     set(SDL_POWER_ANDROID 1)
     file(GLOB ANDROID_POWER_SOURCES ${SDL2_SOURCE_DIR}/src/power/android/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_POWER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_POWER_SOURCES})
     set(HAVE_SDL_POWER TRUE)
   endif()
   if(SDL_TIMERS)
     set(SDL_TIMER_UNIX 1)
     file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
     set(HAVE_SDL_TIMERS TRUE)
   endif()
   if(SDL_VIDEO)
     set(SDL_VIDEO_DRIVER_ANDROID 1)
     file(GLOB ANDROID_VIDEO_SOURCES ${SDL2_SOURCE_DIR}/src/video/android/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_VIDEO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_VIDEO_SOURCES})
     set(HAVE_SDL_VIDEO TRUE)
 
     # Core stuff
@@ -896,31 +917,31 @@ if(EMSCRIPTEN)
   if(SDL_AUDIO)
     set(SDL_AUDIO_DRIVER_EMSCRIPTEN 1)
     file(GLOB EM_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/emscripten/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${EM_AUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${EM_AUDIO_SOURCES})
     set(HAVE_SDL_AUDIO TRUE)
   endif()
   if(SDL_FILESYSTEM)
     set(SDL_FILESYSTEM_EMSCRIPTEN 1)
     file(GLOB EM_FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/emscripten/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${EM_FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${EM_FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
   if(SDL_JOYSTICK)
     set(SDL_JOYSTICK_EMSCRIPTEN 1)
     file(GLOB EM_JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/emscripten/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${EM_JOYSTICK_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${EM_JOYSTICK_SOURCES})
     set(HAVE_SDL_JOYSTICK TRUE)
   endif()
   if(SDL_POWER)
     set(SDL_POWER_EMSCRIPTEN 1)
     file(GLOB EM_POWER_SOURCES ${SDL2_SOURCE_DIR}/src/power/emscripten/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${EM_POWER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${EM_POWER_SOURCES})
     set(HAVE_SDL_POWER TRUE)
   endif()
   if(SDL_TIMERS)
     set(SDL_TIMER_UNIX 1)
     file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
     set(HAVE_SDL_TIMERS TRUE)
 
     if(CLOCK_GETTIME)
@@ -930,7 +951,7 @@ if(EMSCRIPTEN)
   if(SDL_VIDEO)
     set(SDL_VIDEO_DRIVER_EMSCRIPTEN 1)
     file(GLOB EM_VIDEO_SOURCES ${SDL2_SOURCE_DIR}/src/video/emscripten/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${EM_VIDEO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${EM_VIDEO_SOURCES})
     set(HAVE_SDL_VIDEO TRUE)
 
     #enable gles
@@ -946,17 +967,17 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
     if(SYSV5 OR SOLARIS OR HPUX)
         set(SDL_AUDIO_DRIVER_SUNAUDIO 1)
         file(GLOB SUN_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/sun/*.c)
-        set(SOURCE_FILES ${SOURCE_FILES} ${SUN_AUDIO_SOURCES})
+        set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${SUN_AUDIO_SOURCES})
         set(HAVE_SDL_AUDIO TRUE)
     elseif(NETBSD)
         set(SDL_AUDIO_DRIVER_NETBSD 1)
         file(GLOB NETBSD_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/netbsd/*.c)
-        set(SOURCE_FILES ${SOURCE_FILES} ${NETBSD_AUDIO_SOURCES})
+        set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${NETBSD_AUDIO_SOURCES})
         set(HAVE_SDL_AUDIO TRUE)
     elseif(AIX)
         set(SDL_AUDIO_DRIVER_PAUDIO 1)
         file(GLOB AIX_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/paudio/*.c)
-        set(SOURCE_FILES ${SOURCE_FILES} ${AIX_AUDIO_SOURCES})
+        set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${AIX_AUDIO_SOURCES})
         set(HAVE_SDL_AUDIO TRUE)
     endif()
     CheckOSS()
@@ -986,7 +1007,7 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
 
   if(UNIX)
     file(GLOB CORE_UNIX_SOURCES ${SDL2_SOURCE_DIR}/src/core/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${CORE_UNIX_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${CORE_UNIX_SOURCES})
   endif()
 
   if(LINUX)
@@ -1009,7 +1030,7 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
         }" HAVE_INPUT_KD)
 
     file(GLOB CORE_LINUX_SOURCES ${SDL2_SOURCE_DIR}/src/core/linux/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${CORE_LINUX_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${CORE_LINUX_SOURCES})
 
     if(HAVE_INPUT_EVENTS)
       set(SDL_INPUT_LINUXEV 1)
@@ -1018,7 +1039,7 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
     if(SDL_HAPTIC AND HAVE_INPUT_EVENTS)
       set(SDL_HAPTIC_LINUX 1)
       file(GLOB HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/linux/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${HAPTIC_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAPTIC_SOURCES})
       set(HAVE_SDL_HAPTIC TRUE)
     endif()
 
@@ -1062,7 +1083,7 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
     if(LINUX AND NOT ANDROID)
       set(SDL_JOYSTICK_LINUX 1)
       file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/linux/*.c ${SDL2_SOURCE_DIR}/src/joystick/steam/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${JOYSTICK_SOURCES})
       set(HAVE_SDL_JOYSTICK TRUE)
     endif()
   endif()
@@ -1091,7 +1112,7 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
     if(LINUX)
       set(SDL_POWER_LINUX 1)
       file(GLOB POWER_SOURCES ${SDL2_SOURCE_DIR}/src/power/linux/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${POWER_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${POWER_SOURCES})
       set(HAVE_SDL_POWER TRUE)
     endif()
   endif()
@@ -1099,14 +1120,14 @@ elseif(UNIX AND NOT APPLE AND NOT ANDROID)
   if(SDL_FILESYSTEM)
     set(SDL_FILESYSTEM_UNIX 1)
     file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
 
   if(SDL_TIMERS)
     set(SDL_TIMER_UNIX 1)
     file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
     set(HAVE_SDL_TIMERS TRUE)
   endif()
 
@@ -1136,7 +1157,7 @@ elseif(WINDOWS)
     int main(int argc, char **argv) { }" HAVE_WIN32_CC)
 
   file(GLOB CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/windows/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${CORE_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${CORE_SOURCES})
 
   if(MSVC)
     # Prevent codegen that would use the VC runtime libraries.
@@ -1200,19 +1221,19 @@ elseif(WINDOWS)
   if(SDL_AUDIO)
     set(SDL_AUDIO_DRIVER_WINMM 1)
     file(GLOB WINMM_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/winmm/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${WINMM_AUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${WINMM_AUDIO_SOURCES})
     set(HAVE_SDL_AUDIO TRUE)
 
     if(HAVE_DSOUND_H)
       set(SDL_AUDIO_DRIVER_DSOUND 1)
       file(GLOB DSOUND_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/directsound/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${DSOUND_AUDIO_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${DSOUND_AUDIO_SOURCES})
     endif()
 
     if(HAVE_AUDIOCLIENT_H AND HAVE_MMDEVICEAPI_H)
       set(SDL_AUDIO_DRIVER_WASAPI 1)
       file(GLOB WASAPI_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/wasapi/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${WASAPI_AUDIO_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${WASAPI_AUDIO_SOURCES})
     endif()
   endif()
 
@@ -1223,7 +1244,7 @@ elseif(WINDOWS)
     endif()
     set(SDL_VIDEO_DRIVER_WINDOWS 1)
     file(GLOB WIN_VIDEO_SOURCES ${SDL2_SOURCE_DIR}/src/video/windows/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${WIN_VIDEO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${WIN_VIDEO_SOURCES})
 
     if(RENDER_D3D AND HAVE_D3D_H)
       set(SDL_VIDEO_RENDER_D3D 1)
@@ -1233,30 +1254,30 @@ elseif(WINDOWS)
       set(SDL_VIDEO_RENDER_D3D11 1)
       set(HAVE_RENDER_D3D TRUE)
     endif()
-    set(HAVE_SDL_VIDEO TRUE)
-  endif()
-
-  if(SDL_THREADS)
+    if(SDL_THREADS)
     set(SDL_THREAD_WINDOWS 1)
-    set(SOURCE_FILES ${SOURCE_FILES}
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES}
       ${SDL2_SOURCE_DIR}/src/thread/windows/SDL_sysmutex.c
       ${SDL2_SOURCE_DIR}/src/thread/windows/SDL_syssem.c
       ${SDL2_SOURCE_DIR}/src/thread/windows/SDL_systhread.c
       ${SDL2_SOURCE_DIR}/src/thread/windows/SDL_systls.c
       ${SDL2_SOURCE_DIR}/src/thread/generic/SDL_syscond.c)
     set(HAVE_SDL_THREADS TRUE)
-  endif()
+    endif()
 
   if(SDL_POWER)
     set(SDL_POWER_WINDOWS 1)
-    set(SOURCE_FILES ${SOURCE_FILES} ${SDL2_SOURCE_DIR}/src/power/windows/SDL_syspower.c)
+    set(HAVE_SDL_VIDEO TRUE)
+  endif()
+
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${SDL2_SOURCE_DIR}/src/power/windows/SDL_syspower.c)
     set(HAVE_SDL_POWER TRUE)
   endif()
 
   if(SDL_FILESYSTEM)
     set(SDL_FILESYSTEM_WINDOWS 1)
     file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/windows/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
 
@@ -1268,19 +1289,19 @@ elseif(WINDOWS)
   if(SDL_TIMERS)
     set(SDL_TIMER_WINDOWS 1)
     file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/windows/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
     set(HAVE_SDL_TIMERS TRUE)
   endif()
 
   if(SDL_LOADSO)
     set(SDL_LOADSO_WINDOWS 1)
     file(GLOB LOADSO_SOURCES ${SDL2_SOURCE_DIR}/src/loadso/windows/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${LOADSO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${LOADSO_SOURCES})
     set(HAVE_SDL_LOADSO TRUE)
   endif()
 
   file(GLOB CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/windows/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${CORE_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${CORE_SOURCES})
 
   if(SDL_VIDEO)
     if(VIDEO_OPENGL)
@@ -1300,7 +1321,7 @@ elseif(WINDOWS)
 
   if(SDL_JOYSTICK)
     file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/windows/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${JOYSTICK_SOURCES})
     if(HAVE_DINPUT_H)
       set(SDL_JOYSTICK_DINPUT 1)
       list(APPEND EXTRA_LIBS dinput8)
@@ -1331,7 +1352,7 @@ elseif(WINDOWS)
         file(GLOB HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/dummy/*.c)
         set(SDL_HAPTIC_DUMMY 1)
       endif()
-      set(SOURCE_FILES ${SOURCE_FILES} ${HAPTIC_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAPTIC_SOURCES})
       set(HAVE_SDL_HAPTIC TRUE)
     endif()
   endif()
@@ -1359,7 +1380,7 @@ elseif(APPLE)
   # Requires the darwin file implementation
   if(SDL_FILE)
     file(GLOB EXTRA_SOURCES ${SDL2_SOURCE_DIR}/src/file/cocoa/*.m)
-    set(SOURCE_FILES ${EXTRA_SOURCES} ${SOURCE_FILES})
+    set(SDL2_SOURCE_FILES ${EXTRA_SOURCES} ${SDL2_SOURCE_FILES})
     # !!! FIXME: modern CMake doesn't need "LANGUAGE C" for Objective-C.
     set_source_files_properties(${EXTRA_SOURCES} PROPERTIES LANGUAGE C)
     set(HAVE_SDL_FILE TRUE)
@@ -1374,7 +1395,7 @@ elseif(APPLE)
     file(GLOB AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/coreaudio/*.m)
     # !!! FIXME: modern CMake doesn't need "LANGUAGE C" for Objective-C.
     set_source_files_properties(${AUDIO_SOURCES} PROPERTIES LANGUAGE C)
-    set(SOURCE_FILES ${SOURCE_FILES} ${AUDIO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${AUDIO_SOURCES})
     set(HAVE_SDL_AUDIO TRUE)
     set(SDL_FRAMEWORK_COREAUDIO 1)
     set(SDL_FRAMEWORK_AUDIOTOOLBOX 1)
@@ -1387,7 +1408,7 @@ elseif(APPLE)
     else()
       file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/darwin/*.c)
     endif()
-    set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${JOYSTICK_SOURCES})
     set(HAVE_SDL_JOYSTICK TRUE)
     set(SDL_FRAMEWORK_IOKIT 1)
     set(SDL_FRAMEWORK_FF 1)
@@ -1401,7 +1422,7 @@ elseif(APPLE)
     else()
       file(GLOB HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/darwin/*.c)
     endif()
-    set(SOURCE_FILES ${SOURCE_FILES} ${HAPTIC_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAPTIC_SOURCES})
     set(HAVE_SDL_HAPTIC TRUE)
     set(SDL_FRAMEWORK_IOKIT 1)
     set(SDL_FRAMEWORK_FF 1)
@@ -1417,7 +1438,7 @@ elseif(APPLE)
     else()
       file(GLOB POWER_SOURCES ${SDL2_SOURCE_DIR}/src/power/macosx/*.c)
     endif()
-    set(SOURCE_FILES ${SOURCE_FILES} ${POWER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${POWER_SOURCES})
     set(HAVE_SDL_POWER TRUE)
     set(SDL_FRAMEWORK_IOKIT 1)
   endif()
@@ -1425,7 +1446,7 @@ elseif(APPLE)
   if(SDL_TIMERS)
     set(SDL_TIMER_UNIX 1)
     file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/unix/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
     set(HAVE_SDL_TIMERS TRUE)
   endif(SDL_TIMERS)
 
@@ -1434,7 +1455,7 @@ elseif(APPLE)
     file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/cocoa/*.m)
     # !!! FIXME: modern CMake doesn't need "LANGUAGE C" for Objective-C.
     set_source_files_properties(${FILESYSTEM_SOURCES} PROPERTIES LANGUAGE C)
-    set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
 
@@ -1473,7 +1494,7 @@ elseif(APPLE)
     if (IOS)
       set(SDL_VIDEO_DRIVER_UIKIT 1)
       file(GLOB UIKITVIDEO_SOURCES ${SDL2_SOURCE_DIR}/src/video/uikit/*.m)
-      set(SOURCE_FILES ${SOURCE_FILES} ${UIKITVIDEO_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${UIKITVIDEO_SOURCES})
     else()
       CheckCOCOA()
       if(VIDEO_OPENGL)
@@ -1497,18 +1518,18 @@ elseif(HAIKU)
   if(SDL_VIDEO)
     set(SDL_VIDEO_DRIVER_HAIKU 1)
     file(GLOB HAIKUVIDEO_SOURCES ${SDL2_SOURCE_DIR}/src/video/haiku/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${HAIKUVIDEO_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAIKUVIDEO_SOURCES})
     set(HAVE_SDL_VIDEO TRUE)
 
     set(SDL_FILESYSTEM_HAIKU 1)
     file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/haiku/*.cc)
-    set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${FILESYSTEM_SOURCES})
     set(HAVE_SDL_FILESYSTEM TRUE)
 
     if(SDL_TIMERS)
       set(SDL_TIMER_HAIKU 1)
       file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/haiku/*.c)
-      set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+      set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
       set(HAVE_SDL_TIMERS TRUE)
     endif(SDL_TIMERS)
 
@@ -1542,35 +1563,35 @@ if(NOT HAVE_SDL_JOYSTICK)
   if(SDL_JOYSTICK AND NOT APPLE) # results in unresolved symbols on OSX
 
     file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/dummy/*.c)
-    set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+    set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${JOYSTICK_SOURCES})
   endif()
 endif()
 if(NOT HAVE_SDL_HAPTIC)
   set(SDL_HAPTIC_DISABLED 1)
   file(GLOB HAPTIC_SOURCES ${SDL2_SOURCE_DIR}/src/haptic/dummy/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${HAPTIC_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${HAPTIC_SOURCES})
 endif()
 if(NOT HAVE_SDL_LOADSO)
   set(SDL_LOADSO_DISABLED 1)
   file(GLOB LOADSO_SOURCES ${SDL2_SOURCE_DIR}/src/loadso/dummy/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${LOADSO_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${LOADSO_SOURCES})
 endif()
 if(NOT HAVE_SDL_FILESYSTEM)
   set(SDL_FILESYSTEM_DISABLED 1)
   file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/dummy/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${FILESYSTEM_SOURCES})
 endif()
 
 # We always need to have threads and timers around
 if(NOT HAVE_SDL_THREADS)
   set(SDL_THREADS_DISABLED 1)
   file(GLOB THREADS_SOURCES ${SDL2_SOURCE_DIR}/src/thread/generic/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${THREADS_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${THREADS_SOURCES})
 endif()
 if(NOT HAVE_SDL_TIMERS)
   set(SDL_TIMERS_DISABLED 1)
   file(GLOB TIMER_SOURCES ${SDL2_SOURCE_DIR}/src/timer/dummy/*.c)
-  set(SOURCE_FILES ${SOURCE_FILES} ${TIMER_SOURCES})
+  set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${TIMER_SOURCES})
 endif()
 
 if(NOT SDLMAIN_SOURCES)
@@ -1585,7 +1606,7 @@ endif()
 # endif()
 
 configure_file("${SDL2_SOURCE_DIR}/include/SDL_config.h.cmake"
-  "${SDL2_BINARY_DIR}/include/SDL_config.h")
+  "${SDL2_SOURCE_DIR}/include/SDL_config_generated.h")
 
 # Prepare the flags and remove duplicates
 if(EXTRA_LDFLAGS)
@@ -1637,14 +1658,14 @@ if(NOT WINDOWS OR CYGWIN)
   # MESSAGE(STATUS "SDL_LIBS: ${SDL_LIBS}")
   # MESSAGE(STATUS "SDL_STATIC_LIBS: ${SDL_STATIC_LIBS}")
 
-  configure_file("${SDL2_SOURCE_DIR}/sdl2.pc.in"
-    "${SDL2_BINARY_DIR}/sdl2.pc" @ONLY)
-  configure_file("${SDL2_SOURCE_DIR}/sdl2-config.in"
-    "${SDL2_BINARY_DIR}/sdl2-config")
-  configure_file("${SDL2_SOURCE_DIR}/sdl2-config.in"
-    "${SDL2_BINARY_DIR}/sdl2-config" @ONLY)
-  configure_file("${SDL2_SOURCE_DIR}/SDL2.spec.in"
-    "${SDL2_BINARY_DIR}/SDL2.spec" @ONLY)
+  #sal configure_file("${SDL2_SOURCE_DIR}/sdl2.pc.in"
+  #sal  "${SDL2_BINARY_DIR}/sdl2.pc" @ONLY)
+  #salconfigure_file("${SDL2_SOURCE_DIR}/sdl2-config.in"
+  #sal  "${SDL2_BINARY_DIR}/sdl2-config")
+ #sal configure_file("${SDL2_SOURCE_DIR}/sdl2-config.in"
+ #sal   "${SDL2_BINARY_DIR}/sdl2-config" @ONLY)
+ #sal configure_file("${SDL2_SOURCE_DIR}/SDL2.spec.in"
+ #sal   "${SDL2_BINARY_DIR}/SDL2.spec" @ONLY)
 endif()
 
 ##### Info output #####
@@ -1701,75 +1722,75 @@ if (NOT ANDROID)
   set_target_properties(SDL2main PROPERTIES DEBUG_POSTFIX ${SDL_CMAKE_DEBUG_POSTFIX})
 endif()
 
-if(SDL_SHARED)
-  add_library(SDL2 SHARED ${SOURCE_FILES} ${VERSION_SOURCES})
-  if(APPLE)
-    set_target_properties(SDL2 PROPERTIES MACOSX_RPATH 1)
-  elseif(UNIX AND NOT ANDROID)
-    set_target_properties(SDL2 PROPERTIES
-      VERSION ${LT_VERSION}
-      SOVERSION ${LT_REVISION}
-      OUTPUT_NAME "SDL2-${LT_RELEASE}")
-  else()
-    set_target_properties(SDL2 PROPERTIES
-      VERSION ${SDL_VERSION}
-      SOVERSION ${LT_REVISION}
-      OUTPUT_NAME "SDL2")
-  endif()
-  if(MSVC AND NOT LIBC)
+#sal if(SDL_SHARED)
+#sal   add_library(SDL2 SHARED ${SDL2_SOURCE_FILES} ${VERSION_SOURCES})
+#sal   if(APPLE)
+#sal     set_target_properties(SDL2 PROPERTIES MACOSX_RPATH 1)
+#sal   elseif(UNIX AND NOT ANDROID)
+ #sal    set_target_properties(SDL2 PROPERTIES
+#sal       VERSION ${LT_VERSION}
+#sal       SOVERSION ${LT_REVISION}
+#sal       OUTPUT_NAME "SDL2-${LT_RELEASE}")
+ #sal  else()
+#sal     set_target_properties(SDL2 PROPERTIES
+ #sal      VERSION ${SDL_VERSION}
+#sal       SOVERSION ${LT_REVISION}
+#sal       OUTPUT_NAME "SDL2")
+#sal   endif()
+#sal   if(MSVC AND NOT LIBC)
     # Don't try to link with the default set of libraries.
-    set_target_properties(SDL2 PROPERTIES LINK_FLAGS_RELEASE "/NODEFAULTLIB")
-    set_target_properties(SDL2 PROPERTIES LINK_FLAGS_DEBUG "/NODEFAULTLIB")
-    set_target_properties(SDL2 PROPERTIES STATIC_LIBRARY_FLAGS "/NODEFAULTLIB")
-  endif()
-  set(_INSTALL_LIBS "SDL2" ${_INSTALL_LIBS})
-  target_link_libraries(SDL2 ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
-  target_include_directories(SDL2 PUBLIC $<INSTALL_INTERFACE:include>)
-  if (NOT ANDROID)
-    set_target_properties(SDL2 PROPERTIES DEBUG_POSTFIX ${SDL_CMAKE_DEBUG_POSTFIX})
-  endif()
-endif()
+#sal     set_target_properties(SDL2 PROPERTIES LINK_FLAGS_RELEASE "/NODEFAULTLIB")
+#sal     set_target_properties(SDL2 PROPERTIES LINK_FLAGS_DEBUG "/NODEFAULTLIB")
+#sal     set_target_properties(SDL2 PROPERTIES STATIC_LIBRARY_FLAGS "/NODEFAULTLIB")
+#sal   endif()
+#sal   set(_INSTALL_LIBS "SDL2" ${_INSTALL_LIBS})
+#sal   target_link_libraries(SDL2 ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
+ #sal  target_include_directories(SDL2 PUBLIC $<INSTALL_INTERFACE:include>)
+#sal   if (NOT ANDROID)
+ #sal    set_target_properties(SDL2 PROPERTIES DEBUG_POSTFIX ${SDL_CMAKE_DEBUG_POSTFIX})
+ #sal  endif()
+#sal endif()
 
 if(SDL_STATIC)
-  set (BUILD_SHARED_LIBS FALSE)
-  add_library(SDL2-static STATIC ${SOURCE_FILES})
-  if (NOT SDL_SHARED OR NOT WIN32)
-    set_target_properties(SDL2-static PROPERTIES OUTPUT_NAME "SDL2")
+  #sal set (BUILD_SHARED_LIBS FALSE)
+  #sal add_library(SDL2-static STATIC ${SDL2_SOURCE_FILES})
+  #sal if (NOT SDL_SHARED OR NOT WIN32)
+    #sal set_target_properties(SDL2-static PROPERTIES OUTPUT_NAME "SDL2")
     # Note: Apparently, OUTPUT_NAME must really be unique; even when
     # CMAKE_IMPORT_LIBRARY_SUFFIX or the like are given. Otherwise
     # the static build may race with the import lib and one will get
     # clobbered, when the suffix is realized via subsequent rename.
-  endif()
-  set_target_properties(SDL2-static PROPERTIES POSITION_INDEPENDENT_CODE ${SDL_STATIC_PIC})
-  if(MSVC AND NOT LIBC)
-    set_target_properties(SDL2-static PROPERTIES LINK_FLAGS_RELEASE "/NODEFAULTLIB")
-    set_target_properties(SDL2-static PROPERTIES LINK_FLAGS_DEBUG "/NODEFAULTLIB")
-    set_target_properties(SDL2-static PROPERTIES STATIC_LIBRARY_FLAGS "/NODEFAULTLIB")
-  endif()
+  #sal endif()
+  #sal set_target_properties(SDL2-static PROPERTIES POSITION_INDEPENDENT_CODE ${SDL_STATIC_PIC})
+  #sal if(MSVC AND NOT LIBC)
+    #sal set_target_properties(SDL2-static PROPERTIES LINK_FLAGS_RELEASE "/NODEFAULTLIB")
+    #sal set_target_properties(SDL2-static PROPERTIES LINK_FLAGS_DEBUG "/NODEFAULTLIB")
+    #sal set_target_properties(SDL2-static PROPERTIES STATIC_LIBRARY_FLAGS "/NODEFAULTLIB")
+  #sal endif()
   # TODO: Win32 platforms keep the same suffix .lib for import and static
   # libraries - do we need to consider this?
-  set(_INSTALL_LIBS "SDL2-static" ${_INSTALL_LIBS})
-  target_link_libraries(SDL2-static ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
-  target_include_directories(SDL2-static PUBLIC $<INSTALL_INTERFACE:include>)
-  if (NOT ANDROID)
-    set_target_properties(SDL2-static PROPERTIES DEBUG_POSTFIX ${SDL_CMAKE_DEBUG_POSTFIX})
-  endif()
+  #sal set(_INSTALL_LIBS "SDL2-static" ${_INSTALL_LIBS})
+  #sal target_link_libraries(SDL2-static ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
+  #sal target_include_directories(SDL2-static PUBLIC $<INSTALL_INTERFACE:include>)
+  #sal if (NOT ANDROID)
+    #sal set_target_properties(SDL2-static PROPERTIES DEBUG_POSTFIX ${SDL_CMAKE_DEBUG_POSTFIX})
+  #sal endif()
 endif()
 
 ##### Tests #####
 
 if(SDL_TEST)
-  file(GLOB TEST_SOURCES ${SDL2_SOURCE_DIR}/src/test/*.c)
-  add_library(SDL2_test STATIC ${TEST_SOURCES})
+  #sal file(GLOB TEST_SOURCES ${SDL2_SOURCE_DIR}/src/test/*.c)
+  #sal add_library(SDL2_test STATIC ${TEST_SOURCES})
   
-  add_subdirectory(test)
+  #sal add_subdirectory(test)
 endif()
 
 ##### Installation targets #####
-install(TARGETS ${_INSTALL_LIBS} EXPORT SDL2Targets
-  LIBRARY DESTINATION "lib${LIB_SUFFIX}"
-  ARCHIVE DESTINATION "lib${LIB_SUFFIX}"
-  RUNTIME DESTINATION bin)
+#sal install(TARGETS ${_INSTALL_LIBS} EXPORT SDL2Targets
+  #sal LIBRARY DESTINATION "lib${LIB_SUFFIX}"
+  #sal ARCHIVE DESTINATION "lib${LIB_SUFFIX}"
+  #sal RUNTIME DESTINATION bin)
 
 ##### Export files #####
 if (APPLE)
@@ -1780,48 +1801,48 @@ else ()
   set(PKG_PREFIX "lib/cmake/SDL2")
 endif ()
 
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file("${CMAKE_BINARY_DIR}/SDL2ConfigVersion.cmake"
-  VERSION ${SDL_VERSION}
-  COMPATIBILITY AnyNewerVersion
-)
+#sal include(CMakePackageConfigHelpers)
+#sal write_basic_package_version_file("${CMAKE_BINARY_DIR}/SDL2ConfigVersion.cmake"
+  #sal VERSION ${SDL_VERSION}
+  #sal COMPATIBILITY AnyNewerVersion
+#sal )
 
-install(EXPORT SDL2Targets
-  FILE SDL2Targets.cmake
-  NAMESPACE SDL2::
-  DESTINATION ${PKG_PREFIX}
-)
-install(
-  FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/SDL2Config.cmake
-    ${CMAKE_BINARY_DIR}/SDL2ConfigVersion.cmake
-  DESTINATION ${PKG_PREFIX}
-  COMPONENT Devel
-)
+#sal install(EXPORT SDL2Targets
+#sal   FILE SDL2Targets.cmake
+#sal   NAMESPACE SDL2::
+#sal   DESTINATION ${PKG_PREFIX}
+#sal )
+#sal install(
+ #sal  FILES
+ #sal    ${CMAKE_CURRENT_SOURCE_DIR}/SDL2Config.cmake
+#sal     ${CMAKE_BINARY_DIR}/SDL2ConfigVersion.cmake
+#sal   DESTINATION ${PKG_PREFIX}
+#sal   COMPONENT Devel
+#sal )
 
-file(GLOB INCLUDE_FILES ${SDL2_SOURCE_DIR}/include/*.h)
-file(GLOB BIN_INCLUDE_FILES ${SDL2_BINARY_DIR}/include/*.h)
-foreach(_FNAME ${BIN_INCLUDE_FILES})
-  get_filename_component(_INCNAME ${_FNAME} NAME)
-  list(REMOVE_ITEM INCLUDE_FILES ${SDL2_SOURCE_DIR}/include/${_INCNAME})
-endforeach()
-list(APPEND INCLUDE_FILES ${BIN_INCLUDE_FILES})
-install(FILES ${INCLUDE_FILES} DESTINATION include/SDL2)
+#sal file(GLOB INCLUDE_FILES ${SDL2_SOURCE_DIR}/include/*.h)
+#sal file(GLOB BIN_INCLUDE_FILES ${SDL2_BINARY_DIR}/include/*.h)
+#sal oreach(_FNAME ${BIN_INCLUDE_FILES})
+#sal   get_filename_component(_INCNAME ${_FNAME} NAME)
+#sal   list(REMOVE_ITEM INCLUDE_FILES ${SDL2_SOURCE_DIR}/include/${_INCNAME})
+#sal endforeach()
+#sal list(APPEND INCLUDE_FILES ${BIN_INCLUDE_FILES})
+#sal install(FILES ${INCLUDE_FILES} DESTINATION include/SDL2)
 
-if(NOT (WINDOWS OR CYGWIN))
-  if(SDL_SHARED)
-    if (APPLE)
-        set(SOEXT "dylib")
-    else()
-        set(SOEXT "so")
-    endif()
-    if(NOT ANDROID)
-        install(CODE "
-          execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink
-          \"libSDL2-2.0.${SOEXT}\" \"libSDL2.${SOEXT}\")")
-        install(FILES ${SDL2_BINARY_DIR}/libSDL2.${SOEXT} DESTINATION "lib${LIB_SUFFIX}")
-    endif()
-  endif()
+#sal if(NOT (WINDOWS OR CYGWIN))
+ #sal  if(SDL_SHARED)
+#sal     if (APPLE)
+#sal         set(SOEXT "dylib")
+#sal     else()
+ #sal        set(SOEXT "so")
+ #sal    endif()
+#sal     if(NOT ANDROID)
+#sal         install(CODE "
+#sal           execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink
+#sal           \"libSDL2-2.0.${SOEXT}\" \"libSDL2.${SOEXT}\")")
+ #sal        install(FILES ${SDL2_BINARY_DIR}/libSDL2.${SOEXT} DESTINATION "lib${LIB_SUFFIX}")
+#sal     endif()
+#sal   endif()
   if(FREEBSD)
     # FreeBSD uses ${PREFIX}/libdata/pkgconfig
     install(FILES ${SDL2_BINARY_DIR}/sdl2.pc DESTINATION "libdata/pkgconfig")
@@ -1832,16 +1853,16 @@ if(NOT (WINDOWS OR CYGWIN))
   install(PROGRAMS ${SDL2_BINARY_DIR}/sdl2-config DESTINATION bin)
   # TODO: what about the .spec file? Is it only needed for RPM creation?
   install(FILES "${SDL2_SOURCE_DIR}/sdl2.m4" DESTINATION "${CMAKE_INSTALL_FULL_DATAROOTDIR}/aclocal")
-endif()
+#sal endif()
 
 ##### Uninstall target #####
 
-if(NOT TARGET uninstall)
-  configure_file(
-      "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
-      "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-      IMMEDIATE @ONLY)
+#sal if(NOT TARGET uninstall)
+#sal   configure_file(
+#sal       "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
+#sal       "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+#sal       IMMEDIATE @ONLY)
 
-  add_custom_target(uninstall
-      COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
-endif()
+#sal   add_custom_target(uninstall
+#sal       COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+#sal endif()

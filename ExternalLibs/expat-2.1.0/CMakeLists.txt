@@ -1,7 +1,7 @@
 # This file is copyrighted under the BSD-license for buildsystem files of KDE
 # copyright 2010, Patrick Spendrin <ps_ml@gmx.de>
 
-project(expat)
+#sal project(expat)
 
 message("ADDING EXPAT CMAKE CONFIGURATION SCRIPT")
 
@@ -37,23 +37,27 @@ if(BUILD_tests)
     enable_testing()
 endif(BUILD_tests)
 
-include(ConfigureChecks.cmake)
+message (STATUS "EXPAT SOURCE DIR:  ${CMAKE_SOURCE_DIR}")
 
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR}/lib)
+include(${CMAKE_SOURCE_DIR}/cmake/ConfigureChecksExpat.cmake)
+set (EXPAT_SOURCE_DIR  ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0 )
+
+
+include_directories(${CMAKE_BINARY_DIR} ${EXPAT_SOURCE_DIR}/lib)
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS -wd4996)
 endif(MSVC)
 
 set(expat_SRCS
-    lib/xmlparse.c
-    lib/xmlrole.c
-    lib/xmltok.c 
-    lib/xmltok_impl.c 
-    lib/xmltok_ns.c
+    ${EXPAT_SOURCE_DIR}/lib/xmlparse.c
+    ${EXPAT_SOURCE_DIR}/lib/xmlrole.c
+    ${EXPAT_SOURCE_DIR}/lib/xmltok.c 
+    ${EXPAT_SOURCE_DIR}/lib/xmltok_impl.c 
+    ${EXPAT_SOURCE_DIR}/lib/xmltok_ns.c
 )
 
 if(WIN32 AND BUILD_shared)
-    set(expat_SRCS ${expat_SRCS} lib/libexpat.def)
+    set(expat_SRCS ${expat_SRCS} ${EXPAT_SOURCE_DIR}/lib/libexpat.def)
 endif(WIN32 AND BUILD_shared)
 
 if(BUILD_shared)
@@ -62,52 +66,52 @@ else(BUILD_shared)
     set(_SHARED STATIC)
 endif(BUILD_shared)
 
-add_library(expat ${_SHARED} ${expat_SRCS})
+#sal add_library(expat ${_SHARED} ${expat_SRCS})
 
-install(TARGETS expat RUNTIME DESTINATION bin
-                      LIBRARY DESTINATION lib
-                      ARCHIVE DESTINATION lib)
+#sal install(TARGETS expat RUNTIME DESTINATION bin
+#sal                       LIBRARY DESTINATION lib
+#sal                       ARCHIVE DESTINATION lib)
 
-set(prefix ${CMAKE_INSTALL_PREFIX})
-set(exec_prefix "\${prefix}/bin")
-set(libdir "\${prefix}/lib")
-set(includedir "\${prefix}/include")
-configure_file(expat.pc.in ${CMAKE_CURRENT_BINARY_DIR}/expat.pc)
+#sal set(prefix ${CMAKE_INSTALL_PREFIX})
+#sal set(exec_prefix "\${prefix}/bin")
+#sal set(libdir "\${prefix}/lib")
+#sal set(includedir "\${prefix}/include")
+#sal configure_file(expat.pc.in ${CMAKE_CURRENT_BINARY_DIR}/expat.pc)
 
-install(FILES lib/expat.h lib/expat_external.h DESTINATION include)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/expat.pc DESTINATION lib/pkgconfig)
+#sal install(FILES lib/expat.h lib/expat_external.h DESTINATION include)
+#sal install(FILES ${CMAKE_CURRENT_BINARY_DIR}/expat.pc DESTINATION lib/pkgconfig)
 
 
 
 if(BUILD_tools AND NOT WINCE)
-    set(xmlwf_SRCS
-        xmlwf/xmlwf.c
-        xmlwf/xmlfile.c
-        xmlwf/codepage.c
-        xmlwf/readfilemap.c
+    set(${EXPAT_SOURCE_DIR}/xmlwf_SRCS
+        ${EXPAT_SOURCE_DIR}/xmlwf/xmlwf.c
+        ${EXPAT_SOURCE_DIR}/xmlwf/xmlfile.c
+        ${EXPAT_SOURCE_DIR}/xmlwf/codepage.c
+        ${EXPAT_SOURCE_DIR}/xmlwf/readfilemap.c
     )
 
-    add_executable(xmlwf ${xmlwf_SRCS})
-    target_link_libraries(xmlwf expat)
-    install(TARGETS xmlwf DESTINATION bin)
-    install(FILES doc/xmlwf.1 DESTINATION share/man/man1)
+    #sal add_executable(xmlwf ${xmlwf_SRCS})
+    #saltarget_link_libraries(xmlwf expat)
+   #sal install(TARGETS xmlwf DESTINATION bin)
+   #sal install(FILES doc/xmlwf.1 DESTINATION share/man/man1)
 endif(BUILD_tools AND NOT WINCE)
 
 if(BUILD_examples)
-    add_executable(elements examples/elements.c)
-    target_link_libraries(elements expat)
-
-    add_executable(outline examples/outline.c)
-    target_link_libraries(outline expat)
+#sal    add_executable(elements examples/elements.c)
+#sal    target_link_libraries(elements expat)
+#sal
+#sal    add_executable(outline examples/outline.c)
+#sal    target_link_libraries(outline expat)
 endif(BUILD_examples)
 
 if(BUILD_tests)
     ## these are unittests that can be run on any platform
-    add_executable(runtests tests/runtests.c tests/chardata.c tests/minicheck.c)
-    target_link_libraries(runtests expat)
-    add_test(runtests runtests)
+ #sal   add_executable(runtests tests/runtests.c tests/chardata.c tests/minicheck.c)
+#sal    target_link_libraries(runtests expat)
+ #sal   add_test(runtests runtests)
 
-    add_executable(runtestspp tests/runtestspp.cpp tests/chardata.c tests/minicheck.c)
-    target_link_libraries(runtestspp expat)
-    add_test(runtestspp runtestspp)
+ #sal   add_executable(runtestspp tests/runtestspp.cpp tests/chardata.c tests/minicheck.c)
+ #sal   target_link_libraries(runtestspp expat)
+ #sal   add_test(runtestspp runtestspp)
 endif(BUILD_tests)

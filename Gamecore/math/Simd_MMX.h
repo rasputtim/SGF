@@ -21,6 +21,7 @@
 #ifndef __MATH_SIMD_MMX_H__
 #define __MATH_SIMD_MMX_H__
 #include "../SGF_Config.h"
+#include "Simd_Generic.h"
 namespace SGF {
 /*
 ===============================================================================

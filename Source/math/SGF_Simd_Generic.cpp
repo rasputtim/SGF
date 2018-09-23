@@ -2272,7 +2272,7 @@ void VPCALL CSIMD_Generic::ConvertJointMatsToJointQuats( CJointQuaternion *joint
 	int i;
 
 	for ( i = 0; i < numJoints; i++ ) {
-		jointQuats[i] = jointMats[i].ToJointQuat();
+        //s jointQuats[i] = jointMats[i].ToJointQuat();
 	}
 }
 

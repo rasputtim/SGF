@@ -21,6 +21,9 @@
 #ifndef __MATH_SIMD_3DNOW_H__
 #define __MATH_SIMD_3DNOW_H__
 #include "../SGF_Config.h"
+#include "../util/SGF_UtilStructs.h"
+#include "Simd_MMX.h"
+
 namespace SGF {
 /*
 ===============================================================================
@@ -37,9 +40,9 @@ public:
 	~CSIMD_3DNow(){};
 #if defined (WIN32) || defined (__GNUC__)
 public:
-	virtual const char * VPCALL GetName() const;
+    virtual const char * VPCALL GetName() const;
 
-	virtual void VPCALL Memcpy( void *dst,			const void *src,		const int count );
+    virtual void VPCALL Memcpy( void *dst,			const void *src,		const int count );
 
 #endif
 };

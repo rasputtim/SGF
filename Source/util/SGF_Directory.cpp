@@ -85,6 +85,8 @@ vector<CAbsolutePath> CDirectory::findDirectories(const CAbsolutePath & dataPath
 #ifndef USE_ALLEGRO
     for (vector<string>::iterator it = names.begin(); it != names.end(); it++){
         Debug::debug(Debug::filesystem,__FUNCTION__) << "Check if " << *it << " matches " << find << endl;
+
+        //todo: remove file_matches (SFL function)
         if (file_matches(it->c_str(), find.c_str())){
             out.push_back(dataPath.join(CIsolatedPath(*it)));
         }

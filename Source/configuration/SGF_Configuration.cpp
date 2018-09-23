@@ -1576,6 +1576,62 @@ static string getConfigFile(){
 	return str.str();
 }
 
+Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){
+    ;
+        //! TODO   Método de find para o arquivo de configuração
+    CMyString configFileName(sgfConfigFileName.getString());
+    CMyString dir_Separator(DIR_SEPARATOR);
+    CMyString completeFileName;
+    ostringstream str;
+    str << getenv( "HOME" ) ;
+    string path = str.str();
+
+
+
+    completeFileName << path.c_str() << dir_Separator << configFileName;
+
+    Filesystem::CAbsolutePath configFilePath(completeFileName.c_str());
+
+    if (configFilePath.exist())
+        return Filesystem::CAbsolutePath(completeFileName.c_str());
+    else
+    {
+        CMyString dir(currentSGFDir.getString());
+        CMyString configFile = dir+dir_Separator+configFileName;
+        Filesystem::CAbsolutePath tempPath=Filesystem::CAbsolutePath();
+        Filesystem::CIsolatedPath isopath(configFile);
+        return tempPath.joinToCurrent(isopath);
+
+    }
+
+}
+
+Filesystem::CAbsolutePath CConfiguration::getDebugConfigFile(){
+
+        //! TODO   Método de find para o arquivo de configuração
+    CMyString configFileName(sgfDebugConfigFileName.getString());
+    CMyString dir_Separator(DIR_SEPARATOR);
+    CMyString completeFileName;
+    ostringstream str;
+    str << getenv( "HOME" ) ;
+    string path = str.str();
+    completeFileName << path.c_str() << dir_Separator << configFileName;
+
+    Filesystem::CAbsolutePath configFilePath(completeFileName.c_str());
+ if (configFilePath.exist())
+        return Filesystem::CAbsolutePath(completeFileName.c_str());
+    else
+    {
+        CMyString dir(currentSGFDir.getString());
+        CMyString configFile = dir+dir_Separator+configFileName;
+        Filesystem::CAbsolutePath tempPath=Filesystem::CAbsolutePath();
+        Filesystem::CIsolatedPath isopath(configFile);
+        return tempPath.joinToCurrent(isopath);
+
+    }
+
+}
+
 
 #endif
 

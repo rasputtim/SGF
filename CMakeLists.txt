@@ -3,7 +3,7 @@
 # based systems, cygwin(sp?) or mingw
 #
 # Written by: Salvatore
-# Modified: 08/27/2013
+# Modified: 08/27/2018
 # -------------------------------------------------------
 
 # -------------------------------------------------------
@@ -426,7 +426,7 @@ endif(PERLLIBS_FOUND)
 # freetype
 if(NOT FREETYPE_FOUND)
 	message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
-	set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.4.12/include/)
+        set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/)
     set(FREETYPE_LIBS "")
     set(FREETYPE_INTERNAL ON)
 endif(NOT FREETYPE_FOUND)
@@ -565,6 +565,9 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
+if(FREETYPE_INTERNAL)
+${CMAKE_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
+endif()
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src
 ${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include
 ${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c
@@ -584,6 +587,7 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libmikmod-3.1.12/include/
 #expat
 ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/
+${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
 )
 
 
@@ -1062,20 +1066,31 @@ ${PERL_LIBRARIES})
 #add_library (main_module ${ALL_SRC})
 # build directories
 
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/7z)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/md5)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/pcre)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/perl56)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/Regex)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0)
+
+
+#expat
+#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/ConfigureChecks.cmake)
+message("ADDING expat_config.h")
+configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h)
+add_definitions(-DHAVE_EXPAT_CONFIG_H)
+add_definitions(-DHAVE_MEMMOVE)
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8)
+message (STATUS "WILL BUILD FREETYPE")
+#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
 
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity)
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi)
+if(FREETYPE_INTERNAL)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
 
+include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
+
+
+include_directories(${FREE_PRIVATE_HEADERS}
+                    ${FREE_PUBLIC_HEADERS}
+                    ${FREE_PUBLIC_CONFIG_HEADERS})
+endif(FREETYPE_INTERNAL)
 
 include(${CMAKE_SOURCE_DIR}/Source/ai/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/configuration/CMakeLists.txt) #(get variables needed)
@@ -1115,6 +1130,10 @@ include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/CMakeLists.txt) #(get 
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variables needed)
+
+message(STATUS "ADDING SDL2 CMAKELIST.TXT")
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
 
 if(OGG_INTERNAL)
@@ -1125,13 +1144,10 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/tiff
 endif(TIFF_INTERNAL)
 
 
-#expat
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/ConfigureChecks.cmake)
-message("ADDING expat_config.h")
-configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h)
-add_definitions(-DHAVE_EXPAT_CONFIG_H)
-add_definitions(-DHAVE_MEMMOVE)
+
+
+
+
 #Minizip
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/zip)
 
@@ -1160,7 +1176,8 @@ configure_file(	${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-
 
 
 
-message(STATUS "Including files to build SDL: ${SDL_SRC}")
+message(STATUS "Including files to build SDL: ${SDL2_SOURCE_FILES}")
+message(STATUS "Including files to build EXPAT: ${expat_SRCS}")
 message(STATUS "Including files to build AI module: ${AI_SRC}")
 message(STATUS "Including files to build Configuration Module: ${CONFIGURATION_SRC}")
 message(STATUS "Including files to build Envirownment Module: ${ENVIRONMENT_SRC}")
@@ -1185,6 +1202,9 @@ message(STATUS "Including files to build Structures Module: ${STRUCTURES_SRC}")
 message(STATUS "Including files to build Sys Module: ${SYS_SRC}")
 message(STATUS "Including files to build Utils Module: ${UTIL_SRC}")
 message(STATUS "Including files to build Windows Module: ${WINDOWS_SRC}")
+message(STATUS "Including files to build SFL Module: ${SFL_SRC}")
+message(STATUS "Including files to build FREETYPE Module: ${FREE_BASE_SRCS}")
+
 
 if(OGG_INTERNAL)
 message(STATUS "Including files to build OGG module: ${OGG_SRC}")
@@ -1225,11 +1245,37 @@ endif()
     #add_subdirectory(${CMAKE_SOURCE_DIR}/src/util/sound/sdl/mixer)
     # add_library(mixer_module src/util/sound/sdl/mixer/music.c src/util/sound/sdl/mixer/mixer.c src/util/sound/sdl/mixer/music_ogg.c src/util/sound/sdl/mixer/music_flac.c src/util/sound/sdl/mixer/music_mad.c src/util/sound/sdl/mixer/dynamic_ogg.c src/util/sound/sdl/mixer/effect_position.c src/util/sound/sdl/mixer/effects_internal.c src/util/sound/sdl/mixer/effect_stereoreverse.c src/util/sound/sdl/mixer/load_voc.c src/util/sound/sdl/mixer/load_aiff.c src/util/sound/sdl/mixer/wavestream.c src/util/sound/sdl/mixer/load_ogg.c src/util/sound/sdl/mixer/convert.cpp)
 
-    
+    # Ensure that the extra cflags are used at compile time
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
+
+    #do not include TTF sources when there is the library
+    if(!FREETYPE_INTERNAL)
+        set(FREE_BASE_SRCS "")
+    else()
+
+        include_directories( PRIVATE "${CMAKE_BINARY_DIR}/include")
+        include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
+
+
+        include_directories(${FREE_SGF_HEADERS}
+                            ${FREE_PRIVATE_HEADERS}
+                            ${FREE_PUBLIC_HEADERS}
+                            ${FREE_PUBLIC_CONFIG_HEADERS})
+
+                        add_definitions(-DFT2_BUILD_LIBRARY)
+
+ #   target_compile_definitions(
+  #    sgffabric PRIVATE FT2_BUILD_LIBRARY)
+
+
+    endif(!FREETYPE_INTERNAL)
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
 add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
-${CONFIGURATION_SRC} ${AI_SRC}  ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
+${FREE_BASE_SRCS}
+
+${expat_SRCS}
+${SDL2_SOURCE_FILES} ${CONFIGURATION_SRC} ${AI_SRC}  ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
 ${GAME_SRC} ${GRAPHICS_SRC} ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
 ${LISTS_SRC} ${MATH_SRC} ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC} ${NETWORK_SRC}
 ${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
@@ -1237,7 +1283,9 @@ ${SYS_SRC} ${UTIL_SRC} ${WINDOWS_SRC}
 #external Libs
 ${7ZIP_SRC} ${HAWKNL_SRC} ${MD5_SRC} ${PCRE_SRC} ${SGE_SRC} ${SHA_SRC} ${SFL_SRC}
 ${MINIZIP_SRC} ${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
-${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${TIFF_SRC} ${SDL_SRC}) 
+${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${TIFF_SRC} ${SFL_SRC}
+
+)
 
 
 
@@ -1253,6 +1301,23 @@ ${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${TIFF_SRC} ${SDL_SRC})
 #set_target_properties(sgffabric PROPERTIES COMPILE_FLAGS ${ADITIONAL_CXX_FLAGS} LINK_FLAGS "${ADITIONAL_LINK_FLAGS}, -Wl,--wrap=open -Wl,--wrap=read -Wl,--wrap=close -Wl,--wrap=lseek -Wl,--wrap=lstat -Wl,--wrap=access")
 
 #target_link_libraries( ${GROUP_START} sdl ${GROUP_END} ${REQUIRED_LIBS})
+
+find_package(OpenGL)
+if(OPENGL_FOUND)
+  include_directories(${OPENGL_INCLUDE_DIR})
+  link_directories(${OPENGL_LIBRARIES})
+  message (STATUS "ADDING GL Link Lybrary to target sgffabric"  )
+  target_link_libraries(sgffabric ${OPENGL_LIBRARIES})
+endif(OPENGL_FOUND)
+
+set(_INSTALL_LIBS "sgffabric" ${_INSTALL_LIBS})
+target_link_libraries(sgffabric ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
+
+#libc for opendir
+
+#target_link_libraries(sgffabric -glibc)
+
+
 if(OGG_INTERNAL)
 set(OGG_INTERNAL_LIB "ogg_module")
 else(OGG_INTERNAL)
@@ -1264,7 +1329,7 @@ else(TIFF_INTERNAL)
 set(TIFF_INTERNAL_LIB "")
 endif(TIFF_INTERNAL)
 #add_executable (test src/test.cpp)
-target_link_libraries(sgffabric zlibstatic 
+target_link_libraries(sgffabric zlibstatic
 #sdlgfx_module
 #sdlttf_module
 #sdlmixer_module

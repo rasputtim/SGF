@@ -1,5 +1,6 @@
+#include "SGF_Config.h"
 
-#if defined(_WIN32) && !defined(_MSC_VER)
+#if !defined(_MSC_VER)
 #include "sys/SGF_System.h"
 #include "util/SGF_Heap.h"
 #include <unistd.h>

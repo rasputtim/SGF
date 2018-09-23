@@ -15,6 +15,7 @@ ${UTIL_DIR}/SGF_AudioSystem.cpp
 ${UTIL_DIR}/SGF_Debug.cpp
 ${UTIL_DIR}/SGF_Directory.cpp
 ${UTIL_DIR}/SGF_Ebox.cpp
+${UTIL_DIR}/SGF_FilesystemBase.cpp
 ${UTIL_DIR}/SGF_FileSystem.cpp
 ${UTIL_DIR}/SGF_FontInfo.cpp
 ${UTIL_DIR}/SGF_FontSystem.cpp
@@ -25,12 +26,14 @@ ${UTIL_DIR}/SGF_Loading.cpp
 ${UTIL_DIR}/SGF_MessageQueue.cpp
 ${UTIL_DIR}/SGF_Messages.cpp
 ${UTIL_DIR}/SGF_MugenSound.cpp
+${UTIL_DIR}/SGF_Mutex.cpp
 ${UTIL_DIR}/SGF_Path.cpp
 ${UTIL_DIR}/SGF_Regex.cpp
 ${UTIL_DIR}/SGF_SdlManager.cpp
 ${UTIL_DIR}/SGF_SndManager.cpp
 ${UTIL_DIR}/SGF_SoundManager.cpp
 ${UTIL_DIR}/SGF_StringUtils.cpp
+${UTIL_DIR}/SGF_Task.cpp
 ${UTIL_DIR}/SGF_Thread.cpp
 ${UTIL_DIR}/SGF_Timedif.cpp
 ${UTIL_DIR}/SGF_Timer.cpp

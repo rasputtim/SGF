@@ -35,10 +35,10 @@
 */
 #ifndef XMLCALL
 #if defined(_MSC_VER)
-#define XMLCALL __cdecl
+//#define XMLCALL __cdecl
 
 #elif defined(__GNUC__) && defined(__i386) && !defined(__INTEL_COMPILER)
-#define XMLCALL __attribute__((cdecl))
+//#define XMLCALL __attribute__((cdecl))
 #else
 /* For any platform which uses this definition and supports more than
    one calling convention, we need to extend this definition to
@@ -50,10 +50,10 @@
    pre-processor and how to specify the same calling convention as the
    platform's malloc() implementation.
 */
-#define XMLCALL
+//#define XMLCALL
 #endif
 #endif  /* not defined XMLCALL */
-
+#define XMLCALL
 
 #if !defined(XML_STATIC) && !defined(XMLIMPORT)
 #ifndef XML_BUILDING_EXPAT

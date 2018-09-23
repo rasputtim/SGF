@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 //#include <pstdint.h>   //conflict with SDL_config_windows.h
-#ifdef _WIN32
+#ifdef _MSC_VER
 #include <string>
 
 #include "../ExternalLibs/SDL2/include/SDL_config_windows.h"

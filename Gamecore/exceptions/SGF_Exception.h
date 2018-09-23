@@ -49,7 +49,7 @@ namespace Exception{
 	http://www.learncpp.com/cpp-tutorial/154-uncaught-exceptions-catch-all-handlers-and-exception-specifiers/
 	*/
 
-class  SGE_API CBase: public ::std::exception {
+class  CBase: public ::std::exception {
 public:
     CBase(const string & file, int line);
     CBase(const string & file, int line, const CBase & nested);

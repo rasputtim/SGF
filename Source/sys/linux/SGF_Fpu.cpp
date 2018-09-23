@@ -183,7 +183,7 @@ Precision Control
 
 
 typedef struct bitFlag_s {
-	char *	name;
+    const char *	name;
 	int	bit;
 } bitFlag_t;
 
@@ -194,7 +194,7 @@ static fenv_t *statePtr=NULL;
 
 static char fpuString[2048];
 
-static bitFlag_t controlWordFlags[] = {
+static const bitFlag_t controlWordFlags[] = {
 	{ "Invalid operation", 0x01 },
 	{ "Denormalized operand", 0x02 },
 	{ "Divide-by-zero", 0x04 },
@@ -204,14 +204,14 @@ static bitFlag_t controlWordFlags[] = {
 	{ "Infinity control", 12 },
 	{ "", 0 }
 };
-static char *precisionControlField[] = {
+static const char *precisionControlField[] = {
 	"Single Precision (24-bits)",
 	"Reserved",
 	"Double Precision (53-bits)",
 	"Double Extended Precision (64-bits)"
 };
 
-static char *roundingControlField[] = {
+static const char *roundingControlField[] = {
 	"Round to nearest",
 	"Round down",
 	"Round up",
@@ -278,7 +278,7 @@ Sys_FPU_StackIsEmpty
 ===============
 */
 bool fpu_StackIsEmpty( void ) {
-	
+#if 0
 	SGF_Dword y;
 	statePtr = &fpuState;
 	fegetenv(statePtr);
@@ -290,7 +290,8 @@ bool fpu_StackIsEmpty( void ) {
 		     "and $0x0000FFFF , %eax\n\t"
 		     "jz 1f\n");
 	return false;
-	asm volatile("1:");
+    asm volatile("1:");
+#endif
 	return true;
 #if 0	
 	__asm__ __volatile__(
@@ -313,7 +314,8 @@ Sys_FPU_ClearStack
 void fpu_ClearStack( void ) {
 	statePtr = &fpuState;
 	fegetenv(statePtr);
-	
+#if 0
+    /* sal
 		asm volatile("movl (%0), %%eax\n\t"
 		      : "+S" (statePtr));
 		
@@ -328,6 +330,8 @@ void fpu_ClearStack( void ) {
 		      "jz 2f\n\t"
 		      
 		      "2:\n\t");
+*/
+#endif
 #if 0	
 	return true;
 	
@@ -355,7 +359,7 @@ static int getFPURegisters(double *var){
   
   SGF_Word status;
   int numValues=0;
-  
+#if 0
   
   asm volatile ("fnstsw %0" : "=a" (status));
   asm volatile (  "movl var, %edi\n\t"
@@ -431,7 +435,10 @@ static int getFPURegisters(double *var){
 		"fxch %%st(7)\n\t": "=m"(var[7]):);		
     asm volatile ("done:\n\t"
 		"movl	%eax, numValues\n\t");
-}
+#endif
+  //sal added just to have return
+  return 0;
+    }
 
 /*
 ===============
@@ -448,6 +455,7 @@ const char *Sys_FPU_GetState( void ) {
 	statePtr = &fpuState;
 	fegetenv(statePtr);
 	
+#if 0
 /*	
 	
 		asm volatile("movl %[var], %%esi\n\t"
@@ -540,6 +548,7 @@ const char *Sys_FPU_GetState( void ) {
 	int opof = *(int *)&fpuState[20];   //operand address
 	int opse = *(int *)&fpuState[24];   //data selector
 */
+#endif
 	numValues = getFPURegisters(fpuStack);
 	ptr = fpuString;
 	ptr += sprintf( ptr,"FPU State:\n"
@@ -766,38 +775,43 @@ static void set_mxcsr_on(int bit_num){
 
   __m128    state[32];
 
-  SGF_Dword   x;
+  SGF_Dword   x=0;
 
   int error; // variable to get error form fxsave
-
+#if 0
 saveFX(x,error)    
- memcpy( (void*)&x, (char*)state+24, 4);
+ memcpy( (void*)&x, (char*)state + 24, 4);
 x |= (1 << bit_num);  
 //asm volatile("ldmxcsr %0" : "=m" (x));
 setmxcsr(x)  //LDMXCSR--Load Streaming SIMD Extension Control/Status
- 
+ #endif
  }
  
 static void set_mxcsr_off(int bit_num){
 __m128    state[32];
-SGF_Dword   x;
+SGF_Dword   x=0;
+#if 0
 int error;  // variable to get error form fxsave
 saveFX(x,error) 
 memcpy( (void*)&x, (char*)state+24, 4);
 x &= ~(1 << bit_num);
 setmxcsr(x) //LDMXCSR--Load Streaming SIMD Extension Control/Status*/
- }
+#endif
+}
  
 static void clear_flags(){
+
 __m128    state[32];
-SGF_Dword  x;
+SGF_Dword  x=0;
 int error;  // variable to get error form fxsave
+#if 0
 saveFX(x,error) 
  memcpy( (void*)&x, (char*)state+24, 4);
 x = x >> X87FLAGBITS;
 x = x << X87FLAGBITS;
 setmxcsr(x)
- }
+#endif
+}
 
 
 
@@ -838,12 +852,12 @@ DAZ is very similar to FTZ in many ways. DAZ mode is a method of bypassing IEEE 
 ================
 */
 void fpu_SetDAZ( bool enable ) {
-	SGF_Dword dwData;
+    SGF_Dword dwData=0;
 
-getmxcsr(dwData);
-dwData = dwData && ~(1<<6);
-dwData = dwData || ((enable && 1)<<6);
-setmxcsr(dwData)
+    getmxcsr(dwData);
+    dwData = dwData && ~( 1 << 6);
+    dwData = dwData || ((enable && 1) << 6);
+    setmxcsr(dwData)
 /*
 	__asm__ __volatile__ (
 		movzx	ecx, byte ptr enable
@@ -866,12 +880,12 @@ Sys_FPU_SetFTZ
 ================
 */
 void fpu_SetFTZ( bool enable ) {
-	
-	SGF_Dword dwData;
-getmxcsr(dwData);
-dwData = dwData && ~(1<<15);
-dwData = dwData || ((enable && 1)<<15);
-setmxcsr(dwData)
+
+    SGF_Dword dwData=0;
+    getmxcsr(dwData);
+    dwData = dwData && ~( 1 << 15 );
+    dwData = dwData || ((enable && 1) << 15);
+    setmxcsr(dwData)
 /*
 	__asm__ __volatile__ (
 		movzx	ecx, byte ptr enable

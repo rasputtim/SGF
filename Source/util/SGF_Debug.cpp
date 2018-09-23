@@ -79,7 +79,7 @@ void setFilename(string filename){
 
 
 
-bool CLog::print(string txt) throw(CLoadException) {
+bool CLog::print(string txt)  {
 
     try {
         std::ofstream file(filename.c_str(), std::ios::app);

@@ -64,7 +64,8 @@ public:
 #if defined (WIN32) && defined(_MSC_VER)
 #define VPCALL __fastcall
 #else
-#define VPCALL __attribute__((fastcall))
+#define VPCALL
+//#define VPCALL __attribute__((fastcall))
 #endif
 
 class CVector2D;

@@ -22,12 +22,12 @@
 //#pragma hdrstop
 
 #include "math/Simd_Generic.h"
-#include "math/Simd_MMX.h"
-#include "math/Simd_3DNow.h"
-#include "math/Simd_SSE.h"
-#include "math/Simd_SSE2.h"
-#include "math/Simd_SSE3.h"
-#include "math/Simd_AltiVec.h"
+//#include "math/Simd_MMX.h"
+//#include "math/Simd_3DNow.h"
+//#include "math/Simd_SSE.h"
+//#include "math/Simd_SSE2.h"
+//#include "math/Simd_SSE3.h"
+//#include "math/Simd_AltiVec.h"
 #include "math/SGF_Random.h"
 #include "math/SGF_Math.h"
 #include "math/SGF_Vector.h"
@@ -78,17 +78,17 @@ void idSIMD::InitProcessor( const char *module, bool forceGeneric ) {
 
 		if ( !processor ) {
 			if ( ( cpuid & CPUID_ALTIVEC ) ) {
-				processor = new idSIMD_AltiVec;
+//				processor = new idSIMD_AltiVec;
 			} else if ( ( cpuid & CPUID_MMX ) && ( cpuid & CPUID_SSE ) && ( cpuid & CPUID_SSE2 ) && ( cpuid & CPUID_SSE3 ) ) {
-				processor = new CSIMD_SSE3;
+                //processor = new CSIMD_SSE3;
 			} else if ( ( cpuid & CPUID_MMX ) && ( cpuid & CPUID_SSE ) && ( cpuid & CPUID_SSE2 ) ) {
-				processor = new CSIMD_SSE2;
+                //processor = new CSIMD_SSE2;
 			} else if ( ( cpuid & CPUID_MMX ) && ( cpuid & CPUID_SSE ) ) {
-				processor = new CSIMD_SSE;
+                //processor = new CSIMD_SSE;
 			} else if ( ( cpuid & CPUID_MMX ) && ( cpuid & CPUID_3DNOW ) ) {
-				processor = new CSIMD_3DNow;
+                //processor = new CSIMD_3DNow;
 			} else if ( ( cpuid & CPUID_MMX ) ) {
-				processor = new CSIMD_MMX;
+                //processor = new CSIMD_MMX;
 			} else {
 				processor = generic;
 			}
@@ -4124,37 +4124,37 @@ void idSIMD::Test_f( const CCMDLineArgs &args ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support MMX\n" <<endl;
 				return;
 			}
-			p_simd = new CSIMD_MMX;
+            //p_simd = new CSIMD_MMX;
 		} else if ( CMyString::Icmp( argString, "3DNow" ) == 0 ) {
 			if ( !( cpuid & CPUID_MMX ) || !( cpuid & CPUID_3DNOW ) ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support MMX & 3DNow\n"  <<endl;
 				return;
 			}
-			p_simd = new CSIMD_3DNow;
+            //p_simd = new CSIMD_3DNow;
 		} else if ( CMyString::Icmp( argString, "SSE" ) == 0 ) {
 			if ( !( cpuid & CPUID_MMX ) || !( cpuid & CPUID_SSE ) ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support MMX & SSE\n" <<endl;
 				return;
 			}
-			p_simd = new CSIMD_SSE;
+            //p_simd = new CSIMD_SSE;
 		} else if ( CMyString::Icmp( argString, "SSE2" ) == 0 ) {
 			if ( !( cpuid & CPUID_MMX ) || !( cpuid & CPUID_SSE ) || !( cpuid & CPUID_SSE2 ) ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support MMX & SSE & SSE2\n"  <<endl;
 				return;
 			}
-			p_simd = new CSIMD_SSE2;
+            //p_simd = new CSIMD_SSE2;
 		} else if ( CMyString::Icmp( argString, "SSE3" ) == 0 ) {
 			if ( !( cpuid & CPUID_MMX ) || !( cpuid & CPUID_SSE ) || !( cpuid & CPUID_SSE2 ) || !( cpuid & CPUID_SSE3 ) ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support MMX & SSE & SSE2 & SSE3\n"  <<endl;
 				return;
 			}
-			p_simd = new CSIMD_SSE3();
+            //p_simd = new CSIMD_SSE3();
 		} else if ( CMyString::Icmp( argString, "AltiVec" ) == 0 ) {
 			if ( !( cpuid & CPUID_ALTIVEC ) ) {
 				Debug::debug(Debug::math,__FUNCTION__) << "CPU does not support AltiVec\n"  <<endl;
 				return;
 			}
-			p_simd = new idSIMD_AltiVec();
+            //p_simd = new idSIMD_AltiVec();
 		} else {
 			Debug::debug(Debug::math,__FUNCTION__) << "invalid argument, use: MMX, 3DNow, SSE, SSE2, SSE3, AltiVec\n"  <<endl;
 			return;

@@ -33,7 +33,6 @@
 using namespace std;
 namespace SGF {
 
-class CLoadException;
 
 
 namespace Debug
@@ -87,7 +86,7 @@ wii_ostream & operator<<(wii_ostream & stream, const bool);
 wii_ostream & operator<<(wii_ostream & stream, const long int);
 wii_ostream & operator<<(wii_ostream & stream, const unsigned long int);
 wii_ostream & operator<<(wii_ostream & stream, const void *);
-wii_ostream & operator<<(wii_ostream & stream, uint64_t); 
+wii_ostream & operator<<(wii_ostream & stream, uint64_t);
 wii_ostream & operator<<(wii_ostream & stream, std::ostream & (*f)(std::ostream &));
 #elif defined(NETWORK_DEBUG)
 class network_ostream: public std::ostream {
@@ -117,7 +116,7 @@ stream_type & operator<<(stream_type & stream, const long int);
 stream_type & operator<<(stream_type & stream, const unsigned long int);
 #endif
 stream_type & operator<<(stream_type & stream, const void *);
-stream_type & operator<<(stream_type & stream, uint64_t); 
+stream_type & operator<<(stream_type & stream, uint64_t);
 stream_type & operator<<(stream_type & stream, std::ostream & (*f)(std::ostream &));
 
 #else
@@ -131,7 +130,7 @@ public:
 
     bool setFilename(string fn, string contex);
 
-    bool print(string txt) throw(CLoadException);
+    bool print(string txt);
 private:
     string
             filename;
@@ -144,8 +143,8 @@ void setFilename(string file);
 stream_type & debug(int i, const string & context = "SGF");
 
 enum Type {
-	Default,
-	File
+    Default,
+    File
 };
 
 void setDebugMethod(Type t);
@@ -247,26 +246,26 @@ structures,
 MAX=structures
 }Modules;
 
-/** método que inicializa o debug no módulo especificado
-* \parameter i: módulo do debug que se deseja habilitar
+/** metodo que inicializa o debug no me?dulo especificado
+* \parameter i: m?dulo do debug que se deseja habilitar
 */
 void setDebug( Modules i );
-/** método que inicializa o debug no módulo especificado
-* \parameter i: módulo do debug que se deseja habilitar
+/** m?todo que inicializa o debug no m?dulo especificado
+* \parameter i: m?dulo do debug que se deseja habilitar
 */
 void setDebug( int i );
 
-/** método que retorna se um módulo do debug está habilitado ou não
-* \parameter i: módulo do debug que se deseja verificar
-* \return true: se o módulo está ativo
-* \return false: se o módulo está inativo
+/** m?todo que retorna se um m?dulo do debug est? habilitado ou n?o
+* \parameter i: m?dulo do debug que se deseja verificar
+* \return true: se o m?dulo est? ativo
+* \return false: se o m?dulo est? inativo
 */
 bool getDebug( Modules i );
 
-/** método que inicializa o debug em todos os módulos
+/** m?todo que inicializa o debug em todos os m?dulos
 */
 void setDebugAll();
-/** método que desabilita o debug em todos os módulos
+/** m?todo que desabilita o debug em todos os m?dulos
 */
 void resetDebug( int i );
 void resetDebug( Modules i );

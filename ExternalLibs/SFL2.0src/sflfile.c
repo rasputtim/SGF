@@ -2039,12 +2039,10 @@ long
 get_file_size (
     const char *filename)
 {
-    #if !defined(_MSC_VER)
-    #define stat _stat
-    #endif // defined
-    struct stat
-
-        stat_buf;
+    //#if !defined(_MSC_VER)
+    //#define stat _stat
+    //#endif // defined
+    struct stat  stat_buf;
 
     ASSERT (filename);
 

@@ -21,13 +21,7 @@ ${MATH_DIR}/SGF_Polynomial.cpp
 ${MATH_DIR}/SGF_Quat.cpp
 ${MATH_DIR}/SGF_Rotation.cpp
 ${MATH_DIR}/SGF_Simd.cpp
-${MATH_DIR}/SGF_Simd_3DNow.cpp
 ${MATH_DIR}/SGF_Simd_Generic.cpp
-${MATH_DIR}/SGF_Simd_AltiVec.cpp
-${MATH_DIR}/SGF_Simd_MMX.cpp
-${MATH_DIR}/SGF_Simd_SSE.cpp
-${MATH_DIR}/SGF_Simd_SSE2.cpp
-${MATH_DIR}/SGF_Simd_SSE3.cpp
 ${MATH_DIR}/SGF_Vector.cpp
 )
 

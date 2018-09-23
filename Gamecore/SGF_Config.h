@@ -99,8 +99,9 @@
 ///////////////////////////////////////////////
 // NETWORK SUPPORT
 //////////////////////////////////////////////
+#ifndef HAVE_NETWORKING
 #define HAVE_NETWORKING
-
+#endif
 
 //////////////////////////////////////////////////
 //    FONTS
@@ -177,7 +178,9 @@
 #define BUILD_STRING "Building  for LINUX"
 
 #ifdef __x86_64__
+#ifndef BUILD_STRING
 	#define	BUILD_STRING			"linux-x86-64"
+#endif
 	#define BUILD_OS_ID				2
 	#define CPUSTRING				"x86-64"
 	#define CPU_EASYARGS				1

@@ -24,7 +24,7 @@
 #include <string>
 #include "../SGF_Config.h"
 #include "../level/SGF_LevelUtils.h"
-
+#include "../exceptions/all.h"
 
 
 using namespace std;

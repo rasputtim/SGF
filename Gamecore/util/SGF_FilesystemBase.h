@@ -70,7 +70,8 @@ namespace Filesystem {
 
 	/* create a list of all files and subdirectories */
 	void TransverseDirectory(string path, list<FILELIST>& theList);
-	/* look for specific file tipes into some directory */
+
+    /* look for specific file tipes into some directory */
 	vector< string > getFilesString( const string & dataPath, const string & find );
 	 /* search a directory for some files matching pattern `find' */
     //vector<CAbsolutePath> getFiles(const CAbsolutePath & dataPath, const string & find, bool caseInsensitive = false);

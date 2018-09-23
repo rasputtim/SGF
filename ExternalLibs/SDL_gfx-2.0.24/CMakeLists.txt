@@ -11,6 +11,7 @@
 set(SDLGFX_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24)
 set(SDLGFX_SRC
 ${SDLGFX_DIR}/SDL_gfxPrimitives.c
+${SDLGFX_DIR}/SDL_gfxBlitFunc.c
 ${SDLGFX_DIR}/SDL_imageFilter.c
 ${SDLGFX_DIR}/SDL_rotozoom.c
 )

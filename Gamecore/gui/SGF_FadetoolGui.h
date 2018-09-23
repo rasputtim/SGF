@@ -22,6 +22,7 @@
 #include "../SGF_Config.h"
 #include "../util/SGF_Token.h"
 #include "../graphics/SGF_Color.h"
+#include "../exceptions/all.h"
 
 namespace SGF{
 class CBitmap;
