@@ -202,7 +202,7 @@ void CGlobalConfiguration::setUserConfigFile(string  fileName) {
 
 #if defined(WIN32) //mingw ou msvc
 /** 
-\brief Método que rtorna o caminho do arquivo de configuração especial definido para o game usuário da Engine no médoto setUserConfigFile
+\brief Método que retorna o caminho do arquivo de configuração especial definido para o game usuário da Engine no médoto setUserConfigFile
 \note Se o arquivo não existir....
 **/	
 Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
@@ -1574,6 +1574,42 @@ static string getConfigFile(){
 	ostringstream str;
 	str << getenv( "HOME" ) << "/.sgfcfgnrc";
 	return str.str();
+}
+
+/**
+\brief Método que retorna o caminho do arquivo de configuração especial definido para o game usuário da Engine no médoto setUserConfigFile
+\note Se o arquivo não existir....
+**/
+Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
+
+    ostringstream str;
+    str << getenv( "HOME" ) ;
+    string path = str.str();
+
+    const  char * file= sgfCustomConfigFileName.getString();
+    string filestr(file);
+    str << path << "/" + filestr;
+    Filesystem::CAbsolutePath configFilePath;
+
+     configFilePath = Filesystem::CAbsolutePath(str.str());
+    if (configFilePath.exist())
+        return Filesystem::CAbsolutePath(str.str());
+    else{
+        Filesystem::CAbsolutePath tempPath=Filesystem::CAbsolutePath();
+        Filesystem::CIsolatedPath isopath(filestr);
+        return tempPath.joinToCurrent(isopath);
+
+    }
+
+
+    /*
+
+    ostringstream str;
+    //char path[ MAX_PATH ];
+    //SHGetSpecialFolderPathA( 0, path, CSIDL_APPDATA, false );
+    const char *path="data";
+    str << path << "/sge_user_configuration.xml";
+    return str.str();*/
 }
 
 Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){

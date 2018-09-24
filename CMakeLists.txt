@@ -197,8 +197,9 @@ find_package(VORBIS)
 find_package(OGG)
 find_package(MPG123)
 find_package(JPEG9)
-find_package(PERL)
-find_package(PERLLIBS)
+MESSAGE ( STATUS "Searching for Perl..." )
+FIND_PACKAGE ( Perl )
+FIND_PACKAGE ( PerlLibs )
 find_package(TIFF)
 
 # -------------------------------------------------------
@@ -1335,6 +1336,13 @@ ${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${TIFF_SRC} ${SFL_SRC}
 #set_target_properties(sgffabric PROPERTIES COMPILE_FLAGS ${ADITIONAL_CXX_FLAGS} LINK_FLAGS "${ADITIONAL_LINK_FLAGS}, -Wl,--wrap=open -Wl,--wrap=read -Wl,--wrap=close -Wl,--wrap=lseek -Wl,--wrap=lstat -Wl,--wrap=access")
 
 #target_link_libraries( ${GROUP_START} sdl ${GROUP_END} ${REQUIRED_LIBS})
+
+if(PERLLIBS_FOUND)
+    include_directories(${PERL_INCLUDE_PATH})
+    message (STATUS "ADDING Perl Link Lybrary to target sgffabric"  )
+    target_link_libraries(sgffabric ${PERL_LIBRARY})
+endif()
+
 
 find_package(OpenGL)
 if(OPENGL_FOUND)
