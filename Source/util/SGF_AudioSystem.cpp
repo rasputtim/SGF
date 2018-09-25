@@ -285,7 +285,7 @@ bool CSoundSystem::InitSystem()
      device, so we set them up beforehand */
 
 	int audio_rate = 22050;
-	Uint16 audio_format = AUDIO_S16; /* 16-bit stereo */
+    Uint16 audio_format = AUDIO_U16;
 	int audio_channels = 2;
 	int audio_buffers = 4096;
       /* This is where we open up our audio device.  Mix_OpenAudio takes
@@ -293,7 +293,7 @@ bool CSoundSystem::InitSystem()
   if(Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_buffers)) {
     Debug::debug(Debug::resources,__FUNCTION__) << "Unable to open audio!"<<endl;
     
-	exit(1);
+
   }else m_bAudioOk=true;
 /* If we actually care about what we got, we can ask here.  In this
      program we don't, but I'm showing the function call here anyway
