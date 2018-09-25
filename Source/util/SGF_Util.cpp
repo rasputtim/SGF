@@ -74,7 +74,26 @@ bool Util::isWindows(){
     return false;
 #endif
 }
-/** @fn Util::isWindows()
+
+bool Util::isLinux(){
+#if defined(LINUX)
+    return true;
+#else
+    return false;
+#endif
+}
+
+bool Util::isAndroid(){
+#if defined(ANDROID)
+    return true;
+#else
+    return false;
+#endif
+}
+
+
+
+/**
 @brief Metodo que retorna verdadeiro caso o ambiente de compilacao seja MAC
 @return true: caso o ambiente de compilacao seja OSX
 	    false: qualquer outro ambiente

@@ -65,6 +65,8 @@ extern const string HexDigits;
 double gameTicks(double ticks, double gameSpeed=0.1);
 extern const double pi;
 bool isWindows();
+bool isLinux();
+bool isAndroid();
 bool isOSX();
 
 

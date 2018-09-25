@@ -135,7 +135,41 @@ private:
  * \ingroup SGF_Util
  *
  * \brief Classe Base para Tratamento de Fontes
+ * font types:
+ **TrueType
+ * Filename extensions:
+ * 	Windows & Linux: .ttf & .tte
+ *  Mac OS: .dfont
+ **CFF (compact font format)
+ *  Filename extension:
+    Windows & OS/2: .pfb, .pfm, .afm
+    Mac OS: .pfm, .afm, .inf (Optional files).
+    Linux: .pfa, .afm
+    OS/2: .ofm
+ **Web Open Font Format (WOFF)
+ * Filename extension:
+    .woff
+    .woff2
+ **OpenType Font Format
+ * Filename extension:
+ * .OTF, .TTF, .OTC or .TTC. (The extensions .OTC and .TTC should only be used for font collection files.)
+ **Type 1 PostScript font
+ * Filename extensions:
+ * .pfb (PFB is an acronym for Printer Font Binary - Adobe Type 1 fonts)
+ * .pfa
  *
+ * CID-keyed Type 1 fonts
+SFNT-based bitmap fonts, including color Emoji
+X11 PCF fonts (PCF (Portable Compiled Format)
+* Filename extension:
+* .pcf
+
+Windows FNT fonts
+* Filename extension:
+* .fnt
+BDF fonts (including anti-aliased ones)
+PFR fonts
+
  * \author (last to touch it) $Autor: Rasputtim $
  *
  * \version 1.0 $Revision: 1.0 $
@@ -146,7 +180,31 @@ private:
  */
 class  SGE_API CFont{
 public:
-	enum fonttype {
+
+    const char* fontExtension[20] {
+       "ttf",
+       "tte" ,
+       "dfont",
+       "pfb",
+       "pfm",
+       "afm",
+       "pfm",
+       "afm",
+       "inf",
+       "pfa",
+       "afm",
+       "ofm",
+       "woff",
+       "woff2",
+       "otf",
+       "ttf",
+       "pfb",
+       "pfa",
+       "pcf",
+       "fnt"
+        };
+
+    enum fonttype {
 	Unknown,
 	TrueTypeFont,
 	BitmapFont,

@@ -83,7 +83,7 @@ static bool sortInfo(const Util::CReferenceCount<CFontInfo> & info1,
 
 
 static bool saneFont(const Util::CReferenceCount<CFontInfo> & info){
-	Debug::debug(Debug::menu,__FUNCTION__) << "BEGIN" <<endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "BEGIN" <<endl;
     class CContext: public Loader::CLoadingContext {
     public:
         CContext(const Util::CReferenceCount<CFontInfo> & info):
@@ -113,13 +113,13 @@ static bool saneFont(const Util::CReferenceCount<CFontInfo> & info){
     //an empty LevelInfo object, we don't really care about it
     Level::CLevelInfo level;
 	Loader::loadScreen(context, level, Loader::Default); //Loader::SimpleCircle);
-	Debug::debug(Debug::menu,__FUNCTION__) << "END - returning: "<< context.isok <<endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "END - returning: "<< context.isok <<endl;
     return context.isok;
 }
 /*
 static void saneFont2(vector<Util::CReferenceCount<CFontInfo> > fontvector ) {
 	const Util::CReferenceCount<CFontInfo> info;
-	Debug::debug(Debug::menu,__FUNCTION__) << "BEGIN" <<endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "BEGIN" <<endl;
     class CContext: public Loader::CLoadingContext {
     public:
         CContext(vector<Util::CReferenceCount<CFontInfo> > fontvector):
@@ -129,7 +129,7 @@ static void saneFont2(vector<Util::CReferenceCount<CFontInfo> > fontvector ) {
         bool ok(Util::CReferenceCount<CFontInfo> & info){
             try{
                 const CFont & font = info->get();
-				Debug::debug(Debug::menu,__FUNCTION__) << info->getName() << " / Testing Lenght: " << font.textLength("A") << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << info->getName() << " / Testing Lenght: " << font.textLength("A") << endl;
 				return font.textLength("A") != 0;// && font.getHeight() != 0;
             } catch (const Exception::CBase & ignore){
                 return true;
@@ -141,9 +141,9 @@ static void saneFont2(vector<Util::CReferenceCount<CFontInfo> > fontvector ) {
 			int max = fonts.size()-1;
 			vector<int> deletes;
 			for (vector<Util::CReferenceCount<CFontInfo> >::iterator it = fonts.begin(); it != fonts.end(); it++){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Testing font " << (*it)->getName() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Testing font " << (*it)->getName() << "'" << endl;
 				if (!ok((*it))){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Warning: will marlk to delete font " << (*it)->getName() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Warning: will marlk to delete font " << (*it)->getName() << "'" << endl;
 				//fonts.erase(it);
 				deletes.push_back(index);
 
@@ -152,7 +152,7 @@ static void saneFont2(vector<Util::CReferenceCount<CFontInfo> > fontvector ) {
 			}
 
 			 for (vector<int >::iterator it = deletes.begin(); it != deletes.end(); it++) {
-				Debug::debug(Debug::menu,__FUNCTION__) << "Font Erased from vector: " <<  endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Font Erased from vector: " <<  endl;
 				//fonts[(*it)]->getName();
 			}
 
@@ -166,25 +166,27 @@ static void saneFont2(vector<Util::CReferenceCount<CFontInfo> > fontvector ) {
    // an empty LevelInfo object, we don't really care about it
     Level::CLevelInfo level;
 	Loader::loadScreen(context, level, Loader::Default);//Loader::SimpleCircle);
-	Debug::debug(Debug::menu,__FUNCTION__) << "END - returning: "<<endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "END - returning: "<<endl;
 
 }
 */
 vector<Filesystem::CAbsolutePath> CFontList::findSystemFonts(){
-	Debug::debug(Debug::menu,__FUNCTION__) << "BEGIN " << endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "BEGIN " << endl;
     if (Util::isWindows()){
         const char * windows = getenv("windir");
         if (windows != NULL){
 			Filesystem::CAbsolutePath dir = Filesystem::CAbsolutePath(string(windows) + DIR_SEPARATOR +"fonts");
-			Debug::debug(Debug::menu,__FUNCTION__) << "Will get windows fonts at: "<< dir.path() << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "Will get windows fonts at: "<< dir.path() << endl;
 
             return Filesystem::getInstance().getFilesRecursive(dir, "*.ttf");
         }
         return vector<Filesystem::CAbsolutePath>();
     } else if (Util::isOSX()){
         return Filesystem::getInstance().getFilesRecursive(Filesystem::CAbsolutePath("/Library/Fonts"), "*.ttf");
-    } else {
+    } else if (Util::isLinux()) {
         /* assume unix/linux conventions */
+        Debug::debug(Debug::font,__FUNCTION__) << "Will get Linux fonts at: "<< "/usr/share/fonts/truetype" << endl;
+        Debug::debug(Debug::font,__FUNCTION__) << "Will get Linux fonts at: "<< "/usr/local/share/fonts/truetype" << endl;
 
 		return Filesystem::getInstance().getFilesRecursive(Filesystem::CAbsolutePath("/usr/share/fonts/truetype"), "*.ttf") +
               Filesystem::getInstance().getFilesRecursive(Filesystem::CAbsolutePath("/usr/local/share/fonts/truetype"), "*.ttf");
@@ -194,34 +196,34 @@ vector<Filesystem::CAbsolutePath> CFontList::findSystemFonts(){
 }
 
 void CFontList::findFonts() throw(CLoadException){
-	Debug::debug(Debug::menu,__FUNCTION__) << "BEGIN " << endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "BEGIN " << endl;
 
     try{
 		Filesystem::CRelativePath fontsDirectory(CConfiguration::gameFontDirectory.getString());
 			if (fontsDirectory.exist()){
-			Debug::debug(Debug::menu, __FUNCTION__) << "Get Font directory " << fontsDirectory.path() << endl;
+            Debug::debug(Debug::font, __FUNCTION__) << "Get Font directory " << fontsDirectory.path() << endl;
 			vector<Filesystem::CAbsolutePath> ttfFonts = Filesystem::getInstance().getFiles(fontsDirectory, "*.ttf");
-			Debug::debug(Debug::menu, __FUNCTION__) << "Found ttf fonts " << joinPaths(ttfFonts, ", ") << endl;
+            Debug::debug(Debug::font, __FUNCTION__) << "Found ttf fonts " << joinPaths(ttfFonts, ", ") << endl;
 			vector<Filesystem::CAbsolutePath> otfFonts = Filesystem::getInstance().getFiles(fontsDirectory, "*.otf");
-			Debug::debug(Debug::menu,__FUNCTION__) << "Found otf fonts " << joinPaths(otfFonts, ", ") << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "Found otf fonts " << joinPaths(otfFonts, ", ") << endl;
 			vector<Filesystem::CAbsolutePath> bitmapFonts = Filesystem::getInstance().getFiles(fontsDirectory, "*.png");
-			Debug::debug(Debug::menu,__FUNCTION__) << "Found bitmap fonts " << joinPaths(bitmapFonts, ", ") << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "Found bitmap fonts " << joinPaths(bitmapFonts, ", ") << endl;
 
-			Debug::debug(Debug::menu,__FUNCTION__) << "Now add the fonts to vector" << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "Now add the fonts to vector" << endl;
 			for (vector<Filesystem::CAbsolutePath>::iterator it = ttfFonts.begin(); it != ttfFonts.end(); it++){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Adding ttf fonts `" << (*it).path() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Adding ttf fonts `" << (*it).path() << "'" << endl;
 				availableFonts.push_back(new CAbsoluteFontInfo(*it, CConfiguration::menuFontSize.getInteger(), CConfiguration::menuFontSize.getInteger(),CFont::TrueTypeFont));
 				NumFontsTTF++;
 			}
 
 			for (vector<Filesystem::CAbsolutePath>::iterator it = otfFonts.begin(); it != otfFonts.end(); it++){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Adding otf fonts `" << (*it).path() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Adding otf fonts `" << (*it).path() << "'" << endl;
 				availableFonts.push_back(new CAbsoluteFontInfo(*it, CConfiguration::menuFontSize.getInteger(), CConfiguration::menuFontSize.getInteger(),CFont::TrueTypeFont));
 				NumFontsTTF++;
 			}
 			// Load Bitmap fonts
 			for (vector<Filesystem::CAbsolutePath>::iterator it = bitmapFonts.begin(); it != bitmapFonts.end(); it++){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Adding bitmap fonts `" << (*it).path() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Adding bitmap fonts `" << (*it).path() << "'" << endl;
 				availableFonts.push_back(new CAbsoluteFontInfo(*it, CConfiguration::menuFontSize.getInteger(), CConfiguration::menuFontSize.getInteger(),CFont::BitmapFont));
 				NumFontsBitmap++;
 			}
@@ -230,22 +232,22 @@ void CFontList::findFonts() throw(CLoadException){
 			/* S.O. specific fonts */
 			vector<Filesystem::CAbsolutePath> systemFonts = findSystemFonts();
 			for (vector<Filesystem::CAbsolutePath>::iterator it = systemFonts.begin(); it != systemFonts.end(); it++){
-				Debug::debug(Debug::menu,__FUNCTION__) << "Adding system font `" << (*it).path() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Adding system font `" << (*it).path() << "'" << endl;
 				availableFonts.push_back(new CAbsoluteFontInfo(*it, CConfiguration::menuFontSize.getInteger(), CConfiguration::menuFontSize.getInteger(),CFont::TrueTypeFont));
 				NumFontsTTF++;
 			}
 
 			//saneFont2(fonts);
 			//bool found=false;
-			Debug::debug(Debug::menu,__FUNCTION__) << "WILL SORT FONTS `" <<  endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "WILL SORT FONTS `" <<  endl;
 			sort(availableFonts.begin(), availableFonts.end(), sortInfo);
-			Debug::debug(Debug::menu,__FUNCTION__) << "END SORTING FONTS `" <<  endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "END SORTING FONTS `" <<  endl;
 	   /*     for (vector<Util::CReferenceCount<CFontInfo> >::iterator it = fonts.begin(); it != fonts.end(); it++){
 				for (vector<Util::CReferenceCount<CFontInfo> >::iterator it2 = availableFonts.begin(); it2 != availableFonts.end(); it2++){
 					if ((*it)==(*it2))	found=true;
 				}
 				if (found) {
-				Debug::debug(Debug::menu,__FUNCTION__) << "Adding to available fonts -> system font `" << (*it)->getName() << "'" << endl;
+                Debug::debug(Debug::font,__FUNCTION__) << "Adding to available fonts -> system font `" << (*it)->getName() << "'" << endl;
 				availableFonts.push_back((*it));
 				found=false;
 				}
@@ -254,8 +256,8 @@ void CFontList::findFonts() throw(CLoadException){
 			// DEFAULT (blank)
 			//s fonts.insert(fonts.begin(), NULL);
 			DefFontsLoaded = true;
-			Debug::debug(Debug::menu,__FUNCTION__) << "Fonts added and sorted - Returning " << endl;
-			Debug::debug(Debug::menu,__FUNCTION__) << "END " << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "Fonts added and sorted - Returning " << endl;
+            Debug::debug(Debug::font,__FUNCTION__) << "END " << endl;
 
     } catch (const Exception::Filesystem::CNotFound & e){
         throw CLoadException(__FILE__, __LINE__, e, "Could not load font");
@@ -507,7 +509,7 @@ void CTTFFont::setStyle(int style){
 // retorno: Nada
 void CFontList::PrintFonts() {
 
-	Debug::debug(Debug::menu,__FUNCTION__) << "Printing List of Available Fonts " << endl;
+    Debug::debug(Debug::font,__FUNCTION__) << "Printing List of Available Fonts " << endl;
 
 	vector<Util::CReferenceCount<CFontInfo> >::iterator first_it;
 	for (first_it=availableFonts.begin(); first_it != availableFonts.end(); first_it++) {

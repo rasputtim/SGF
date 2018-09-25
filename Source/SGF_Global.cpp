@@ -51,8 +51,11 @@ const int ALLIANCE_PLAYER = 1;
 const int ALLIANCE_ENEMY = 2;
 const int ALLIANCE_FREE_FOR_ALL = 1000;
 
+#if defined(WINDOWS)
 static string Fontcaminho= string(DEF_FONT_PATH)+string("arial.ttf");
-
+#else defined(LINUX)
+static string Fontcaminho= string(DEF_FONT_PATH)+string("truetype/msttcorefonts/arial.ttf");
+#endif
 const char * SGF::Global::DEFAULT_FONT = Fontcaminho.c_str();//(string(DEF_FONT_PATH) + "arial.ttf").c_str();
 const SGF::Filesystem::CAbsolutePath SGF::Global::DEFAULT_FONT2 = SGF::Filesystem::CAbsolutePath(Fontcaminho);
 

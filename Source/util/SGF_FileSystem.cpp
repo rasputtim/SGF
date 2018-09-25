@@ -112,7 +112,7 @@ static string userDirectory_str(){
 #ifdef WIN32
 	str <<"";
 #else
-	str << getenv("HOME") << "/.sge/";
+    str << getenv("HOME") << "/.sgf/";
 #endif
 	return str.str();
 }
@@ -128,7 +128,6 @@ static void append(vector<X> & destination, const vector<X> & source){
     */
     copy(source.begin(), source.end(), back_insert_iterator<vector<X> >(destination));
 }
-
 
 
 /* For 7z */
@@ -1044,7 +1043,7 @@ Filesystem::CAbsolutePath CGameFileSystem::configFile(){
 Filesystem::CAbsolutePath CGameFileSystem::userDirectory(){
     ostringstream str;
     /* what if HOME isn't set? */
-    str << getenv("HOME") << "/.sge/";
+    str << getenv("HOME") << "/.sgf/";
     return Filesystem::CAbsolutePath(str.str());
 }
 #endif
@@ -1098,26 +1097,34 @@ Filesystem::CRelativePath CGameFileSystem::cleanse(const Filesystem::CAbsolutePa
     return Filesystem::CRelativePath(str,false);
 }
 
-vector<Filesystem::CAbsolutePath> CGameFileSystem::getAllDirectories(const Filesystem::CAbsolutePath & path){
-	vector<Filesystem::CAbsolutePath> all = findDirectoriesIn(path);
-    vector<Filesystem::CAbsolutePath> final;
+
+vector<AbsolutePath> CGameFileSystem::getAllDirectories(const AbsolutePath & path){
+    vector<AbsolutePath> all = findDirectoriesIn(path);
+    vector<AbsolutePath> final;
     append(final, all);
-    for (vector<Filesystem::CAbsolutePath>::iterator it = all.begin(); it != all.end(); it++){
-        vector<Filesystem::CAbsolutePath> more = getAllDirectories(*it);
+    for (vector<AbsolutePath>::iterator it = all.begin(); it != all.end(); it++){
+        vector<AbsolutePath> more = getAllDirectories(*it);
         append(final, more);
     }
     return final;
 }
-vector<Filesystem::CAbsolutePath> CGameFileSystem::getFilesRecursive(const Filesystem::CAbsolutePath & dataPath, const string & find, bool caseInsensitive){
-    vector<Filesystem::CAbsolutePath> directories = getAllDirectories(dataPath);
+
+vector<AbsolutePath> CGameFileSystem::getFilesRecursive(const AbsolutePath & dataPath, const string & find, bool caseInsensitive){
+    if (!exists(dataPath)){
+        return vector<AbsolutePath>();
+    }
+    vector<AbsolutePath> directories = getAllDirectories(dataPath);
     directories.push_back(dataPath);
-    vector<Filesystem::CAbsolutePath> files;
-    for (vector<Filesystem::CAbsolutePath>::iterator it = directories.begin(); it != directories.end(); it++){
-        vector<Filesystem::CAbsolutePath> found = getFiles(*it, find, caseInsensitive);
+    vector<AbsolutePath> files;
+    for (vector<AbsolutePath>::iterator it = directories.begin(); it != directories.end(); it++){
+
+        vector<AbsolutePath> found;
+        found =getFiles(*it, find, caseInsensitive);
         append(files, found);
     }
     return files;
 }
+
 
 #if 0
 Filesystem::CAbsolutePath CGameFileSystem::lookup(const Filesystem::CRelativePath path){
@@ -1157,7 +1164,7 @@ Filesystem::CAbsolutePath CGameFileSystem::lookup(const Filesystem::CRelativePat
     if (::System::readable(final.path())){
         return final;
     }
-    /* then try the user directory, like ~/.sge */
+    /* then try the user directory, like ~/.sgf */
     final = userDirectory().join(path);
     if (::System::readable(final.path())){
         return final;
@@ -1220,7 +1227,7 @@ Filesystem::CAbsolutePath CGameFileSystem::lookup(const Filesystem::CPath *path)
 		Debug::debug(Debug::filesystem,__FUNCTION__) << "--------------------------------------------------------" <<endl;
 	   	Debug::debug(Debug::filesystem,__FUNCTION__) << " Try in User directory : '" << final.path() << "'" << endl;
 
-		/* then try the user directory, like ~/.sge */
+        /* then try the user directory, like ~/.sgf */
 		final = userDirectory().join(*(RelativePath *)path);
 		if (final.exist()) return final;
        Debug::debug(Debug::filesystem,__FUNCTION__) << " Try in User CDirectory NOT FOUND: " << endl;
@@ -1439,7 +1446,8 @@ vector<Filesystem::CAbsolutePath> CGameFileSystem::getFiles(const Filesystem::CA
     Util::Thread::ScopedLock scoped(lock);
 	vector<Filesystem::CAbsolutePath> files;
 	vector<string> filesvector;
-	Filesystem::getFiles(dataPath.path(),find, filesvector);
+
+    Filesystem::getFiles(dataPath.path(),find, caseInsensitive,filesvector);
 	//Debug::debug(Debug::menu,__FUNCTION__) << "FOUND: "<< filesvector.size()<<" files." << endl;
    
 	for (vector<string>::iterator it = filesvector.begin(); it!=filesvector.end(); ++it) {

@@ -33,6 +33,7 @@
 #endif
 #include <stdlib.h>// for MAX_PATH
 #include "util/SGF_Path.h"
+#include "util/SGF_Thread.h"
 #include "util/SGF_Debug.h"
 #include "util/SGF_FilesystemBase.h"
 #include "sfldir.h"
@@ -55,7 +56,8 @@ mypath.assign(_my_dir_prefix);
 return mypath;
 }
 
-void getFiles(const string & dataPath, const string & find,vector<string> &files){
+#if defined(WINDOWS) //old one with problems in linux
+void getFiles(const string & dataPath, const string & find,bool caseInsensitive,vector<string> &files){
 //   Util::Thread::ScopedLock scoped(lock);
 
    DIRST sflEntry;
@@ -70,6 +72,74 @@ void getFiles(const string & dataPath, const string & find,vector<string> &files
 
 
 }
+
+#else
+
+static int getFilesInDir (string dir, vector<string> &files)
+{
+
+    DIR *tDir;
+
+        tDir = opendir(dir.c_str());
+        if(tDir == nullptr) {
+            cerr << endl << "Error opening directory " << dir
+                 << " (errno: " << errno << ")" << endl;
+            return errno;
+        }
+
+        struct dirent *dirP;
+        struct stat filestat;
+        string path;
+        while( (dirP = readdir(tDir)) ) {
+            //Skip current object if it is this directory or parent directory
+            if(!strncmp(dirP->d_name, ".", 1) || !strncmp(dirP->d_name, "..", 2))
+                continue;
+
+            if(dir==".") path = dirP->d_name;
+            else		 path = dir + "/" + dirP->d_name;
+
+            //Skip current file / directory if it is invalid in some way
+            if(stat(path.c_str(), &filestat)) continue;
+
+            //Recursively call this function if current object is a directory
+            //if(S_ISDIR(filestat.st_mode)) {
+            //    ParseDirectory(path);
+            //    continue;
+            //}
+
+            //At this position you can check if the current file (path) is the file you are searching
+            files.push_back(string(dirP->d_name));
+        }
+
+        closedir(tDir);
+
+
+
+
+
+
+
+    return 0;
+}
+
+
+void getFiles(const string & dataPath, const string & find, bool caseInsensitive,vector<string> &files){
+    //const LockObject  lock;
+    //Util::Thread::ScopedLock scoped(lock);
+
+    vector<string> allFiles;
+    getFilesInDir(dataPath,allFiles);
+
+    for (int i=0; i < allFiles.size();i++){
+        if (file_matches(allFiles[i].c_str(), find.c_str())){
+             files.push_back(allFiles[i]);
+        }
+
+    }
+
+}
+
+#endif
 
 const string correctSlashes( const string &str ){
     //Debug::debug(Debug::filesystem,__FUNCTION__) << "Filesystem::correctSlashes() string  "<<str  << endl;

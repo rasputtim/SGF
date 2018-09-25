@@ -114,7 +114,7 @@
 #define DEF_FONT_PATH "C:\\WINDOWS\\FONTS\\"
 #else
 //Todo: verificar o caminho default das fontes no linux
-#define DEF_FONT_PATH "C:\\WINDOWS\\FONTS\\"
+#define DEF_FONT_PATH "/usr/share/fonts/truetype"
 #endif
 
 #define	MAX_STRING_CHARS		1024		// max length of a string
@@ -179,6 +179,13 @@
     #endif
 
 #elif defined(linux) || defined(__linux)
+#ifndef LINUX
+#define LINUX
+#endif
+// Linux
+#ifndef SGE_ON_LINUX
+#define SGE_ON_LINUX
+#endif
 #define BUILD_STRING "Building  for LINUX"
 
 #ifdef __x86_64__
@@ -233,8 +240,6 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 
 #define assertmem( x, y )
 
-    // Linux
-#define SGE_ON_LINUX
 
 #elif defined(__APPLE__) || defined(MACOSX) || defined(macintosh) || defined(Macintosh)
     // MacOS

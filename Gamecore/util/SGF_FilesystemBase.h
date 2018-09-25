@@ -79,8 +79,17 @@ namespace Filesystem {
     //vector<CAbsolutePath> getFilesRecursive(const CAbsolutePath & dataPath, const string & find, bool caseInsensitive = false);
 
 	const string correctSlashes( const string &str );
-	void getFiles(const string & dataPath, const string & find,vector<string> &files);
-	string getBaseDir();
+
+    /**
+     * @brief getFiles Funtion to get all files inside a folder
+     * @param dataPath the path to the container folder
+     * @param find the name (pattern) of the files to find
+     * @param caseInsensitive Detect Case (windows is always true)
+     * @param files the reference to the vectorthat will receive all the found files
+     */
+    void getFiles(const string & dataPath, const string & find, bool caseInsensitive,vector<string> &files);
+
+    string getBaseDir();
 	char * correctSlashes( char *str );
 	string removeEndSlashes(string path);
 
@@ -90,6 +99,8 @@ namespace Filesystem {
 	void ExtractPath(char *strPath);
 	vector<string> splitPath(string path);
 	string stripFirstDir(const string & str);
+
+
 } //end Filesystem
 } //end SGF
 #endif
