@@ -42,7 +42,6 @@ typedef unsigned char BYTE;
 using namespace std;
 namespace SGF {
 class CBitmap;
-
 /*
 //Define Blit flags
 #define BLT_NORMAL          0x21
@@ -67,43 +66,43 @@ const int SCREEN_BPP = 32;
 // A structure to hold a directory and all its filenames.
 struct FILELIST
 {
-	string path;
-	vector<string> theList;
+    string path;
+    vector<string> theList;
 };
 
 //Sff Subheader
 struct SFFSUBHEADER
 {
-	long NextSubheaderFileOffset;
-	long LenghtOfSubheader;
-	short x;
-	short y;
-	short GroubNumber;
-	short ImageNumber;
-	short IndexOfPrevious;
-	bool  PalletSame;
-	unsigned char BALNK[13];
+    long NextSubheaderFileOffset;
+    long LenghtOfSubheader;
+    short x;
+    short y;
+    short GroubNumber;
+    short ImageNumber;
+    short IndexOfPrevious;
+    bool  PalletSame;
+    unsigned char BALNK[13];
 
 };
 
 
 struct messagesize{
-	messagesize():w(0),h(0){};
-	messagesize & operator = ( const  messagesize& source ){
-		w=source.w;
-		h=source.h;
-		return *this;
-	}
-	messagesize( const  messagesize& source ){
-		if(&source==this) return;
-		w=source.w;
-		h=source.h;
+    messagesize():w(0),h(0){};
+    messagesize & operator = ( const  messagesize& source ){
+        w=source.w;
+        h=source.h;
+        return *this;
+    }
+    messagesize( const  messagesize& source ){
+        if(&source==this) return;
+        w=source.w;
+        h=source.h;
 
-	}
+    }
     int w;
     int h;
 
-	};
+    };
 
 typedef struct messagesize MESSAGESIZE ;
 
@@ -121,88 +120,88 @@ typedef struct messagesize MESSAGESIZE ;
 //! TOTO  ///   Colocar essas estruturas dendtro do SDL Manager
 
 struct windowInfo_s{
-		windowInfo_s():title(NULL),
-			icon(NULL),
-			x(0),y(0),w(0),h(0),flags(0){}
-		const char *title;
-		const char *icon;
-		int x,y,w,h;
-		Uint32 flags;
-	};
+        windowInfo_s():title(NULL),
+            icon(NULL),
+            x(0),y(0),w(0),h(0),flags(0){}
+        const char *title;
+        const char *icon;
+        int x,y,w,h;
+        Uint32 flags;
+    };
 
 struct sdlModules_s {
-	sdlModules_s():
-	TTF(false),
-	AUDIO(false),
-	VIDEO(false),
-	WINDOW(false),
-	TIMER(false),
-	JOYSTICK(false),
-	FRAMERATEMANAGER(false),
-	FASTEVENTS(false),
-	TEXTSUPPORT(false),
-	NETWORK(false){}
+    sdlModules_s():
+    TTF(false),
+    AUDIO(false),
+    VIDEO(false),
+    WINDOW(false),
+    TIMER(false),
+    JOYSTICK(false),
+    FRAMERATEMANAGER(false),
+    FASTEVENTS(false),
+    TEXTSUPPORT(false),
+    NETWORK(false){}
 
-	sdlModules_s (sdlModules_s &copy):
-		SGFCpConstr(TTF)
-		SGFCpConstr(AUDIO)
-		SGFCpConstr(VIDEO)
-		SGFCpConstr(WINDOW)
-		SGFCpConstr(TIMER)
-		SGFCpConstr(JOYSTICK)
-		SGFCpConstr(FRAMERATEMANAGER)
-		SGFCpConstr(FASTEVENTS)
-		SGFCpConstr(TEXTSUPPORT)
-		SGFCpConstrLast(NETWORK)
-		{}
-	sdlModules_s & operator=(sdlModules_s &copy) {
-		if (this == &copy) return *this;
-		SGFCpField(TTF)
-		SGFCpField(AUDIO)
-		SGFCpField(VIDEO)
-		SGFCpField(WINDOW)
-		SGFCpField(TIMER)
-		SGFCpField(JOYSTICK)
-		SGFCpField(FRAMERATEMANAGER)
-		SGFCpField(FASTEVENTS)
-		SGFCpField(TEXTSUPPORT)
-		SGFCpField(NETWORK)
-		return *this;
-	}
+    sdlModules_s (sdlModules_s &copy):
+        SGFCpConstr(TTF)
+        SGFCpConstr(AUDIO)
+        SGFCpConstr(VIDEO)
+        SGFCpConstr(WINDOW)
+        SGFCpConstr(TIMER)
+        SGFCpConstr(JOYSTICK)
+        SGFCpConstr(FRAMERATEMANAGER)
+        SGFCpConstr(FASTEVENTS)
+        SGFCpConstr(TEXTSUPPORT)
+        SGFCpConstrLast(NETWORK)
+        {}
+    sdlModules_s & operator=(sdlModules_s &copy) {
+        if (this == &copy) return *this;
+        SGFCpField(TTF)
+        SGFCpField(AUDIO)
+        SGFCpField(VIDEO)
+        SGFCpField(WINDOW)
+        SGFCpField(TIMER)
+        SGFCpField(JOYSTICK)
+        SGFCpField(FRAMERATEMANAGER)
+        SGFCpField(FASTEVENTS)
+        SGFCpField(TEXTSUPPORT)
+        SGFCpField(NETWORK)
+        return *this;
+    }
 
-		bool TTF;
-		bool AUDIO;
-		bool VIDEO;
-		bool WINDOW;
-		bool TIMER;
-		bool JOYSTICK;
-		bool FRAMERATEMANAGER;
-		bool FASTEVENTS;
-		bool TEXTSUPPORT;
-		bool NETWORK;
+        bool TTF;
+        bool AUDIO;
+        bool VIDEO;
+        bool WINDOW;
+        bool TIMER;
+        bool JOYSTICK;
+        bool FRAMERATEMANAGER;
+        bool FASTEVENTS;
+        bool TEXTSUPPORT;
+        bool NETWORK;
 
-	};
+    };
 
 typedef struct
 SDLState{
 
-	SDLState(int numWindows):
-	flags(0),
+    SDLState(int numWindows):
+    flags(0),
     verbose(0),
 
     /* Video info */
     videodriver(NULL),
     display(0),
-	Scaler(NULL),
-	Buffer(NULL),
-	depth(32),
+    Scaler(NULL),
+    Buffer(NULL),
+    depth(32),
     refresh_rate(0),
     num_windows(numWindows),
 
     /* Renderer info */
     renderdriver(NULL),
     render_flags(0),
-	skip_renderer(SDL_FALSE),
+    skip_renderer(SDL_FALSE),
 
     /* Audio info */
     audiodriver(NULL),
@@ -229,69 +228,69 @@ SDLState{
     gl_minor_version(1){
     window_infos = (windowInfo_s **) malloc(numWindows *
                                         sizeof(*window_infos));
-	for (int i=0; i< numWindows;i++) {
+    for (int i=0; i< numWindows;i++) {
 
-		window_infos[i]= new windowInfo_s();
-	}
-	windows = (SDL_Window **) malloc(numWindows *
+        window_infos[i]= new windowInfo_s();
+    }
+    windows = (SDL_Window **) malloc(numWindows *
                                         sizeof(*windows));
     renderers = (SDL_Renderer **) SDL_malloc(numWindows *
                                         sizeof(*renderers));
-	Screen = (CBitmap **) SDL_malloc(numWindows *
+    Screen = (CBitmap **) SDL_malloc(numWindows *
                                         sizeof(*Screen));
 
-		 if (!window_infos || !windows || !renderers|| !Screen) {
+         if (!window_infos || !windows || !renderers|| !Screen) {
             Debug::debug(Debug::error,__FUNCTION__) << "Out of memory" <<endl;
             //return NULL;
         }
 
-	audiospec.freq = 22050;
+    audiospec.freq = 22050;
     audiospec.format = AUDIO_S16;
     audiospec.channels = 2;
     audiospec.samples = 2048;
 
 
-	}
-
-	~SDLState(){
-	if (Scaler!=NULL){ delete Scaler; Scaler=NULL;}
-	if (Buffer!=NULL){ delete Buffer; Buffer=NULL;}
-	if (renderdriver!=NULL){ delete renderdriver; renderdriver=NULL;}
-    if (audiodriver!=NULL){ delete audiodriver; audiodriver=NULL;}
-	if (videodriver!=NULL){ delete videodriver; videodriver=NULL;}
-
-	if (window_infos) {
-	    free(window_infos);
     }
 
-	if (windows) {
+    ~SDLState(){
+    if (Scaler!=NULL){ delete Scaler; Scaler=NULL;}
+    if (Buffer!=NULL){ delete Buffer; Buffer=NULL;}
+    if (renderdriver!=NULL){ delete renderdriver; renderdriver=NULL;}
+    if (audiodriver!=NULL){ delete audiodriver; audiodriver=NULL;}
+    if (videodriver!=NULL){ delete videodriver; videodriver=NULL;}
 
-		for (int i = 0; i < num_windows; ++i) {
+    if (window_infos) {
+        free(window_infos);
+    }
+
+    if (windows) {
+
+        for (int i = 0; i < num_windows; ++i) {
             if (windows[i]) {
                 SDL_DestroyWindow(windows[i]);
             }
         }
-		SDL_free(windows);
+        SDL_free(windows);
     }
 
-	if (renderers) {
-		for (int i = 0; i < num_windows; ++i) {
+    if (renderers) {
+        for (int i = 0; i < num_windows; ++i) {
             if (renderers[i]) {
                 SDL_DestroyRenderer(renderers[i]);
             }
         }
         SDL_free(renderers);
-	}
+    }
 
 
 
-	for (int i =0 ;i < num_windows; i++) if (Screen[i]) {delete Screen[i]; Screen[i]=NULL;}
-	if(Screen) ::SDL_free(Screen);
+    for (int i =0 ;i < num_windows; i++) if (Screen[i]) {delete Screen[i]; Screen[i]=NULL;}
+    if(Screen) ::SDL_free(Screen);
 
 
-	}
+    }
 #if 0
-	SDLState &operator=( SDLState  & copy) {
+    SDLState &operator=( SDLState  & copy) {
 
     Uint32 flags;
     Uint32 verbose;
@@ -299,12 +298,12 @@ SDLState{
     /* Video info */
     const char *videodriver;
     int display;
-	windowInfo_s **window_infos;
-	SDL_Window **windows;
-	CBitmap **Screen;
-	Scaler(MULL);
-	Buffer(NULL);
-	int depth;
+    windowInfo_s **window_infos;
+    SDL_Window **windows;
+    CBitmap **Screen;
+    Scaler(MULL);
+    Buffer(NULL);
+    int depth;
     int refresh_rate;
     num_windows(numWindows)
 
@@ -312,7 +311,7 @@ SDLState{
     renderdriver(NULL);
     Uint32 render_flags;
     skip_renderer(false);
-	SDL_Renderer **renderers;
+    SDL_Renderer **renderers;
 
     /* Audio info */
     audiodriver(NULL);
@@ -339,12 +338,12 @@ SDLState{
     gl_major_version;
     gl_minor_version;
 
-	sdlModules_s initModules; // guardar informações dos módulos que devem ser inicializados
-	sdlModules_s startedModules;
-	}
+    sdlModules_s initModules; // guardar informa??es dos m?dulos que devem ser inicializados
+    sdlModules_s startedModules;
+    }
 
 #endif
-	/* SDL init flags */
+    /* SDL init flags */
 
     //char **argumentos;
     Uint32 flags;
@@ -353,12 +352,12 @@ SDLState{
     /* Video info */
     const char *videodriver;
     int display;
-	windowInfo_s **window_infos;
-	SDL_Window **windows;
-	CBitmap **Screen; // contem o bitmap (CBitmap) que representa a janela
-	CBitmap * Scaler;
-	CBitmap * Buffer;
-	int depth;
+    windowInfo_s **window_infos;
+    SDL_Window **windows;
+    CBitmap **Screen; // contem o bitmap (CBitmap) que representa a janela
+    CBitmap * Scaler;
+    CBitmap * Buffer;
+    int depth;
     int refresh_rate;
     int num_windows;
 
@@ -366,7 +365,7 @@ SDLState{
     const char *renderdriver;
     Uint32 render_flags;
     SDL_bool skip_renderer;
-	SDL_Renderer **renderers;
+    SDL_Renderer **renderers;
 
     /* Audio info */
     const char *audiodriver;
@@ -393,26 +392,26 @@ SDLState{
     int gl_major_version;
     int gl_minor_version;
 
-	sdlModules_s initModules; // guardar informações dos módulos que devem ser inicializados
-	sdlModules_s startedModules;   // guardar inform~ções dos módulos que já foram inicializados
+    sdlModules_s initModules; // guardar informa??es dos m?dulos que devem ser inicializados
+    sdlModules_s startedModules;   // guardar inform~??es dos m?dulos que j? foram inicializados
 } SDLState_t;
 
 typedef enum {
-	CPUID_NONE							= 0x00000,
-	CPUID_UNSUPPORTED					= 0x00001,	// unsupported (386/486)
-	CPUID_GENERIC						= 0x00002,	// unrecognized processor
-	CPUID_INTEL							= 0x00004,	// Intel
-	CPUID_AMD							= 0x00008,	// AMD
-	CPUID_MMX							= 0x00010,	// Multi Media Extensions
-	CPUID_3DNOW							= 0x00020,	// 3DNow!
-	CPUID_SSE							= 0x00040,	// Streaming SIMD Extensions
-	CPUID_SSE2							= 0x00080,	// Streaming SIMD Extensions 2
-	CPUID_SSE3							= 0x00100,	// Streaming SIMD Extentions 3 aka Prescott's New Instructions
-	CPUID_ALTIVEC						= 0x00200,	// AltiVec
-	CPUID_HTT							= 0x01000,	// Hyper-Threading Technology
-	CPUID_CMOV							= 0x02000,	// Conditional Move (CMOV) and fast floating point comparison (FCOMI) instructions
-	CPUID_FTZ							= 0x04000,	// Flush-To-Zero mode (denormal results are flushed to zero)
-	CPUID_DAZ							= 0x08000	// Denormals-Are-Zero mode (denormal source operands are set to zero)
+    CPUID_NONE							= 0x00000,
+    CPUID_UNSUPPORTED					= 0x00001,	// unsupported (386/486)
+    CPUID_GENERIC						= 0x00002,	// unrecognized processor
+    CPUID_INTEL							= 0x00004,	// Intel
+    CPUID_AMD							= 0x00008,	// AMD
+    CPUID_MMX							= 0x00010,	// Multi Media Extensions
+    CPUID_3DNOW							= 0x00020,	// 3DNow!
+    CPUID_SSE							= 0x00040,	// Streaming SIMD Extensions
+    CPUID_SSE2							= 0x00080,	// Streaming SIMD Extensions 2
+    CPUID_SSE3							= 0x00100,	// Streaming SIMD Extentions 3 aka Prescott's New Instructions
+    CPUID_ALTIVEC						= 0x00200,	// AltiVec
+    CPUID_HTT							= 0x01000,	// Hyper-Threading Technology
+    CPUID_CMOV							= 0x02000,	// Conditional Move (CMOV) and fast floating point comparison (FCOMI) instructions
+    CPUID_FTZ							= 0x04000,	// Flush-To-Zero mode (denormal results are flushed to zero)
+    CPUID_DAZ							= 0x08000	// Denormals-Are-Zero mode (denormal source operands are set to zero)
 } cpuid_t;
 } //end namespace SGF
 #endif

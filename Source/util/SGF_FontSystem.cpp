@@ -543,6 +543,7 @@ TTF_Font *CTTFFont::LoadFont(string font, int ftSize) throw(CLoadException) {
 		Debug::debug(Debug::resources,__FUNCTION__) << "Will get fonte Path to : "<< font <<endl;
 
 		  file=  AvailableFonts->GetFontPath(font);
+          Debug::debug(Debug::resources,__FUNCTION__) << "Path is: " << file <<endl;
 
 	}
 

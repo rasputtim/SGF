@@ -1448,14 +1448,14 @@ vector<Filesystem::CAbsolutePath> CGameFileSystem::getFiles(const Filesystem::CA
 	vector<string> filesvector;
 
     Filesystem::getFiles(dataPath.path(),find, caseInsensitive,filesvector);
-	//Debug::debug(Debug::menu,__FUNCTION__) << "FOUND: "<< filesvector.size()<<" files." << endl;
+    //Debug::debug(Debug::filesystem,__FUNCTION__) << "FOUND: "<< filesvector.size()<<" files." << endl;
    
 	for (vector<string>::iterator it = filesvector.begin(); it!=filesvector.end(); ++it) {
-		// Debug::debug(Debug::menu,__FUNCTION__) << "FOUND: "<< (*it) << endl;
-   
-          files.push_back(Filesystem::CAbsolutePath((*it)));
+         //Debug::debug(Debug::filesystem,__FUNCTION__) << "FOUND: "<< (*it) << endl;
+   string filename = dataPath.path()+DIR_SEPARATOR+(*it);
+          files.push_back(Filesystem::CAbsolutePath(filename));
 	}
-	Debug::debug(Debug::menu,__FUNCTION__) << "FOUND: "<< files.size()<<" files." << endl;
+    Debug::debug(Debug::filesystem,__FUNCTION__) << "FOUND: "<< files.size()<<" files." << endl;
    
    
   return files;
