@@ -1,21 +1,17 @@
 /*
   SGF - Super Game Fabric  Super Game Fabric
   Copyright (C) 2010-2011 Rasputtim <raputtim@hotmail.com>
-
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
   */
 
 #ifndef SGF_CONFIG_H_MYCONF
@@ -186,7 +182,6 @@
 #ifndef SGE_ON_LINUX
 #define SGE_ON_LINUX
 #endif
-#define BUILD_STRING "Building  for LINUX"
 
 #ifdef __x86_64__
 #ifndef BUILD_STRING
@@ -209,14 +204,10 @@
 /**
  *
  *
-
 Alloca allocates memory from Stack rather then heap which is case in malloc. So, when I return from the routine the memory is freed. So, actually this solves my problem of freeing up of dynamically allocated memory . Freeing of memory allocated through malloc is a major headache and if somehow missed leads to all sorts memory problems.
-
 So, my question is that in spite of the above features still alloca use is discouraged, why?
 The answer is right there in the man page (at least on Linux):
-
     RETURN VALUE The alloca() function returns a pointer to the beginning of the allocated space. If the allocation causes stack overflow, program behaviour is undefined.
-
 Which isn't to say it should never be used. One of the OSS projects I work on uses it extensively, and as long as you're not abusing it (alloca'ing huge values), it's fine. Once you go past the "few hundred bytes" mark, it's time to use malloc and friends, instead. You may still get allocation failures, but at least you'll have some indication of the failure instead of just blowing out the stack.
 http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-practice
  *
@@ -277,7 +268,37 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 
     #define assertmem( x, y )
 
+    
+#elif defined(ANDROID)    
+// Android
+#ifndef SGE_ON_ANDROID
+#define SGE_ON_ANDROID
+#endif
 
+    #ifndef BUILD_STRING
+        #define	BUILD_STRING				"Building for Android"
+    #endif	
+	#define BUILD_OS_ID				3
+	#define CPUSTRING				""
+	#define CPU_EASYARGS				1
+
+#define _alloca							alloca
+#define _alloca16( x )					((void *)((((uintptr_t)alloca( (x)+15 )) + 15) & ~15))
+#define _allocafloat16( x )				((void *)((((uintptr_t)alloca( (x)+15 )) + 15) & ~15))
+
+#define ALIGN16( x )					__attribute__((  aligned(16)  )) x
+#define PACKED							__attribute__((packed))
+
+#define PATHSEPERATOR_STR				"/"
+#define PATHSEPERATOR_CHAR				'/'
+
+#define __cdecl
+#define ASSERT							assert
+
+#define SGF_INLINE_FORCED				inline
+#define ID_STATIC_TEMPLATE
+
+#define assertmem( x, y )
 
 #elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 
@@ -287,7 +308,7 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 #else
 
     // Unsupported system
-    #error This operating system is not supported by SFML library
+    #error This operating system is not supported by GF library
 
 #endif
 

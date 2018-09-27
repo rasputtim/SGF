@@ -99,6 +99,17 @@ if(NOT LIBTYPE)
 endif()
 
 # Get the platform
+
+# VERIFY THE SYSTEM NAME
+message(STATUS "SYSTEM NAME FOR SDL: ${CMAKE_SYSTEM_NAME}")
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Android")
+   set (ANDROID ON)
+else()
+   set (ANDROID OFF)
+endif()
+
+
 if(WIN32)
   if(NOT WINDOWS)
     set(WINDOWS TRUE)
@@ -808,6 +819,9 @@ if(SDL_VIDEO)
 endif()
 
 if(ANDROID)
+
+message (STATUS "ENTERING ANDROID CONFIGURATION FOR SDL")
+
   file(GLOB ANDROID_CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/android/*.c)
   set(SDL2_SOURCE_FILES ${SDL2_SOURCE_FILES} ${ANDROID_CORE_SOURCES})
 

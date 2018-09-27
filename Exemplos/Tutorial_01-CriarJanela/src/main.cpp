@@ -29,9 +29,9 @@ int main(int argc,char *argv[])
 	#undef open;
 	std::ofstream file;
 	file.open("log_pacman.txt");
-    cout.rdbuf(file.rdbuf());
+        cout.rdbuf(file.rdbuf());
 	// Setta o nivel de debug que queremos no sistema
-	SGF::Debug::setDebugAll();
+        //SGF::Debug::setDebugAll();
 
 	SGF::Global::InitExceptions();
 

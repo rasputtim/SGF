@@ -112,9 +112,8 @@ static string dataPath = DATA_PATH;
 
 double Util::gameTicks(double ticks, double gameSpeed){
 	Debug::debug(Debug::input,__FUNCTION__) << "Global::Speed Counter: " << ticks <<  " SDL ticks (ms): " << SDL_GetTicks() << endl;
-
 	Debug::debug(Debug::input,__FUNCTION__) << "Global::gamespeed: " << gameSpeed << endl;
-	int TheSpeed = 60;  //uma velocidade de gamespeed = 0.1  e ticks por segund = 60
+    int TheSpeed = 60;  //uma velocidade de gamespeed = 1  e ticks por segund = 60
     double valor = ticks * gameSpeed * TheSpeed / Global::TICS_PER_SECOND;
 	Debug::debug(Debug::input,__FUNCTION__) << "Conta: ( " << ticks << " * "<<gameSpeed <<" * "<< " 60 ) / "<< Global::TICS_PER_SECOND << " = " << valor<< endl;
 

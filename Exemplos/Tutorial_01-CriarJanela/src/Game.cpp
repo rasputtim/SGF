@@ -156,7 +156,7 @@ void Game::run(Game & thisGame){
         }
 
         virtual double ticks(double system){
-            return SGF::Util::gameTicks(system, 0.1); //0.1 = gamespeed
+            return SGF::Util::gameTicks(system, 1); //0.1 = gamespeed (variation fro 0 to 1)
         }
     };
 

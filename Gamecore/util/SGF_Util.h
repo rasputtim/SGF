@@ -62,6 +62,12 @@ namespace Util{
 extern const SGF_Word DigitOutputPrecision ;
 extern const string HexDigits;
 
+/**
+ * @brief controlthespeed of the game
+ * @param ticks
+ * @param gameSpeed the desired speed
+ * @return
+ */
 double gameTicks(double ticks, double gameSpeed=0.1);
 extern const double pi;
 bool isWindows();

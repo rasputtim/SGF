@@ -121,6 +121,7 @@ endif(WITH_64_BIT)
 message(STATUS "SYSTEM NAME: ${CMAKE_SYSTEM_NAME}")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Android")
+    add_definitions(-DANDROID)
    set (ANDROID ON)
 else()
    set (ANDROID OFF)
@@ -192,15 +193,15 @@ find_package(ZLIB)
 find_package(PNG)
 find_package(FREETYPE)
 find_package(Threads)
-#find_package(GNUREGEX)
 find_package(VORBIS)
 find_package(OGG)
 find_package(MPG123)
 find_package(JPEG9)
-MESSAGE ( STATUS "Searching for Perl..." )
-FIND_PACKAGE ( Perl )
-FIND_PACKAGE ( PerlLibs )
+FIND_PACKAGE (Perl)
+FIND_PACKAGE (PerlLibs)
 find_package(TIFF)
+
+
 
 # -------------------------------------------------------
 # Include Source Files
@@ -245,11 +246,11 @@ mark_as_advanced(CMAKE_IMPORT_LIBRARY_SUFFIX SGF_CMAKE_DEBUG_POSTFIX)
         #set(CMAKE_CXX_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -Woverloaded-virtual -g3 -ggdb -std=c++11 ")
         #set(CMAKE_C_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -g3 -ggdb")
     else()
-    
+
             set(CMAKE_CXX_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -Woverloaded-virtual -g3 -ggdb -std=c++11 -msse3")
             set(CMAKE_C_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -g3 -ggdb -msse3")
-            
-            if(WITH_64_BIT)  #cross compilling to 32bit 
+
+            if(WITH_64_BIT)  #cross compilling to 32bit
             set(ADITIONAL_CXX_FLAGS "-m32")
             set(ADITIONAL_LINK_FLAGS "-m32")
             else(WITH_64_BIT)
@@ -257,8 +258,8 @@ mark_as_advanced(CMAKE_IMPORT_LIBRARY_SUFFIX SGF_CMAKE_DEBUG_POSTFIX)
             set(ADITIONAL_LINK_FLAGS "")
             endif(WITH_64_BIT)
     endif()
-    
-    
+
+
 else(DEBUG)
  message(STATUS "====================COMPILING WITHOUT DEBUG INFORMATION====================================")
     if (ANDROID)
@@ -278,16 +279,18 @@ else(DEBUG)
         endif(WITH_64_BIT)
     endif()
 endif(DEBUG)
-   # -------------------------------------------------------
+
+
+
+# -------------------------------------------------------
 # MSVC FLAGS
 # -------------------------------------------------------
 #if(NOT MSVC)
 #	set(CFLAGS "-W -O2 -Wwrite-strings -Wstrict-prototypes -Wall -funroll-loops -Wmissing-declarations -fomit-frame-pointer -Wno-missing-declarations")
 #else(NOT MSVC)
 #	set(CFLAGS "-O2")
-#endif(NOT MSVC) 
-    
-    
+#endif(NOT MSVC)
+
 # FIXME: not sure if this is in the right place
 add_definitions(-DHAVE_NETWORKING)
 
@@ -309,7 +312,6 @@ else(JPEG9_FOUND)
     set(JPEG9_LIBS "")
     set(JPEG9_INCLUDES "")
 endif(JPEG9_FOUND)
-
 
 if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
         file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
@@ -355,8 +357,6 @@ else(TIFF_FOUND)
     set(TIFF_INTERNAL ON)
 endif(TIFF_FOUND)
 
-
-
 #i WILL BUILD sdl2 INTERNALLY
 #if(USE_SDL)
     # packages
@@ -365,15 +365,15 @@ endif(TIFF_FOUND)
     #add_definitions(-DUSE_SDL)
     #if(NOT SDL_FOUND)
     #    message(FATAL_ERROR "Couldn't find SDL2.")
-    #else(NOT SDL_FOUND)    
+    #else(NOT SDL_FOUND)
     #    message("SDL2 found SDL2.")
     #endif(NOT SDL_FOUND)
-    
+
     # SET Mixer definition
     if (MAD_FOUND)
 	add_definitions(-DMP3_MAD_MUSIC)
     endif(MAD_FOUND)
-    
+
     set(GRAPHICS_LIBRARIES sfl_module sprig_module sdl_stretch_module image_module mixer_module ${SDL_LIBRARY})
     set(GRAPHICS_INCLUDES ${SDL_INCLUDE_DIR})
     if (APPLE)
@@ -424,6 +424,7 @@ else(PERLLIBS_FOUND)
     set(PERL_LIBS "")
     set(PERL_INCLUDES "")
 endif(PERLLIBS_FOUND)
+
 # freetype
 if(NOT FREETYPE_FOUND)
 	message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
@@ -441,6 +442,7 @@ endif(NOT PNG_FOUND)
 #if(NOT GNUREGEX_FOUND)
 #	message(FATAL_ERROR "Couldn't find GNU Regex")
 #endif(NOT GNUREGEX_FOUND)
+
 
 # -------------------------------------------------------
 # Paths and system setup
@@ -476,7 +478,7 @@ if(APPLE)
 	# -------------------------------------------------------
 	set(WIN_LIB "-framework Carbon")
 	add_definitions(-DMACOSX)
-        
+
         # Groups
         set(GROUP_START "-Wl,-all_load")
         set(GROUP_END "")
@@ -542,21 +544,37 @@ add_definitions(-DMP3_MUSIC)
 #add_definitions(-_CRT_NONSTDC_NO_WARNINGS)
 
 
+
+
+
 # -------------------------------------------------------
 # Include directory & Files
 # List of preprocessor include file search directories.
 # -------------------------------------------------------
-include_directories(${CMAKE_SOURCE_DIR}/Gamecore 
+
+if (PERLLIBS_FOUND)
+include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/perl56
+${PERL_INCLUDE_DIR}
+${PERL_INCLUDE_DIRS}
+)
+endif()
+
+if(FREETYPE_INTERNAL)
+include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
+${FREETYPE_INCLUDE_DIR}
+)
+endif()
+
+
+include_directories(${CMAKE_SOURCE_DIR}/Gamecore
 ${CMAKE_SOURCE_DIR}/Gamecore/compiler
-${CMAKE_SOURCE_DIR}/Header 
+${CMAKE_SOURCE_DIR}/Header
 ${CMAKE_SOURCE_DIR}/ExternalLibs/7z
 ${CMAKE_SOURCE_DIR}/ExternalLibs/hawkln
-${CMAKE_SOURCE_DIR}/ExternalLibs/md5 
-${CMAKE_SOURCE_DIR}/ExternalLibs/pcre 
-${CMAKE_SOURCE_DIR}/ExternalLibs/perl56
+${CMAKE_SOURCE_DIR}/ExternalLibs/md5
+${CMAKE_SOURCE_DIR}/ExternalLibs/pcre
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_SGF
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/include
-#${CMAKE_SOURCE_DIR}/ExternalLibs/Regex 
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/libwebp-0.3.0/src/
@@ -567,19 +585,13 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
-if(FREETYPE_INTERNAL)
-${CMAKE_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
-endif()
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src
 ${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include
 ${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c
 ${CMAKE_SOURCE_DIR}/ExternalLibs/zip
-${GRAPHICS_INCLUDES} 
-${FREETYPE_INCLUDE_DIR} 
-${OGG_INCLUDES} 
+${GRAPHICS_INCLUDES}
+${OGG_INCLUDES}
 ${MP3_INCLUDES}
-${PERL_INCLUDE_DIR}
-${PERL_INCLUDE_DIRS}
 ${JPEG9_INCLUDES}
 ${TIFF_INCLUDES}
 # todo: Build the library
@@ -592,466 +604,49 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/
 ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
 )
 
+# -------------------------------------------------------
+# Put the linked libraries together
+# -------------------------------------------------------
+#set(REQUIRED_LIBS ${GRAPHICS_LIBRARIES}  ${CMAKE_THREAD_LIBS_INIT} ${FREETYPE_LIBRARIES}
+#${ZLIB_LIBRARY} ${OGG_LIBS} ${MP3_LIBS} ${WIN_LIB} ${WINSOCK}
+#${PERL_LIBRARIES})
 
-set(SGF_PUBLIC_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/SGF.h
-${CMAKE_SOURCE_DIR}/Gamecore/tiffconfig.h
-${CMAKE_SOURCE_DIR}/Gamecore/SGF_Config.h
-${CMAKE_SOURCE_DIR}/Gamecore/SGF_Global.h
-${CMAKE_SOURCE_DIR}/Gamecore/SGF_Types.h)
-set(SGF_AI_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/ai/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/ai/SGF_AstarHeap.h
-${CMAKE_SOURCE_DIR}/Gamecore/ai/SGF_AstarLib.h
-${CMAKE_SOURCE_DIR}/Gamecore/ai/SGF_Behavior.h
-${CMAKE_SOURCE_DIR}/Gamecore/ai/SGF_Map.h
-${CMAKE_SOURCE_DIR}/Gamecore/ai/SGF_PathFinder.h
+# -------------------------------------------------------
+# Instalation HEADER Files used in the install target
+# -------------------------------------------------------
 
-)
-set(SGF_CONFIGURATION_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/configuration/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/configuration/SGF_CmdVars.h
-${CMAKE_SOURCE_DIR}/Gamecore/configuration/SGF_Configuration.h
-${CMAKE_SOURCE_DIR}/Gamecore/configuration/SGF_SysVars.h
-${CMAKE_SOURCE_DIR}/Gamecore/configuration/SGF_SysVarsyyy.h
+#include(sgf_install_headers.cmake)
+# -------------------------------------------------------
+# generated Header Files
+# -------------------------------------------------------
 
-)
-set(SGF_ENVIRONMENT_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/environment/all.h
-)
-set(SGF_EXCEPTIONS_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_Error.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_Exception.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_FileExceptions.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_LoadException.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_MenuException.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_MugenException.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_NetException.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_ShutdownException.h
-${CMAKE_SOURCE_DIR}/Gamecore/exceptions/SGF_TokenException.h
+if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
+    # If we're doing an out of source build and the user has a zconf.h
+    # in their source tree...
+    if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h)
+        message(STATUS "Renaming")
+        message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h")
+        message(STATUS "to 'zconf.h.included' because this file is included with zlib")
+        message(STATUS "but CMake generates it automatically in the build directory.")
+        file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.included)
+  endif()
+endif()
 
-)
-set(SGF_EXTERNAL_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/external/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/DT_drawtext.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/SDL_console.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/SDL_framerate.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/fastevents.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/glSDL.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/internal.h
-${CMAKE_SOURCE_DIR}/Gamecore/external/scale2x.h
-
-)
-set(SGF_GAME_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/game/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_Command.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_Console.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_Control.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_Mod.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_Stage.h
-${CMAKE_SOURCE_DIR}/Gamecore/game/SGF_World.h
-
-)
-set(SGF_GEOMETRY_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/geometry/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/geometry/SGF_DrawVert.h
-${CMAKE_SOURCE_DIR}/Gamecore/geometry/SGF_JointTransform.h
-${CMAKE_SOURCE_DIR}/Gamecore/geometry/SGF_TraceModel.h
-)
-set(SGF_GRAPHICS_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_Bitmap.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_Color.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_FireEffect.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_GradientEffect.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_LitBitmap.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_Poligon.h
-${CMAKE_SOURCE_DIR}/Gamecore/graphics/SGF_TransBitmap.h
-
-)
-set(SGF_GUI_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/gui/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_BoundBox.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_Box.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_ContextBox.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_Coordinate.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_FadetoolGui.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_GuiAnimation.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_GuiTimer.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_LineEdit.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_PopupBox.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_Rectarea.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_ScrollList.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_SelectList.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_TabbedBox.h
-${CMAKE_SOURCE_DIR}/Gamecore/gui/SGF_Widget.h
-
-)
-set(SGF_INPUT_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/input/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_ButtonMapping.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_Events.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_FrameControl.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_Input.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_InputManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_InputMap.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_InputSource.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_Joystick.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_KeyMapping.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_Keyboard.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_Mouse.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_PSPJoystick.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_StructsInput.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_TextInput.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/SGF_WIIJoystick.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/newInput.h
-${CMAKE_SOURCE_DIR}/Gamecore/input/sdl-joystick.h
-
-)
-set(SGF_LEVEL_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/level/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/level/SGF_LevelUtils.h
-)
-set(SGF_LISTS_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/lists/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/lists/SGF_AirList.h
-${CMAKE_SOURCE_DIR}/Gamecore/lists/SGF_ImageList.h
-${CMAKE_SOURCE_DIR}/Gamecore/lists/SGF_PcxList.h
-${CMAKE_SOURCE_DIR}/Gamecore/lists/SGF_SndList.h
-${CMAKE_SOURCE_DIR}/Gamecore/lists/liststructs.h
-
-)
-set(SGF_MATH_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/math/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Plane.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Angles.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Complex.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Curve.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Extrapolate.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Interpolation.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Lincp.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Math.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Matriz.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Odife.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Plane.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_PlaneList.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Pluecker.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Polynomial.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Quaternion.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Random.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Rotation.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Simd.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/SGF_Vector.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_3DNow.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_AltiVec.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_Generic.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_MMX.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_SSE.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_SSE2.h
-${CMAKE_SOURCE_DIR}/Gamecore/math/Simd_SSE3.h
-
-)
-set(SGF_MENU_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/menu/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_ActionFactory.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_ActionSpeed.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_Menu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_MenuAction.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_MenuAnimation.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_MenuGlobal.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_MenuOption.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_MenuV2.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionAdventure.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionAdventureCpu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionChangeMod.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionConfig.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionCredits.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionDummy.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionFactory.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionFullScreen.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionFullscreen.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionInvencible.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionJoystick.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionKey.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionLevel.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionLives.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionMenu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionNetworkHost.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionNetworkJoin.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionNpcBuddies.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionPlayMode.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionQuit.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionScreenSize.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionSelectFontV2.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionSpeed.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionTabMenu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_OptionVersus.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_StructsMenu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/SGF_TabMenu.h
-${CMAKE_SOURCE_DIR}/Gamecore/menu/options.h
-
-)
-set(SGF_MUGEN_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Configuration.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Expression.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Modifier.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Section.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Stack.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/Value.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/argument.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/ast.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/ast/astManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-array.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-keyword.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute-simple.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/attribute.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/collectable.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/exception.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/extra.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/filename.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/function.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/helper.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/hitdef.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/identifier.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/key.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/keyword-array.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/keyword.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/number.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/operand.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/range.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/resource.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/string.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/value-list.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/variable.h
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/Ast/walker.h
-
-)
-set(SGF_MUGEN2_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/mugen/gc.h
-)
-set(SGF_NETWORK_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/network/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetChat.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetChatClient.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetChatServer.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetChatWidget.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetClient.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_NetServer.h
-${CMAKE_SOURCE_DIR}/Gamecore/network/SGF_Network.h
-
-)
-set(SGF_OBJECTS_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/objects/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/objects/SGF_Element.h
-${CMAKE_SOURCE_DIR}/Gamecore/objects/SGF_Object.h
-${CMAKE_SOURCE_DIR}/Gamecore/objects/SGF_ObjectCollidable.h
-${CMAKE_SOURCE_DIR}/Gamecore/objects/SGF_ObjectMessages.h
-${CMAKE_SOURCE_DIR}/Gamecore/objects/SGF_ObjectNonAttack.h
-
-)
-set(SGF_RESOURCE_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/resource/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/resource/SGF_Collector.h
-${CMAKE_SOURCE_DIR}/Gamecore/resource/SGF_FontRender.h
-${CMAKE_SOURCE_DIR}/Gamecore/resource/SGF_ResourceManager.h
-
-)
-set(SGF_SCRIPT_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/script/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/script/SGF_Perl.h
-${CMAKE_SOURCE_DIR}/Gamecore/script/SGF_Scripting.h
-
-)
-set(SGF_SPRITE_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/DrawRle.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/SGF_Efects.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/SGF_MugenSprite.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/SGF_RleSprite.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/SGF_SffManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/SGF_SffSprMan.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/defs.h
-${CMAKE_SOURCE_DIR}/Gamecore/sprite/sprite.h
-
-)
-set(SGF_STRUCTURES_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/structures/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/BTree.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/BinSearch.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/Hierarchy.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_BHeap.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_Btree.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_Btree_old.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_DynamicArray.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_HashTable.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_HashTableFast.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_LinkList.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_List.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_ListString.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_Parameter.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_Queue.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_Stack.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/SGF_StackString.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/StaticList.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/StrPool.h
-${CMAKE_SOURCE_DIR}/Gamecore/structures/VectorSet.h
-
-)
-set(SGF_SYS_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/sys/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/sys/SGF_System.h
-)
-set(SGF_UTIL_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/util/all.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/AirManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_ArgsCmdLine.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_AudioSystem.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_BHeap.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Callback.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Compress.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Debug.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Displayable.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Ebox.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_FileSystem.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_FilesystemBase.cpp
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_FilesystemBase.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_FontInfo.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_FontSystem.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_HashUtils.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Heap.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_LanguageString.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Loading.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_MessageQueue.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Messages.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_MugenSound.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Parameter.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Path.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Pointer.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Regex.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_SdlManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_SndManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_SoundManager.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_StringUtils.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Thread.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Timedif.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Timer.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Token.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_TokenReader_xml.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Utf.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Util.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_UtilStructs.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/SGF_Xmltools.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/all_fonts.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/all_messages.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/all_sound.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/tokenreader.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/XmlNode/CmnHdr.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/XmlNode/Portable.h
-${CMAKE_SOURCE_DIR}/Gamecore/util/XmlNode/XmlNode.h
+set(ZLIB_PC ${CMAKE_CURRENT_BINARY_DIR}/zlib.pc)
+configure_file( ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zlib.pc.cmakein
+		${ZLIB_PC} @ONLY)
+configure_file(	${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.cmakein
+		${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h @ONLY)
 
 
-)
-set(SGF_SDLMIXER_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/SDL_mixer.h
-)
-set(SGF_SDLIMAGE_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/SDL_image.h  
- )
- 
-#BUILD png library INTERNAL 
-if(PNG_INTERNAL)
 
-endif(PNG_INTERNAL)
- 
-#BUILD FREETYPE LIBRARY INTERNAL
-if(FREETYPE_INTERNAL)
+# -------------------------------------------------------
+# ADD SOURCE FILES OTHER THAN THE ONES IN FILELIST.CMAKE
+# SGF   add_subdirectory
+# Add a subdirectory to the build. The source_dir specifies the directory in which the source CMakeLists.txt and code files are located.
+# -------------------------------------------------------
 
-endif(FREETYPE_INTERNAL) 
- 
-set(SGF_SDLTTF_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/SDL_ttf.h
-)
-set(SGF_GFX_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_framerate.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_gfxBlitFunc.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives_font.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_imageFilter.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/SDL_rotozoom.h
-)
-
-set( SGF_COMPILER_CMD_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/compiler/CmdCompiler/cmd_driver.h
-)
-set( SGF_COMPILER_DEF_HDRS   
-${CMAKE_SOURCE_DIR}/Gamecore/compiler/DefCompiler/def_driver.h
-)
-set( SGF_COMPILER_AIR_HDRS
-${CMAKE_SOURCE_DIR}/Gamecore/compiler/AirCompiler/air_driver.h
-)
-
-set( SGF_HAWKNL_HDRS
-
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/group.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/hawklib.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/hawkthreads.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/htinternal.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/ipx.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/loopback.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/nl.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/nlinternal.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/parallel.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/serial.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/sock.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/hawknl/wsock.h
-)
-
-set( SGF_EXPATL_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/amigaconfig.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/ascii.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/asciitab.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/expat.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/expat_external.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/iasciitab.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/internal.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/latin1tab.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/macconfig.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/nametab.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/utf8tab.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/winconfig.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/xmlrole.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/xmltok.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/xmltok_impl.h
-)
-set( SGF_SGE_HDRS
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sge.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sge_bm_text.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgearray.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgecontrol.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgedefines.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgeevent.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgefadefx.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgefont.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgegamestate.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgegfx.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgegp2x.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgeinit.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgelist.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgemisc.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgeparticles.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgepathfinder.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgeresource.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgescreen.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgesound.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgesprite.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgespritegroup.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgespriteimage.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgestage.h
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include/sgestring.h
-)
-
+## For compiling MUGEN COmpilers
 set(COMPILERS_MUGEN_DIR ${CMAKE_SOURCE_DIR}/Gamecore/compiler )
 set(COMPILERS_MUGEN_HDR
 ${COMPILERS_MUGEN_DIR}/AirCompiler/airparser.tab.h
@@ -1085,23 +680,6 @@ ${COMPILERS_MUGEN_DIR}/DefCompiler/defparser.tab.cpp
 ${COMPILERS_MUGEN_DIR}/DefCompiler/def_driver.cc
 ${COMPILERS_MUGEN_DIR}/DefCompiler/lex.Def.cc
 )
-# -------------------------------------------------------
-# Put the linked libraries together
-# -------------------------------------------------------
-set(REQUIRED_LIBS ${GRAPHICS_LIBRARIES}  ${CMAKE_THREAD_LIBS_INIT} ${FREETYPE_LIBRARIES} 
-${ZLIB_LIBRARY} ${OGG_LIBS} ${MP3_LIBS} ${WIN_LIB} ${WINSOCK}
-${PERL_LIBRARIES})
-
-
-# -------------------------------------------------------
-# ADD SOURCE FILES OTHER THAN THE ONES IN FILELIST.CMAKE
-# SGF   add_subdirectory
-# Add a subdirectory to the build. The source_dir specifies the directory in which the source CMakeLists.txt and code files are located.
-# -------------------------------------------------------
-#add_library (main_module ${ALL_SRC})
-# build directories
-
-
 
 #expat
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
@@ -1183,33 +761,10 @@ endif(TIFF_INTERNAL)
 
 
 
-#Minizip
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/zip)
 
 
 
-
-
-# source files
-if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
-    # If we're doing an out of source build and the user has a zconf.h
-    # in their source tree...
-    if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h)
-        message(STATUS "Renaming")
-        message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h")
-        message(STATUS "to 'zconf.h.included' because this file is included with zlib")
-        message(STATUS "but CMake generates it automatically in the build directory.")
-        file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.included)
-  endif()
-endif()
-
-set(ZLIB_PC ${CMAKE_CURRENT_BINARY_DIR}/zlib.pc)
-configure_file( ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zlib.pc.cmakein
-		${ZLIB_PC} @ONLY)
-configure_file(	${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.cmakein
-		${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h @ONLY)
-
-
+#############################
 
 message(STATUS "Including files to build SDL: ${SDL2_SOURCE_FILES}")
 message(STATUS "Including files to build EXPAT: ${expat_SRCS}")
@@ -1250,43 +805,14 @@ message(STATUS "Including files to build TIFF module: ${TIFF_SRC_SRC}")
 endif()
 
 
-#${AI_SRC} ${CONFIGURATION_SRC} ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
-#${GAME_SRC} ${GRAPHICS_SRC} ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
-#${LISTS_SRC} ${MATH_SRC} ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC} ${NETWORK_SRC}
-#${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
-#${SYS_SRC} ${UTIL_SRC} ${WINDOWS_SRC}
 
-# add_library(algif_module src/util/gif/algif.c src/util/gif/gif.c src/util/gif/lzw.c)
+# Ensure that the extra cflags are used at compile time
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
 
-# GME Library
-#add_library(gme_module src/util/sound/gme/Ay_Apu.cpp src/util/sound/gme/Ay_Cpu.cpp src/util/sound/gme/Ay_Emu.cpp src/util/sound/gme/Blip_Buffer.cpp src/util/sound/gme/Classic_Emu.cpp src/util/sound/gme/Data_Reader.cpp src/util/sound/gme/Dual_Resampler.cpp src/util/sound/gme/Effects_Buffer.cpp src/util/sound/gme/Fir_Resampler.cpp src/util/sound/gme/Gb_Apu.cpp src/util/sound/gme/Gb_Cpu.cpp src/util/sound/gme/Gb_Oscs.cpp src/util/sound/gme/Gbs_Emu.cpp src/util/sound/gme/gme.cpp src/util/sound/gme/Gme_File.cpp src/util/sound/gme/Gym_Emu.cpp src/util/sound/gme/Hes_Apu.cpp src/util/sound/gme/Hes_Cpu.cpp src/util/sound/gme/Hes_Emu.cpp src/util/sound/gme/Kss_Cpu.cpp src/util/sound/gme/Kss_Emu.cpp src/util/sound/gme/Kss_Scc_Apu.cpp src/util/sound/gme/M3u_Playlist.cpp src/util/sound/gme/Multi_Buffer.cpp src/util/sound/gme/Music_Emu.cpp src/util/sound/gme/Nes_Apu.cpp src/util/sound/gme/Nes_Cpu.cpp src/util/sound/gme/Nes_Fme7_Apu.cpp src/util/sound/gme/Nes_Namco_Apu.cpp src/util/sound/gme/Nes_Oscs.cpp src/util/sound/gme/Nes_Vrc6_Apu.cpp src/util/sound/gme/Nsfe_Emu.cpp src/util/sound/gme/Nsf_Emu.cpp src/util/sound/gme/Sap_Apu.cpp src/util/sound/gme/Sap_Cpu.cpp src/util/sound/gme/Sap_Emu.cpp src/util/sound/gme/Sms_Apu.cpp src/util/sound/gme/Snes_Spc.cpp src/util/sound/gme/Spc_Cpu.cpp src/util/sound/gme/Spc_Dsp.cpp src/util/sound/gme/Spc_Emu.cpp src/util/sound/gme/Vgm_Emu.cpp src/util/sound/gme/Vgm_Emu_Impl.cpp src/util/sound/gme/Ym2413_Emu.cpp src/util/sound/gme/Ym2612_Emu.cpp)
-
-#Script directory
-# add_subdirectory(${CMAKE_SOURCE_DIR}/Source/script)
-
-# add_library(mugen_module ${MUGEN_SRC})
-#add_library(platformer_module ${PLATFORMER_SRC})
-#add_library(pcre_module ExternalLibs/pcre/pcre_chartables.c ExternalLibs/pcre/pcre_compile.c ExternalLibs/pcre/pcre_config.c ExternalLibs/pcre/pcre_dfa_exec.c ExternalLibs/pcre/pcre_exec.c ExternalLibs/pcre/pcre_fullinfo.c ExternalLibs/pcre/pcre_get.c ExternalLibs/pcre/pcre_globals.c ExternalLibs/pcre/pcre_info.c ExternalLibs/pcre/pcre_maketables.c ExternalLibs/pcre/pcre_newline.c ExternalLibs/pcre/pcre_ord2utf8.c ExternalLibs/pcre/pcreposix.c ExternalLibs/pcre/pcre_refcount.c ExternalLibs/pcre/pcre_study.c ExternalLibs/pcre/pcre_tables.c ExternalLibs/pcre/pcre_try_flipped.c ExternalLibs/pcre/pcre_ucd.c ExternalLibs/pcre/pcre_valid_utf8.c ExternalLibs/pcre/pcre_version.c ExternalLibs/pcre/pcre_xclass.c)
-
-   # IMAGE
-    #add_subdirectory(${CMAKE_SOURCE_DIR}/src/util/graphics/sdl/image)
-    # SFL
-    #add_subdirectory(${CMAKE_SOURCE_DIR}/src/util/sfl)
-    # Stretch
-    #add_subdirectory(${CMAKE_SOURCE_DIR}/src/util/graphics/sdl/stretch)
-    # SPRIG
-    #add_library(sprig_module src/util/graphics/sdl/sprig/SPG_extended.c src/util/graphics/sdl/sprig/SPG_primitives.c src/util/graphics/sdl/sprig/SPG_misc.c src/util/graphics/sdl/sprig/SPG_rotation.c src/util/graphics/sdl/sprig/SPG_polygon.c src/util/graphics/sdl/sprig/SPG_surface.c)
-    # Mixer
-    #add_subdirectory(${CMAKE_SOURCE_DIR}/src/util/sound/sdl/mixer)
-    # add_library(mixer_module src/util/sound/sdl/mixer/music.c src/util/sound/sdl/mixer/mixer.c src/util/sound/sdl/mixer/music_ogg.c src/util/sound/sdl/mixer/music_flac.c src/util/sound/sdl/mixer/music_mad.c src/util/sound/sdl/mixer/dynamic_ogg.c src/util/sound/sdl/mixer/effect_position.c src/util/sound/sdl/mixer/effects_internal.c src/util/sound/sdl/mixer/effect_stereoreverse.c src/util/sound/sdl/mixer/load_voc.c src/util/sound/sdl/mixer/load_aiff.c src/util/sound/sdl/mixer/wavestream.c src/util/sound/sdl/mixer/load_ogg.c src/util/sound/sdl/mixer/convert.cpp)
-
-    # Ensure that the extra cflags are used at compile time
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
-
-    #do not include TTF sources when there is the library
-    if(!FREETYPE_INTERNAL)
+#do not include TTF sources when there is the library
+if(!FREETYPE_INTERNAL)
         set(FREE_BASE_SRCS "")
-    else()
+else()
 
         include_directories( PRIVATE "${CMAKE_BINARY_DIR}/include")
         include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
@@ -1297,13 +823,15 @@ endif()
                             ${FREE_PUBLIC_HEADERS}
                             ${FREE_PUBLIC_CONFIG_HEADERS})
 
-                        add_definitions(-DFT2_BUILD_LIBRARY)
-
- #   target_compile_definitions(
-  #    sgffabric PRIVATE FT2_BUILD_LIBRARY)
+        add_definitions(-DFT2_BUILD_LIBRARY)
 
 
-    endif(!FREETYPE_INTERNAL)
+endif(!FREETYPE_INTERNAL)
+if(ANDORID)
+set(COMPILERS_MUGEN_SRC "")
+endif(ANDROID)
+
+
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
 add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
@@ -1344,13 +872,6 @@ if(PERLLIBS_FOUND)
 endif()
 
 
-find_package(OpenGL)
-if(OPENGL_FOUND)
-  include_directories(${OPENGL_INCLUDE_DIR})
-  link_directories(${OPENGL_LIBRARIES})
-  message (STATUS "ADDING GL Link Lybrary to target sgffabric"  )
-  target_link_libraries(sgffabric ${OPENGL_LIBRARIES})
-endif(OPENGL_FOUND)
 
 set(_INSTALL_LIBS "sgffabric" ${_INSTALL_LIBS})
 target_link_libraries(sgffabric ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
@@ -1365,20 +886,31 @@ set(OGG_INTERNAL_LIB "ogg_module")
 else(OGG_INTERNAL)
 set(OGG_INTERNAL_LIB "")
 endif(OGG_INTERNAL)
+
 if(TIFF_INTERNAL)
 set(TIFF_INTERNAL_LIB "tiff_module")
 else(TIFF_INTERNAL)
 set(TIFF_INTERNAL_LIB "")
 endif(TIFF_INTERNAL)
+
 #add_executable (test src/test.cpp)
-target_link_libraries(sgffabric zlibstatic
-#sdlgfx_module
-#sdlttf_module
-#sdlmixer_module
-#${REQUIRED_LIBS}
-#${OGG_INTERNAL_LIB}
-#${TIFF_INTERNAL_LIB}
-)
+target_link_libraries(sgffabric zlibstatic)
+
+
+if(ANDROID)
+      find_library(OpenGLES1_LIBRARY GLESv1_CM)
+      find_library(OpenGLES2_LIBRARY GLESv2)
+      target_link_libraries(sgffabric ${OpenGLES1_LIBRARY} ${OpenGLES2_LIBRARY})
+
+else()
+find_package(OpenGL)
+if(OPENGL_FOUND)
+  include_directories(${OPENGL_INCLUDE_DIR})
+  link_directories(${OPENGL_LIBRARIES})
+  message (STATUS "ADDING GL Link Lybrary to target sgffabric"  )
+  target_link_libraries(sgffabric ${OPENGL_LIBRARIES})
+endif(OPENGL_FOUND)
+endif()
 
 
 ################  EXAMPLES ##################################################
@@ -1431,7 +963,7 @@ if(NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL )
     install(FILES ${SGF_GFX_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL_gfx-2.0.24")
     install(FILES ${SGF_HAWKNL_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/hawknl/hawknl")
     install(FILES ${SGF_EXPATL_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/expat-2.1.0/lib")
-    install(FILES ${SGF_SGE_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/sge2d/include") 
+    install(FILES ${SGF_SGE_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/sge2d/include")
 endif()
 #man
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL )
@@ -1444,8 +976,7 @@ endif()
 
 #if (NOT USE_SDL)
 #    add_executable (mugentest src/mugen/test.cpp)
-#    target_link_libraries(mugentest ${GROUP_START} base_module level_module factory_module object_module util_module loadpng_module 
+#    target_link_libraries(mugentest ${GROUP_START} base_module level_module factory_module object_module util_module loadpng_module
 #        menu_module env_module network_module gui_module script_module game_module mugen_module ogg_module trigger_module pcre_module dumb_module hawknl_module gme_module ${GROUP_END} ${REQUIRED_LIBS})
 #endif (NOT USE_SDL)
-
 

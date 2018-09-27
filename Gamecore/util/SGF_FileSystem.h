@@ -23,17 +23,22 @@
 
 #include <exception>
 #include <string>
-#ifdef _WIN32
-#include <io.h>
-#else
-#include <sys/io.h>
-#endif
+
+
 #include <vector>
 #include <list>
 #include <iostream>
 #include <sstream>
 
 #include "../SGF_Config.h"
+#if defined(_WIN32)
+#include <io.h>
+#elif defined(LINUX)
+#include <sys/io.h>
+#elif difined(ANDROID)
+
+#endif
+
 #include "SGF_UtilStructs.h"
 #include "SGF_Pointer.h"
 #include "../util/SGF_Token.h"

@@ -151,32 +151,32 @@ std::ostream & debug(int i, const string & context){
 	bool debug=false;
 
 	switch (i) {
-	case error: (whatDebug.error ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[error]); break;
-	case bitmap: (whatDebug.bitmap ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[bitmap]); break;
-	case font: (whatDebug.font ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[font]); break;
-	case gui: (whatDebug.gui ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gui]);  break;
-	case input: (whatDebug.input ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[input]); break;
-	case compilers: (whatDebug.compilers ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[compilers]); break;
-	case configuration: (whatDebug.configuration ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[configuration]); break;
-	case parsers: (whatDebug.parsers ? debug = 1 : debug = 0); cout.rdbuf(debug_buffers[parsers]); break;
-	case lists: (whatDebug.lists ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[lists]); break;
-	case menu: (whatDebug.menu ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[menu]); break;
-	case network: (whatDebug.network ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[network]); break;
-	case resources: (whatDebug.resources ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[resources]); break;
-	case objects: (whatDebug.objects ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[objects]); break;
-	case exceptions: (whatDebug.exceptions ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[exceptions]); break;
-	case environment: (whatDebug.environment ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[environment]); break;
-	case filesystem: (whatDebug.filesystem ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[filesystem]); break;
-	case sound: (whatDebug.sound ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sound]); break;
-	case console: (whatDebug.console ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[console]); break;
-	case gameEngine: (whatDebug.gameEngine ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameEngine]); break;
-	case gameStage: (whatDebug.gameStage ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStage]); break;
-	case gameObject: (whatDebug.gameObject ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameObject]); break;
-	case gameStateMachine: (whatDebug.gameStateMachine ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStateMachine]); break;
-	case gameStory: (whatDebug.gameStory ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStory]); break;
-	case gameConfiguration: (whatDebug.gameConfiguration ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameConfiguration]); break;
-	case sdlmanager: (whatDebug.sdlmanager ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sdlmanager]); break;
-	case xml: (whatDebug.xml ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[xml]); break;
+    case error: ((i == whatDebug.error) ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[error]); break;
+    case bitmap: ((i == whatDebug.bitmap )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[bitmap]); break;
+    case font: ((i == whatDebug.font )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[font]); break;
+    case gui: ((i == whatDebug.gui )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gui]);  break;
+    case input: ((i == whatDebug.input )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[input]); break;
+    case compilers: ((i == whatDebug.compilers )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[compilers]); break;
+    case configuration: ((i == whatDebug.configuration )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[configuration]); break;
+    case parsers: ((i == whatDebug.parsers )? debug = 1 : debug = 0); cout.rdbuf(debug_buffers[parsers]); break;
+    case lists: ((i == whatDebug.lists )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[lists]); break;
+    case menu: ((i == whatDebug.menu )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[menu]); break;
+    case network: ((i == whatDebug.network )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[network]); break;
+    case resources: ((i == whatDebug.resources )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[resources]); break;
+    case objects: ((i == whatDebug.objects )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[objects]); break;
+    case exceptions: ((i == whatDebug.exceptions )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[exceptions]); break;
+    case environment: ((i == whatDebug.environment )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[environment]); break;
+    case filesystem: ((i == whatDebug.filesystem )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[filesystem]); break;
+    case sound: ((i == whatDebug.sound )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sound]); break;
+    case console: ((i == whatDebug.console )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[console]); break;
+    case gameEngine: ((i == whatDebug.gameEngine )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameEngine]); break;
+    case gameStage: ((i == whatDebug.gameStage )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStage]); break;
+    case gameObject: ((i == whatDebug.gameObject )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameObject]); break;
+    case gameStateMachine: ((i == whatDebug.gameStateMachine )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStateMachine]); break;
+    case gameStory: ((i == whatDebug.gameStory )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStory]); break;
+    case gameConfiguration: ((i == whatDebug.gameConfiguration )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameConfiguration]); break;
+    case sdlmanager: ((i == whatDebug.sdlmanager )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sdlmanager]); break;
+    case xml: ((i == whatDebug.xml )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[xml]); break;
 	default: debug = 0;cout.rdbuf(debug_buffers[xml]); break;
 	}
 
