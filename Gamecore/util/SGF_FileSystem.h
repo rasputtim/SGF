@@ -33,9 +33,9 @@
 #include "../SGF_Config.h"
 #if defined(_WIN32)
 #include <io.h>
-#elif defined(LINUX)
+#elif defined(LINUX) && !defined(ANDROID)
 #include <sys/io.h>
-#elif difined(ANDROID)
+#elif defined(ANDROID)
 
 #endif
 

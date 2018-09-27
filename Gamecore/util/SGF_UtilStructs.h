@@ -24,8 +24,10 @@
 #include "../../ExternalLibs/SDL2/include/SDL.h"
 #ifdef _WIN32
 #include <io.h>
-#else
+#elif defined(LINUX) && !defined(ANDROID)
 #include <sys/io.h>
+#elif defined(ANDROID)
+
 #endif
 #include <string>
 #include <vector>

@@ -174,7 +174,7 @@
     #endif
     #endif
 
-#elif defined(linux) || defined(__linux)
+#elif defined(linux) || defined(__linux) && !defined(ANDROID)
 #ifndef LINUX
 #define LINUX
 #endif

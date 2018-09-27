@@ -38,6 +38,9 @@ namespace SGF {
 namespace Debug
 {
 #ifdef ANDROID
+#include <string>
+#include <sstream>
+#include <iostream>
 class android_ostream: public std::ostream {
 public:
     android_ostream(bool enabled = true);
