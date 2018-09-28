@@ -21,10 +21,9 @@
 #define _SGF_gui_coordinate_h
 #include <vector>
 #include "../SGF_Config.h"
-
+#include "../exceptions/all.h"
 using namespace std;
 namespace SGF{
-class CLoadException;
 class CBitmap;
 class Point;
 
@@ -39,7 +38,7 @@ class CSpace;
  *
  * \ingroup SGF_Gui
  * 
- * \brief Mapeamento de coordenadas espaciais para físicas
+ * \brief Mapeamento de coordenadas espaciais para fï¿½sicas
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -94,7 +93,7 @@ class  SGE_API CPoint{
     //const Gui::Space::CSpace & space;
 
 	//-----------------------
-	//CPoint(double numpoints); //! inicializa vários pontos (num_points), na coordenada (0,0,0)
+	//CPoint(double numpoints); //! inicializa vï¿½rios pontos (num_points), na coordenada (0,0,0)
 	
 	void set(double ponto);
 	void set(double ponto1, double ponto2);
@@ -122,7 +121,7 @@ class  SGE_API CPoint{
 	// devem ser private depois qe resolver problema em tab.menu
 	double x; ///< coordenada horizontal do ponto
     double y; ///< coordenada vertical do ponto
-	double z; //< coordenada profundidade do ponto. Só utilizado para operações em 3D (simulação 3D)
+	double z; //< coordenada profundidade do ponto. Sï¿½ utilizado para operaï¿½ï¿½es em 3D (simulaï¿½ï¿½o 3D)
 
     /* true if points use the same space system */
     // bool sameSpace(const CPoint & point);
@@ -148,7 +147,7 @@ class  SGE_API CAbsolutePoint : public CPoint {
     public:
         CAbsolutePoint(); //! inicializa um ponto na origem (0,0,0)
         explicit CAbsolutePoint(int x, int y, int z=0); //! inicializa um ponto nas coordenadas (x,y,0)
-        //CAbsolutePoint(int numpoints); //! inicializa vários pontos (num_points), na coordenada (0,0,0)
+        //CAbsolutePoint(int numpoints); //! inicializa vï¿½rios pontos (num_points), na coordenada (0,0,0)
 		CAbsolutePoint(const CAbsolutePoint &);
         virtual ~CAbsolutePoint();
         
@@ -271,15 +270,15 @@ class  SGE_API CAbsolutePoint : public CPoint {
 	    return ((this->x != p.x) || (this->y != p.y)|| (this->z != p.z));
 		}
 
-   // private:  //por enquanto, até corrigir  a class CElement
+   // private:  //por enquanto, atï¿½ corrigir  a class CElement
 		
      //   int x; ///< coordenada horizontal do ponto
      //   int y; ///< coordenada vertical do ponto
-	//	int z;  ///< coordenada profundidade do ponto. Só utilizado para operações em 3D (simulação 3D)
+	//	int z;  ///< coordenada profundidade do ponto. Sï¿½ utilizado para operaï¿½ï¿½es em 3D (simulaï¿½ï¿½o 3D)
 };
 
-//Classe utilizada para armazenar vários pontos
-/// Esta Classe será substituída pela do grupo SGF_Util
+//Classe utilizada para armazenar vï¿½rios pontos
+/// Esta Classe serï¿½ substituï¿½da pela do grupo SGF_Util
 
 class  SGE_API CPoints :public CAbsolutePoint {
 public:
@@ -346,7 +345,7 @@ class  SGE_API CRelativePoint : public CPoint {
  *
  * \ingroup SGF_Gui
  * 
- * \brief Sistema de coordenadas para manusear gráficos escaláveis
+ * \brief Sistema de coordenadas para manusear grï¿½ficos escalï¿½veis
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *

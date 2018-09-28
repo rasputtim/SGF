@@ -3983,7 +3983,8 @@ void TestMath() {
 	}
 	PrintClocks( "  CMath::Log16( tst )", 1, bestClocks );
 
-	Debug::debug(Debug::math,__FUNCTION__) << "testvar = "<< testvar<<endl;
+      //todo: solve problem in android
+		//  Debug::debug(Debug::math,__FUNCTION__) << "testvar = "<< (float)testvar<<endl;
 
 	CMatriz3D resultMat3;
 	CQuaternion fromQuat, toQuat, resultQuat;

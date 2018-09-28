@@ -29,6 +29,11 @@
 #if defined(__APPLE__) && defined(__MACH__)
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
+#elif defined(ANDROID)
+// open GL libs
+
+#include <GLES3/gl3.h>
+#include <GLES3/gl3ext.h>
 #else
 #include <GL/gl.h>
 #include <GL/glu.h>
@@ -5020,7 +5025,9 @@ void CBitmap::SetDefColor(int R, int G, int B, int A){
 
 }
 
+#ifndef ANDROID
 
+//todo: add Gles (externalLibs ges 1.4) tocompile under android
 //==============  GL ==================================
 //  FUNÇÕES QUE TRABALHAM NO MODO OpenGL Diretamente //
 //=====================================================
@@ -5402,6 +5409,8 @@ switch (method) {
 	 break;
 }
 }
+
+
 /** @fn CBitmap::CircleFill(const float x,const float y,const float radius,const int R, const int G, const int B,bool rotate,float angle)
 @brief Desenha um circulo preenchido com a cor passada nos parâmetros
 @param x: coordenada do ponto central no eixo x
@@ -5640,6 +5649,8 @@ void CBitmap::ArcFill(const float x, const float y, const float startAngle, cons
 	 break;
 }
 }
+
+
 // sem querer fiz uma estrela
 // Ver como funciona mais tarde
 // passar o ângulo de -90 graus   // tem a ver com o fato de  eu ter passado um ângulo em graus e as funções esperarem um ângulo em radianos
@@ -5983,6 +5994,7 @@ void CBitmap::BoxTex(int filter, const float x1,const float y1, float x2,const f
 }
 glPopMatrix();
 }
+
 float CBitmap::ConvertXto3D(int x) {
 	// formula = Gl= (2P / (x2-x1)) -1
 return (((float(2)*float(x))/float(getBitmap()->w))-float(1));
@@ -6368,6 +6380,7 @@ void CBitmap::BlitGLToScreen(){
  // troca os buffers da tela. só no modo 1.2
  // SDL_GL_SwapBuffers();  // swap buffers to display, since we're double buffered.
 }
+#endif
 
 //! render the text to the surface
 void CBitmap::RenderToSurface(char *string,int x,int y, Colors::ColorDefinition textColor, CFont *fonte) const{

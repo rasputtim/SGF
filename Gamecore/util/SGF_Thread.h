@@ -78,16 +78,16 @@ ThreadId_t *_my_ThreadId_t;
     int releaseLock(Lock * lock);
     void destroyLock(Lock * lock);
 	/** cria um novo Trhead
-		\param function: A função (assinatura ThreadFunction) que ira executar no thread criado
-		\param arg: ponteiro para os argumentos que serão passados para a função function
+		\param function: A funï¿½ï¿½o (assinatura ThreadFunction) que ira executar no thread criado
+		\param arg: ponteiro para os argumentos que serï¿½o passados para a funï¿½ï¿½o function
 		\param attributes: used to pass attributes to WII create Thread. For others platforms must be NULL
 		\param ThreadId_t: The ThreadId_t of the new thread
 		**/
     bool createThread(ThreadId_t * thread, void * attributes, ThreadFunction function, void * arg);
 
 
-	/**  A thread pode executar o thread join e aguardar até a outra thread terminar.
-	     Em geral o thread join é utilizado para a thread-mãe se sincronizar com uma das threads-filho.
+	/**  A thread pode executar o thread join e aguardar atï¿½ a outra thread terminar.
+	     Em geral o thread join ï¿½ utilizado para a thread-mï¿½e se sincronizar com uma das threads-filho.
 		\param thread: o ThreadId_t do thread que deve ser aguardado
 	**/
 	void joinThread(ThreadId_t thread);
@@ -184,26 +184,26 @@ public:
   */
 class  SGE_API CRegisteredThread{
 public:
-    /** constrói o objeto, mas não inicia o novo thread ainda
+    /** constrï¿½i o objeto, mas nï¿½o inicia o novo thread ainda
 	**/
     CRegisteredThread();
 
-    /** constrói o objeto, e já inicia o novo thread
-	\param thread: a função que será executada pelo novo thread
-	\param arg: os parâmetros que serão passados para função a ser executada
+    /** constrï¿½i o objeto, e jï¿½ inicia o novo thread
+	\param thread: a funï¿½ï¿½o que serï¿½ executada pelo novo thread
+	\param arg: os parï¿½metros que serï¿½o passados para funï¿½ï¿½o a ser executada
 	**/
    CRegisteredThread(Thread::ThreadFunction thread, void * arg);
 
     /** \brief inicia um thread
 	\param thread: o thread a ser iniciado
-	\param arg: osparâmetros que serão passados para a função a ser executada
+	\param arg: osparï¿½metros que serï¿½o passados para a funï¿½ï¿½o a ser executada
 	**/
     void start(Thread::ThreadFunction thread, void * arg);
 
 	/** \brief retorna true se o thread estiver rodando
 	**/
     bool isRunning();
-	/** \brief espera até que o thread termine
+	/** \brief espera atï¿½ que o thread termine
 	**/
     void kill();
 
@@ -346,8 +346,8 @@ private:
 /**
  *
  * isEmpty()
- * \brief Verifica se há ou não threads na fila
- * \return: true se não há nenhum elemento na fila de threads ou
+ * \brief Verifica se hï¿½ ou nï¿½o threads na fila
+ * \return: true se nï¿½o hï¿½ nenhum elemento na fila de threads ou
  *          false se houver algum
  *
  *
@@ -541,26 +541,26 @@ public:
   */
 class  SGE_API WaitThread{
 public:
-    /** constrói o objeto, mas não inicia o novo thread ainda
+    /** constrï¿½i o objeto, mas nï¿½o inicia o novo thread ainda
 	**/
     WaitThread();
 
-    /** constrói o objeto, e já inicia o novo thread
-	\param thread: a função que será executada pelo novo thread
-	\param arg: os parâmetros que serão passados para função a ser executada
+    /** constrï¿½i o objeto, e jï¿½ inicia o novo thread
+	\param thread: a funï¿½ï¿½o que serï¿½ executada pelo novo thread
+	\param arg: os parï¿½metros que serï¿½o passados para funï¿½ï¿½o a ser executada
 	**/
     WaitThread(Thread::ThreadFunction thread, void * arg);
 
     /** \brief inicia um thread
 	\param thread: o thread a ser iniciado
-	\param arg: osparâmetros que serão passados para a função a ser executada
+	\param arg: osparï¿½metros que serï¿½o passados para a funï¿½ï¿½o a ser executada
 	**/
     void start(Thread::ThreadFunction thread, void * arg);
 
 	/** \brief retorna true se o thread estiver rodando
 	**/
     bool isRunning();
-	/** \brief espera até que o thread termine
+	/** \brief espera atï¿½ que o thread termine
 	**/
     void kill();
 
@@ -598,11 +598,11 @@ protected:
 class  SGE_API ThreadBoolean{
 public:
     ThreadBoolean(volatile bool & what, Thread::Lock & lock);
-	/** retorna o valor da variável boolean mas antes faz um lock nela
+	/** retorna o valor da variï¿½vel boolean mas antes faz um lock nela
 	\return: valor (verdadeiro ou falso) que estava armazenado
 	**/
     bool get();
-	/** seta o valor da variável boolean mas antes faz um lock nela
+	/** seta o valor da variï¿½vel boolean mas antes faz um lock nela
 	\param value: valor (verdadeiro ou falso) a ser armazenado
 	**/
     void set(bool value);

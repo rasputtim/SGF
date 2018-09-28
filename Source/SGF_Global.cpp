@@ -53,7 +53,10 @@ const int ALLIANCE_FREE_FOR_ALL = 1000;
 
 #if defined(WINDOWS)
 static string Fontcaminho= string(DEF_FONT_PATH)+string("arial.ttf");
-#else defined(LINUX)
+#elif defined(ANDROID)
+//todo: treat fonts in the Android: https://stackoverflow.com/questions/38126207/how-do-i-include-a-font-file-ttf-in-my-android-ndk-project
+static string Fontcaminho= string(DEF_FONT_PATH)+string("truetype/msttcorefonts/arial.ttf");
+#elif defined(LINUX)
 static string Fontcaminho= string(DEF_FONT_PATH)+string("truetype/msttcorefonts/arial.ttf");
 #endif
 const char * SGF::Global::DEFAULT_FONT = Fontcaminho.c_str();//(string(DEF_FONT_PATH) + "arial.ttf").c_str();

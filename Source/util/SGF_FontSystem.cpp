@@ -47,11 +47,11 @@ using namespace std;
 namespace SGF {
 
 
-//inicializa variáveis estáticas
-CFontList* CFontList::pCText=NULL;   //! ponteiro para a intância única da classe
+//inicializa variï¿½veis estï¿½ticas
+CFontList* CFontList::pCText=NULL;   //! ponteiro para a intï¿½ncia ï¿½nica da classe
 vector<Util::CReferenceCount<CFontInfo> > CFontList::availableFonts;
 
-//! este template é utilizado para o operador + da função findsystemfonts
+//! este template ï¿½ utilizado para o operador + da funï¿½ï¿½o findsystemfonts
 template <class X>
 static vector<X> operator+(const vector<X> & v1, const vector<X> & v2){
     vector<X> out;
@@ -273,11 +273,11 @@ NumFontsBitmap(0),
 DefFontsLoaded(0)
 {
     Debug::debug(Debug::font,__FUNCTION__) << "Initializing Font List " << endl;
-			//Se as fontes não foram carregadas, carregas as fontes ttf padrão num ambiente windows
+			//Se as fontes nï¿½o foram carregadas, carregas as fontes ttf padrï¿½o num ambiente windows
 	if (!DefFontsLoaded)
 	//LoadFonts(Filesystem::CAbsolutePath("fonts"));
 	findFonts();
-	//Todo: Carregar as fontes bitmap disponíveis
+	//Todo: Carregar as fontes bitmap disponï¿½veis
 }
 
 //Destructor
@@ -295,8 +295,8 @@ void CFontList::CleanUp() {
 
 
 /** @fn CFontList::LoadFonts(string path)
-@brief rotina que varre o diretório e retorna duas listas com os nomes dos aquivos extensão .ttf ou .fon
-@param path: caminho do diretório a ser verificado
+@brief rotina que varre o diretï¿½rio e retorna duas listas com os nomes dos aquivos extensï¿½o .ttf ou .fon
+@param path: caminho do diretï¿½rio a ser verificado
 @return 0 se ok
         1 se aconteceu algum erro
 @warning Obs: preenche dois mapas: MyTTFFonts com o nome da fonte e o caminho
@@ -341,8 +341,8 @@ return 0;
 }
 */
 /** @fn CFontList::GetNumFontsTTF()
-@brief rotina que retorna o número de fontes ttf carregadas na lista
-@return o número de fontes carregadas
+@brief rotina que retorna o nï¿½mero de fontes ttf carregadas na lista
+@return o nï¿½mero de fontes carregadas
 @warning
 **/
 int CFontList::GetNumFontsTTF() {
@@ -351,8 +351,8 @@ return NumFontsTTF;
 
 
 /** @fn CFontList::GetNumFontsBitmap()
-@brief rotina que retorna o número de fontes bitmap carregadas na lista
-@return o número de fontes carregadas
+@brief rotina que retorna o nï¿½mero de fontes bitmap carregadas na lista
+@return o nï¿½mero de fontes carregadas
 @warning
 **/
 int CFontList::GetNumFontsBitmap() {
@@ -370,10 +370,10 @@ vector<Util::CReferenceCount<CFontInfo> >::iterator CFontList::findFontVector(st
 			}else it++;
 
 		}
-		Debug::debug(Debug::resources,__FUNCTION__) << "caminho da fonte: "<< name <<"  NÃO encontrado " <<endl;
+		Debug::debug(Debug::resources,__FUNCTION__) << "caminho da fonte: "<< name <<"  Nï¿½O encontrado " <<endl;
 		return availableFonts.end();
 }
-//deve usar isAvailable antes de chamar est método senão pode dar erro
+//deve usar isAvailable antes de chamar est mï¿½todo senï¿½o pode dar erro
 Util::CReferenceCount<CFontInfo> CFontList::findFont(string name) {
 	name=Filesystem::stripDir(name);
 	vector<Util::CReferenceCount<CFontInfo> >::iterator it=availableFonts.begin();
@@ -390,7 +390,7 @@ Util::CReferenceCount<CFontInfo> CFontList::findFont(string name) {
 /** @fn CFontList::GetFontPath(const string fonte)
 @brief retorna o caminho para uma fonte, dado seu nome
 @param fonte: nome da fonte que se procura na lista
-@return o caminho para a fonte ou uma string vazia se a fonte não estiver disponível
+@return o caminho para a fonte ou uma string vazia se a fonte nï¿½o estiver disponï¿½vel
 @warning Todo: o que acontece se tiver mais de uma fonte com o mesmo nome?
 **/
 string CFontList::GetFontPath(const string fonte) throw(CLoadException){
@@ -402,7 +402,7 @@ string CFontList::GetFontPath(const string fonte) throw(CLoadException){
 			Debug::debug(Debug::resources,__FUNCTION__) << "Achou o caminho para a fonte:" << (*it)->getPath() <<endl;
 			return (*it)->getPath();
 			}else {
-			Debug::debug(Debug::resources,__FUNCTION__) << "não achou o caminho " <<endl;
+			Debug::debug(Debug::resources,__FUNCTION__) << "nï¿½o achou o caminho " <<endl;
 			throw CLoadException(__FILE__, __LINE__,"Could not find font");
 
 			}
@@ -411,10 +411,10 @@ string CFontList::GetFontPath(const string fonte) throw(CLoadException){
     }
 }
 /** @fn CFontList::isAvailable(string fonte)
-@brief verifica se a fonte desejada está na lista de fontes disponíveis
+@brief verifica se a fonte desejada estï¿½ na lista de fontes disponï¿½veis
 @param fonte: nome da fonte que se procura na lista
-@return 1 se a fonte está disponível
-//          0 se a fonte não está disponível
+@return 1 se a fonte estï¿½ disponï¿½vel
+//          0 se a fonte nï¿½o estï¿½ disponï¿½vel
 @warning
 **/
 int CFontList::isAvailable(string fonte) throw (CLoadException) {
@@ -432,9 +432,9 @@ int CFontList::isAvailable(string fonte) throw (CLoadException) {
 
 }
 /** @fn CFontList::GetInstance()
-@brief retorna o ponteiro para a instância da classe CFontList (Singleton)
+@brief retorna o ponteiro para a instï¿½ncia da classe CFontList (Singleton)
 @param
-@return Ponteiro para a instância da Classe CFontList
+@return Ponteiro para a instï¿½ncia da Classe CFontList
 @warning
 **/
  CFontList*  CFontList::GetInstance()
@@ -447,7 +447,7 @@ int CFontList::isAvailable(string fonte) throw (CLoadException) {
 
 //==============================================================
 // Objetivo: Construtor: inicializar uma fonte TTF
-// Parâmetros: fonte: nome da fonte a ser carregada sem o caminho
+// Parï¿½metros: fonte: nome da fonte a ser carregada sem o caminho
 
 CTTFFont::CTTFFont(const string fonte, int ptsize):
 CFont((CFont *) this),
@@ -460,11 +460,11 @@ _my_font(NULL),
 type(TrueTypeFont),
 TTF_AA(Solid),
 _my_style(Normal){
-    Debug::debug(Debug::font, __FUNCTION__) << "Constructor // Fontes Disponíveis="<< AvailableFonts->GetNumFontsTTF() <<endl;
+    Debug::debug(Debug::font, __FUNCTION__) << "Constructor // Fontes Disponï¿½veis="<< AvailableFonts->GetNumFontsTTF() <<endl;
 	//verifica se existe esta fonte na lista de fontes disponiveis
-	//verifica se foi passado com ou sem diretório
-	//se foi passado com diretório, tira o diretório e carrega todas as fontes que tem nesse diretório na lista de fontes
-	// Se foi passado sem diretório, tem que ter a lista carregada
+	//verifica se foi passado com ou sem diretï¿½rio
+	//se foi passado com diretï¿½rio, tira o diretï¿½rio e carrega todas as fontes que tem nesse diretï¿½rio na lista de fontes
+	// Se foi passado sem diretï¿½rio, tem que ter a lista carregada
 
 	string::iterator it;
     bool withpath=0;
@@ -483,7 +483,7 @@ _my_style(Normal){
 	{
 	  if (!AvailableFonts->DefFontsLoaded) {
       // inicializa a lista de fontes
-		  Debug::debug(Debug::resources,__FUNCTION__) << "Lista de fontes ainda não inicializada="<< endl;
+		  Debug::debug(Debug::resources,__FUNCTION__) << "Lista de fontes ainda nï¿½o inicializada="<< endl;
 	  }else {
 	  setFont( LoadFont(fonte,ptsize) );
 	  sizeY = getHeight();
@@ -501,11 +501,11 @@ CTTFFont::~CTTFFont () {}
 
 
 void CTTFFont::setStyle(int style){
-	//Todo  Checar se style é um valor válido
+	//Todo  Checar se style ï¿½ um valor vï¿½lido
 	TTF_SetFontStyle(_my_font, style);
 }
-// Objetivo: Imprimir no arquivo de logs as fontes disponíveis e o seu caminho
-// Parâmetros: nenhum
+// Objetivo: Imprimir no arquivo de logs as fontes disponï¿½veis e o seu caminho
+// Parï¿½metros: nenhum
 // retorno: Nada
 void CFontList::PrintFonts() {
 
@@ -525,7 +525,7 @@ TTF_Font *CTTFFont::LoadFont(string font, int ftSize) throw(CLoadException) {
     //Debug::debug(Debug::font, __FUNCTION__) << "CFontList:: Initiating ttf Fonts"<<endl;
      //Open the font
 	Debug::debug(Debug::font,__FUNCTION__) << "Iniciando a fonte : "<< font <<endl;
-	//se foi passado o diretório junto com o nome da fonte.....
+	//se foi passado o diretï¿½rio junto com o nome da fonte.....
 	string::iterator it;
     bool withpath=0;
 	if(font.find('/')!=string::npos){
@@ -547,10 +547,10 @@ TTF_Font *CTTFFont::LoadFont(string font, int ftSize) throw(CLoadException) {
 
 	}
 
-    // carrega fonte que foi passada sem diretório
+    // carrega fonte que foi passada sem diretï¿½rio
 	try {
 	if (!Util::exists(file)) {
-       throw CLoadException(__FILE__, __LINE__,"Caminho Não encontrado");
+       throw CLoadException(__FILE__, __LINE__,"Caminho Nï¿½o encontrado");
 	   return NULL;
 	}else {
 	Debug::debug(Debug::resources,__FUNCTION__) << "caminho para a fonte Encontrado: "<< file <<endl;
@@ -565,7 +565,7 @@ TTF_Font *CTTFFont::LoadFont(string font, int ftSize) throw(CLoadException) {
 	this->setFontOK();
     Debug::debug(Debug::resources,__FUNCTION__) << "Font initiated OK"<<endl;
 	//Coloca o ponteiro da fonte na lista de fontes carregadas
-	//AvailableFonts->MyTTFLoadedFonts[font] = this;  //! controlado através do font_factory
+	//AvailableFonts->MyTTFLoadedFonts[font] = this;  //! controlado atravï¿½s do font_factory
 	/*ret=MyLoadedFonts.insert(pair<int,TTF_Font (*)(fontnumber,fonte));
 			if (ret.second==false) {
 
@@ -1452,12 +1452,12 @@ void CTTFFont::drawGradientText( const char* text,  int y, CBitmap* tgt)
 	// 4. FINALLY
 	surface->useTexture();
 	surface->SetBlendMode(SGF::CBitmap::MODE_TRANS);
-	surface->applyTrans(Colors::makeColor(Colors::Black)); //aqui a textura é atualizada
+	surface->applyTrans(Colors::makeColor(Colors::Black)); //aqui a textura ï¿½ atualizada
 	surface->Blit(size.x, size.y);
 	}else {
 	surface->useSurface();
 	surface->SetBlendMode(SGF::CBitmap::MODE_TRANS);
-	surface->applyTrans(Colors::makeColor(Colors::Black)); //aqui a textura é atualizada
+	surface->applyTrans(Colors::makeColor(Colors::Black)); //aqui a textura ï¿½ atualizada
 	surface->BlitSurface(size.x, size.y,*tgt);
 
 	}
@@ -1505,9 +1505,9 @@ void CFont::drawText( int x, int y,  Colors::ColorDefinition color, const CBitma
 	work.Render(buf,x,y,color,_real_Font);
 
 }
-//! método usado para módulo de compatibilidade
+//! mï¿½todo usado para mï¿½dulo de compatibilidade
 void CTTFFont::RenderToSurface( int x, int y, const CBitmap &dst, Colors::ColorDefinition textColor,char *string){
-     // Não adaptada para SDL 1.3 sem o modo de compatibilidade. neste caso utile a função do módulo CBitmap
+     // Nï¿½o adaptada para SDL 1.3 sem o modo de compatibilidade. neste caso utile a funï¿½ï¿½o do mï¿½dulo CBitmap
      //Debug::debug(Debug::font, __FUNCTION__) << "string =");
      //Debug::debug(Debug::font, __FUNCTION__) << string);
      //Holds offsets
@@ -1567,8 +1567,8 @@ map<int,void*>::iterator it = MyLoadedFonts.find(100);
 
 } */
 
-//! Vefifica se a fonte está na lista de fontes disponíveis
-//! Agora é feito na font_factory
+//! Vefifica se a fonte estï¿½ na lista de fontes disponï¿½veis
+//! Agora ï¿½ feito na font_factory
 /*
 CTTFFont *CTTFFont::CheckLoaded(string fonte) {
     if  (fonte=="")
@@ -1858,7 +1858,7 @@ void CTTFFont::printfWrap(int x, int y, int color, const CBitmap & work, int max
 //Todo:  feito na font_factory
 /*
 CTTFFont & CTTFFont::getFont( const string & name, const int x, const int y ){
-    //verificar se afonte está inicializada, senão inicialiar e retornar um ponteiro para a calsse criada
+    //verificar se afonte estï¿½ inicializada, senï¿½o inicialiar e retornar um ponteiro para a calsse criada
 	//arrumar...verificar o tamanho da fonte e se ela esta carregada coorretamente
 	CTTFFont *teste = CheckLoaded(name);
 	if(teste==NULL)
@@ -1991,11 +1991,11 @@ type(BitmapFont),
 _my_bitmaptype(_type)
 {
 
-	Debug::debug(Debug::font, __FUNCTION__) << "Constructor // Fontes Disponíveis="<< AvailableFonts->GetNumFontsBitmap() <<endl;
+	Debug::debug(Debug::font, __FUNCTION__) << "Constructor // Fontes Disponï¿½veis="<< AvailableFonts->GetNumFontsBitmap() <<endl;
 	//verifica se existe esta fonte na lista de fontes disponiveis
-	//verifica se foi passado com ou sem diretório
-	//se foi passado com diretório, tira o diretório e carrega todas as fontes que tem nesse diretório na lista de fontes
-	// Se foi passado sem diretório, tem que ter a lista carregada
+	//verifica se foi passado com ou sem diretï¿½rio
+	//se foi passado com diretï¿½rio, tira o diretï¿½rio e carrega todas as fontes que tem nesse diretï¿½rio na lista de fontes
+	// Se foi passado sem diretï¿½rio, tem que ter a lista carregada
 
 	string::iterator it;
     bool withpath=0;
@@ -2014,7 +2014,7 @@ _my_bitmaptype(_type)
 	{
 	  if (!AvailableFonts->DefFontsLoaded) {
       // inicializa a lista de fontes
-		  Debug::debug(Debug::font,__FUNCTION__) << "Lista de fontes ainda não inicializada="<< endl;
+		  Debug::debug(Debug::font,__FUNCTION__) << "Lista de fontes ainda nï¿½o inicializada="<< endl;
 	  }else {
 		  if (fontName.empty()) return;
 	  setFont( LoadFont(fontName) );
@@ -2033,7 +2033,7 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
     //Debug::debug(Debug::font, __FUNCTION__) << "CFontList:: Initiating ttf Fonts"<<endl;
      //Open the font
 	Debug::debug(Debug::font,__FUNCTION__) << "Iniciando a fonte : "<< font <<endl;
-	//se foi passado o diretório junto com o nome da fonte.....
+	//se foi passado o diretï¿½rio junto com o nome da fonte.....
 	string::iterator it;
     bool withpath=0;
 	if(font.find('/')!=string::npos){
@@ -2057,7 +2057,7 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
 
 
 	if (!Util::exists(file)) {
-       throw CLoadException(__FILE__, __LINE__,"Caminho Não encontrado");
+       throw CLoadException(__FILE__, __LINE__,"Caminho Nï¿½o encontrado");
 	   return NULL;
 	}else {
 	//char *tmp;
@@ -2086,6 +2086,7 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
 				int largeWidth = 0;
 				for (i=0;i<_my_font.bitmap->getWidth();i++) {
 					pi=_my_font.bitmap->getPixelSurface(i,0);
+					using std::ostream;
 					Debug::debug(Debug::font, __FUNCTION__) << "Pixel Color / R / G / B / A / - / "<< Colors::getRed(pi) << " / " << Colors::getGreen(pi) << " / " << Colors::getBlue(pi) << " / " << Colors::getAlpha(pi)<< " / "<<endl;
 
 					if (
@@ -2184,7 +2185,7 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
 			    it++;
 
 
-			} //se a cor não for igaual a color, incrementa a posição X
+			} //se a cor nï¿½o for igaual a color, incrementa a posiï¿½ï¿½o X
 			x++;
 		}
 		sizeY = _my_font.bitmap->getHeight()-1;
@@ -2361,7 +2362,7 @@ void CBitmapFont::drawText(int x,int y,   Colors::ColorDefinition textColor,  CB
 }
 
 void CBitmapFont::Render(char *string, const CBitmap &dst, int x,int y, Colors::ColorDefinition textColor){
-     // Não adaptada para SDL 1.3 sem o modo de compatibilidade. neste caso utile a função do módulo CBitmap
+     // Nï¿½o adaptada para SDL 1.3 sem o modo de compatibilidade. neste caso utile a funï¿½ï¿½o do mï¿½dulo CBitmap
      //Debug::debug(Debug::font, __FUNCTION__) << "string =");
      //Debug::debug(Debug::font, __FUNCTION__) << string);
      //Holds offsets

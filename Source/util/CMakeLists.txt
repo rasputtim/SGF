@@ -40,6 +40,7 @@ ${UTIL_DIR}/SGF_Timer.cpp
 ${UTIL_DIR}/SGF_Token.cpp
 ${UTIL_DIR}/SGF_TokenReader_xml.cpp
 ${UTIL_DIR}/SGF_Utf.cpp
+${UTIL_DIR}/SGF_UtilStructs.cpp
 ${UTIL_DIR}/SGF_Util.cpp
 ${UTIL_DIR}/SGF_Xmltools.cpp
 )

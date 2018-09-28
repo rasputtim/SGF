@@ -827,14 +827,17 @@ else()
 
 
 endif(!FREETYPE_INTERNAL)
-if(ANDORID)
-set(COMPILERS_MUGEN_SRC "")
+if(ANDROID)
+#set(COMPILERS_MUGEN_SRC "")
+set(NETWORK_SRC "")
+set(WINDOWS_SRC "")
+set(SYS_SRC "")
 endif(ANDROID)
 
 
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
-add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
+add_library (sgffabric SHARED ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
 ${FREE_BASE_SRCS}
 ${COMPILERS_MUGEN_SRC}
 ${expat_SRCS}
@@ -914,10 +917,11 @@ endif()
 
 
 ################  EXAMPLES ##################################################
+if(!ANDROID)
 include_directories(${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
 add_executable (createWindow ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
 target_link_libraries(createWindow sgffabric)
-
+endif()
 
 
 

@@ -21,26 +21,24 @@
 #define _SGF__DEBUG_H_
 
 
-#include <ostream>
 #include <string>
 #include <map>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../SGF_Config.h"
+#if defined (ANDROID)
+#include <sstream>
+#include <iostream>
+#endif
 
 
 
 using namespace std;
 namespace SGF {
-
-
-
 namespace Debug
 {
 #ifdef ANDROID
-#include <string>
-#include <sstream>
-#include <iostream>
 class android_ostream: public std::ostream {
 public:
     android_ostream(bool enabled = true);

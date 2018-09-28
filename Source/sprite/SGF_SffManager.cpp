@@ -82,8 +82,8 @@ my_act_path("")
 /** @fn CSFFManager::CSFFManager(char * filename,BEHAVIOR *behavior)
 @brief Construtor da Classe CSFFManager. cria um objeto a partir do nome de um arquivo SFF
 @param const char * filename: nome do arquivo contendo as imagens
-@param SFFBEHAVIOR *behavior: estrutura contendo uma série de variáveis que controlam o comportamento do objeto criado. Se for NULL utiliza o comportamento padrão
-@return construtores não retornam
+@param SFFBEHAVIOR *behavior: estrutura contendo uma sï¿½rie de variï¿½veis que controlam o comportamento do objeto criado. Se for NULL utiliza o comportamento padrï¿½o
+@return construtores nï¿½o retornam
 @warning  se ocorrer algum erro, seta a variaval error
 **/
 CSFFManager::CSFFManager(const char * filename,SFFBEHAVIOR *behavior):
@@ -139,7 +139,7 @@ my_act_path="";
     fseek( _my_sff_file, 0, SEEK_END );
     my_sff_length = ftell( _my_sff_file );
     fseek( _my_sff_file, 0, SEEK_SET );
-	if( extract_header() ) { //preenche _myheader antes de alocar memórias
+	if( extract_header() ) { //preenche _myheader antes de alocar memï¿½rias
  		Debug::debug(Debug::error,__FUNCTION__) << "Error while extracting header. Aborting. "  <<endl;
         error=1;
 	}
@@ -152,7 +152,7 @@ my_act_path="";
 	}
 
     // Create table for checking whether linked images are linked to duplicately numbered images.
-	// Cria uma tabela para checar se a imagem lincada está ligada a imagens numeriacamente duplicadas
+	// Cria uma tabela para checar se a imagem lincada estï¿½ ligada a imagens numeriacamente duplicadas
 
     dupcheck = (unsigned char *) calloc( (my_header.nb_imgs+1), sizeof(char) );
     if( dupcheck == NULL){
@@ -196,8 +196,8 @@ CSFFManager::~CSFFManager() {
 
 }
 /** @fn CSFFManager::setBehavior(BEHAVIOR *behavior)
-@brief ajusta  as variáveis de comportamento da classe
-@param BEHAVIOR *behavior: estrutura contendo uma série de variáveis que controlam o comportamento do objeto criado. Se for NULL utiliza o comportamento padrão
+@brief ajusta  as variï¿½veis de comportamento da classe
+@param BEHAVIOR *behavior: estrutura contendo uma sï¿½rie de variï¿½veis que controlam o comportamento do objeto criado. Se for NULL utiliza o comportamento padrï¿½o
 @return nada
 @warning
 **/
@@ -222,7 +222,7 @@ void CSFFManager::setBehavior(SFFBEHAVIOR *behavior){
 }
 
 /** @fn CSFFManager::extract_header()
-@brief extrai o cabeçalho do arquivo ssf para a extrutura header
+@brief extrai o cabeï¿½alho do arquivo ssf para a extrutura header
 @return 1 se falhar e 0 se tiver sucesso
 @warning  se ocorrer algum erro, seta a variaval error
 **/
@@ -237,14 +237,14 @@ int CSFFManager::extract_header() {
                         doesn't guarantee a null character. But perhaps there's
                         a better solution.*/
 
-    //! Lê as informações do cabeçalho
+    //! Lï¿½ as informaï¿½ï¿½es do cabeï¿½alho
     if( !fread( &my_header, sizeof(SFF_HEADER), 1, sff_file ) ){
 		Debug::debug(Debug::error,__FUNCTION__) << "Error: Couldn't read complete header. "  <<endl;
         error = true;
         return 1;
     }
 
-    //! checa se a assinatura do arquivo está certa
+    //! checa se a assinatura do arquivo estï¿½ certa
     if( strcmp( my_header.signature, SFF_SIGNATURE ) ) {
         if( !my_force ) {
             Debug::debug(Debug::error,__FUNCTION__) << "Error: Specified file is not a SFF file."  <<endl;
@@ -255,10 +255,10 @@ int CSFFManager::extract_header() {
         Debug::debug(Debug::error,__FUNCTION__) << "Error: Specified file is not a SFF file.  \nAttempting to go on with extraction anyway."  <<endl;
       }
 
-    //! mostra o cabeçalho
+    //! mostra o cabeï¿½alho
     if( my_display_header ) {
     Debug::debug(Debug::resources,__FUNCTION__) << my_header.nb_imgs <<" images" << endl;
-        Debug::debug(Debug::resources,__FUNCTION__) << my_header.signature<< " , " << my_header.verhi<< " , " << my_header.verlo<< " , " <<  my_header.verlo2 << " , " <<my_header.verlo3 <<endl;
+        //todo: solve for linux Debug::debug(Debug::resources,__FUNCTION__) << my_header.signature<< " , " << my_header.verhi<< " , " << my_header.verlo<< " , " <<  my_header.verlo2 << " , " <<my_header.verlo3 <<endl;
         Debug::debug(Debug::resources,__FUNCTION__) << my_header.nb_groups << "li groups" <<endl;
 		Debug::debug(Debug::resources,__FUNCTION__) << my_header.nb_imgs << "Images" <<endl;
 
@@ -319,7 +319,7 @@ int CSFFManager::extract_header() {
 }
 
 /** @fn CSFFManager::extract()
-@brief Extrai as imagens PCX do arquivo SFF de acordo com o comportamento definido na construção do objeto.
+@brief Extrai as imagens PCX do arquivo SFF de acordo com o comportamento definido na construï¿½ï¿½o do objeto.
 @return 1 se falhar e 0 se tiver sucesso
 @warning
 **/
@@ -362,7 +362,7 @@ int CSFFManager::extract() {
     char dirprefix[_MAX_DRIVE + _MAX_DIR - 13] ="\0";
 	strcpy ( dirprefix,_my_dir_prefix );
 
-    // o cabeçalho já foi extraído pelo construtor da classe
+    // o cabeï¿½alho jï¿½ foi extraï¿½do pelo construtor da classe
     /* 1 = SPRPALTPYE_SHARED ou 0 = SPRPALTYPE_INDIV */
     if(my_header.palette_type && my_header.palette_type != 1 ) my_header.palette_type = 0;
 
@@ -384,7 +384,7 @@ int CSFFManager::extract() {
 	/* sub.next_offset=> File offset where next subfile in the "linked
                                   list" is located. Null if last subfile. */
 
-	// Preenche as tabelas de offset e palete para a condição linux_character
+	// Preenche as tabelas de offset e palete para a condiï¿½ï¿½o linux_character
 	if( my_linux_character ){
 
       /* Values in the final palselect table have these meanings:
@@ -447,7 +447,7 @@ int CSFFManager::extract() {
 		pcxdata = NULL;
 		pcxlistdata = NULL;
 
-        // será deletada através da deleção do CMUgenSprite???
+        // serï¿½ deletada atravï¿½s da deleï¿½ï¿½o do CMUgenSprite???
 		PCXDATA *tempPCXDATA = new PCXDATA;
 		//vector<PCXDATA*> PCXVector;
 		if (tempPCXDATA==NULL) {
@@ -462,7 +462,7 @@ int CSFFManager::extract() {
         }
 		// coloca o arquivo no inicio da sub file (dados da imagem PCX)
         fseek( sff_file, sub.next_offset, SEEK_SET );
-		// Lê o cabeçalho sff da imagem
+		// Lï¿½ o cabeï¿½alho sff da imagem
         if( !fread( &sub, sizeof(SFF_SUBHEADER), 1, sff_file ) ){
             Debug::debug(Debug::resources,__FUNCTION__) <<  "Error: SFF file seems to be truncated. Aborting."<< endl;
 			return 1;
@@ -497,7 +497,7 @@ int CSFFManager::extract() {
         reallength = sub.next_offset-offset[i]-32;
        /* This might often not be sufficient, but is it necessary?
            Actual SFFs seem to disagree with formats.txt. -Winane */
-        //determina o tamanho para o últimko subfile
+        //determina o tamanho para o ï¿½ltimko subfile
 		if( sub.next_offset == 0 ) {
             if( sub.same_pal ) reallength = sub.length-768;
             else reallength = sub.length;
@@ -536,7 +536,7 @@ int CSFFManager::extract() {
 
 
 
-        if( sub.length == 0 ){  // a imagem é linkada
+        if( sub.length == 0 ){  // a imagem ï¿½ linkada
           is_linked = 1;
 		  tempPCXDATA->bIsLinked=true;
 		  //tempPCX->pcxdata.bIsLinked=true;
@@ -715,8 +715,8 @@ int CSFFManager::extract() {
 
 	    //adiciona o palette nas imagens da lista
 		if (is_linked) {
-			/* ainda não sei o que fazer aqui....
-			//deve achar a imagem na lista pelo nome, em caso dela não ter sido criada no siatema de arquivo...????
+			/* ainda nï¿½o sei o que fazer aqui....
+			//deve achar a imagem na lista pelo nome, em caso dela nï¿½o ter sido criada no siatema de arquivo...????
 			//linked_pcx = fopen( linked_name, "rb" );
 			if( linked_pcx == NULL ) {
               if( !my_force ){
@@ -749,8 +749,8 @@ int CSFFManager::extract() {
               fwrite( pcxdata, reallength, 1, pcxfile );
               fclose( pcxfile );
           } */
-		}else { // não é uma imagem linkada
-		if( is_8bitpal ){ // na primeira imagem ele entra aqui. isso retira a necessidade dessa parte na fase de criação do PCX
+		}else { // nï¿½o ï¿½ uma imagem linkada
+		if( is_8bitpal ){ // na primeira imagem ele entra aqui. isso retira a necessidade dessa parte na fase de criaï¿½ï¿½o do PCX
               if( !found_1st && !my_use_act && is_8bitpal!=2 ){
                   memcpy( palsaveD, pcxdata+reallength-768, 768 );
                   memcpy( palsave1, palsaveD, 768 );
@@ -763,11 +763,11 @@ int CSFFManager::extract() {
                   if( !(sub.group==9000 && sub.img==1 && (!sub.same_pal || is_8bitpal==-1)) || is_8bitpal==2 )
                       {
 						tempPCXDATA->pImageData= (unsigned char *) realloc(tempPCXDATA->pImageData,tempPCXDATA->Lenght+768 );
-						// copiar o pallete para o final da posição de memória imagePCX
+						// copiar o pallete para o final da posiï¿½ï¿½o de memï¿½ria imagePCX
 						void *address =tempPCXDATA->pImageData + tempPCXDATA->Lenght;
 						memcpy(address,palsave1,768);
 						memcpy( tempPCXDATA->ColorPallet,palsave1,768);
-						//atualiza o tamanho do bloco de memória
+						//atualiza o tamanho do bloco de memï¿½ria
 						tempPCXDATA->Lenght = tempPCXDATA->Lenght+768;
 
 			  	  }
@@ -777,11 +777,11 @@ int CSFFManager::extract() {
               else if( palselect[i]==1 && found_1st ){
 				  if( is_8bitpal==1 || (my_use_act && !(sub.group==9000 && sub.img==1)) ) {
                      tempPCXDATA->pImageData= (unsigned char *) realloc( tempPCXDATA->pImageData, tempPCXDATA->Lenght+768 );
-					  // copiar o pallete para o final da posição de memória imagePCX
+					  // copiar o pallete para o final da posiï¿½ï¿½o de memï¿½ria imagePCX
 					  void *address = tempPCXDATA->pImageData +tempPCXDATA->Lenght;
 					  memcpy(address,palsaveD,768);
 					  memcpy(tempPCXDATA->ColorPallet,palsaveD,768);
-					  //atualiza o tamanho do bloco de memória
+					  //atualiza o tamanho do bloco de memï¿½ria
 					 tempPCXDATA->Lenght = tempPCXDATA->Lenght+768;
 
 				  }
@@ -803,11 +803,11 @@ int CSFFManager::extract() {
               else if( !my_use_act && is_8bitpal==1 ){  //entrou aqui na terceira imagem grupo 0 imagem 0
                   if( sub.same_pal ) {
                        tempPCXDATA->pImageData= (unsigned char *) realloc(tempPCXDATA->pImageData, tempPCXDATA->Lenght+768 );
-					  // copiar o pallete para o final da posição de memória imagePCX
+					  // copiar o pallete para o final da posiï¿½ï¿½o de memï¿½ria imagePCX
 					  void *address = tempPCXDATA->pImageData + tempPCXDATA->Lenght;
 					  memcpy(address,palsaveD,768);
 					  memcpy( tempPCXDATA->ColorPallet,palsaveD,768);
-					  //atualiza o tamanho do bloco de memória
+					  //atualiza o tamanho do bloco de memï¿½ria
 					  tempPCXDATA->Lenght = tempPCXDATA->Lenght+768;
 
 				  }
@@ -820,7 +820,7 @@ int CSFFManager::extract() {
               }
           }
 
-		} // fim da adição do pallete na Lista ligada
+		} // fim da adiï¿½ï¿½o do pallete na Lista ligada
 
 
 		if( my_create_pcx ){
@@ -862,7 +862,7 @@ int CSFFManager::extract() {
               fwrite( pcxdata, reallength, 1, pcxfile );
               fclose( pcxfile );
           }
-		} else { // image não é linkada
+		} else { // image nï¿½o ï¿½ linkada
 
           if( my_debug ) Debug::debug(Debug::resources,__FUNCTION__) << "Image: "<<i<<"lu"<<endl;
 
@@ -885,7 +885,7 @@ int CSFFManager::extract() {
 
 
           /* I'll explain the logic used here later, if I'm feeling ambitious. =P  -Winane */
-			// copia o palette da 1a imagem, o qual será utilizado nas imagens posteriores que utilizam o palette compartilhado
+			// copia o palette da 1a imagem, o qual serï¿½ utilizado nas imagens posteriores que utilizam o palette compartilhado
 		  if( is_8bitpal ){
               if( !found_1st && !my_use_act && is_8bitpal!=2 ){
                   memcpy( palsaveD, pcxdata+reallength-768, 768 );
@@ -976,7 +976,7 @@ int CSFFManager::extract() {
      }
 	 if (!error) {
 	 Debug::debug(Debug::resources,__FUNCTION__) << "Create Mugen Sprite "<<sub.group<< " , "<< sub.img <<  endl;
-	 //Adiciona o Arquivo PCX À lista ligada
+	 //Adiciona o Arquivo PCX ï¿½ lista ligada
 	 tempPCXDATA->setLoaded();
 	 PCXList[sub.group][sub.img]=tempPCXDATA;
 	 //SpriteList[sub.group][sub.img] =  new CMugenSpriteV1(tempPCXDATA,mask);
@@ -995,7 +995,7 @@ int CSFFManager::extract() {
 }
 
 /** @fn CSFFManager::treatFilesystem()
-@brief verifica as questões do sistema de arquivos
+@brief verifica as questï¿½es do sistema de arquivos
 @return 1 se falhar e 0 se tiver sucesso
 @warning
 **/
@@ -1207,7 +1207,7 @@ int CSFFManager::saveImage(unsigned int imageNumber,unsigned int group){
 	image=PCXList[group][imageNumber];
 
 	if(image==NULL){
-		// mensagem não achou a imagem
+		// mensagem nï¿½o achou a imagem
 		return 1;
 	}
 	FILE *pcxfile;

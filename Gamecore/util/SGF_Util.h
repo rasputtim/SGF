@@ -33,6 +33,7 @@
 #include <string>
 #include "../SGF_Config.h"
 #include "SGF_Regex.h"
+//#include "../graphics/SGF_Bitmap.h"
 //#include <SDL.h>
 #include "SGF_Path.h"
 #include "SGF_Displayable.h"
@@ -54,10 +55,9 @@
 
 using namespace std;
 namespace SGF {
-class CBitmap;
 class CConfiguration;
 class CFont;
-
+class CBitmap;
 namespace Util{
 extern const SGF_Word DigitOutputPrecision ;
 extern const string HexDigits;
@@ -133,7 +133,7 @@ string lowerCaseAll(string str);
 /* upper cases the entire string */
 string upperCaseAll(string str);
 
-/* conta o número de ocorrencias do caracter c na string passada */
+/* conta o nï¿½mero de ocorrencias do caracter c na string passada */
 int countChar(string string, char c);
 /* retorna o tamanho em pixels da maior linha na string passada
 */
@@ -227,7 +227,7 @@ class SGE_API CTextDisplayable : public CDisplayable
 ::std::ostream & operator << ( ::std::ostream & os, const CTextDisplayable & textDisplayable ) ;
 
 
-/** converte um número numa string */
+/** converte um nï¿½mero numa string */
 
 string toNumericalString( SGF_Byte number );
 string toString( SGF_Dword value, bool bitField );
@@ -271,7 +271,7 @@ string formatStringList(
          bool surroundByTicks = false, SGF_Byte indentationLevel = 1 ) ;
 
 string join(const vector<string> & list, const string & middle);
-}
+} //end Util
 } //end SGF
 
 
