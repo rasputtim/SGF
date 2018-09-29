@@ -26,6 +26,7 @@
 
 #ifdef ANDROID
 #include <android/log.h>
+#include "util/android/SGF_AndroidDebug.h"
 #define ANDROID_LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, "sgffabric", __VA_ARGS__)
 #endif
 

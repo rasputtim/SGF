@@ -23,19 +23,22 @@
 #include "sflfile.h"                    /*  File-access functions            */
 #include "sflcons.h"                    /*  Console display functions        */
 #include "sfldir.h"                     /*  Prototypes for functions         */
-
+#ifdef ANDROID
+#include <sys/stat.h>
+#endif
 /*  Static variables used globally in this source file only                  */
 
 static char
     *sort_key;
 
 /*  Function prototypes                                                      */
-
+#ifndef ANDROID
 static Bool   populate_entry     (DIRST *dir);
 static time_t get_six_months_ago (void);
 static char  *format_mode        (DIRST *dir);
 static char  *format_name        (DIRST *dir, Bool full);
 static char  *format_time        (DIRST *dir);
+#endif
 static Bool  compare_dir         (LIST *p1, LIST *p2);
 static Bool  path_delimiter      (char delim);
 
@@ -157,7 +160,7 @@ open_dir (
  *  specific values in the private fields.  Returns TRUE if okay, FALSE if
  *  there was a problem getting the file status information.
  */
-
+#ifndef ANDROID
 static Bool
 populate_entry (DIRST *dir)
 {
@@ -287,7 +290,7 @@ populate_entry (DIRST *dir)
 
     return (TRUE);                      /*  No errors                        */
 }
-
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: read_dir
@@ -302,7 +305,7 @@ populate_entry (DIRST *dir)
     after each call to open_dir and read_dir.  You should then call
     free_dir() to release each DIRST when you are finished.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 Bool
 read_dir (
     DIRST *dir)
@@ -333,7 +336,7 @@ read_dir (
 
     return (FALSE);
 }
-
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: close_dir
@@ -385,7 +388,7 @@ close_dir (
     hints to indicate the file type; for instance '/' if the file is a
     directory, '*' if it is executable.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 char *
 format_dir (
     DIRST *dir,
@@ -406,7 +409,7 @@ format_dir (
            );
     return (buffer);
 }
-
+#endif
 
 /*  -------------------------------------------------------------------------
  *  format_mode -- internal
@@ -414,7 +417,7 @@ format_dir (
  *  Returns a static string holding the ASCII representation of the UNIX-ish
  *  permission bits for the directory entry specified.
  */
-
+#ifndef ANDROID
 static char *
 format_mode (
     DIRST *dir)
@@ -453,7 +456,7 @@ format_mode (
     return (buffer);
 }
 
-
+#endif
 /*  -------------------------------------------------------------------------
  *  format_name -- internal
  *
@@ -462,7 +465,7 @@ format_mode (
  *  and appends '/' if the entry is a directory, or '*' if it is executable,
  *  if the full argument is TRUE.
  */
-
+#ifndef ANDROID
 static char *
 format_name (DIRST *dir, Bool full)
 {
@@ -493,6 +496,7 @@ format_name (DIRST *dir, Bool full)
     return (buffer);
 }
 
+#endif
 
 /*  -------------------------------------------------------------------------
  *  format_time -- internal
@@ -504,7 +508,7 @@ format_name (DIRST *dir, Bool full)
  *      Oct  9  1995        if older than 6 months
  *      Jan 12 09:55        if not older than 6 months
  */
-
+#ifndef ANDROID
 static char *
 format_time (DIRST *dir)
 {
@@ -589,7 +593,7 @@ get_six_months_ago ()
     /*  60 * 60 * 24 = 86400 sec / day                                       */
     return (time (NULL) - (long) (86400L * days));
 }
-
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: fix_dir
@@ -1483,7 +1487,7 @@ dir_usage (const char *path, Bool recurse)
     a directory containing only '.' and '..' contains 0 files.  Returns 0
     if there was an error.  Excludes hidden files.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 qbyte
 dir_files (const char *path, Bool recurse)
 {
@@ -1514,4 +1518,4 @@ dir_files (const char *path, Bool recurse)
     close_dir (&dir);
     return (files);
 }
-
+#endif

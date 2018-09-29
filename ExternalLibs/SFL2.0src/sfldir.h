@@ -30,7 +30,9 @@
 #define SFLDIR_INCLUDED
 
 #include "sfl.h"
-
+#ifdef ANDROID
+#include <sys/stat.h>
+#endif
 #if !(defined (NAME_MAX))               /*  Posix uses NAME_MAX              */
 #   if !(defined (MAXNAMLEN))           /*  BSD uses MAXNAMLEN               */
 #       if (defined (__WINDOWS__))

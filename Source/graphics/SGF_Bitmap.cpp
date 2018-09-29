@@ -47,7 +47,7 @@
 #include <sstream>
 #include "../../ExternalLibs/SDL2/src/render/SDL_sysrender.h"
 #include "../../ExternalLibs/SDL2/include/SDL_video.h"
-#include "../../ExternalLibs/SDL2_image-2.0.0/SDL_image.h"
+#include "../../ExternalLibs/SDL2_image-2.0.3/SDL_image.h"
 #include "../../ExternalLibs/SDL_gfx-2.0.24/SDL_gfxPrimitives.h"
 #include "../../ExternalLibs/SDL_gfx-2.0.24/SDL_rotozoom.h"
 #include "graphics/SGF_Bitmap.h"

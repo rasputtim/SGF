@@ -82,13 +82,7 @@ int clamp(int value, int min, int max);
  */
 //int clamp(SGF_Byte value, SGF_Byte min, SGF_Byte max);
 
-inline int rnd( int q ){
-    if (q <= 0){
-        return 0;
-    }
-
-    return (int)(rand() % q);
-}
+int rnd( int q );
 
 
 

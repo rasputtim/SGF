@@ -308,7 +308,7 @@ if(JPEG9_FOUND)
     set(JPEG9_LIBS ${JPEG9_LIBRARY})
     set(JPEG9_INCLUDES ${JPEG9_INCLUDE_DIR})
 else(JPEG9_FOUND)
-    message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build tiff internally")
+    message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build jpeg internally")
     set(JPEG9_LIBS "")
     set(JPEG9_INCLUDES "")
 endif(JPEG9_FOUND)
@@ -325,7 +325,7 @@ if(OGG_FOUND)
     set(OGG_INTERNAL OFF)
     set(OGG_SRC "")
 else(OGG_FOUND)
-    message(STATUS "LIB OGG NOT found to use with SDL2_MIXER. I Will build tiff internally")
+    message(STATUS "LIB OGG NOT found to use with SDL2_MIXER. I Will build ogg internally")
     #use internal ogg_module
     set(OGG_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/)
     set(OGG_LIBS "")
@@ -352,7 +352,7 @@ if(TIFF_FOUND)
 else(TIFF_FOUND)
     #use internal tiff_module
     message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
-    set(TIFF_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/tiff-4.0.3/libtiff/)
+    set(TIFF_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
     set(TIFF_LIBS "")
     set(TIFF_INTERNAL ON)
 endif(TIFF_FOUND)
@@ -434,7 +434,7 @@ if(NOT FREETYPE_FOUND)
 endif(NOT FREETYPE_FOUND)
 if(NOT PNG_FOUND)
 	message(STATUS "LIB PNG not found. I Will build PNG internally.")
-	set(PNG_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/libpng-1.6.2/)
+        set(PNG_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32/)
     set(PNG_LIBS "")
     set(PNG_INTERNAL ON)
 endif(NOT PNG_FOUND)
@@ -576,10 +576,10 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/pcre
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_SGF
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/include
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/libwebp-0.3.0/src/
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/libpng-1.6.2/
+${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
+${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src/
+${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11
+${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32/
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
@@ -593,8 +593,7 @@ ${GRAPHICS_INCLUDES}
 ${OGG_INCLUDES}
 ${MP3_INCLUDES}
 ${JPEG9_INCLUDES}
-${TIFF_INCLUDES}
-# todo: Build the library
+${TIFF_INCLUDES}# todo: Build the library
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libvorbisidec-1.2.1
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/smpeg2-2.0.0
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
@@ -623,20 +622,16 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
 if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
     # If we're doing an out of source build and the user has a zconf.h
     # in their source tree...
-    if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h)
+    if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
         message(STATUS "Renaming")
-        message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h")
+        message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h")
         message(STATUS "to 'zconf.h.included' because this file is included with zlib")
         message(STATUS "but CMake generates it automatically in the build directory.")
-        file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.included)
+        file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h.included)
   endif()
 endif()
 
-set(ZLIB_PC ${CMAKE_CURRENT_BINARY_DIR}/zlib.pc)
-configure_file( ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zlib.pc.cmakein
-		${ZLIB_PC} @ONLY)
-configure_file(	${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h.cmakein
-		${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8/zconf.h @ONLY)
+
 
 
 
@@ -690,7 +685,12 @@ configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake
 add_definitions(-DHAVE_EXPAT_CONFIG_H)
 add_definitions(-DHAVE_MEMMOVE)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/zlib-1.2.8)
+
+if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+        file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
 message (STATUS "WILL BUILD FREETYPE")
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
 
@@ -739,7 +739,7 @@ include(${CMAKE_SOURCE_DIR}/ExternalLibs/zip/CMakeLists.txt) #(get variables nee
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
@@ -753,7 +753,8 @@ if(OGG_INTERNAL)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
 endif(OGG_INTERNAL)
 if(TIFF_INTERNAL)
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.0/external/tiff-4.0.3)
+#todo: solve tiff compilation problems
+    #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
 endif(TIFF_INTERNAL)
 
 
@@ -784,6 +785,7 @@ message(STATUS "Including files to build Menu Module: ${MENU_SRC}")
 message(STATUS "Including files to build Mortal Module: ${MORTAL_SRC}")
 message(STATUS "Including files to build Mugen Module: ${MUGEN_AST_SRC}")
 message(STATUS "Including files to build Network Module: ${NETWORK_SRC}")
+message(STATUS "Including files to build Network Hawknl Module: ${HAWKNL_SRC}")
 message(STATUS "Including files to build Objects Module: ${OBJECTS_SRC}")
 message(STATUS "Including files to build Resources Module: ${RESOURCES_SRC}")
 message(STATUS "Including files to build Script Module: ${SCRIPT_SRC}")
@@ -832,12 +834,13 @@ if(ANDROID)
 set(NETWORK_SRC "")
 set(WINDOWS_SRC "")
 set(SYS_SRC "")
+set (HAWKNL_SRC "")
 endif(ANDROID)
 
 
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
-add_library (sgffabric SHARED ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
+add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
 ${FREE_BASE_SRCS}
 ${COMPILERS_MUGEN_SRC}
 ${expat_SRCS}
@@ -891,7 +894,13 @@ set(OGG_INTERNAL_LIB "")
 endif(OGG_INTERNAL)
 
 if(TIFF_INTERNAL)
-set(TIFF_INTERNAL_LIB "tiff_module")
+        set(TIFF_INTERNAL_LIB "tiff_module")
+        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+                file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+        endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+                file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+        endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
 else(TIFF_INTERNAL)
 set(TIFF_INTERNAL_LIB "")
 endif(TIFF_INTERNAL)
@@ -917,11 +926,11 @@ endif()
 
 
 ################  EXAMPLES ##################################################
-if(!ANDROID)
+#if(!ANDROID)
 include_directories(${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
 add_executable (createWindow ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
 target_link_libraries(createWindow sgffabric)
-endif()
+#endif()
 
 
 
@@ -962,7 +971,7 @@ if(NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL )
     install(FILES ${SGF_COMPILER_DEF_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/compiler/DefCompiler")
     install(FILES ${SGF_COMPILER_AIR_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/compiler/AirCompiler")
     install(FILES ${SGF_SDLMIXER_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL2_mixer-2.0.2")
-    install(FILES ${SGF_SDLIMAGE_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL2_image-2.0.0")
+    install(FILES ${SGF_SDLIMAGE_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL2_image-2.0.3")
     install(FILES ${SGF_SDLTTF_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL2_ttf-2.0.12")
     install(FILES ${SGF_GFX_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/SDL_gfx-2.0.24")
     install(FILES ${SGF_HAWKNL_HDRS} DESTINATION "${INSTALL_INC_DIR}/${INSTALL_PREFIX}/ExternalLibs/hawknl/hawknl")

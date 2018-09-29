@@ -139,7 +139,7 @@ console_capture (const char *filename, char mode)
     by default the stdout device, unless you used console_send() to direct
     console output to some function.  A newline is added automatically.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 int
 coprintf (const char *format, ...)
 {
@@ -202,7 +202,7 @@ coprintf (const char *format, ...)
     return (fmtsize);
 }
 
-
+#endif
 /*  -------------------------------------------------------------------------
  *  date_str
  *
@@ -265,7 +265,7 @@ time_str (void)
     by default the stdout device, unless you used console_send() to direct
     console output to some function.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 int
 coputs (const char *string)
 {
@@ -273,6 +273,7 @@ coputs (const char *string)
     return (1);
 }
 
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: coputc

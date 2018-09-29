@@ -9,7 +9,6 @@
 # -------------------------------------------------------
 set(SHA_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c)
 set(SHA_SRC
-${SHA_DIR}/sha.c
 ${SHA_DIR}/sha1.c
 )
 

@@ -33,7 +33,7 @@
 #include "external/internal.h"
 #define HAVE_SDLIMAGE
 #ifdef HAVE_SDLIMAGE
-  #include "../../ExternalLibs/SDL2_image-2.0.0/SDL_image.h"
+  #include "../../ExternalLibs/SDL2_image-2.0.3/SDL_image.h"
 #endif
 
 

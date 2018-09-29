@@ -1,2 +1,0 @@
-./configure CPPFLAGS=-I../jpeg-9 LDFLAGS=-L../jpeg-9
-

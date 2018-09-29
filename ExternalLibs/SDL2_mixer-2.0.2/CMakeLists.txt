@@ -42,7 +42,6 @@ ${SDLMIXER_DIR}/music_smpeg.c
 ${SDLMIXER_DIR}/music_timidity.c
 ${SDLMIXER_DIR}/music_wav.c
 ${SDLMIXER_DIR}/music_modplug.c
-${SDLMIXER_DIR}/playmus.c
 )
 
 

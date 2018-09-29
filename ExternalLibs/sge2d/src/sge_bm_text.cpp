@@ -28,7 +28,7 @@
 #include <new>
 #include "../include/sge_bm_text.h"
 #include <stdio.h>
-#include "../../SDL2_image-2.0.0/SDL_image.h"
+#include "../../SDL2_image-2.0.3/SDL_image.h"
 #include "util/SGF_Debug.h"
 #include "graphics/SGF_Color.h"
 

@@ -166,7 +166,7 @@ namespace Util {
 @return inteiro randomico no range 0-max
 @warning nenhum aviso
 **/
-    inline int rnd(int max) {
+    int rnd(int max) {
         if (max <= 0) return 0;
         return (int) (rand() % (max + 1));
     }
@@ -338,7 +338,7 @@ void rest(int x) {
 
     }
 
-# defined(LINUX) && !defined(ANDROID)
+#if defined(LINUX) && !defined(ANDROID)
 
 #include <sys/stat.h>
 
@@ -415,7 +415,7 @@ void rest(int x) {
         }
 
 /* makes the first letter of a string upper case */
-        string Util::upcase(string str) {
+        string upcase(string str) {
             if (str.length() > 0 && (str[0] >= 'a' && str[0] <= 'z')) {
                 str[0] = str[0] - 'a' + 'A';
             }

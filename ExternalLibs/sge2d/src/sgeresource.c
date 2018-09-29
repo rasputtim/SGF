@@ -29,13 +29,7 @@ static void sgeWriteEncryptedUint32(FILE *f, Uint32 value, const char *encryptio
 	sgeEncryptBuffer(&tmp, sizeof(Uint32), encryptionkey);
 	result=fwrite(&tmp, 1, sizeof(Uint32), f);
 }
-char *my_strdup(const char *str) {
-    size_t len = strlen(str);
-    char *x = (char *)malloc(len+1); /* 1 for the null terminator */
-    if(!x) return NULL; /* malloc could not allocate memory */
-    memcpy(x,str,len+1); /* copy the string into the new buffer */
-    return x;
-}
+
 SGEFILE *sgeOpenFile(const char *filename, const char *encryptionkey) {
 	int i;
 	SGEFILE *ret;

@@ -30,13 +30,13 @@
 
 namespace SGF {
 	//! ao criar um objeto CSysvar ele cria uma lista ligada;
-	//! depois de registrar as variáeis estaticas seta o valor de staticvars para 0xFFFFFFFF
+	//! depois de registrar as variï¿½eis estaticas seta o valor de staticvars para 0xFFFFFFFF
 
 CSysVar * CSysVar::m_p_StaticVars = NULL;
 //CSysVarSystem *				cvarSystem = NULL;
 //CSysVar com_forceGenericSIMD( "com_forceGenericSIMD", "0", SYSVAR_BOOL|SYSVAR_SYSTEM, "force generic platform independent SIMD" );
-//! Cria um objeto Global de Configuração da Engine,
-//! que aarmazenará as variáveis globais
+//! Cria um objeto Global de Configuraï¿½ï¿½o da Engine,
+//! que aarmazenarï¿½ as variï¿½veis globais
 CGlobalConfiguration	globalSysVarSystem;
 
 #define NUM_COLUMNS				77		// 78 - 1
@@ -44,7 +44,7 @@ CGlobalConfiguration	globalSysVarSystem;
 #define NUM_DESCRIPTION_CHARS	( NUM_COLUMNS - NUM_NAME_CHARS )
 /*
 #define FORMAT_STRING			"%-32s "
-
+*/
 
 /*
 ============
@@ -316,11 +316,11 @@ void CEngineSysVar::SetGlobal( const char *newValue, bool force, bool fromServer
 			return;
 		}
 	}
-	// se não houve mudança no valor, retorna
+	// se nï¿½o houve mudanï¿½a no valor, retorna
 	if ( valueString.Icmp( newValue ) == 0 ) {
 		return;
 	}
-	//se houve mudança no valor, continua
+	//se houve mudanï¿½a no valor, continua
 	valueString = newValue;
 	m_pValue = valueString.c_str();
 	UpdateValue();
@@ -769,11 +769,11 @@ CSysVar *CGlobalConfiguration::FindInternal( const char *name ) const {
 
 
 /** @fn setInternal( const char *name, const char *value, int m_iFlags )
-\brief Método que muda o nome e valor de uma variável registrada como internal Csysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel registrada como internal Csysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CGlobalConfiguration::setInternal( const char *name, const char *value, int m_iFlags ) {
 	int hash;
@@ -849,7 +849,7 @@ void CGlobalConfiguration::Register( CSysVar &cvarToRegister ) {
 	cvarToRegister.setInternalVar( &cvarToRegister );
 
 	internal = (CEngineSysVar *)FindInternal( cvarToRegister.getName() );
-	//! se a variável já existe, apenas update do seu valor e avisa que é uma duplicata via debug
+	//! se a variï¿½vel jï¿½ existe, apenas update do seu valor e avisa que ï¿½ uma duplicata via debug
 	if ( internal ) {
 		internal->Update( &cvarToRegister );
 	} else {
@@ -872,53 +872,53 @@ CSysVar *CGlobalConfiguration::Find( const char *name ) {
 
 
 /** @fn setCVarString( const char *name, const char *value, int m_iFlags )
-\brief Método que muda o nome e valor de uma variável tipo String registrada como internal Csysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo String registrada como internal Csysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CGlobalConfiguration::setCVarString( const char *name, const char *value, int m_iFlags ) {
 	setInternal( name, value, m_iFlags );
 }
 
 /** @fn setCVarBool( const char *name, const bool value, int m_iFlags )
-\brief Método que muda o nome e valor de uma variável tipo Bool registrada como internal Csysvar
-\param name: nome da variável
-\param value: valor da variável (bool)
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Bool registrada como internal Csysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel (bool)
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CGlobalConfiguration::setCVarBool( const char *name, const bool value, int m_iFlags ) {
 	setInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** @fn setCVarInteger( const char *name, const int value, int m_iFlags )
-\brief Método que muda o nome e valor de uma variável tipo Integer registrada como internal Csysvar
-\param name: nome da variável
-\param value: valor da variável (integer)
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Integer registrada como internal Csysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel (integer)
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CGlobalConfiguration::setCVarInteger( const char *name, const int value, int m_iFlags ) {
 	setInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** @fn setCVarFloat( const char *name, const float value, int m_iFlags )
-\brief Método que muda o nome e valor de uma variável tipo Float registrada como internal Csysvar
-\param name: nome da variável
-\param value: valor da variável (Float)
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Float registrada como internal Csysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel (Float)
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CGlobalConfiguration::setCVarFloat( const char *name, const float value, int m_iFlags ) {
 	setInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** 
-\brief Método que retorna o valor String de uma variável CSysVar
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor String de uma variï¿½vel CSysVar
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 const char *CGlobalConfiguration::getCVarString( const char *name ) const {
 	CEngineSysVar *internal = (CEngineSysVar *)FindInternal( name );
@@ -929,9 +929,9 @@ const char *CGlobalConfiguration::getCVarString( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Bool de uma variável CSysVar
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Bool de uma variï¿½vel CSysVar
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 bool CGlobalConfiguration::getCVarBool( const char *name ) const {
 	CEngineSysVar *internal = (CEngineSysVar *)FindInternal( name );
@@ -942,9 +942,9 @@ bool CGlobalConfiguration::getCVarBool( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Integer de uma variável CSysVar
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Integer de uma variï¿½vel CSysVar
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 int CGlobalConfiguration::getCVarInteger( const char *name ) const {
 	CEngineSysVar *internal = (CEngineSysVar *)FindInternal( name );
@@ -955,9 +955,9 @@ int CGlobalConfiguration::getCVarInteger( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Float de uma variável CSysVar
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Float de uma variï¿½vel CSysVar
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 float CGlobalConfiguration::getCVarFloat( const char *name ) const {
 	CEngineSysVar *internal = (CEngineSysVar *)FindInternal( name );
@@ -1004,7 +1004,7 @@ CGlobalConfiguration::CommandCompletion
 */
 void CGlobalConfiguration::CommandCompletion( void(*callback)( const char *s ) ) {
 	for( int i = 0; i < m_globalSysVars.getNum(); i++ ) {
-		callback( m_globalSysVars[i]->getName() ); //chama a função de completar o comando com o nome da variável como parâmetro
+		callback( m_globalSysVars[i]->getName() ); //chama a funï¿½ï¿½o de completar o comando com o nome da variï¿½vel como parï¿½metro
 	}
 }
 
@@ -1500,9 +1500,9 @@ const char *CreateColumn( const char *text, int columnWidth, const char *indent,
 }
 
 /** 
-\brief Método que acha uma variável registrada no vetor local da classe pelo nome
-\param name: nome da variável
-\note Se a variável Local não existir, retorna NULL
+\brief Mï¿½todo que acha uma variï¿½vel registrada no vetor local da classe pelo nome
+\param name: nome da variï¿½vel
+\note Se a variï¿½vel Local nï¿½o existir, retorna NULL
 **/
 CLocalSysVar *CConfiguration::findLocalInternal( const char *name ) const {
 	int hash = cvarHash.generate_Key( name, false );
@@ -1515,11 +1515,11 @@ CLocalSysVar *CConfiguration::findLocalInternal( const char *name ) const {
 }
 
 /** 
-\brief Método que muda o nome e valor interno de uma variável Local d CLocal tipo CSysVar desta Classe
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor interno de uma variï¿½vel Local d CLocal tipo CSysVar desta Classe
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável Local não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel Local nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CConfiguration::setLocalInternal( const char *name, const char *value, int m_iFlags ) {
 	int hash;
@@ -1572,9 +1572,9 @@ bool CConfiguration::isInitialized() const {
 }
 
 /** 
-\brief Método que cria uma cópia da ClocalSysvar e registra-a no vetor
-\param cvarToRegister: referÊncia da variável a ser registrada
-\note Se a variável já existir, então ela é apenas atualizada
+\brief Mï¿½todo que cria uma cï¿½pia da ClocalSysvar e registra-a no vetor
+\param cvarToRegister: referï¿½ncia da variï¿½vel a ser registrada
+\note Se a variï¿½vel jï¿½ existir, entï¿½o ela ï¿½ apenas atualizada
 **/
 void CConfiguration::Register( CSysVar &cvarToRegister ) {
 	int hash;
@@ -1583,8 +1583,8 @@ void CConfiguration::Register( CSysVar &cvarToRegister ) {
 	cvarToRegister.setInternalVar( &cvarToRegister );
 
 	internal = findLocalInternal( cvarToRegister.getName() );
-	//Se a variável já foi registrada, apenas faz o update
-	//Senão, cria uma nova variável interna e registra 
+	//Se a variï¿½vel jï¿½ foi registrada, apenas faz o update
+	//Senï¿½o, cria uma nova variï¿½vel interna e registra 
 	if ( internal ) {
 		internal->Update( &cvarToRegister );
 	} else {
@@ -1598,62 +1598,62 @@ void CConfiguration::Register( CSysVar &cvarToRegister ) {
 }
 
 /** 
-\brief Método que acha uma variável CLocalSysVar Registrada anteriormente pelo seu nome
-\param name: nome da variável a ser encontrada
-\note Se a variável não existir, então retorna NULL
+\brief Mï¿½todo que acha uma variï¿½vel CLocalSysVar Registrada anteriormente pelo seu nome
+\param name: nome da variï¿½vel a ser encontrada
+\note Se a variï¿½vel nï¿½o existir, entï¿½o retorna NULL
 **/
 CSysVar *CConfiguration::Find( const char *name ) {
 	return findLocalInternal( name );
 }
 
 /** 
-\brief Método que muda o nome e valor de uma variável tipo String registrada como internal CLocalSysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo String registrada como internal CLocalSysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CConfiguration::setCVarLocalString( const char *name, const char *value, int m_iFlags ) {
 	setLocalInternal( name, value, m_iFlags );
 }
 
 /** 
-\brief Método que muda o nome e valor de uma variável tipo Bool registrada como internal CLocalSysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Bool registrada como internal CLocalSysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CConfiguration::setCVarLocalBool( const char *name, const bool value, int m_iFlags ) {
 	setLocalInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** 
-\brief Método que muda o nome e valor de uma variável tipo Integer registrada como internal CLocalSysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Integer registrada como internal CLocalSysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CConfiguration::setCVarLocalInteger( const char *name, const int value, int m_iFlags ) {
 	setLocalInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** 
-\brief Método que muda o nome e valor de uma variável tipo Float registrada como internal CLocalSysvar
-\param name: nome da variável
-\param value: valor da variável
+\brief Mï¿½todo que muda o nome e valor de uma variï¿½vel tipo Float registrada como internal CLocalSysvar
+\param name: nome da variï¿½vel
+\param value: valor da variï¿½vel
 \param m_iFlags: flags
-\note Se a variável interna não existir, então ela é criada e adicionada à lista (registrada)
+\note Se a variï¿½vel interna nï¿½o existir, entï¿½o ela ï¿½ criada e adicionada ï¿½ lista (registrada)
 **/
 void CConfiguration::setCVarLocalFloat( const char *name, const float value, int m_iFlags ) {
 	setLocalInternal( name, CMyString( value ), m_iFlags );
 }
 
 /** 
-\brief Método que retorna o valor String de uma variável CLocalSysVar desta classe
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor String de uma variï¿½vel CLocalSysVar desta classe
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 const char *CConfiguration::getCVarLocalString( const char *name ) const {
 	CLocalSysVar *internal = (CLocalSysVar *)findLocalInternal( name );
@@ -1664,9 +1664,9 @@ const char *CConfiguration::getCVarLocalString( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Bool de uma variável CLocalSysVar desta classe
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Bool de uma variï¿½vel CLocalSysVar desta classe
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 bool CConfiguration::getCVarLocalBool( const char *name ) const {
 	CLocalSysVar *internal = (CLocalSysVar *)findLocalInternal( name );
@@ -1677,9 +1677,9 @@ bool CConfiguration::getCVarLocalBool( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Integer de uma variável CLocalSysVar desta classe
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Integer de uma variï¿½vel CLocalSysVar desta classe
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 int CConfiguration::getCVarLocalInteger( const char *name ) const {
 	CLocalSysVar *internal = (CLocalSysVar *)findLocalInternal( name );
@@ -1690,9 +1690,9 @@ int CConfiguration::getCVarLocalInteger( const char *name ) const {
 }
 
 /** 
-\brief Método que retorna o valor Float de uma variável CLocalSysVar desta classe
-\param name: nome da variável
-\note Só retorna o valor da variável interna, aquela registada
+\brief Mï¿½todo que retorna o valor Float de uma variï¿½vel CLocalSysVar desta classe
+\param name: nome da variï¿½vel
+\note Sï¿½ retorna o valor da variï¿½vel interna, aquela registada
 **/
 float CConfiguration::getCVarLocalFloat( const char *name ) const {
 	CLocalSysVar *internal = (CLocalSysVar *)findLocalInternal( name );

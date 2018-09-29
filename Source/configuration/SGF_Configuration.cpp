@@ -138,7 +138,7 @@ static const int InvalidKey = 0;
 
 
 
-// INICIALIZAÇÃO DAS VAIÁVEIS ESTÁTICAS DE CONFIGURAÇÃO GLOBAL
+// INICIALIZAï¿½ï¿½O DAS VAIï¿½VEIS ESTï¿½TICAS DE CONFIGURAï¿½ï¿½O GLOBAL
 //! Map to Save user properties of their own games
 CGlobalConfiguration::confHead CGlobalConfiguration::userProperties; 
 
@@ -167,7 +167,7 @@ CEngineSysVar CGlobalConfiguration::gameFontDirectory("gameFontDirectory","fonts
 CEngineSysVar CGlobalConfiguration::sgfConfigFileName ("sgfConfigFileName",SGF_CONFIG_FILE_NAME,SYSVAR_ENGINE,"to store the Engine game configuration file - this is the default");
 CEngineSysVar CGlobalConfiguration::sgfDebugConfigFileName ("sgfDebugConfigFileName",SGF_DEBUG_CONFIG_FILE_NAME ,SYSVAR_ENGINE,"to store the Debug game configuration file - this is the default");
 CEngineSysVar CGlobalConfiguration::sgfCustomConfigFileName ("sgfCustomConfigFileName",SGF_DEBUG_CONFIG_FILE_NAME ,SYSVAR_ENGINE,"to store the User Custom game configuration file - this is the default");
-CEngineSysVar CGlobalConfiguration::currentSGFDir ("currentSGFDir",SGF_CONFIG_FILE_DIR,SYSVAR_ENGINE,"configura o diretório onde estão os arquivos de configuracao do engine ");
+CEngineSysVar CGlobalConfiguration::currentSGFDir ("currentSGFDir",SGF_CONFIG_FILE_DIR,SYSVAR_ENGINE,"configura o diretï¿½rio onde estï¿½o os arquivos de configuracao do engine ");
 
 CEngineSysVar CGlobalConfiguration::JoystickEnabled("joystickEnabled","0",SYSVAR_ENGINE | SYSVAR_BOOL,"Is joystick enabled ?");
 CEngineSysVar CGlobalConfiguration::MouseEnabled("mouseEnabled","0",SYSVAR_ENGINE | SYSVAR_BOOL,"Is mouse enabled ?");
@@ -183,17 +183,17 @@ CEngineSysVar CGlobalConfiguration::initFastevents("init_fastevents","1",SYSVAR_
 CEngineSysVar CGlobalConfiguration::initNetwork("init_network","1",SYSVAR_ENGINE | SYSVAR_BOOL,"");
 CEngineSysVar CGlobalConfiguration::initTextsupport("init_textsupport","1",SYSVAR_ENGINE | SYSVAR_BOOL,"");
 CEngineSysVar CGlobalConfiguration::useSIMDprocessor("usesimdprocessor","1",SYSVAR_ENGINE | SYSVAR_BOOL,"use SIMD Processor to MATH calculations");
-/** ao criar o estado inicial do SDl que será uilizdo para fazer as inicializações
-ele utiliza o tamanho da janela default, configurado nas variáveis screenWidth e screenHeight
-estes valores devem ser modificados posteriormente antes da inicialização das janelas
+/** ao criar o estado inicial do SDl que serï¿½ uilizdo para fazer as inicializaï¿½ï¿½es
+ele utiliza o tamanho da janela default, configurado nas variï¿½veis screenWidth e screenHeight
+estes valores devem ser modificados posteriormente antes da inicializaï¿½ï¿½o das janelas
 **/
 SDLState_t *  CGlobalConfiguration::sdlConfig = CSDLManager::CreateState(SDL_INIT_VIDEO,CConfiguration::numberOfWindows.getInteger());
 
 //=============CALL BACK SYSTEM=======================
 /** 
-\brief Método que o nome do arquivo de configuração especial definido para o game usuário da Engine
+\brief Mï¿½todo que o nome do arquivo de configuraï¿½ï¿½o especial definido para o game usuï¿½rio da Engine
 \param fileName: nome do arquivo a ser armazenado
-\note este arquivo será carregado depois pelo método loadUserConfigurations()
+\note este arquivo serï¿½ carregado depois pelo mï¿½todo loadUserConfigurations()
 **/	
 void CGlobalConfiguration::setUserConfigFile(string  fileName) {
 	sgfCustomConfigFileName.setString(fileName.c_str());
@@ -202,8 +202,8 @@ void CGlobalConfiguration::setUserConfigFile(string  fileName) {
 
 #if defined(WIN32) //mingw ou msvc
 /** 
-\brief Método que retorna o caminho do arquivo de configuração especial definido para o game usuário da Engine no médoto setUserConfigFile
-\note Se o arquivo não existir....
+\brief Mï¿½todo que retorna o caminho do arquivo de configuraï¿½ï¿½o especial definido para o game usuï¿½rio da Engine no mï¿½doto setUserConfigFile
+\note Se o arquivo nï¿½o existir....
 **/	
 Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
 
@@ -238,12 +238,12 @@ Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
 
 #endif
 
-/** método usado par registrar parâmetros que serão
-encontrados nos arquivos de configuração XML de usuários  do SGF Fabric
-registrados pelo método setUserConfigFile(filename)
-\param string head: head XML  do parâmetro a ser registrada
-\param string option: option XML do parâmetro a ser registrado
-\param string parameter: nome do parâmetro a ser registrado
+/** mï¿½todo usado par registrar parï¿½metros que serï¿½o
+encontrados nos arquivos de configuraï¿½ï¿½o XML de usuï¿½rios  do SGF Fabric
+registrados pelo mï¿½todo setUserConfigFile(filename)
+\param string head: head XML  do parï¿½metro a ser registrada
+\param string option: option XML do parï¿½metro a ser registrado
+\param string parameter: nome do parï¿½metro a ser registrado
 
 \note Exemplo de estrutura do arquivo XML:
 <head>
@@ -262,18 +262,18 @@ registrados pelo método setUserConfigFile(filename)
 
 void CGlobalConfiguration::registerConfigValue(string head, string option, string parameter){
 	CConfiguration::confHead::iterator first_it = userProperties.find(head);
-            if (first_it == userProperties.end()) { //nao achou o head. adicionará um
+            if (first_it == userProperties.end()) { //nao achou o head. adicionarï¿½ um
 				    userProperties[head] [option][parameter]="";
 
 			}else{
 				confOption::iterator second_it = first_it->second.find(option);
 				if (second_it == first_it->second.end())
-				{ //nao achou o option . adicionará um
+				{ //nao achou o option . adicionarï¿½ um
 					first_it->second[option][parameter]="";
 				}else{
 					confParameter::iterator it = second_it->second.find(option);
 					if (it == second_it->second.end())
-					{//nao achou o parameter . adicionará um
+					{//nao achou o parameter . adicionarï¿½ um
 						second_it->second[parameter]="";
 					}
                 }
@@ -285,32 +285,32 @@ void CGlobalConfiguration::registerConfigValue(string head, string option, strin
 string CGlobalConfiguration::findConfigValue(string head, string option, string parameter){
 	confHead::iterator first_it = userProperties.find(head);
             if (first_it != userProperties.end())
-			{ //achou o head. agora achará o option
+			{ //achou o head. agora acharï¿½ o option
 				confOption::iterator second_it = first_it->second.find(option);
 				if (second_it != first_it->second.end())
-				{//achou o option. agora achará o parameter
+				{//achou o option. agora acharï¿½ o parameter
 					confParameter::iterator it = second_it->second.find(option);
 					if (it != second_it->second.end())
-					{ //achou oparameter. agora achará o valor
+					{ //achou oparameter. agora acharï¿½ o valor
 					return it->second;
 					//Set the ColorPallet file the pcx images and extract the images from the sff file
 					}
                 }
             }
 
-	// não encontrou
+	// nï¿½o encontrou
 	return "";
 
 }
 
 /** 
-\brief Método que carrega as configurações definidas pelo programa usuário da Engine SGFFabric
-       cada programa usuário pode definir arquivos XML com configuração. Este método carrega esses arquivos
+\brief Mï¿½todo que carrega as configuraï¿½ï¿½es definidas pelo programa usuï¿½rio da Engine SGFFabric
+       cada programa usuï¿½rio pode definir arquivos XML com configuraï¿½ï¿½o. Este mï¿½todo carrega esses arquivos
 \param file: nome do arquivo a carregar
-\note este método preserva o nome do arquivo já cadast
-      na variável userConfigFileName.
-\note antes de carregar o arquivo, deve se registrar as heads, options e parameters que serão
-      encontrados nesse arquivo através do método registerConfigValue
+\note este mï¿½todo preserva o nome do arquivo jï¿½ cadast
+      na variï¿½vel userConfigFileName.
+\note antes de carregar o arquivo, deve se registrar as heads, options e parameters que serï¿½o
+      encontrados nesse arquivo atravï¿½s do mï¿½todo registerConfigValue
 **/
 void CGlobalConfiguration::loadUserConfigurations(string file){
 	string temp=getUserConfigFile().path();
@@ -319,14 +319,14 @@ void CGlobalConfiguration::loadUserConfigurations(string file){
 	setUserConfigFile(temp);
 }
 /** 
-\brief Método que carrega as configurações definidas pelo programa usuário da Engine SGFFabric
-       cada programa usuário pode definir arquivos XML com configuração. Este método carrega esses arquivos
-\note carrega o arquivo registrado na variável userConfigFileName.
-\note antes de carregar o arquivo, deve se registrar as heads, options e parameters que serão
-      encontrados nesse arquivo através do método registerConfigValue
+\brief Mï¿½todo que carrega as configuraï¿½ï¿½es definidas pelo programa usuï¿½rio da Engine SGFFabric
+       cada programa usuï¿½rio pode definir arquivos XML com configuraï¿½ï¿½o. Este mï¿½todo carrega esses arquivos
+\note carrega o arquivo registrado na variï¿½vel userConfigFileName.
+\note antes de carregar o arquivo, deve se registrar as heads, options e parameters que serï¿½o
+      encontrados nesse arquivo atravï¿½s do mï¿½todo registerConfigValue
 **/
 void CGlobalConfiguration::loadUserConfigurations(){
-	//! não pode por mensagens de debug neste método. não sei porque ainda????
+	//! nï¿½o pode por mensagens de debug neste mï¿½todo. nï¿½o sei porque ainda????
 	Debug::debug( Debug::configuration,__FUNCTION__ ) << "START LOADING USER CONFIGURATIONS: "  << endl;
 	//CDisable disable;
 //	try{
@@ -368,7 +368,7 @@ void CGlobalConfiguration::loadUserConfigurations(){
 						for (CConfiguration::confOption::iterator second_it =  first_it->second.begin();
 						second_it !=  first_it->second.end(); second_it++) {  // para cada option
 
-							if (*head == second_it->first) { // se o token é o nome da opção
+							if (*head == second_it->first) { // se o token ï¿½ o nome da opï¿½ï¿½o
 								TokenView secondHead = head->view();
 								//second_it->first = the name of the option
 								//second_it->second = the confParameter map
@@ -378,7 +378,7 @@ void CGlobalConfiguration::loadUserConfigurations(){
 
 								while (secondHead.hasMore()){
 									//string optionName;
-									//optionName =*secondHead ;//= nome do parâmetro
+									//optionName =*secondHead ;//= nome do parï¿½metro
 									Debug::debug(Debug::configuration,__FUNCTION__) << "PARAMETERS   "  << endl;
 									const Token * valueX;
 									secondHead >> valueX;
@@ -398,7 +398,7 @@ void CGlobalConfiguration::loadUserConfigurations(){
 
 											}
 											if(customervar->isThereCallBack()) {
-											//não é necessário visto que o parâmetro já é o valor da Sysvar
+											//nï¿½o ï¿½ necessï¿½rio visto que o parï¿½metro jï¿½ ï¿½ o valor da Sysvar
 											customervar->setHandleParam((void *)&valuestr);
 
 											Debug::debug(Debug::configuration,__FUNCTION__) << "WILL RUN THE CALLBACK   "  << endl;
@@ -469,9 +469,9 @@ void CGlobalConfiguration::setSDLInitModules(sdlModules_s &initModules){
 
 
 
-// Cria um Mapa Global indexado por número, com ponteiros para instâncias da classe CConfiguration
-// indice 0 = configurações do player 1
-// indice 1 = configurações do player 2
+// Cria um Mapa Global indexado por nï¿½mero, com ponteiros para instï¿½ncias da classe CConfiguration
+// indice 0 = configuraï¿½ï¿½es do player 1
+// indice 1 = configuraï¿½ï¿½es do player 2
 
 Util::CReferenceCount<CFontInfo> CConfiguration::menuFont_v2;
 int CConfiguration::menuVersion = 2;
@@ -660,7 +660,7 @@ bool CConfiguration::getSave(){
 	    //static const int CKeyboard::Invalid = 0;
 static const CConfiguration::JoystickInput InvalidJoystick = CJoystick::Invalid;
 
-// Objetivo: define as teclas default para esta instância de CConfiguration 
+// Objetivo: define as teclas default para esta instï¿½ncia de CConfiguration 
 // retorna: o objeto 
 CConfiguration CConfiguration::defaultPlayerKeys(){
 	 CDisable disable;
@@ -742,7 +742,7 @@ Botao 12 = R3
 }
 
 
-// Objetivo: Cria uma instância da Classe CConfiguration e define as teclas default para o Player1
+// Objetivo: Cria uma instï¿½ncia da Classe CConfiguration e define as teclas default para o Player1
 // retorna: o objeto criado
 CConfiguration CConfiguration::defaultPlayer1Keys(){
 	 CDisable disable;
@@ -825,7 +825,7 @@ Botao 12 = R3
 	 ConfigList[ Player1 ]->JoyButtonSelect.setInteger(CJoystick::Button9);
 	 return *ConfigList[ Player1 ];
 }
-// Objetivo: Cria uma instância da Classe CConfiguration e define as teclas default para o Player2
+// Objetivo: Cria uma instï¿½ncia da Classe CConfiguration e define as teclas default para o Player2
 // retorna: o objeto criado
 
 CConfiguration CConfiguration::defaultPlayer2Keys(){
@@ -890,9 +890,9 @@ Botao 12 = R3
 
 
 /**
-\brief: Cria um novo objeto do tipo CConfiguration e define as teclas padrão para este objeto, caso seja o player 1 ou 2
-// Parâmetro: set=> que define se é o set=0 para o player 1, ou set=1 para o player 2
-// Todo: espandir esse método para configurar teclas padrão para outros tipos de objeto, recebendo como parâmetro o tipo do objeto também
+\brief: Cria um novo objeto do tipo CConfiguration e define as teclas padrï¿½o para este objeto, caso seja o player 1 ou 2
+// Parï¿½metro: set=> que define se ï¿½ o set=0 para o player 1, ou set=1 para o player 2
+// Todo: espandir esse mï¿½todo para configurar teclas padrï¿½o para outros tipos de objeto, recebendo como parï¿½metro o tipo do objeto tambï¿½m
 **/
 CConfiguration * CConfiguration::getConfig( int set ){
 	if ( ConfigList[ set ] == NULL ){
@@ -1030,9 +1030,9 @@ m_iIndex(index)
 	init();
 }
 // Objetivo: Construtor da Classe
-// Parâmetro: outro objeto da classe CConfiguration
+// Parï¿½metro: outro objeto da classe CConfiguration
 
-CConfiguration::CConfiguration( const CConfiguration & config ):  //passagem por referência
+CConfiguration::CConfiguration( const CConfiguration & config ):  //passagem por referï¿½ncia
 ButtonRight(config.ButtonRight),
 ButtonLeft(config.ButtonLeft),
 ButtonUp(config.ButtonUp),
@@ -1312,7 +1312,7 @@ int CConfiguration::getJoystickKey(CInput::GameKeys which, int facing, int vFaci
 
 		default : return CJoystick::Invalid;
     }
-   return CJoystick::Invalid; // só para evitar warning do compilador
+   return CJoystick::Invalid; // sï¿½ para evitar warning do compilador
 }
 
 int CConfiguration::getKey( CInput::GameKeys which, int facing, int vFacing ) const {
@@ -1452,7 +1452,7 @@ int CConfiguration::getMouseKey( CInput::GameKeys which, int facing , int vFacin
 		case CInput::Reload : return this->MouseButtonReload.getInteger();
 		default : return CMouse::Invalid;
 	}
-	return CMouse::Invalid; // só para evitar warning do compilador
+	return CMouse::Invalid; // sï¿½ para evitar warning do compilador
 }
 
 bool CConfiguration::hasMenuFont(){
@@ -1520,7 +1520,7 @@ void CConfiguration::setGameFontDirectory(string &dirname){
 #if defined(WIN32)  //mingw ou msvc
 Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){
 	;
-		//! TODO   Método de find para o arquivo de configuração
+		//! TODO   Mï¿½todo de find para o arquivo de configuraï¿½ï¿½o
 	CMyString configFileName(sgfConfigFileName.getString());
 	CMyString dir_Separator(DIR_SEPARATOR);
 	CMyString completeFileName;
@@ -1546,7 +1546,7 @@ Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){
 
 Filesystem::CAbsolutePath CConfiguration::getDebugConfigFile(){
 
-		//! TODO   Método de find para o arquivo de configuração
+		//! TODO   Mï¿½todo de find para o arquivo de configuraï¿½ï¿½o
 	CMyString configFileName(sgfDebugConfigFileName.getString());
 	CMyString dir_Separator(DIR_SEPARATOR);
     CMyString completeFileName;
@@ -1577,8 +1577,8 @@ static string getConfigFile(){
 }
 
 /**
-\brief Método que retorna o caminho do arquivo de configuração especial definido para o game usuário da Engine no médoto setUserConfigFile
-\note Se o arquivo não existir....
+\brief Mï¿½todo que retorna o caminho do arquivo de configuraï¿½ï¿½o especial definido para o game usuï¿½rio da Engine no mï¿½doto setUserConfigFile
+\note Se o arquivo nï¿½o existir....
 **/
 Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
 
@@ -1614,7 +1614,7 @@ Filesystem::CAbsolutePath CGlobalConfiguration::getUserConfigFile(){
 
 Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){
     ;
-        //! TODO   Método de find para o arquivo de configuração
+        //! TODO   Mï¿½todo de find para o arquivo de configuraï¿½ï¿½o
     CMyString configFileName(sgfConfigFileName.getString());
     CMyString dir_Separator(DIR_SEPARATOR);
     CMyString completeFileName;
@@ -1644,7 +1644,7 @@ Filesystem::CAbsolutePath CConfiguration::getEngineConfigFile(){
 
 Filesystem::CAbsolutePath CConfiguration::getDebugConfigFile(){
 
-        //! TODO   Método de find para o arquivo de configuração
+        //! TODO   Mï¿½todo de find para o arquivo de configuraï¿½ï¿½o
     CMyString configFileName(sgfDebugConfigFileName.getString());
     CMyString dir_Separator(DIR_SEPARATOR);
     CMyString completeFileName;
@@ -1982,7 +1982,7 @@ void CConfiguration::loadDebugConfiguration() throw (CLoadException){
 
 		if (!DebugFile.exist()) {
 
-			Debug::debug(Debug::error,__FUNCTION__) << string("Debug Config file  Does Not Exist - Using Default Configuration Parâmeters" );
+			Debug::debug(Debug::error,__FUNCTION__) << string("Debug Config file  Does Not Exist - Using Default Configuration Parameters" );
 			loadDefaultDebugConfiguration();
 			return;
 		}
@@ -2031,7 +2031,7 @@ void CConfiguration::loadDebugConfiguration() throw (CLoadException){
                     }else if ( *thing == "bitmap"){
 
 						int x;
-						thing->view() >> _string;
+						thing->view() >> temp;
 
 					   if(temp == 1) {
 							 Debug::setDebug(Debug::bitmap);
@@ -2225,7 +2225,7 @@ void CConfiguration::loadTesteConfiguration()throw (CLoadException){
 	    //cout << "WILL LOAD DEBUG CONFIGURATION" << endl;
 		Filesystem::CAbsolutePath DebugFile = getDebugConfigFile();
 
-		if (!DebugFile.exist()) throw CLoadException(__FILE__, __LINE__, string("Debug Config file  Does Not Exist - Using Default Configuration Parâmeters" ));
+		if (!DebugFile.exist()) throw CLoadException(__FILE__, __LINE__, string("Debug Config file  Does Not Exist - Using Default Configuration Parameters" ));
 
 		CTokenReaderXML tr("\\open\\teste.xml");
         Token * head = tr.readToken();
@@ -2272,7 +2272,7 @@ void CConfiguration::loadTesteConfiguration()throw (CLoadException){
                     }else if ( *thing == "bitmap"){
 
 						int x;
-						thing->view() >> _string;
+						thing->view() >> temp;
 
 					   if(temp == 1) {
 							 Debug::setDebug(Debug::bitmap);
@@ -2467,7 +2467,7 @@ void CConfiguration::loadEngineConfiguration() throw (CLoadException) {
 	//Filesystem::CAbsolutePath ConfigFile = Filesystem::getInstance().configFile();
 	Filesystem::CAbsolutePath ConfigFile = getEngineConfigFile();
 
-	if (!ConfigFile.exist()) throw CLoadException(__FILE__, __LINE__, string("Config file  Does Not Exist - Using Default Configuration Parâmeters" ));
+	if (!ConfigFile.exist()) throw CLoadException(__FILE__, __LINE__, string("Config file  Does Not Exist - Using Default Configuration Parï¿½meters" ));
 
 		CTokenReaderXML tr(ConfigFile.path());
         Token * head = tr.readToken();

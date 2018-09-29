@@ -88,7 +88,7 @@
 #endif
 #define HAVE_QSORT 1
 #define HAVE_ABS 1
-/* #undef HAVE_BCOPY */
+#define HAVE_BCOPY 1
 #define HAVE_MEMSET 1
 #define HAVE_MEMCPY 1
 #define HAVE_MEMMOVE 1
@@ -98,8 +98,8 @@
 /* #undef HAVE_WCSLCAT */
 /* #undef HAVE_WCSCMP */
 #define HAVE_STRLEN 1
-#define HAVE_STRLCPY 1
-#define HAVE_STRLCAT 1
+/* #undef HAVE_STRLCPY */
+/* #undef HAVE_STRLCAT */
 /* #undef HAVE__STRREV */
 /* #undef HAVE__STRUPR */
 /* #undef HAVE__STRLWR */
@@ -232,7 +232,7 @@
 /* Enable various audio drivers */
 /* #undef SDL_AUDIO_DRIVER_ALSA */
 /* #undef SDL_AUDIO_DRIVER_ALSA_DYNAMIC */
-#define SDL_AUDIO_DRIVER_ANDROID 1
+/* #undef SDL_AUDIO_DRIVER_ANDROID */
 /* #undef SDL_AUDIO_DRIVER_ARTS */
 /* #undef SDL_AUDIO_DRIVER_ARTS_DYNAMIC */
 /* #undef SDL_AUDIO_DRIVER_COREAUDIO */
@@ -250,7 +250,7 @@
 /* #undef SDL_AUDIO_DRIVER_NAS */
 /* #undef SDL_AUDIO_DRIVER_NAS_DYNAMIC */
 /* #undef SDL_AUDIO_DRIVER_NETBSD */
-/* #undef SDL_AUDIO_DRIVER_OSS */
+#define SDL_AUDIO_DRIVER_OSS 1
 /* #undef SDL_AUDIO_DRIVER_OSS_SOUNDCARD_H */
 /* #undef SDL_AUDIO_DRIVER_PAUDIO */
 /* #undef SDL_AUDIO_DRIVER_PULSEAUDIO */
@@ -263,27 +263,27 @@
 /* #undef SDL_AUDIO_DRIVER_WINMM */
 
 /* Enable various input drivers */
-/* #undef SDL_INPUT_LINUXEV */
-/* #undef SDL_INPUT_LINUXKD */
+#define SDL_INPUT_LINUXEV 1
+#define SDL_INPUT_LINUXKD 1
 /* #undef SDL_INPUT_TSLIB */
-#define SDL_JOYSTICK_ANDROID 1
+/* #undef SDL_JOYSTICK_ANDROID */
 /* #undef SDL_JOYSTICK_HAIKU */
 /* #undef SDL_JOYSTICK_DINPUT */
 /* #undef SDL_JOYSTICK_XINPUT */
 /* #undef SDL_JOYSTICK_DUMMY */
 /* #undef SDL_JOYSTICK_IOKIT */
 /* #undef SDL_JOYSTICK_MFI */
-/* #undef SDL_JOYSTICK_LINUX */
+#define SDL_JOYSTICK_LINUX 1
 /* #undef SDL_JOYSTICK_WINMM */
 /* #undef SDL_JOYSTICK_USBHID */
 /* #undef SDL_JOYSTICK_USBHID_MACHINE_JOYSTICK_H */
 /* #undef SDL_JOYSTICK_EMSCRIPTEN */
 /* #undef SDL_HAPTIC_DUMMY */
-/* #undef SDL_HAPTIC_LINUX */
+#define SDL_HAPTIC_LINUX 1
 /* #undef SDL_HAPTIC_IOKIT */
 /* #undef SDL_HAPTIC_DINPUT */
 /* #undef SDL_HAPTIC_XINPUT */
-#define SDL_HAPTIC_ANDROID 1
+/* #undef SDL_HAPTIC_ANDROID */
 
 /* Enable various shared object loading systems */
 #define SDL_LOADSO_DLOPEN 1
@@ -305,7 +305,7 @@
 /* #undef SDL_TIMER_WINCE */
 
 /* Enable various video drivers */
-#define SDL_VIDEO_DRIVER_ANDROID 1
+/* #undef SDL_VIDEO_DRIVER_ANDROID */
 /* #undef SDL_VIDEO_DRIVER_HAIKU */
 /* #undef SDL_VIDEO_DRIVER_COCOA */
 /* #undef SDL_VIDEO_DRIVER_DIRECTFB */
@@ -355,19 +355,19 @@
 
 /* #undef SDL_VIDEO_RENDER_D3D */
 /* #undef SDL_VIDEO_RENDER_D3D11 */
-/* #undef SDL_VIDEO_RENDER_OGL */
+#define SDL_VIDEO_RENDER_OGL 1
 /* #undef SDL_VIDEO_RENDER_OGL_ES */
 #define SDL_VIDEO_RENDER_OGL_ES2 1
 /* #undef SDL_VIDEO_RENDER_DIRECTFB */
 /* #undef SDL_VIDEO_RENDER_METAL */
 
 /* Enable OpenGL support */
-/* #undef SDL_VIDEO_OPENGL */
+#define SDL_VIDEO_OPENGL 1
 /* #undef SDL_VIDEO_OPENGL_ES */
 #define SDL_VIDEO_OPENGL_ES2 1
 /* #undef SDL_VIDEO_OPENGL_BGL */
 /* #undef SDL_VIDEO_OPENGL_CGL */
-/* #undef SDL_VIDEO_OPENGL_GLX */
+#define SDL_VIDEO_OPENGL_GLX 1
 /* #undef SDL_VIDEO_OPENGL_WGL */
 #define SDL_VIDEO_OPENGL_EGL 1
 /* #undef SDL_VIDEO_OPENGL_OSMESA */
@@ -377,8 +377,8 @@
 #define SDL_VIDEO_VULKAN 1
 
 /* Enable system power support */
-#define SDL_POWER_ANDROID 1
-/* #undef SDL_POWER_LINUX */
+/* #undef SDL_POWER_ANDROID */
+#define SDL_POWER_LINUX 1
 /* #undef SDL_POWER_WINDOWS */
 /* #undef SDL_POWER_MACOSX */
 /* #undef SDL_POWER_HAIKU */
@@ -386,11 +386,11 @@
 /* #undef SDL_POWER_HARDWIRED */
 
 /* Enable system filesystem support */
-#define SDL_FILESYSTEM_ANDROID 1
+/* #undef SDL_FILESYSTEM_ANDROID */
 /* #undef SDL_FILESYSTEM_HAIKU */
 /* #undef SDL_FILESYSTEM_COCOA */
 /* #undef SDL_FILESYSTEM_DUMMY */
-/* #undef SDL_FILESYSTEM_UNIX */
+#define SDL_FILESYSTEM_UNIX 1
 /* #undef SDL_FILESYSTEM_WINDOWS */
 /* #undef SDL_FILESYSTEM_EMSCRIPTEN */
 

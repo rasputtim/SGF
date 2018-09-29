@@ -24,7 +24,9 @@
 #include "sfltok.h"                     /*  Token mashing functions          */
 #include "sflcons.h"                    /*  Console output functions         */
 #include "sflfile.h"                    /*  Prototypes for functions         */
-
+#ifdef ANDROID
+#include <sys/stat.h>
+#endif
 
 /*  Ensure our buffers will be big enough for dir + name + delimiters        */
 #if ((LINE_MAX - FILE_NAME_MAX) < (FILE_DIR_MAX + 10))
@@ -1554,7 +1556,7 @@ char
     file or directory.  The filename may end in a slash (/ or \) only if
     it is a directory.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 Bool
 file_is_readable (
     const char *filename)
@@ -1569,7 +1571,7 @@ file_is_readable (
         return ((file_mode (filename) & S_IREAD) != 0);
 }
 
-
+#endif
 /*  ---------------------------------------------------------------------[<]-
     Function: file_is_writeable
 
@@ -1577,6 +1579,10 @@ file_is_readable (
     file or directory.  The filename may end in a slash (/ or \) only if
     it is a directory.
     ---------------------------------------------------------------------[>]-*/
+
+
+
+#ifndef ANDROID
 
 Bool
 file_is_writeable (
@@ -1808,7 +1814,7 @@ file_is_program (
 
     return (executable);
 }
-
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: file_is_directory
@@ -1915,7 +1921,7 @@ file_is_legal (
 #endif
 }
 
-
+#ifndef ANDROID
 /*  ---------------------------------------------------------------------[<]-
     Function: file_exec_name
 
@@ -1996,6 +2002,7 @@ file_exec_name (
 #endif
 }
 
+#endif
 
 #if (defined (__WINDOWS__))
 /*  is_exe_file -- internal

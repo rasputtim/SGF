@@ -22,7 +22,7 @@
 #include "sprite/SGF_SffSprMan.h"
 #include "graphics/all.h"
 #include "util/SGF_Debug.h"
-#include "../../ExternalLibs/SDL2_image-2.0.0/SDL_image.h"
+#include "../../ExternalLibs/SDL2_image-2.0.3/SDL_image.h"
 using namespace std;
 namespace SGF {
 

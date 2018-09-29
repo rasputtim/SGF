@@ -77,7 +77,12 @@
  *
  *  __VMS_XOPEN         Supports XOPEN functions
  */
-
+//sal added to compile in android
+#if defined(ANDROID) || defined(__ANDROID__)
+#undef __ANDROID__
+#define ANDROID   1
+#define __ANDROID__ 1
+#endif
 #if (defined (__64BIT__))               /*  EDM 96/05/30                     */
 #    define __IS_64BIT__                /*  May have 64-bit OS/compiler      */
 #else

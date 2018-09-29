@@ -56,7 +56,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Python33\include;$(ProjectDir)\..\ExternalLibs\expat-2.1.0\lib;$(ProjectDir)\..\ExternalLibs\Regex\include;$(ProjectDir)\..\ExternalLibs\pcre;$(ProjectDir)\..\ExternalLibs\sge2d\include;$(ProjectDir)\..\ExternalLibs\7z;$(ProjectDir)\..\ExternalLibs\zip;$(ProjectDir)\..\ExternalLibs\hawknl;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\mikmod\include;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.0;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.0\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\freetype-2.9.1\include;$(ProjectDir)\..\ExternalLibs\SFL2.0src;$(ProjectDir)\..\ExternalLibs\SDL2\include;$(ProjectDir)\..\Gamecore\compiler;$(ProjectDir)\..\Gamecore;$(ProjectDir)\..\Headers\win_external_libs;$(ProjectDir)\..\Compilers;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\native_midi;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\smpeg\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\timidity;$(ProjectDir)\..\ExternalLibs\zlib-1.2.5;$(ProjectDir)\..\ExternalLibs\perl56\win32\CORE;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.0\external\libmikmod-3.1.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Python33\include;$(ProjectDir)\..\ExternalLibs\expat-2.1.0\lib;$(ProjectDir)\..\ExternalLibs\Regex\include;$(ProjectDir)\..\ExternalLibs\pcre;$(ProjectDir)\..\ExternalLibs\sge2d\include;$(ProjectDir)\..\ExternalLibs\7z;$(ProjectDir)\..\ExternalLibs\zip;$(ProjectDir)\..\ExternalLibs\hawknl;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\external\libvorbis-1.3.5\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\mikmod\include;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.3;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.3\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12;$(ProjectDir)\..\ExternalLibs\SDL2_ttf-2.0.12\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\freetype-2.9.1\include;$(ProjectDir)\..\ExternalLibs\SFL2.0src;$(ProjectDir)\..\ExternalLibs\SDL2\include;$(ProjectDir)\..\Gamecore\compiler;$(ProjectDir)\..\Gamecore;$(ProjectDir)\..\Headers\win_external_libs;$(ProjectDir)\..\Compilers;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\native_midi;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\smpeg\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\VisualC\external\include;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.2\timidity;$(ProjectDir)\..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11;$(ProjectDir)\..\ExternalLibs\perl56\win32\CORE;$(ProjectDir)\..\ExternalLibs\SDL2_mixer-2.0.0\external\libmikmod-3.1.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <MinimalRebuild>false</MinimalRebuild>
@@ -371,21 +371,23 @@
     <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowsvulkan.c" />
     <ClCompile Include="..\ExternalLibs\SDL2\src\video\windows\SDL_windowswindow.c" />
     <ClCompile Include="..\ExternalLibs\SDL2\src\video\yuv2rgb\yuv_rgb.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_bmp.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_gif.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_jpg.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_lbm.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_pcx.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_png.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_pnm.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_tga.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_tif.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_webp.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xcf.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xpm.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xv.c" />
-    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.0\IMG_xxx.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_bmp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_gif.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_jpg.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_lbm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_pcx.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_png.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_svg.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_WIC.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_pnm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_tga.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_tif.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_webp.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_xcf.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_xpm.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_xv.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\IMG_xxx.c" />
     <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effects_internal.c" />
     <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effect_position.c" />
     <ClCompile Include="..\ExternalLibs\SDL2_mixer-2.0.2\effect_stereoreverse.c" />
@@ -476,23 +478,23 @@
     <ClCompile Include="..\ExternalLibs\zip\ioapi.c" />
     <ClCompile Include="..\ExternalLibs\zip\unzip.c" />
     <ClCompile Include="..\ExternalLibs\zip\zip.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\adler32.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\compress.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\crc32.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\deflate.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\example.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzclose.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzlib.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzread.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\gzwrite.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\infback.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inffast.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inflate.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\inftrees.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\minigzip.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\trees.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\uncompr.c" />
-    <ClCompile Include="..\ExternalLibs\zlib-1.2.5\zutil.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\adler32.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\compress.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\crc32.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\deflate.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\example.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\gzclose.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\gzlib.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\gzread.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\gzwrite.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\infback.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inffast.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inflate.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inftrees.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\minigzip.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\trees.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\uncompr.c" />
+    <ClCompile Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\zutil.c" />
     <ClCompile Include="..\Gamecore\Compiler\AirCompiler\airparser.tab.cpp" />
     <ClCompile Include="..\Gamecore\Compiler\AirCompiler\air_driver.cc" />
     <ClCompile Include="..\Gamecore\Compiler\AirCompiler\lex.Air.cc" />
@@ -812,7 +814,7 @@
     <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_version.h" />
     <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_video.h" />
     <ClInclude Include="..\ExternalLibs\SDL2\include\SDL_vulkan.h" />
-    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.0\SDL_image.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\SDL_image.h" />
     <ClInclude Include="..\ExternalLibs\SDL2_mixer-2.0.0\SDL_mixer.h" />
     <ClInclude Include="..\ExternalLibs\SDL2_ttf-2.0.12\SDL_ttf.h" />
     <ClInclude Include="..\ExternalLibs\SDL_gfx-2.0.24\SDL_gfxBlitFunc.h" />
@@ -880,13 +882,13 @@
     <ClInclude Include="..\ExternalLibs\zip\ioapi.h" />
     <ClInclude Include="..\ExternalLibs\zip\unzip.h" />
     <ClInclude Include="..\ExternalLibs\zip\zip.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inffast.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inffixed.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inflate.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\inftrees.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\trees.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\zlib.h" />
-    <ClInclude Include="..\ExternalLibs\zlib-1.2.5\zutil.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inffast.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inffixed.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inflate.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\inftrees.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\trees.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\zlib.h" />
+    <ClInclude Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\zutil.h" />
     <ClInclude Include="..\Gamecore\ai\all.h" />
     <ClInclude Include="..\Gamecore\ai\SGF_AstarHeap.h" />
     <ClInclude Include="..\Gamecore\ai\SGF_AstarLib.h" />
@@ -1202,7 +1204,7 @@
     <None Include="..\..\Gamecore\mugen\parser\parse-cmd.yy" />
     <None Include="..\..\Gamecore\mugen\parser\parse-cns.yy" />
     <None Include="..\..\Gamecore\mugen\parser\parse-def.yy" />
-    <None Include="..\ExternalLibs\zlib-1.2.5\zlib.map" />
+    <None Include="..\ExternalLibs\SDL2_image-2.0.3\external\zlib-1.2.11\zlib.map" />
     <None Include="..\Gamecore\Compiler\AirCompiler\location.hh" />
     <None Include="..\Gamecore\Compiler\AirCompiler\position.hh" />
     <None Include="..\Gamecore\Compiler\AirCompiler\stack.hh" />
