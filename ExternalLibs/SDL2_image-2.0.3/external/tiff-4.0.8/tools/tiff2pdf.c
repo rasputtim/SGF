@@ -1,4 +1,4 @@
-/* $Id: tiff2pdf.c,v 1.101 2016-12-20 17:28:17 erouault Exp $
+/*
  *
  * tiff2pdf - converts a TIFF image to a PDF document
  *
@@ -67,6 +67,8 @@ extern int getopt(int, char**, char*);
 #define TIFF2PDF_MODULE "tiff2pdf"
 
 #define PS_UNIT_SIZE	72.0F
+
+#define TIFF_DIR_MAX    65534
 
 /* This type is of PDF color spaces. */
 typedef enum {
@@ -237,7 +239,7 @@ typedef struct {
 	float tiff_whitechromaticities[2];
 	float tiff_primarychromaticities[6];
 	float tiff_referenceblackwhite[2];
-	float* tiff_transferfunction[3];
+	uint16* tiff_transferfunction[3];
 	int pdf_image_interpolate;	/* 0 (default) : do not interpolate,
 					   1 : interpolate */
 	uint16 tiff_transferfunctioncount;
@@ -1047,8 +1049,18 @@ void t2p_read_tiff_init(T2P* t2p, TIFF* input){
 	uint16 pagen=0;
 	uint16 paged=0;
 	uint16 xuint16=0;
+	uint16 tiff_transferfunctioncount=0;
+	uint16* tiff_transferfunction[3];
 
 	directorycount=TIFFNumberOfDirectories(input);
+	if(directorycount > TIFF_DIR_MAX) {
+		TIFFError(
+			TIFF2PDF_MODULE,
+			"TIFF contains too many directories, %s",
+			TIFFFileName(input));
+		t2p->t2p_error = T2P_ERR_ERROR;
+		return;
+	}
 	t2p->tiff_pages = (T2P_PAGE*) _TIFFmalloc(TIFFSafeMultiply(tmsize_t,directorycount,sizeof(T2P_PAGE)));
 	if(t2p->tiff_pages==NULL){
 		TIFFError(
@@ -1147,26 +1159,48 @@ void t2p_read_tiff_init(T2P* t2p, TIFF* input){
                 }
 #endif
 		if (TIFFGetField(input, TIFFTAG_TRANSFERFUNCTION,
-                                 &(t2p->tiff_transferfunction[0]),
-                                 &(t2p->tiff_transferfunction[1]),
-                                 &(t2p->tiff_transferfunction[2]))) {
-			if((t2p->tiff_transferfunction[1] != (float*) NULL) &&
-                           (t2p->tiff_transferfunction[2] != (float*) NULL) &&
-                           (t2p->tiff_transferfunction[1] !=
-                            t2p->tiff_transferfunction[0])) {
-				t2p->tiff_transferfunctioncount = 3;
-				t2p->tiff_pages[i].page_extra += 4;
-				t2p->pdf_xrefcount += 4;
-			} else {
-				t2p->tiff_transferfunctioncount = 1;
-				t2p->tiff_pages[i].page_extra += 2;
-				t2p->pdf_xrefcount += 2;
-			}
-			if(t2p->pdf_minorversion < 2)
-				t2p->pdf_minorversion = 2;
+                                 &(tiff_transferfunction[0]),
+                                 &(tiff_transferfunction[1]),
+                                 &(tiff_transferfunction[2]))) {
+
+                        if((tiff_transferfunction[1] != (uint16*) NULL) &&
+                           (tiff_transferfunction[2] != (uint16*) NULL)
+                          ) {
+                            tiff_transferfunctioncount=3;
+                        } else {
+                            tiff_transferfunctioncount=1;
+                        }
                 } else {
-			t2p->tiff_transferfunctioncount=0;
+			tiff_transferfunctioncount=0;
 		}
+
+                if (i > 0){
+                    if (tiff_transferfunctioncount != t2p->tiff_transferfunctioncount){
+                        TIFFError(
+                            TIFF2PDF_MODULE,
+                            "Different transfer function on page %d",
+                            i);
+                        t2p->t2p_error = T2P_ERR_ERROR;
+                        return;
+                    }
+                }
+
+                t2p->tiff_transferfunctioncount = tiff_transferfunctioncount;
+                t2p->tiff_transferfunction[0] = tiff_transferfunction[0];
+                t2p->tiff_transferfunction[1] = tiff_transferfunction[1];
+                t2p->tiff_transferfunction[2] = tiff_transferfunction[2];
+                if(tiff_transferfunctioncount == 3){
+                        t2p->tiff_pages[i].page_extra += 4;
+                        t2p->pdf_xrefcount += 4;
+                        if(t2p->pdf_minorversion < 2)
+                                t2p->pdf_minorversion = 2;
+                } else if (tiff_transferfunctioncount == 1){
+                        t2p->tiff_pages[i].page_extra += 2;
+                        t2p->pdf_xrefcount += 2;
+                        if(t2p->pdf_minorversion < 2)
+                                t2p->pdf_minorversion = 2;
+                }
+
 		if( TIFFGetField(
 			input, 
 			TIFFTAG_ICCPROFILE, 
@@ -1737,7 +1771,12 @@ void t2p_read_tiff_data(T2P* t2p, TIFF* input){
 	    return;
 
 	t2p->pdf_transcode = T2P_TRANSCODE_ENCODE;
-	if(t2p->pdf_nopassthrough==0){
+        /* It seems that T2P_TRANSCODE_RAW mode doesn't support separate->contig */
+        /* conversion. At least t2p_read_tiff_size and t2p_read_tiff_size_tile */
+        /* do not take into account the number of samples, and thus */
+        /* that can cause heap buffer overflows such as in */
+        /* http://bugzilla.maptools.org/show_bug.cgi?id=2715 */
+	if(t2p->pdf_nopassthrough==0 && t2p->tiff_planar!=PLANARCONFIG_SEPARATE){
 #ifdef CCITT_SUPPORT
 		if(t2p->tiff_compression==COMPRESSION_CCITTFAX4  
 			){
@@ -1822,10 +1861,9 @@ void t2p_read_tiff_data(T2P* t2p, TIFF* input){
 			 &(t2p->tiff_transferfunction[0]),
 			 &(t2p->tiff_transferfunction[1]),
 			 &(t2p->tiff_transferfunction[2]))) {
-		if((t2p->tiff_transferfunction[1] != (float*) NULL) &&
-                   (t2p->tiff_transferfunction[2] != (float*) NULL) &&
-                   (t2p->tiff_transferfunction[1] !=
-                    t2p->tiff_transferfunction[0])) {
+		if((t2p->tiff_transferfunction[1] != (uint16*) NULL) &&
+                   (t2p->tiff_transferfunction[2] != (uint16*) NULL)
+                  ) {
 			t2p->tiff_transferfunctioncount=3;
 		} else {
 			t2p->tiff_transferfunctioncount=1;
@@ -3655,11 +3693,15 @@ tsize_t t2p_sample_realize_palette(T2P* t2p, unsigned char* buffer){
 	uint32 sample_offset=0;
 	uint32 i=0;
 	uint32 j=0;
+        size_t data_size;
 	sample_count=t2p->tiff_width*t2p->tiff_length;
 	component_count=t2p->tiff_samplesperpixel;
-        if( sample_count * component_count > t2p->tiff_datasize )
+        data_size=TIFFSafeMultiply(size_t,sample_count,component_count);
+        if( (data_size == 0U) || (t2p->tiff_datasize < 0) ||
+            (data_size > (size_t) t2p->tiff_datasize) )
         {
-            TIFFError(TIFF2PDF_MODULE,  "Error: sample_count * component_count > t2p->tiff_datasize");
+            TIFFError(TIFF2PDF_MODULE,
+                      "Error: sample_count * component_count > t2p->tiff_datasize");
             t2p->t2p_error = T2P_ERR_ERROR;
             return 1;
         }
@@ -3704,12 +3746,13 @@ tsize_t
 t2p_sample_rgbaa_to_rgb(tdata_t data, uint32 samplecount)
 {
 	uint32 i;
-	
-    /* For the 3 first samples, there is overlapping between souce and
-       destination, so use memmove().
-       See http://bugzilla.maptools.org/show_bug.cgi?id=2577 */
-    for(i = 0; i < 3 && i < samplecount; i++)
-        memmove((uint8*)data + i * 3, (uint8*)data + i * 4, 3);
+
+	/* For the 3 first samples, there is overlap between source and
+	 * destination, so use memmove().
+	 * See http://bugzilla.maptools.org/show_bug.cgi?id=2577
+	 */
+	for(i = 0; i < 3 && i < samplecount; i++)
+		memmove((uint8*)data + i * 3, (uint8*)data + i * 4, 3);
 	for(; i < samplecount; i++)
 		memcpy((uint8*)data + i * 3, (uint8*)data + i * 4, 3);
 

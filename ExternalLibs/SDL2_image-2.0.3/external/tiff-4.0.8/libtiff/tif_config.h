@@ -26,9 +26,6 @@
 /* Define to 1 if you have the <fcntl.h> header file. */
 #define HAVE_FCNTL_H 1
 
-/* Define to 1 if you have the `floor' function. */
-#define HAVE_FLOOR 1
-
 /* Define to 1 if you have the `getopt' function. */
 #define HAVE_GETOPT 1
 
@@ -50,29 +47,11 @@
 /* Define to 1 if you have the <io.h> header file. */
 /* #undef HAVE_IO_H */
 
-/* Define to 1 if you have the `isascii' function. */
-#define HAVE_ISASCII 1
-
 /* Define to 1 if you have the `jbg_newlen' function. */
 /* #undef HAVE_JBG_NEWLEN */
 
 /* Define to 1 if you have the `lfind' function. */
 #define HAVE_LFIND 1
-
-/* Define to 1 if you have the <limits.h> header file. */
-#define HAVE_LIMITS_H 1
-
-/* Define to 1 if you have the <malloc.h> header file. */
-#define HAVE_MALLOC_H 1
-
-/* Define to 1 if you have the `memmove' function. */
-#define HAVE_MEMMOVE 1
-
-/* Define to 1 if you have the <memory.h> header file. */
-#define HAVE_MEMORY_H 1
-
-/* Define to 1 if you have the `memset' function. */
-#define HAVE_MEMSET 1
 
 /* Define to 1 if you have the `mmap' function. */
 #define HAVE_MMAP 1
@@ -83,9 +62,6 @@
 /* Define to 1 if you have the <OpenGL/gl.h> header file. */
 /* #undef HAVE_OPENGL_GL_H */
 
-/* Define to 1 if you have the `pow' function. */
-#define HAVE_POW 1
-
 /* Define to 1 if you have the <search.h> header file. */
 #define HAVE_SEARCH_H 1
 
@@ -95,17 +71,11 @@
 /* Define to 1 if you have the `snprintf' function. */
 #define HAVE_SNPRINTF 1
 
-/* Define to 1 if you have the `sqrt' function. */
-#define HAVE_SQRT 1
-
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
 
 /* Define to 1 if you have the `strcasecmp' function. */
 #define HAVE_STRCASECMP 1
-
-/* Define to 1 if you have the `strchr' function. */
-#define HAVE_STRCHR 1
 
 /* Define to 1 if you have the <strings.h> header file. */
 #define HAVE_STRINGS_H 1
@@ -113,14 +83,11 @@
 /* Define to 1 if you have the <string.h> header file. */
 #define HAVE_STRING_H 1
 
-/* Define to 1 if you have the `strrchr' function. */
-#define HAVE_STRRCHR 1
-
-/* Define to 1 if you have the `strstr' function. */
-#define HAVE_STRSTR 1
-
 /* Define to 1 if you have the `strtol' function. */
 #define HAVE_STRTOL 1
+
+/* Define to 1 if you have the `strtoll' function. */
+#define HAVE_STRTOLL 1
 
 /* Define to 1 if you have the `strtoul' function. */
 #define HAVE_STRTOUL 1
@@ -145,6 +112,9 @@
 
 /* Support LZMA2 compression */
 /* #undef LZMA_SUPPORT */
+
+/* Support ZSTD compression */
+/* #undef ZSTD_SUPPORT */
 
 /* Name of package */
 #define PACKAGE "LibTIFF Software"
@@ -176,9 +146,6 @@
 /* The size of `signed long long', as computed by sizeof. */
 #define SIZEOF_SIGNED_LONG_LONG 8
 
-/* The size of `signed short', as computed by sizeof. */
-#define SIZEOF_SIGNED_SHORT 2
-
 /* The size of `unsigned char *', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_CHAR_P 8
 
@@ -192,7 +159,7 @@
 #define SIZEOF_UNSIGNED_LONG_LONG 8
 
 /* The size of `unsigned short', as computed by sizeof. */
-#define SIZEOF_UNSIGNED_SHORT 2
+#define SIZEOF_UNSIGNED_SHORT 
 
 /* Default size of the strip in bytes (when strip chopping enabled) */
 #define STRIP_SIZE_DEFAULT 8192

@@ -24,277 +24,9 @@
 #include "util/SGF_Debug.h"
 #include "exceptions/all.h"
 
-#ifdef ANDROID
-#include <android/log.h>
-#include "util/android/SGF_AndroidDebug.h"
-#define ANDROID_LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, "sgffabric", __VA_ARGS__)
-#endif
-
 using namespace std;
 namespace SGF {
-	namespace Debug{
 
-	#ifdef ANDROID
-android_ostream::android_ostream(bool enabled):
-enabled(enabled){
-}
-
-android_ostream & operator<<(android_ostream & stream, const std::string & input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const char * input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const char input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const double input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const short int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const short unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const bool input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const long int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const unsigned long int input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, const void * input){
-    stream.buffer << input;
-    return stream;
-}
-
-android_ostream & operator<<(android_ostream & stream, std::ostream & (*f)(std::ostream &)){
-    if (stream.enabled){
-        ANDROID_LOGV("%s\n", stream.buffer.str().c_str());
-    }
-    stream.buffer.str("");
-    stream.buffer.rdbuf()->pubseekoff(0, ios_base::end, ios_base::out);
-    stream.buffer.clear();
-    return stream;
-}
-
-android_ostream android_ostream::stream;
-static android_ostream nullcout(false);
-#elif defined(WII) && defined(DEBUG)
-wii_ostream::wii_ostream(bool enabled):
-enabled(enabled){
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const std::string & input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const char * input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const char input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const double input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, uint64_t input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const short int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const short unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const bool input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const long int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const unsigned long int input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, const void * input){
-    stream.buffer << input;
-    return stream;
-}
-
-wii_ostream & operator<<(wii_ostream & stream, std::ostream & (*f)(std::ostream &)){
-    if (stream.enabled){
-        printf("%s\n", stream.buffer.str().c_str());
-    }
-    stream.buffer.str("");
-    stream.buffer.rdbuf()->pubseekoff(0, ios_base::end, ios_base::out);
-    stream.buffer.clear();
-    return stream;
-}
-
-wii_ostream wii_ostream::stream;
-static wii_ostream nullcout(false);
-#elif defined(NETWORK_DEBUG)
-network_ostream::network_ostream(const std::string & host, int port, bool enabled):
-host(host),
-port(port),
-enabled(enabled){
-}
-
-network_ostream & operator<<(network_ostream & stream, const std::string & input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const char * input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const char input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const double input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const int input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, uint64_t input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const short int input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const short unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const unsigned int input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const bool input){
-    stream.buffer << input;
-    return stream;
-}
-
-network_ostream & operator<<(network_ostream & stream, const long int input){
-    stream.buffer << input;
-    return stream;
-}
-
-#ifndef PS3
-network_ostream & operator<<(network_ostream & stream, const unsigned long int input){
-    stream.buffer << input;
-    return stream;
-}
-#endif
-
-network_ostream & operator<<(network_ostream & stream, const void * input){
-    stream.buffer << input;
-    return stream;
-}
-
-static void sendString(const std::string & host, int port, const std::string & data){
-    int gateway = socket(PF_INET, SOCK_STREAM, 0);
-    struct sockaddr_in address;
-    address.sin_family = AF_INET;
-    address.sin_port = htons(port);
-    address.sin_addr.s_addr = inet_addr(host.c_str());
-    memset(address.sin_zero, '\0', sizeof(address.sin_zero));
-    connect(gateway, (struct sockaddr*) &address, sizeof(address));
-    send(gateway, data.c_str(), data.size(), 0);
-    send(gateway, "\n", 1, 0);
-    close(gateway);
-}
-
-network_ostream & operator<<(network_ostream & stream, std::ostream & (*f)(std::ostream &)){
-    if (stream.enabled){
-        sendString(stream.host, stream.port, stream.buffer.str());
-        // printf("%s\n", stream.buffer.str().c_str());
-    }
-    stream.buffer.str("");
-    stream.buffer.rdbuf()->pubseekoff(0, ios_base::end, ios_base::out);
-    stream.buffer.clear();
-    return stream;
-}
-
-/* IP address and port are arbitrary */
-network_ostream network_ostream::stream("192.168.1.100", 5670);
-static network_ostream nullcout("", 0, false);
-#else
 
 class nullstreambuf_t: public std::streambuf {
 public:
@@ -312,64 +44,9 @@ public:
 
 static nullcout_t nullcout;
 
-#endif
-
-#ifdef ANDROID
-        static stream_type & defaultStream(){
-            return android_ostream::stream;
-        }
-
-        static stream_type & getStream(){
-            return defaultStream();
-        }
-
-        void logToFile(){
-        }
-
-        void closeLog(){
-        }
-#elif defined(WII) && defined(DEBUG)
-static stream_type & defaultStream(){
-    return wii_ostream::stream;
-}
-
-static stream_type & getStream(){
-    return defaultStream();
-}
-
-void logToFile(){
-}
-
-void closeLog(){
-}
-#elif defined(NETWORK_DEBUG)
-static stream_type & defaultStream(){
-    return network_ostream::stream;
-}
-
-static stream_type & getStream(){
-    return defaultStream();
-}
-
-void logToFile(){
-}
-
-void closeLog(){
-}
-#else
-
-        static stream_type & defaultStream(){
-            return std::cout;
-        }
-static stream_type & getStream(){
-
-                return defaultStream();
-
-        }
 
 
-        #endif
-
+namespace Debug{
 static int global_debug_level = 0;
 static ofstream  debug_file;
 static string debug_filename;
@@ -402,7 +79,7 @@ void setFilename(string filename){
 
 
 
-bool CLog::print(string txt)  {
+bool CLog::print(string txt) throw(CLoadException) {
 
     try {
         std::ofstream file(filename.c_str(), std::ios::app);
@@ -469,36 +146,37 @@ CLog::~CLog()
 
 
 
-    stream_type & debug(int i, const string & context){
+
+std::ostream & debug(int i, const string & context){
 	bool debug=false;
 
 	switch (i) {
-    case error: ((i == whatDebug.error) ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[error]); break;
-    case bitmap: ((i == whatDebug.bitmap )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[bitmap]); break;
-    case font: ((i == whatDebug.font )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[font]); break;
-    case gui: ((i == whatDebug.gui )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gui]);  break;
-    case input: ((i == whatDebug.input )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[input]); break;
-    case compilers: ((i == whatDebug.compilers )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[compilers]); break;
-    case configuration: ((i == whatDebug.configuration )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[configuration]); break;
-    case parsers: ((i == whatDebug.parsers )? debug = 1 : debug = 0); cout.rdbuf(debug_buffers[parsers]); break;
-    case lists: ((i == whatDebug.lists )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[lists]); break;
-    case menu: ((i == whatDebug.menu )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[menu]); break;
-    case network: ((i == whatDebug.network )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[network]); break;
-    case resources: ((i == whatDebug.resources )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[resources]); break;
-    case objects: ((i == whatDebug.objects )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[objects]); break;
-    case exceptions: ((i == whatDebug.exceptions )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[exceptions]); break;
-    case environment: ((i == whatDebug.environment )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[environment]); break;
-    case filesystem: ((i == whatDebug.filesystem )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[filesystem]); break;
-    case sound: ((i == whatDebug.sound )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sound]); break;
-    case console: ((i == whatDebug.console )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[console]); break;
-    case gameEngine: ((i == whatDebug.gameEngine )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameEngine]); break;
-    case gameStage: ((i == whatDebug.gameStage )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStage]); break;
-    case gameObject: ((i == whatDebug.gameObject )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameObject]); break;
-    case gameStateMachine: ((i == whatDebug.gameStateMachine )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStateMachine]); break;
-    case gameStory: ((i == whatDebug.gameStory )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStory]); break;
-    case gameConfiguration: ((i == whatDebug.gameConfiguration )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameConfiguration]); break;
-    case sdlmanager: ((i == whatDebug.sdlmanager )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sdlmanager]); break;
-    case xml: ((i == whatDebug.xml )? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[xml]); break;
+	case error: (whatDebug.error ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[error]); break;
+	case bitmap: (whatDebug.bitmap ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[bitmap]); break;
+	case font: (whatDebug.font ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[font]); break;
+	case gui: (whatDebug.gui ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gui]);  break;
+	case input: (whatDebug.input ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[input]); break;
+	case compilers: (whatDebug.compilers ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[compilers]); break;
+	case configuration: (whatDebug.configuration ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[configuration]); break;
+	case parsers: (whatDebug.parsers ? debug = 1 : debug = 0); cout.rdbuf(debug_buffers[parsers]); break;
+	case lists: (whatDebug.lists ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[lists]); break;
+	case menu: (whatDebug.menu ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[menu]); break;
+	case network: (whatDebug.network ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[network]); break;
+	case resources: (whatDebug.resources ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[resources]); break;
+	case objects: (whatDebug.objects ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[objects]); break;
+	case exceptions: (whatDebug.exceptions ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[exceptions]); break;
+	case environment: (whatDebug.environment ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[environment]); break;
+	case filesystem: (whatDebug.filesystem ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[filesystem]); break;
+	case sound: (whatDebug.sound ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sound]); break;
+	case console: (whatDebug.console ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[console]); break;
+	case gameEngine: (whatDebug.gameEngine ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameEngine]); break;
+	case gameStage: (whatDebug.gameStage ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStage]); break;
+	case gameObject: (whatDebug.gameObject ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameObject]); break;
+	case gameStateMachine: (whatDebug.gameStateMachine ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStateMachine]); break;
+	case gameStory: (whatDebug.gameStory ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameStory]); break;
+	case gameConfiguration: (whatDebug.gameConfiguration ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[gameConfiguration]); break;
+	case sdlmanager: (whatDebug.sdlmanager ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[sdlmanager]); break;
+	case xml: (whatDebug.xml ? debug = 1 : debug = 0);cout.rdbuf(debug_buffers[xml]); break;
 	default: debug = 0;cout.rdbuf(debug_buffers[xml]); break;
 	}
 
@@ -513,11 +191,8 @@ CLog::~CLog()
 			
 		} */
 		//if(i!=parsers)  cout.rdbuf(debug_buffers[1]);
-        stream_type & out = getStream();
-        out << "[" << i << ":" << context << "] ";
-        return out;
-		//sal cout << "[" << i << ":" << context << "] ";
-		//sal return cout;
+		cout << "[" << i << ":" << context << "] ";
+		return cout;
 	}
 	return nullcout;
 }

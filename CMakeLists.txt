@@ -28,6 +28,8 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 	endif(UNIX AND NOT CYGWIN)
 endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 
+#enable incremental builiding
+set (CMAKE_SKIP_RULE_DEPENDENCY TRUE)
 
 # -------------------------------------------------------
 # Directory in which extra macros can be found
@@ -188,18 +190,19 @@ include(TestPThreads)
 # -------------------------------------------------------
 # FIND PACKAGES
 # -------------------------------------------------------
-
+message (STATUS:  "SGF WILL LOOK FOR LIBRARIES INSTALLED IN THE SYSTEM")
 find_package(ZLIB)
-find_package(PNG)
 find_package(FREETYPE)
+find_package(PNG)
+find_package(JPEG9)
+find_package(TIFF)
+include(FindWEBP)
 find_package(Threads)
 find_package(VORBIS)
 find_package(OGG)
 find_package(MPG123)
-find_package(JPEG9)
 FIND_PACKAGE (Perl)
 FIND_PACKAGE (PerlLibs)
-find_package(TIFF)
 
 
 
@@ -247,8 +250,12 @@ mark_as_advanced(CMAKE_IMPORT_LIBRARY_SUFFIX SGF_CMAKE_DEBUG_POSTFIX)
         #set(CMAKE_C_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -g3 -ggdb")
     else()
 
-            set(CMAKE_CXX_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -Woverloaded-virtual -g3 -ggdb -std=c++11 -msse3")
-            set(CMAKE_C_FLAGS "-Wall -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -g3 -ggdb -msse3")
+            #with warnings
+            #set(CMAKE_CXX_FLAGS "-Wall -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -Woverloaded-virtual -g3 -ggdb -std=c++11 -msse3")
+            #set(CMAKE_C_FLAGS "-Wall -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -funroll-loops -fexpensive-optimizations -g3 -ggdb -msse3")
+            #no warnings
+            set(CMAKE_CXX_FLAGS "-w -funroll-loops -fexpensive-optimizations -Woverloaded-virtual -g3 -ggdb -std=c++11 -msse3")
+            set(CMAKE_C_FLAGS "-w -funroll-loops -fexpensive-optimizations -g3 -ggdb -msse3")
 
             if(WITH_64_BIT)  #cross compilling to 32bit
             set(ADITIONAL_CXX_FLAGS "-m32")
@@ -302,6 +309,37 @@ elseif(NOT $ENV{SDL})
     set(USE_SDL OFF)
 endif($ENV{SDL})
 
+########  SDL IMAGE LIBS #####
+
+if(PNG_FOUND)
+    message(STATUS "LIB PNG found to use with SDL2_image.")
+    add_definitions(-DHAVE_PNG)
+    set(PNG_LIBRARIES ${JPEG9_LIBRARY})
+    set(PNG_INCLUDES ${PNG_INCLUDE_DIRS})
+    set(PNG_DEFINITIONS "")
+    message (STATUS "PNG FOUND VERSION: ${PNG_VERSION_STRING}")
+else(PNG_FOUND)
+    message(STATUS "LIB PNG NOT found to use for SDL2_image. I Will build PNG internally")
+    set(PNG_LIBRARIES "")
+    set(PNG_INCLUDES "")
+    set(PNG_INTERNAL 1)
+endif(PNG_FOUND)
+
+if(WEBP_FOUND)
+    message(STATUS "LIB WEBP found to use with SDL2_image.")
+    add_definitions(-DHAVE_WEBP)
+    set(WEBP_DEFINITIONS "")
+    set(WEBP_LIBRARY ${WEBP_LIBRARY})
+    set(WEBP_INCLUDE_DIR ${WEBP_INCLUDE_DIR})
+
+else(WEBP_FOUND)
+    message(STATUS "LIB WEBP NOT found to use with SDL2_image. I Will build WEBP internally")
+    set(WEBP_LIBRARY "")
+    set(WEBP_INCLUDE_DIR "")
+    set(WEBP_INTERNAL 1)
+endif(WEBP_FOUND)
+
+
 if(JPEG9_FOUND)
     message(STATUS "LIB jpeg9 found to use with SDL2_image.")
     add_definitions(-DHAVE_JPEG)
@@ -311,6 +349,7 @@ else(JPEG9_FOUND)
     message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build jpeg internally")
     set(JPEG9_LIBS "")
     set(JPEG9_INCLUDES "")
+    set(JPEG_INTERNAL 1)
 endif(JPEG9_FOUND)
 
 if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
@@ -428,7 +467,12 @@ endif(PERLLIBS_FOUND)
 # freetype
 if(NOT FREETYPE_FOUND)
 	message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
-        set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/)
+        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
+            file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h  ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build-orig.h )
+        endif(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
+        set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include
+            ${PROJECT_BINARY_DIR}/include/freetype/config)
+        #set(FREETYPE_INCLUDE_DIR ${PROJECT_BINARY_DIR}/include/freetype/config)
     set(FREETYPE_LIBS "")
     set(FREETYPE_INTERNAL ON)
 endif(NOT FREETYPE_FOUND)
@@ -561,9 +605,33 @@ endif()
 
 if(FREETYPE_INTERNAL)
 include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
-${FREETYPE_INCLUDE_DIR}
-)
+${FREETYPE_INCLUDE_DIR})
 endif()
+
+if(WEBP_INTERNAL)
+    include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src)
+else(WEBP_INTERNAL)
+    include_directories(${WEBP_INCLUDE_DIR})
+endif(WEBP_INTERNAL)
+
+
+if(ZLIB_FOUND)
+    include_directories(${ZLIB_INCLUDE_DIRS})
+    message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
+    message(STATUS "Zlib library:  ${ZLIB_LIBRARIES}")
+else(ZLIB_FOUND)
+    set(ZLIB_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
+    include_directories(${ZLIB_INCLUDE_DIRS})
+    set (ZLIB_LIBRARIES "zlibstatic")
+endif()
+
+
+
+if(PNG_INTERNAL)
+    include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32)
+else(PNG_INTERNAL)
+    include_directories(${PNG_INCLUDES})
+endif(PNG_INTERNAL)
 
 
 include_directories(${CMAKE_SOURCE_DIR}/Gamecore
@@ -577,9 +645,6 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_SGF
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/include
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src/
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32/
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
@@ -618,19 +683,19 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
 # -------------------------------------------------------
 # generated Header Files
 # -------------------------------------------------------
-
-if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
-    # If we're doing an out of source build and the user has a zconf.h
-    # in their source tree...
-    if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
-        message(STATUS "Renaming")
-        message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h")
-        message(STATUS "to 'zconf.h.included' because this file is included with zlib")
-        message(STATUS "but CMake generates it automatically in the build directory.")
-        file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h.included)
-  endif()
-endif()
-
+if(!ZLIB_FOUND)
+    if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
+        # If we're doing an out of source build and the user has a zconf.h
+        # in their source tree...
+        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+            message(STATUS "Renaming")
+            message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h")
+            message(STATUS "to 'zconf.h.included' because this file is included with zlib")
+            message(STATUS "but CMake generates it automatically in the build directory.")
+            file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h.included)
+      endif()
+    endif()
+endif(!ZLIB_FOUND)
 
 
 
@@ -695,15 +760,18 @@ message (STATUS "WILL BUILD FREETYPE")
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
 
 if(FREETYPE_INTERNAL)
+ message(STATUS "============WILL INCLUDE  FREETYPE NOW============")
+ message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
 
-include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
+#include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
 
-
-include_directories(${FREE_PRIVATE_HEADERS}
-                    ${FREE_PUBLIC_HEADERS}
-                    ${FREE_PUBLIC_CONFIG_HEADERS})
 endif(FREETYPE_INTERNAL)
+
+if(JPEG_INTERNAL)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/CMakeLists.txt) #(get variables needed)
+include_directories( PRIVATE ${JPEG_DIR})
+endif(JPEG_INTERNAL)
 
 include(${CMAKE_SOURCE_DIR}/Source/ai/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/configuration/CMakeLists.txt) #(get variables needed)
@@ -754,8 +822,16 @@ include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/
 endif(OGG_INTERNAL)
 if(TIFF_INTERNAL)
 #todo: solve tiff compilation problems
-    #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
 endif(TIFF_INTERNAL)
+
+if(PNG_INTERNAL)
+add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32)
+endif(PNG_INTERNAL)
+
+if(WEBP_INTERNAL)
+add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/)
+endif(WEBP_INTERNAL)
 
 
 
@@ -796,7 +872,7 @@ message(STATUS "Including files to build Utils Module: ${UTIL_SRC}")
 message(STATUS "Including files to build Windows Module: ${WINDOWS_SRC}")
 message(STATUS "Including files to build SFL Module: ${SFL_SRC}")
 message(STATUS "Including files to build FREETYPE Module: ${FREE_BASE_SRCS}")
-
+message(STATUS "Including files to build JPEG Module: ${JPEG_SRC}")
 
 if(OGG_INTERNAL)
 message(STATUS "Including files to build OGG module: ${OGG_SRC}")
@@ -814,21 +890,27 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
 #do not include TTF sources when there is the library
 if(!FREETYPE_INTERNAL)
         set(FREE_BASE_SRCS "")
+        set(FREE_PRIVATE_HEADERS "")
+        set(FREE_PUBLIC_HEADERS "")
+        set(FREE_PUBLIC_CONFIG_HEADERS "")
+
 else()
 
         include_directories( PRIVATE "${CMAKE_BINARY_DIR}/include")
-        include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
-
-
-        include_directories(${FREE_SGF_HEADERS}
-                            ${FREE_PRIVATE_HEADERS}
-                            ${FREE_PUBLIC_HEADERS}
-                            ${FREE_PUBLIC_CONFIG_HEADERS})
+        #include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
 
         add_definitions(-DFT2_BUILD_LIBRARY)
 
 
 endif(!FREETYPE_INTERNAL)
+
+if(!JPEG_INTERNAL)
+        set(JPEG_SRC "")
+else()
+endif(!JPEG_INTERNAL)
+
+
+
 if(ANDROID)
 #set(COMPILERS_MUGEN_SRC "")
 set(NETWORK_SRC "")
@@ -841,7 +923,12 @@ endif(ANDROID)
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
 add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
+#for freetype
+${FREE_PRIVATE_HEADERS}
+${FREE_PUBLIC_HEADERS}
+${FREE_PUBLIC_CONFIG_HEADERS}
 ${FREE_BASE_SRCS}
+#end freetype
 ${COMPILERS_MUGEN_SRC}
 ${expat_SRCS}
 ${SDL2_SOURCE_FILES} ${CONFIGURATION_SRC} ${AI_SRC}  ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
@@ -849,10 +936,11 @@ ${GAME_SRC} ${GRAPHICS_SRC} ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
 ${LISTS_SRC} ${MATH_SRC} ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC} ${NETWORK_SRC}
 ${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
 ${SYS_SRC} ${UTIL_SRC} ${WINDOWS_SRC}
-#external Libs
+ #external Libs
 ${7ZIP_SRC} ${HAWKNL_SRC} ${MD5_SRC} ${PCRE_SRC} ${SGE_SRC} ${SHA_SRC} ${SFL_SRC}
 ${MINIZIP_SRC} ${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
-${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${TIFF_SRC} ${SFL_SRC}
+${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${SFL_SRC}
+${JPEG_SRC}
 
 )
 
@@ -894,19 +982,19 @@ set(OGG_INTERNAL_LIB "")
 endif(OGG_INTERNAL)
 
 if(TIFF_INTERNAL)
-        set(TIFF_INTERNAL_LIB "tiff_module")
-        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-                file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-        endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-                file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-        endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+        #set(TIFF_INTERNAL_LIB "tiff_module")
+        #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+        #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+        #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+        #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+        #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+        #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
 else(TIFF_INTERNAL)
 set(TIFF_INTERNAL_LIB "")
 endif(TIFF_INTERNAL)
 
 #add_executable (test src/test.cpp)
-target_link_libraries(sgffabric zlibstatic)
+target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp png_static tiff ${JPEG9_LIBS})
 
 
 if(ANDROID)

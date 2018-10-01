@@ -21,7 +21,7 @@ set(LIBRARY_SOVERSION "6")
 # optionally found anyway. Use `-DCMAKE_DISABLE_FIND_PACKAGE_x=TRUE` to disable
 # searching for a packge entirely (x is the CMake package name, so "BZip2"
 # instead of "BZIP2").
-option(FT_WITH_ZLIB "Use system zlib instead of internal library." OFF)
+option(FT_WITH_ZLIB "Use system zlib instead of internal library." ON)   #use the SGF_Zlib
 option(FT_WITH_BZIP2 "Support bzip2 compressed fonts." OFF)
 option(FT_WITH_PNG "Support PNG compressed OpenType embedded bitmaps." OFF)
 option(FT_WITH_HARFBUZZ "Improve auto-hinting of OpenType fonts." OFF)
@@ -60,11 +60,12 @@ else ()
   find_package(PNG)
 endif ()
 
-if (FT_WITH_ZLIB)
-  find_package(ZLIB REQUIRED)
-else ()
-  find_package(ZLIB)
-endif ()
+set(ZLIB_FOUND TRUE)
+#if (FT_WITH_ZLIB)
+#  find_package(ZLIB REQUIRED)
+#else ()
+#  find_package(ZLIB)
+#endif ()
 
 if (FT_WITH_BZIP2)
   find_package(BZip2 REQUIRED)
