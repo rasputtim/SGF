@@ -20,9 +20,10 @@
 #ifndef _SGF__mugen_exception_h
 #define _SGF__mugen_exception_h
 
-#include "SGF_Exception.h"
+
 #include <string>
 #include "../SGF_Config.h"
+#include "SGF_Exception.h"
 
 using namespace std;
 namespace SGF {
@@ -31,9 +32,9 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de problema no MUGEN 
+ * \brief Excessï¿½o de problema no MUGEN 
  *
- * Esta Excessão é lançada quando ocorre algo errado no MUGEN 
+ * Esta Excessï¿½o ï¿½ lanï¿½ada quando ocorre algo errado no MUGEN 
  *
  * 
  * \author (last to touch it) $Autor: Rasputtim $
@@ -45,7 +46,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API CMugenException: public Exception::CBase {
+class CMugenException: public Exception::CBase {
 public:
 	CMugenException();
 	CMugenException(const string & reason, const string & where = "?", int line = 0);

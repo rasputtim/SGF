@@ -36,10 +36,10 @@
 /* #undef HAVE_GL_GLUT_H */
 
 /* Define to 1 if you have the <GL/glu.h> header file. */
-#define HAVE_GL_GLU_H 1
+/* #undef HAVE_GL_GLU_H */
 
 /* Define to 1 if you have the <GL/gl.h> header file. */
-#define HAVE_GL_GL_H 1
+/* #undef HAVE_GL_GL_H */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -141,25 +141,25 @@
 #define SIZEOF_SIGNED_INT 4
 
 /* The size of `signed long', as computed by sizeof. */
-#define SIZEOF_SIGNED_LONG 8
+#define SIZEOF_SIGNED_LONG 4
 
 /* The size of `signed long long', as computed by sizeof. */
 #define SIZEOF_SIGNED_LONG_LONG 8
 
 /* The size of `unsigned char *', as computed by sizeof. */
-#define SIZEOF_UNSIGNED_CHAR_P 8
+#define SIZEOF_UNSIGNED_CHAR_P 4
 
 /* The size of `unsigned int', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_INT 4
 
 /* The size of `unsigned long', as computed by sizeof. */
-#define SIZEOF_UNSIGNED_LONG 8
+#define SIZEOF_UNSIGNED_LONG 4
 
 /* The size of `unsigned long long', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_LONG_LONG 8
 
 /* The size of `unsigned short', as computed by sizeof. */
-#define SIZEOF_UNSIGNED_SHORT 
+#define SIZEOF_UNSIGNED_SHORT 2
 
 /* Default size of the strip in bytes (when strip chopping enabled) */
 #define STRIP_SIZE_DEFAULT 8192
@@ -168,22 +168,22 @@
 #define TIFF_INT32_FORMAT "%d"
 
 /* Signed 64-bit type formatter */
-#define TIFF_INT64_FORMAT "%ld"
+#define TIFF_INT64_FORMAT "%lld"
 
 /* Pointer difference type formatter */
 #define TIFF_PTRDIFF_FORMAT "%ld"
 
 /* Unsigned size type formatter */
-#define TIFF_SIZE_FORMAT "%lu"
+#define TIFF_SIZE_FORMAT "%u"
 
 /* Signed size type formatter */
-#define TIFF_SSIZE_FORMAT "%ld"
+#define TIFF_SSIZE_FORMAT "%d"
 
 /* Unsigned 32-bit type formatter */
 #define TIFF_UINT32_FORMAT "%u"
 
 /* Unsigned 64-bit type formatter */
-#define TIFF_UINT64_FORMAT "%lu"
+#define TIFF_UINT64_FORMAT "%llu"
 
 /* Unsigned 8-bit type */
 #define TIFF_UINT8_T unsigned char

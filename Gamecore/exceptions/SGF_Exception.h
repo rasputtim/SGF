@@ -97,7 +97,7 @@ protected:
  *
  * Created on: 04 de Janeiro de 2012
   */
-class  SGE_API Return: public CBase {
+class  Return: public CBase {
 public:
     Return(const string & file, int line);
     Return(const string & file, int line, const CBase & nested);
@@ -129,7 +129,7 @@ protected:
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API Quit: public CBase {
+class  Quit: public CBase {
 public:
     Quit(const string & file, int line);
     Quit(const string & file, int line, const CBase & nested);

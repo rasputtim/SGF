@@ -31,9 +31,9 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de carregamento 
+ * \brief Excessï¿½o de carregamento 
  *
- * Esta Excessão é lançada quando um Mod for trocado 
+ * Esta Excessï¿½o ï¿½ lanï¿½ada quando um Mod for trocado 
  *
  * 
  * \author (last to touch it) $Autor: Rasputtim $
@@ -45,7 +45,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API CReloadMenuException: public ::std::exception {
+class  CReloadMenuException: public ::std::exception {
 public:
 	CReloadMenuException():exception(){}
 

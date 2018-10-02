@@ -32,7 +32,7 @@ namespace Exception{
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de Rede 
+ * \brief Excessï¿½o de Rede 
  *
  *
  * \author (last to touch it) $Autor: Rasputtim $
@@ -45,7 +45,7 @@ namespace Exception{
   */
 
 
-class  SGE_API CNetworkException: public Exception::CBase{
+class  CNetworkException: public Exception::CBase{
 public:
 	CNetworkException( const string message = "" ):
 	  CBase("[NETWORK]",0),message(message){}
@@ -71,9 +71,9 @@ private:
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de conexão pendente de Rede 
+ * \brief Excessï¿½o de conexï¿½o pendente de Rede 
  *
- * ocorre quando não há conexão pendente
+ * ocorre quando nï¿½o hï¿½ conexï¿½o pendente
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -84,7 +84,7 @@ private:
  * Created on: 04 de fevereiro de 2012
   */
 
-class  SGE_API CNoConnectionsPendingException: public CNetworkException{
+class  CNoConnectionsPendingException: public CNetworkException{
 public:
 	CNoConnectionsPendingException(const string message = ""):
 		CNetworkException(message){
@@ -96,9 +96,9 @@ public:
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de final de mensagem 
+ * \brief Excessï¿½o de final de mensagem 
  *
- * ocorre quando a conexão é fechada pelo nó remoto
+ * ocorre quando a conexï¿½o ï¿½ fechada pelo nï¿½ remoto
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -108,7 +108,7 @@ public:
  *
  * Created on: 04 de fevereiro de 2012
   */
-class  SGE_API CMessageEndException: public CNetworkException {
+class  CMessageEndException: public CNetworkException {
 public:
     CMessageEndException();
 };
@@ -118,9 +118,9 @@ public:
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de porta inválida 
+ * \brief Excessï¿½o de porta invï¿½lida 
  *
- * ocorre quando não consegue estabelecer uma conexão com o servidor
+ * ocorre quando nï¿½o consegue estabelecer uma conexï¿½o com o servidor
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -130,7 +130,7 @@ public:
  *
  * Created on: 04 de fevereiro de 2012
   */
-class  SGE_API CInvalidPortException: public CNetworkException{
+class  CInvalidPortException: public CNetworkException{
 public:
 	CInvalidPortException( int port, const string message = "" );
 };
@@ -140,9 +140,9 @@ public:
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de impossibilidade abrir um socket 
+ * \brief Excessï¿½o de impossibilidade abrir um socket 
  *
- * ocorre quando não consegue abrir um socket para ouvir
+ * ocorre quando nï¿½o consegue abrir um socket para ouvir
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -152,7 +152,7 @@ public:
  *
  * Created on: 04 de fevereiro de 2012
   */
-class  SGE_API CCannotListenException: public CNetworkException{
+class  CCannotListenException: public CNetworkException{
 public:
 	CCannotListenException( const string message = "" ):
 		CNetworkException( message ){

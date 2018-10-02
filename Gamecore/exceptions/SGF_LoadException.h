@@ -36,9 +36,9 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de carregamento 
+ * \brief Excessï¿½o de carregamento 
  *
- * Ocorre sempre que uma estrutura está sendo criada e ocorre um erro, ex: carregamento de arquivos, configurações, etc
+ * Ocorre sempre que uma estrutura estï¿½ sendo criada e ocorre um erro, ex: carregamento de arquivos, configuraï¿½ï¿½es, etc
  *
  * 
  * \author (last to touch it) $Autor: Rasputtim $
@@ -50,7 +50,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API CLoadException: public Exception::CBase {
+class  CLoadException: public Exception::CBase {
 public:
 
 	CLoadException( const string reason );
@@ -64,7 +64,7 @@ public:
 	
 
 	virtual ~CLoadException() throw();
-     virtual const string getReason() const;  //temporariamente aqui até implementar catch do exception base
+     virtual const string getReason() const;  //temporariamente aqui atï¿½ implementar catch do exception base
 protected:
         string reason;
 		virtual Exception::CBase * copy() const;

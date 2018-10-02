@@ -30,7 +30,7 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão Desligamento 
+ * \brief Excessï¿½o Desligamento 
  *
  * This exception is thrown when the user clicks the X button on window
  * or otherwise wants to immediately shutdown the program.
@@ -47,7 +47,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API CShutdownException: public ::std::exception {
+class  CShutdownException: public ::std::exception {
 public:
 	CShutdownException():exception(){}
 

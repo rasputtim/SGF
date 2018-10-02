@@ -26,8 +26,12 @@
 #include <map>
 #include <vector>
 #include <string>
+#if defined (ANDROID)
+	#include <sstream>
+	#include <iostream>
+#endif
 #include "../SGF_Config.h"
-
+#include "../exceptions/all.h"
 
 
 using namespace std;

@@ -32,7 +32,7 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de Erro Genérico 
+ * \brief Excessï¿½o de Erro Genï¿½rico 
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -43,7 +43,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  SGE_API CGeneralError: public Exception::CBase {
+class  CGeneralError: public Exception::CBase {
 public:
 	CGeneralError();
 	CGeneralError(const string & reason, const string & where = "?", int line = 0);

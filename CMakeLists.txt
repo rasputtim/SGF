@@ -141,7 +141,7 @@ endif()
 # -------------------------------------------------------
 
 if (ANDROID)
-
+message (STATUS "Build PNG SUPPORT FOR ANDROID")
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/libs/Android)
 #by default AndroidStudio save the binary file in the folder .externalNativeBuild
 #must create a configuration in gradle to copy it to the correct folder
@@ -195,7 +195,9 @@ find_package(ZLIB)
 find_package(FREETYPE)
 find_package(PNG)
 find_package(JPEG9)
+if(NOT ANDROID)
 find_package(TIFF)
+endif()
 include(FindWEBP)
 find_package(Threads)
 find_package(VORBIS)
@@ -215,9 +217,9 @@ FIND_PACKAGE (PerlLibs)
 # -------------------------------------------------------
 #include(FileList)
 
+#TURN BACK ADVANCED VARIABLES, MAKING THEM AVAILABLE TO INCLUDED SUBDIRS
 mark_as_advanced(CLEAR ZLIB_INCLUDE_DIR)
 mark_as_advanced(CLEAR ZLIB_LIBRARY)
-
 mark_as_advanced(CLEAR PNG_PNG_INCLUDE_DIR)
 mark_as_advanced(CLEAR PNG_LIBRARY)
 
@@ -309,7 +311,26 @@ elseif(NOT $ENV{SDL})
     set(USE_SDL OFF)
 endif($ENV{SDL})
 
-########  SDL IMAGE LIBS #####
+message (STATUS "###########################################################")
+message (STATUS "########  SET FLAGS FOR THE NEEDED SEARCHED LIBS      #####")
+message (STATUS "########  CHECK IF WE WILL BUID THEM OR NOT           #####")
+message (STATUS "###########################################################")
+
+if(ZLIB_FOUND)
+    set (ZLIB_INTERNAL FALSE)
+    message(STATUS "Lib ZLIB FOUND.")
+    message(STATUS "THE LIBRARY: ${ZLIB_LIBRARY}")
+    message(STATUS "INCLUDE DIR: ${ZLIB_INCLUDE_DIR}")
+else(ZLIB_FOUND)
+    message(STATUS "LIB ZLIB NOT found.")
+    message(STATUS "We Will build it internally")
+    set (ZLIB_INTERNAL TRUE)
+    set(ZLIB_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
+    set (ZLIB_LIBRARIES "zlibstatic")
+    set (ZLIB_FOUND TRUE)
+endif(ZLIB_FOUND)
+
+
 
 if(PNG_FOUND)
     message(STATUS "LIB PNG found to use with SDL2_image.")
@@ -381,32 +402,23 @@ else(OGG_FOUND)
 
 endif(OGG_FOUND)
 
-if(TIFF_FOUND)
-    add_definitions(-DHAVE_OGG)
-    set(TIFF_LIBS ${TIFF_LIBRARY} ${TIFF_LIBRARIES})
-    set(TIFF_INCLUDES ${TIFF_INCLUDE_DIR})
-    set(TIFF_INTERNAL OFF)
-    message(STATUS "LIB TIFF found to use with SDL2_image.")
-    set(TIFF_SRC "")
-else(TIFF_FOUND)
-    #use internal tiff_module
-    message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
-    set(TIFF_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
-    set(TIFF_LIBS "")
-    set(TIFF_INTERNAL ON)
-endif(TIFF_FOUND)
+if(NOT ANDROID)
+    if(TIFF_FOUND)
+        add_definitions(-DHAVE_OGG)
+        set(TIFF_LIBS ${TIFF_LIBRARY} ${TIFF_LIBRARIES})
+        set(TIFF_INCLUDES ${TIFF_INCLUDE_DIR})
+        set(TIFF_INTERNAL OFF)
+        message(STATUS "LIB TIFF found to use with SDL2_image.")
+        set(TIFF_SRC "")
+    else(TIFF_FOUND)
+        #use internal tiff_module
+        message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
+        set(TIFF_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
+        set(TIFF_LIBS "")
+        set(TIFF_INTERNAL ON)
+    endif(TIFF_FOUND)
+endif()
 
-#i WILL BUILD sdl2 INTERNALLY
-#if(USE_SDL)
-    # packages
-    #find_package(SDL2)
-    # sdl
-    #add_definitions(-DUSE_SDL)
-    #if(NOT SDL_FOUND)
-    #    message(FATAL_ERROR "Couldn't find SDL2.")
-    #else(NOT SDL_FOUND)
-    #    message("SDL2 found SDL2.")
-    #endif(NOT SDL_FOUND)
 
     # SET Mixer definition
     if (MAD_FOUND)
@@ -482,17 +494,14 @@ if(NOT PNG_FOUND)
     set(PNG_LIBS "")
     set(PNG_INTERNAL ON)
 endif(NOT PNG_FOUND)
-# regex
-#if(NOT GNUREGEX_FOUND)
-#	message(FATAL_ERROR "Couldn't find GNU Regex")
-#endif(NOT GNUREGEX_FOUND)
 
 
-# -------------------------------------------------------
-# Paths and system setup
-# -------------------------------------------------------
+message (STATUS "###########################################################")
+message (STATUS "########  SET PATH AND SYSTEM SETUP                   #####")
+message (STATUS "###########################################################")
 
-# -------------------------------------------------------
+
+#-------------------------------------------------------
 # MINGW
 # -------------------------------------------------------
 
@@ -532,6 +541,12 @@ else(APPLE)
         set(GROUP_END "-Wl,--end-group")
 endif(APPLE)
 
+
+message (STATUS "###########################################################")
+message (STATUS "########   ADDING PRE-PROCESSOR COMPILE DEFINITIONS   #####")
+message (STATUS "###########################################################")
+
+
 #  Vstudio definitions
 #_DEBUG
 #WIN32
@@ -547,8 +562,10 @@ add_definitions(-DLOAD_PNG)
 #add_definitions(-LOAD_PNG_DYNAMIC="libpng15-15.dll")
 add_definitions(-DLOAD_PNM)
 add_definitions(-DLOAD_TGA)
+if(NOT ANDROID)
 add_definitions(-DLOAD_TIF)
 #add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
+endif()
 add_definitions(-DLOAD_XPM)
 add_definitions(-DLOAD_WEBP)
 #add_definitions(-LOAD_WEBP_DYNAMIC="libwebp-2.dll")
@@ -589,6 +606,9 @@ add_definitions(-DMP3_MUSIC)
 
 
 
+message (STATUS "###########################################################")
+message (STATUS "########   INCLUDING FOLDERS AND FILES                #####")
+message (STATUS "###########################################################")
 
 
 # -------------------------------------------------------
@@ -615,15 +635,10 @@ else(WEBP_INTERNAL)
 endif(WEBP_INTERNAL)
 
 
-if(ZLIB_FOUND)
-    include_directories(${ZLIB_INCLUDE_DIRS})
-    message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
-    message(STATUS "Zlib library:  ${ZLIB_LIBRARIES}")
-else(ZLIB_FOUND)
-    set(ZLIB_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
-    include_directories(${ZLIB_INCLUDE_DIRS})
-    set (ZLIB_LIBRARIES "zlibstatic")
-endif()
+# ZLIB
+include_directories(${ZLIB_INCLUDE_DIRS})
+
+
 
 
 
@@ -741,6 +756,15 @@ ${COMPILERS_MUGEN_DIR}/DefCompiler/def_driver.cc
 ${COMPILERS_MUGEN_DIR}/DefCompiler/lex.Def.cc
 )
 
+
+message (STATUS "###########################################################")
+message (STATUS "########   ADDING SUB DIRECTORIES                 #####")
+message (STATUS "########   INCLUDING CHILD CMakeFile.txt          #####")
+message (STATUS "###########################################################")
+
+
+message (STATUS "########   EXPAT   #####")
+
 #expat
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/CMakeLists.txt) #(get variables needed)
@@ -750,6 +774,7 @@ configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake
 add_definitions(-DHAVE_EXPAT_CONFIG_H)
 add_definitions(-DHAVE_MEMMOVE)
 
+message (STATUS "########   SDL_IMAGE   #####")
 
 if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
         file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
@@ -759,19 +784,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib
 message (STATUS "WILL BUILD FREETYPE")
 #add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
 
-if(FREETYPE_INTERNAL)
- message(STATUS "============WILL INCLUDE  FREETYPE NOW============")
- message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
 
-#include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
-
-endif(FREETYPE_INTERNAL)
-
-if(JPEG_INTERNAL)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/CMakeLists.txt) #(get variables needed)
-include_directories( PRIVATE ${JPEG_DIR})
-endif(JPEG_INTERNAL)
+message (STATUS "########   SGF INTERNAL   #####")
 
 include(${CMAKE_SOURCE_DIR}/Source/ai/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/configuration/CMakeLists.txt) #(get variables needed)
@@ -797,6 +811,10 @@ include(${CMAKE_SOURCE_DIR}/Source/sprite/CMakeLists.txt) #(get variables needed
 include(${CMAKE_SOURCE_DIR}/Source/sys/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/util/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/windows/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
+
+message (STATUS "########   OTHER EXTERNAL LIBS    #####")
+
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/7z/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/md5/CMakeLists.txt) #(get variables needed)
@@ -813,18 +831,37 @@ include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get v
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variables needed)
 
-message(STATUS "ADDING SDL2 CMAKELIST.TXT")
+message (STATUS "########   SDL2    #####")
+message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
+
+message (STATUS "########   FREETYPE   #####")
+
+
+if(FREETYPE_INTERNAL)
+message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
+
+#include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
+
+endif(FREETYPE_INTERNAL)
+
+message (STATUS "########   JPEG   #####")
+
+if(JPEG_INTERNAL)
+include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/CMakeLists.txt) #(get variables needed)
+include_directories( PRIVATE ${JPEG_DIR})
+endif(JPEG_INTERNAL)
+
 
 if(OGG_INTERNAL)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
+    include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
 endif(OGG_INTERNAL)
-if(TIFF_INTERNAL)
-#todo: solve tiff compilation problems
-    add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
-endif(TIFF_INTERNAL)
-
+if(NOT ANDROID)
+    if(TIFF_INTERNAL)
+        add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
+    endif(TIFF_INTERNAL)
+endif()
 if(PNG_INTERNAL)
 add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32)
 endif(PNG_INTERNAL)
@@ -840,8 +877,10 @@ endif(WEBP_INTERNAL)
 
 
 
+message (STATUS "###########################################################")
+message (STATUS "########   ADDING SOURCE FILES TO BUILD THE LIB       #####")
+message (STATUS "###########################################################")
 
-#############################
 
 message(STATUS "Including files to build SDL: ${SDL2_SOURCE_FILES}")
 message(STATUS "Including files to build EXPAT: ${expat_SRCS}")
@@ -877,9 +916,10 @@ message(STATUS "Including files to build JPEG Module: ${JPEG_SRC}")
 if(OGG_INTERNAL)
 message(STATUS "Including files to build OGG module: ${OGG_SRC}")
 endif()
-if(TIFF_INTERNAL)
-message(STATUS "Including files to build TIFF module: ${TIFF_SRC_SRC}")
-
+if(NOT ANDROID)
+    if(TIFF_INTERNAL)
+        message(STATUS "Including files to build TIFF module: ${TIFF_SRC_SRC}")
+    endif()
 endif()
 
 
@@ -919,6 +959,21 @@ set(SYS_SRC "")
 set (HAWKNL_SRC "")
 endif(ANDROID)
 
+message (STATUS "###########################################################")
+message (STATUS "########   ADDING TARGETS                             #####")
+message (STATUS "###########################################################")
+
+
+message(STATUS "")
+message(STATUS " CFLAGS:        ${CMAKE_C_FLAGS}")
+message(STATUS " CXXFLAGS:      ${CMAKE_CXX_FLAGS}")
+message(STATUS " EXTRA_CFLAGS:  ${EXTRA_CFLAGS}")
+message(STATUS " EXTRA_CXXFLAGS:  ${EXTRA_CXXFLAGS}")
+message(STATUS " EXTRA_LDFLAGS: ${EXTRA_LDFLAGS}")
+message(STATUS " EXTRA_LIBS:    ${EXTRA_LIBS}")
+message(STATUS "")
+message(STATUS " Build Shared Library: ${SGF_SHARED}")
+message(STATUS " Build Static Library: ${SGF_STATIC}")
 
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
@@ -981,20 +1036,25 @@ else(OGG_INTERNAL)
 set(OGG_INTERNAL_LIB "")
 endif(OGG_INTERNAL)
 
-if(TIFF_INTERNAL)
-        #set(TIFF_INTERNAL_LIB "tiff_module")
-        #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-        #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-        #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-        #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-        #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-        #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-else(TIFF_INTERNAL)
-set(TIFF_INTERNAL_LIB "")
-endif(TIFF_INTERNAL)
+if(NOT ANDROID)
+    if(TIFF_INTERNAL)
+            #set(TIFF_INTERNAL_LIB "tiff_module")
+            #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+            #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+            #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+   set(TIFF_INTERNAL_LIB "tiff")
+    else(TIFF_INTERNAL)
+    set(TIFF_INTERNAL_LIB "")
+    endif(TIFF_INTERNAL)
 
+set(TIFF_INTERNAL_LIB "")
+
+endif()
 #add_executable (test src/test.cpp)
-target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp png_static tiff ${JPEG9_LIBS})
+target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp png_static ${TIFF_INTERNAL_LIB} ${JPEG9_LIBS})
 
 
 if(ANDROID)

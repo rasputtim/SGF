@@ -275,6 +275,7 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 #define SGE_ON_ANDROID
 #endif
 
+
     #ifndef BUILD_STRING
         #define	BUILD_STRING				"Building for Android"
     #endif	
@@ -483,8 +484,11 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 
     #endif
 
-#else
+#elif defined(ANDROID)
 
+#define SGE_API
+
+#else
     // Other platforms don't need to define anything
     #define SGE_API
 

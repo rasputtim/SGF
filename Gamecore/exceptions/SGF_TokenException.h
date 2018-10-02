@@ -31,9 +31,9 @@ namespace SGF {
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief excessão de tratamento de Tokens 
+ * \brief excessï¿½o de tratamento de Tokens 
  *
- * Esta excessão ocorre no tratamento de Tokens
+ * Esta excessï¿½o ocorre no tratamento de Tokens
  * 
  *
  * 
@@ -45,7 +45,7 @@ namespace SGF {
  *
  * Created on: 04 de Janeiro de 2012
   */
-class  SGE_API CTokenException : public Exception::CBase {
+class  CTokenException : public Exception::CBase {
 public:
     CTokenException(const string & file, int line, const string reason = "");
     CTokenException(const CTokenException & copy);

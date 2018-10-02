@@ -20,9 +20,9 @@
 #ifndef _SGF__script_exception_h
 #define _SGF__script_exception_h
 
-#include "SGF_Exception.h"
 #include <string>
 #include "../SGF_Config.h"
+#include "SGF_Exception.h"
 
 using namespace std;
 namespace SGF {
@@ -32,9 +32,9 @@ namespace Exception{
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excessão de problema no MUGEN 
+ * \brief Excessï¿½o de problema no MUGEN 
  *
- * Esta Excessão é lançada quando ocorre algo errado na máquina de Scripts 
+ * Esta Excessï¿½o ï¿½ lanï¿½ada quando ocorre algo errado na mï¿½quina de Scripts 
  *
  * 
  * \author (last to touch it) $Autor: Rasputtim $
@@ -46,7 +46,7 @@ namespace Exception{
  * Created on: 14 de Janeiro de 2014
   */
 
-class  SGE_API CScriptException: public CBase {
+class  CScriptException: public CBase {
 public:
 	CScriptException();
 	CScriptException(const string reason );
