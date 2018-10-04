@@ -139,6 +139,36 @@ protected:
     virtual CBase * copy() const;
 };
 
+
+/**
+ * \class CShutdownException
+ *
+ * \ingroup SGF_Exceptions
+ * 
+ * \brief Excess?o Desligamento 
+ *
+ * This exception is thrown when the user clicks the X button on window
+ * or otherwise wants to immediately shutdown the program.
+ * If you catch this exception to do something then you must throw it again.
+ * 
+ *
+ * 
+ * \author (last to touch it) $Autor: Rasputtim $
+ *
+ * \version 1.0 $Revision: 1.0 $
+ *
+ * Contact: raputtim@hotmail.com
+ *
+ * Created on: 04 de Janeiro de 2012
+  */
+
+class  CShutdownException: public ::std::exception {
+public:
+	CShutdownException():exception(){}
+
+	virtual ~CShutdownException() throw(){}
+};
+
 }
 } //end namespace SGF
 #endif

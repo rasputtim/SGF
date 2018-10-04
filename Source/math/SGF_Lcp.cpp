@@ -23,6 +23,7 @@
 #include "math/SGF_Matriz.h"
 #include "structures/SGF_List.h"
 #include "util/SGF_StringUtils.h"
+#include "util/SGF_Debug.h"
 
 //#pragma hdrstop
 namespace SGF {

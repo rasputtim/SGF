@@ -17,10 +17,10 @@
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
   */
-#include "exceptions/SGF_Exception.h"
-#include <string>
-#include <exception>
+
 #include <sstream>
+#include "exceptions/SGF_Exception.h"
+
 
 using namespace std;
 namespace SGF {

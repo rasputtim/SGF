@@ -28,6 +28,7 @@
 #include "SGF_Joystick.h"
 #include "SGF_Mouse.h"
 #include "../util/SGF_Pointer.h"
+#include "../util/SGF_Debug.h"
 
 using namespace std;
 namespace SGF{

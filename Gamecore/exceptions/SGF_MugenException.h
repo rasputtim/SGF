@@ -25,8 +25,9 @@
 #include "../SGF_Config.h"
 #include "SGF_Exception.h"
 
-using namespace std;
+
 namespace SGF {
+
 /**
  * \class CMugenException
  *
@@ -46,6 +47,7 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
+//the SGF:: is for android. do not edit it
 class CMugenException: public Exception::CBase {
 public:
 	CMugenException();

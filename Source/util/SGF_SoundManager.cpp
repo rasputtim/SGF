@@ -52,7 +52,7 @@ void CSoundManager::stop(int index) {
 
 				Debug::debug(Debug::sound,__FUNCTION__) << "Sound not found: " << index  << endl;
 
-			}else { //achou o camhinho. agora achará o pallete
+			}else { //achou o camhinho. agora acharï¿½ o pallete
 				Debug::debug(Debug::sound,__FUNCTION__) << "wILL STOP SOUND: " << index  << endl;
 				(*first_it).second->stop();
 
@@ -73,7 +73,7 @@ void CSoundManager::play(int index, bool looped, int volume) {
 
 				Debug::debug(Debug::sound,__FUNCTION__) << "Sound not found: " << index  << endl;
 
-			}else { //achou o camhinho. agora achará o pallete
+			}else { //achou o camhinho. agora acharï¿½ o pallete
 				(*first_it).second->setVolume(volume);
 				if ( looped )
 				(*first_it).second->playLoop();
@@ -173,7 +173,7 @@ bool CSoundManager::init(map<int, string> &paths) {
         isinit = true;
 
  /*   }
-    catch ( CGeneralError& err ) {
+    catch ( ECGeneralError& err ) {
             std::cerr << (err.getFullReason() );
             logtxt.print( err.getFullReason() );
     }

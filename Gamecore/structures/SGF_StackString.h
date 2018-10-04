@@ -23,6 +23,7 @@
 
 //#define STACKSIZE 100
 #include <string>
+#include <vector>
 #include "../SGF_Config.h"
 
 using namespace std;

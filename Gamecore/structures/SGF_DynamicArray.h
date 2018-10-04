@@ -36,12 +36,12 @@ namespace SGF {
  *
  * \ingroup SGF_Data_Structures
  *
- * \brief Array Dinâmico
+ * \brief Array Dinï¿½mico
  *
- * É bom quando você sabe o tamanho do array
- * Não funciona como ao container Vector que você pode adicionar alementos
- * mas é muito mais rápido
- * \note é possível um resize do array dinâmicamente
+ * ï¿½ bom quando vocï¿½ sabe o tamanho do array
+ * Nï¿½o funciona como ao container Vector que vocï¿½ pode adicionar alementos
+ * mas ï¿½ muito mais rï¿½pido
+ * \note ï¿½ possï¿½vel um resize do array dinï¿½micamente
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -105,7 +105,7 @@ ITEN_NULL(0)
   }
 }
 
-// Inicializa o item que significa valor nulo para Types que não possuem default construtor
+// Inicializa o item que significa valor nulo para Types que nï¿½o possuem default construtor
 CDynamicArray(unsigned int size, Type * Nulo):
 _capacity(size + 128),
 sizeX(size),
@@ -140,10 +140,10 @@ void setNULL (Type *nulo) {ITEN_NULL=nulo;};
 }
 
 /**
- * @brief aumenta o tamanho do array, criando elementos vazios e copiando os já existentes
+ * @brief aumenta o tamanho do array, criando elementos vazios e copiando os jï¿½ existentes
  *
  * @param newsize o novo tamanho do array
- * \note não diminui o array
+ * \note nï¿½o diminui o array
  */
 void resize(unsigned int newsize) {
 	if (newsize <= _capacity) 	throw CGeneralError("Can't Resize to less elements",__FUNCTION__,__LINE__);
@@ -204,7 +204,7 @@ void resize(unsigned int newsize) {
 }
 
 /**
- * @brief operador de cópia do array
+ * @brief operador de cï¿½pia do array
  *
  * @param ob objeto a ser copiado
  */
@@ -300,9 +300,9 @@ void push_back_unique(const Type& element)
 
 
 /**
- * @brief insere um elemento numa certa posição
+ * @brief insere um elemento numa certa posiï¿½ï¿½o
  *
- * @param offset a posição onde inserir o elemento
+ * @param offset a posiï¿½ï¿½o onde inserir o elemento
  * @param e o elemento a ser inserido
  */
 void insert_at(int offset, Type e){
@@ -312,7 +312,7 @@ void insert_at(int offset, Type e){
 	try {
         Type *temp;
 		if (sizeX>= _capacity) {
-			//não usa resize aqui para não copiar os elementos duas vezes
+			//nï¿½o usa resize aqui para nï¿½o copiar os elementos duas vezes
 			//cria um novo array
 			_capacity = sizeX +128;
 			temp = new Type [_capacity] ;
@@ -360,7 +360,7 @@ bool contains(const Type &key) const
 /**
  * @brief troca um elemento do array
  *
- * @param offset a posição do elemento a ser torcado
+ * @param offset a posiï¿½ï¿½o do elemento a ser torcado
  * @param e o novo elemento
  */
 void replaceElement(int offset, Type e){
@@ -373,7 +373,7 @@ void replaceElement(int offset, Type e){
 /**
  * @brief pega um elemento do array
  *
- * @param offset a posição do elemento
+ * @param offset a posiï¿½ï¿½o do elemento
  */
 Type getElement(int offset) const {
 	if (offset > _capacity || _capacity==0) throw CGeneralError("element does not exist",__FUNCTION__,__LINE__);
@@ -386,7 +386,7 @@ Type getElement(int offset) const {
 /**
  * @brief remove um elemento do array
  * @note nao diminui a capacidade do array
- * @param offset a posição do elemento a remover
+ * @param offset a posiï¿½ï¿½o do elemento a remover
  */
 void removeElement(int offset) {
 	if (offset > sizeX || sizeX==0) throw CGeneralError("element does not exist",__FUNCTION__,__LINE__);
@@ -400,7 +400,7 @@ void removeElement(int offset) {
 };
 
 /**
- * @brief remove o último elemento do array
+ * @brief remove o ï¿½ltimo elemento do array
  *
  */
 void removeLast() {
@@ -430,19 +430,19 @@ void removeFirst() {
 };
 
 /**
- * @brief o número de elementos no array
+ * @brief o nï¿½mero de elementos no array
  *
  */
 int size() {return sizeX;};
 
 
 /**
- * @brief o tamanho máximo do array
+ * @brief o tamanho mï¿½ximo do array
  *
  */
 int capacity() {return _capacity;};
 /**
- * @brief limpa o array, deleta os dados e reseta as variáveis
+ * @brief limpa o array, deleta os dados e reseta as variï¿½veis
  * \brief nao limpa i Iten NuLL
  *
  */
@@ -497,7 +497,7 @@ typedef SGF::CDynamicArray<Uint8> ByteArray;
  *
  * \ingroup SGF_Util
  *
- * \brief Array Dinâmico de duas dimenssões
+ * \brief Array Dinï¿½mico de duas dimenssï¿½es
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -637,9 +637,9 @@ void resize(unsigned int rows,unsigned int columns) {
  *
  * \ingroup SGF_Util
  *
- * \brief Array Dinâmico de trÊs dimenssões
+ * \brief Array Dinï¿½mico de trï¿½s dimenssï¿½es
  *
- * \note não testado ainda
+ * \note nï¿½o testado ainda
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *

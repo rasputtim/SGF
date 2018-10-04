@@ -37,7 +37,7 @@
 using namespace std;
 namespace SGF {
 
-class CLoadException;
+
 
 
 namespace Debug
@@ -135,7 +135,7 @@ public:
 
     bool setFilename(string fn, string contex);
 
-    bool print(string txt) throw(CLoadException);
+    bool print(string txt);
 private:
     string
             filename;

@@ -25,6 +25,7 @@
 #include "math/SGF_Rotation.h"
 #include "util/SGF_Util.h"
 #include "structures/SGF_List.h"
+#include "util/SGF_Debug.h"
 
 //#pragma hdrstop
 

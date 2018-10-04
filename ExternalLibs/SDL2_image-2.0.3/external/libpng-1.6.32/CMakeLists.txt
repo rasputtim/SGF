@@ -61,8 +61,12 @@ include(GNUInstallDirs)
 option(PNG_BUILD_ZLIB "Custom zlib Location, else find_package is used" OFF)
 
 IF(NOT PNG_BUILD_ZLIB)
-  find_package(ZLIB REQUIRED)
-  include_directories(${ZLIB_INCLUDE_DIR})
+  #WILL USE THE SGF DEFITITINS FOR ZLIB
+  #find_package(ZLIB REQUIRED)
+  #include_directories(${ZLIB_INCLUDE_DIR})
+    
+message(STATUS "ZLIB_INCLUDE_DIR: ${ZLIB_INCLUDE_DIR}")
+  
 ENDIF(NOT PNG_BUILD_ZLIB)
 
 if(NOT WIN32)

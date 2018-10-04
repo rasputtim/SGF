@@ -191,7 +191,7 @@ void Game::run(Game & thisGame){
     };
 
     GameState state;
-    Logic logic(state,&thisGame); // this não pode ser usado aqui por ser um método estático
+    Logic logic(state,&thisGame); // this nï¿½o pode ser usado aqui por ser um mï¿½todo estï¿½tico
     Draw draw(&thisGame);
 	SGF::Debug::debug(SGF::Debug::gameEngine,__FUNCTION__) << " BEGIN DRAW =========================" << endl;
 	//Executa aqui o loop do Jogo

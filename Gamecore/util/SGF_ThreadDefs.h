@@ -19,6 +19,7 @@
   */
 #ifndef _S_G_F_thread_DEFh
 #define _S_G_F_thread_DEFh
+#include <map>
 #include "../SGF_Config.h"
 #include "../exceptions/all.h"
 #include "SGF_Util.h"

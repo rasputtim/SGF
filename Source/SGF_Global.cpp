@@ -28,7 +28,7 @@
 //#include <fstream>
 #include <stdlib.h>
 #include "SGF_Global.h"
-
+#include "util/SGF_Debug.h"
 
 #if defined _WIN32
 # include <windows.h>

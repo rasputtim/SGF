@@ -18,7 +18,7 @@
 
   */
 #include "util/SGF_Thread.h"
-
+#include "util/SGF_Debug.h"
 
 #include <iostream>
 using namespace std;

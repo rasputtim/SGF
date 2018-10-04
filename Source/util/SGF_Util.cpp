@@ -30,7 +30,7 @@
 #include "SGF_Global.h"
 #include "util/SGF_Util.h"
 #include "configuration/SGF_Configuration.h"
-
+#include "util/SGF_Debug.h"
 
 
 #ifndef _WIN32

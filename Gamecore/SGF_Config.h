@@ -55,7 +55,7 @@
 #endif
 
 
-#include "util/SGF_Debug.h"
+//#include "util/SGF_Debug.h"
 //=====================================
 // Thread ssupport
 //====================================

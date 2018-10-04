@@ -24,7 +24,7 @@
 #include "SGF_Global.h"
 #include "util/SGF_SdlManager.h"
 #include "util/SGF_Thread.h"
-
+#include "util/SGF_Debug.h"
 
 using namespace std;
 namespace SGF {

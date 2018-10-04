@@ -24,7 +24,7 @@
 #include "../SGF_Config.h"
 
 
-using namespace std;
+
 namespace SGF {
 /**
  * \class LoadException

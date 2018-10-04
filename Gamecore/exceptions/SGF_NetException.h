@@ -19,9 +19,9 @@
   */
 #ifndef _sgf__NET_exception_12345_h
 #define _sgf__NET_exception_12345_h
-#include "../SGF_Config.h"
 #include <string>
 #include <exception>
+#include "../SGF_Config.h"
 #include "SGF_Exception.h"
 namespace SGF {
 namespace Exception{
@@ -48,7 +48,7 @@ namespace Exception{
 class  CNetworkException: public Exception::CBase{
 public:
 	CNetworkException( const string message = "" ):
-	  CBase("[NETWORK]",0),message(message){}
+			Exception::CBase("[NETWORK]",0),message(message){}
 
 	inline const string getMessage() const {
 		return message;

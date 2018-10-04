@@ -23,7 +23,7 @@
 //#pragma hdrstop
 #include "util/SGF_StringUtils.h"
 #include "math/all.h"
-
+#include "util/SGF_Debug.h"
 #include <stdio.h>
 #include <stdarg.h>
 

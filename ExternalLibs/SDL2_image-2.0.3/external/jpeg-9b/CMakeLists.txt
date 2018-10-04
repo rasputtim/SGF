@@ -65,5 +65,5 @@ ${JPEG_DIR}/jmemnobs.c
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (jpeg_module ${JPEG_SRC})
+add_library (jpeg_static STATIC ${JPEG_SRC})
 

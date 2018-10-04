@@ -342,7 +342,7 @@ void CEventManager::waitForThread(Util::Thread::WaitThread & thread){
             /* input manager will run the event manager */
             CInputManager::poolEvents();
             // run(dummy);
-        } catch (const CShutdownException & death){
+        } catch (const Exception::CShutdownException & death){
             thread.kill();
             throw death;
         }
@@ -399,7 +399,7 @@ void CEventManager::dispatch(Event type, int arg1, int arg2){
 void CEventManager::dispatch(Event type){
     switch (type){
         case CloseWindow : {
-			throw CShutdownException();
+            throw Exception::CShutdownException();
         }
         default : break;
     }
@@ -540,7 +540,7 @@ static void doLoop(CLogic & logic, CDraw & draw){
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){
@@ -671,7 +671,7 @@ static void GSConstWithMaxFPS(CLogic & logic, CDraw & draw){
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){
@@ -809,7 +809,7 @@ static void GSConstIndFPS(CLogic & logic, CDraw & draw){
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){
@@ -903,7 +903,7 @@ try{
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){
@@ -1046,7 +1046,7 @@ try{
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){
@@ -1137,7 +1137,7 @@ try{
                     }
                     
 					if (Global::shutdown()){
-                        throw CShutdownException();
+                        throw Exception::CShutdownException();
                     }
 
                     if (logic.done()){

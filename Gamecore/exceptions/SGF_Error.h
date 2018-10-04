@@ -25,14 +25,15 @@
 #include "SGF_Exception.h"
 #include <string>
 
-using namespace std;
+
 namespace SGF {
+
 /**
  * \class CGeneralError
  *
  * \ingroup SGF_Exceptions
  * 
- * \brief Excess�o de Erro Gen�rico 
+ * \brief Excessao de Erro Generico
  *
  * \author (last to touch it) $Autor: Rasputtim $
  *
@@ -43,29 +44,31 @@ namespace SGF {
  * Created on: 04 de Janeiro de 2012
   */
 
-class  CGeneralError: public Exception::CBase {
-public:
-	CGeneralError();
-	CGeneralError(const string & reason, const string & where = "?", int line = 0);
+class CGeneralError : public Exception::CBase {
+		public:
+			CGeneralError();
 
-	virtual ~CGeneralError() throw();
-    
-        virtual CBase * copy() const;
+			CGeneralError(const string &reason, const string &where = "?", int line = 0);
 
-        const string getFullReason() const;
+			virtual ~CGeneralError() throw();
 
-        virtual void throwSelf() const {
-            throw *this;
-        }
+			virtual CBase *copy() const;
 
-	inline const string getReason() const{
-            return reason;
-	}
+			const string getFullReason() const;
 
-protected:
-        string reason;
-        string where;
-        int line;
+			virtual void throwSelf() const {
+				throw *this;
+			}
+
+			inline const string getReason() const {
+				return reason;
+			}
+
+		protected:
+			string reason;
+			string where;
+			int line;
 };
+
 } //end namespace SGF
 #endif

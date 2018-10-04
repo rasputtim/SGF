@@ -4,6 +4,7 @@
  * 
  */
 
+
 #include "SGF_Exception.h"
 #include "SGF_Error.h"
 #include "SGF_LoadException.h"
@@ -13,3 +14,4 @@
 #include "SGF_MugenException.h"
 #include "SGF_NetException.h"
 #include "SGF_ScriptException.h"
+//#include "SGF_FileExceptions.h"

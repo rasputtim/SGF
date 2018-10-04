@@ -1,4 +1,5 @@
 #include "SGF_Config.h"
+#include "util/SGF_Debug.h"
 
 #if !defined(_MSC_VER)
 #include "sys/SGF_System.h"

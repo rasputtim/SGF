@@ -29,7 +29,7 @@
 #include "../SGF_Config.h"
 #include "SGF_Exception.h"
 
-using namespace std;
+
 namespace SGF {
 /**
  * \class CLoadException

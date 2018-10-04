@@ -24,7 +24,7 @@
 #include "../SGF_Config.h"
 #include "SGF_Exception.h"
 
-using namespace std;
+
 namespace SGF {
 namespace Exception{
 /**
@@ -46,7 +46,7 @@ namespace Exception{
  * Created on: 14 de Janeiro de 2014
   */
 
-class  CScriptException: public CBase {
+class  CScriptException: public Exception::CBase {
 public:
 	CScriptException();
 	CScriptException(const string reason );
@@ -54,7 +54,7 @@ public:
     
 	virtual ~CScriptException() throw();
     
-        virtual CBase * copy() const;
+        virtual Exception::CBase * copy() const;
 
         const string getFullReason() const;
 

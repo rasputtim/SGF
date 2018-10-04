@@ -39,7 +39,7 @@
 #include "geometry/SGF_DrawVert.h"
 #include "geometry/SGF_JointTransform.h"
 #include "sys/SGF_System.h"
-
+#include "util/SGF_Debug.h"
 
 namespace SGF {
 CSIMDProcessor	*	processor = NULL;			// pointer to SIMD processor

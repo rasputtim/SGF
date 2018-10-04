@@ -19,7 +19,7 @@
   */
 
 #include "util/SGF_Thread.h"
-
+#include "util/SGF_Debug.h"
 using namespace std;
 namespace SGF {
 

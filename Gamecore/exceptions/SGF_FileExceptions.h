@@ -24,12 +24,12 @@
 #include "../SGF_Config.h"
 #include "SGF_Exception.h"
 
-using namespace std;
+
 namespace SGF {
 	namespace Exception{
 		namespace Filesystem {
 
-			   class  SGE_API CException: public Exception::CBase {
+    class  SGE_API CException: public Exception::CBase {
     public:
         CException(const string & where, int line, const string & file);
         CException(const string & where, int line, const Exception::CBase & nested, const string & file);

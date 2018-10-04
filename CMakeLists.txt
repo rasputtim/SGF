@@ -191,7 +191,7 @@ include(TestPThreads)
 # FIND PACKAGES
 # -------------------------------------------------------
 message (STATUS:  "SGF WILL LOOK FOR LIBRARIES INSTALLED IN THE SYSTEM")
-find_package(ZLIB)
+#find_package(ZLIB)  FindZLIB-SGF.cmake
 find_package(FREETYPE)
 find_package(PNG)
 find_package(JPEG9)
@@ -316,35 +316,61 @@ message (STATUS "########  SET FLAGS FOR THE NEEDED SEARCHED LIBS      #####")
 message (STATUS "########  CHECK IF WE WILL BUID THEM OR NOT           #####")
 message (STATUS "###########################################################")
 
-if(ZLIB_FOUND)
-    set (ZLIB_INTERNAL FALSE)
-    message(STATUS "Lib ZLIB FOUND.")
-    message(STATUS "THE LIBRARY: ${ZLIB_LIBRARY}")
-    message(STATUS "INCLUDE DIR: ${ZLIB_INCLUDE_DIR}")
-else(ZLIB_FOUND)
-    message(STATUS "LIB ZLIB NOT found.")
-    message(STATUS "We Will build it internally")
-    set (ZLIB_INTERNAL TRUE)
-    set(ZLIB_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
-    set (ZLIB_LIBRARIES "zlibstatic")
-    set (ZLIB_FOUND TRUE)
-endif(ZLIB_FOUND)
+include(FindZLIB-SGF)
 
-
+message(STATUS "ZLIB_INCLUDE_DIR: ${ZLIB_INCLUDE_DIR}")
 
 if(PNG_FOUND)
     message(STATUS "LIB PNG found to use with SDL2_image.")
     add_definitions(-DHAVE_PNG)
-    set(PNG_LIBRARIES ${JPEG9_LIBRARY})
-    set(PNG_INCLUDES ${PNG_INCLUDE_DIRS})
     set(PNG_DEFINITIONS "")
     message (STATUS "PNG FOUND VERSION: ${PNG_VERSION_STRING}")
 else(PNG_FOUND)
+    add_definitions(-DHAVE_PNG)
     message(STATUS "LIB PNG NOT found to use for SDL2_image. I Will build PNG internally")
-    set(PNG_LIBRARIES "")
-    set(PNG_INCLUDES "")
-    set(PNG_INTERNAL 1)
+    set(PNG_LIBRARY "png_static")
+    set(PNG_PNG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32")
+    set(PNG_INTERNAL ON)
 endif(PNG_FOUND)
+
+
+if(NOT ANDROID)
+    if(TIFF_FOUND)
+        if(NOT ANDROID)
+        add_definitions(-DLOAD_TIF)
+        #add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
+        endif()
+        set(TIFF_LIBRARY ${TIFF_LIBRARY} ${TIFF_LIBRARIES})
+        set(TIFF_INTERNAL OFF)
+        message(STATUS "LIB TIFF found to use with SDL2_image.")
+        set(TIFF_SRC "")
+    else(TIFF_FOUND)
+        #use internal tiff_module
+        if(NOT ANDROID)
+        add_definitions(-DLOAD_TIF)
+        #add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
+        endif()
+        message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
+        set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
+        set(TIFF_LIBRARY "tiff")
+        set(TIFF_INTERNAL ON)
+    endif(TIFF_FOUND)
+endif()
+
+
+if(JPEG9_FOUND)
+    message(STATUS "LIB jpeg9 found to use with SDL2_image.")
+    add_definitions(-DHAVE_JPEG)
+    set(JPEG_LIBRARY ${JPEG9_LIBRARY})
+    set(JPEG_INCLUDE_DIR ${JPEG9_INCLUDE_DIR})
+else(JPEG9_FOUND)
+    add_definitions(-DHAVE_JPEG)
+    message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build jpeg internally")
+    set(JPEG_LIBRARY "jpeg_static")
+    set(JPEG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/")
+    set(JPEG_INTERNAL ON)
+endif(JPEG9_FOUND)
+
 
 if(WEBP_FOUND)
     message(STATUS "LIB WEBP found to use with SDL2_image.")
@@ -357,21 +383,10 @@ else(WEBP_FOUND)
     message(STATUS "LIB WEBP NOT found to use with SDL2_image. I Will build WEBP internally")
     set(WEBP_LIBRARY "")
     set(WEBP_INCLUDE_DIR "")
-    set(WEBP_INTERNAL 1)
+    set(WEBP_INTERNAL ON)
 endif(WEBP_FOUND)
 
 
-if(JPEG9_FOUND)
-    message(STATUS "LIB jpeg9 found to use with SDL2_image.")
-    add_definitions(-DHAVE_JPEG)
-    set(JPEG9_LIBS ${JPEG9_LIBRARY})
-    set(JPEG9_INCLUDES ${JPEG9_INCLUDE_DIR})
-else(JPEG9_FOUND)
-    message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build jpeg internally")
-    set(JPEG9_LIBS "")
-    set(JPEG9_INCLUDES "")
-    set(JPEG_INTERNAL 1)
-endif(JPEG9_FOUND)
 
 if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
         file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
@@ -402,22 +417,7 @@ else(OGG_FOUND)
 
 endif(OGG_FOUND)
 
-if(NOT ANDROID)
-    if(TIFF_FOUND)
-        add_definitions(-DHAVE_OGG)
-        set(TIFF_LIBS ${TIFF_LIBRARY} ${TIFF_LIBRARIES})
-        set(TIFF_INCLUDES ${TIFF_INCLUDE_DIR})
-        set(TIFF_INTERNAL OFF)
-        message(STATUS "LIB TIFF found to use with SDL2_image.")
-        set(TIFF_SRC "")
-    else(TIFF_FOUND)
-        #use internal tiff_module
-        message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
-        set(TIFF_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
-        set(TIFF_LIBS "")
-        set(TIFF_INTERNAL ON)
-    endif(TIFF_FOUND)
-endif()
+
 
 
     # SET Mixer definition
@@ -481,19 +481,15 @@ if(NOT FREETYPE_FOUND)
 	message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
         if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
             file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h  ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build-orig.h )
-        endif(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
+        endif()
         set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include
             ${PROJECT_BINARY_DIR}/include/freetype/config)
         #set(FREETYPE_INCLUDE_DIR ${PROJECT_BINARY_DIR}/include/freetype/config)
     set(FREETYPE_LIBS "")
     set(FREETYPE_INTERNAL ON)
 endif(NOT FREETYPE_FOUND)
-if(NOT PNG_FOUND)
-	message(STATUS "LIB PNG not found. I Will build PNG internally.")
-        set(PNG_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32/)
-    set(PNG_LIBS "")
-    set(PNG_INTERNAL ON)
-endif(NOT PNG_FOUND)
+
+
 
 
 message (STATUS "###########################################################")
@@ -562,10 +558,7 @@ add_definitions(-DLOAD_PNG)
 #add_definitions(-LOAD_PNG_DYNAMIC="libpng15-15.dll")
 add_definitions(-DLOAD_PNM)
 add_definitions(-DLOAD_TGA)
-if(NOT ANDROID)
-add_definitions(-DLOAD_TIF)
-#add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
-endif()
+
 add_definitions(-DLOAD_XPM)
 add_definitions(-DLOAD_WEBP)
 #add_definitions(-LOAD_WEBP_DYNAMIC="libwebp-2.dll")
@@ -643,9 +636,9 @@ include_directories(${ZLIB_INCLUDE_DIRS})
 
 
 if(PNG_INTERNAL)
-    include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32)
+    include_directories(${PNG_PNG_INCLUDE_DIR})
 else(PNG_INTERNAL)
-    include_directories(${PNG_INCLUDES})
+    include_directories(${PNG_PNG_INCLUDE_DIR})
 endif(PNG_INTERNAL)
 
 
@@ -672,8 +665,8 @@ ${CMAKE_SOURCE_DIR}/ExternalLibs/zip
 ${GRAPHICS_INCLUDES}
 ${OGG_INCLUDES}
 ${MP3_INCLUDES}
-${JPEG9_INCLUDES}
-${TIFF_INCLUDES}# todo: Build the library
+${JPEG_INCLUDE_DIR}
+${TIFF_INCLUDE_DIR}# todo: Build the library
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libvorbisidec-1.2.1
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/smpeg2-2.0.0
 ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
@@ -849,22 +842,31 @@ endif(FREETYPE_INTERNAL)
 message (STATUS "########   JPEG   #####")
 
 if(JPEG_INTERNAL)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/CMakeLists.txt) #(get variables needed)
+include(${JPEG_INCLUDE_DIR}/CMakeLists.txt) #(get variables needed)
 include_directories( PRIVATE ${JPEG_DIR})
 endif(JPEG_INTERNAL)
 
-
+ message (STATUS "########   OGG   #####")
 if(OGG_INTERNAL)
     include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
 endif(OGG_INTERNAL)
+
+
+
+
 if(NOT ANDROID)
+    message (STATUS "########   TIFF   #####")
     if(TIFF_INTERNAL)
-        add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8)
+        add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/)
     endif(TIFF_INTERNAL)
 endif()
+
+ message (STATUS "########   PNG   #####")
 if(PNG_INTERNAL)
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32)
+add_subdirectory(${PNG_PNG_INCLUDE_DIR})
 endif(PNG_INTERNAL)
+
+ message (STATUS "########   WEBP   #####")
 
 if(WEBP_INTERNAL)
 add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/)
@@ -1038,23 +1040,23 @@ endif(OGG_INTERNAL)
 
 if(NOT ANDROID)
     if(TIFF_INTERNAL)
-            #set(TIFF_INTERNAL_LIB "tiff_module")
+            #set(TIFF_LIBRARY "tiff_module")
             #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
             #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
             #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
             #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
             #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
             #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-   set(TIFF_INTERNAL_LIB "tiff")
+
     else(TIFF_INTERNAL)
-    set(TIFF_INTERNAL_LIB "")
+
     endif(TIFF_INTERNAL)
 
-set(TIFF_INTERNAL_LIB "")
+set(TIFF_LIBRARY "")
 
 endif()
 #add_executable (test src/test.cpp)
-target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp png_static ${TIFF_INTERNAL_LIB} ${JPEG9_LIBS})
+target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp ${PNG_LIBRARY} ${TIFF_LIBRARY} ${JPEG_LIBRARY})
 
 
 if(ANDROID)
