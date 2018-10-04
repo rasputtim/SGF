@@ -109,7 +109,7 @@ void COptionSelectFont_v2::logic(){
     switch (typeAdjust){
         case fontName:{
 			string name="";
-            name = (CConfiguration::getMenuFont_v2()!=NULL ?CConfiguration::getMenuFont_v2()->getName():"Arial.ttf");
+            name = (CConfiguration::getMenuFont_v2()!=NULL ?CConfiguration::getMenuFont_v2()->getName(): WORKFONT);
             setText("Current Font: " + name);
             break;
 	}

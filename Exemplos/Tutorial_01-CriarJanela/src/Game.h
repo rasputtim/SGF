@@ -5,7 +5,7 @@
 #include "SGF.h"
 
 class CBaseObject;
-class SGF::CBitmap;
+
 
 class CTutGameControl : public SGF::CGameControl
 {

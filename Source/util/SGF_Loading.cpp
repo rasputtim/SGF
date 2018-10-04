@@ -396,13 +396,13 @@ static void loadingScreen0(CLoadingContext & context, const Level::CLevelInfo & 
     const int infobox_height = 150;
 	Util::CReferenceCount<CFontInfo> myFontInfo;
 	Util::CReferenceCount<CFontInfo> infoFontInfo;
-	if(CFontList::GetInstance()->isAvailable("arial.ttf")) {
-	myFontInfo = CFontList::GetInstance()->findFont("arial.ttf");
+    if(CFontList::GetInstance()->isAvailable(WORKFONT)) {
+    myFontInfo = CFontList::GetInstance()->findFont(WORKFONT);
 	myFontInfo->setWidth(24);
 	myFontInfo->setHeight(24);
 	}
-	if(CFontList::GetInstance()->isAvailable("arial.ttf")) {
-	infoFontInfo = CFontList::GetInstance()->findFont("arial.ttf");
+    if(CFontList::GetInstance()->isAvailable(WORKFONT)) {
+    infoFontInfo = CFontList::GetInstance()->findFont(WORKFONT);
 	}
 
 	const CFont & myFont = myFontInfo->get();
@@ -756,7 +756,7 @@ CLoadingScreen::CLoadingScreen( void * _arg ):
 	infobox_height(150),
 	myFont(NULL),
 	infoFont(NULL),
-	fontName (Filesystem::CRelativePath(string(DEF_FONT_PATH)+"arial.ttf").completePath()){
+    fontName (Filesystem::CRelativePath(string(DEF_FONT_PATH)+WORKFONT).completePath()){
 		try {
 			myFont = CResource::getTTFont(fontName, 24, 24);
 

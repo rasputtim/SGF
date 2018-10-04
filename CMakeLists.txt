@@ -192,6 +192,7 @@ include(TestPThreads)
 # -------------------------------------------------------
 message (STATUS:  "SGF WILL LOOK FOR LIBRARIES INSTALLED IN THE SYSTEM")
 #find_package(ZLIB)  FindZLIB-SGF.cmake
+include(FindZLIB-SGF)
 find_package(FREETYPE)
 find_package(PNG)
 find_package(JPEG9)
@@ -316,7 +317,7 @@ message (STATUS "########  SET FLAGS FOR THE NEEDED SEARCHED LIBS      #####")
 message (STATUS "########  CHECK IF WE WILL BUID THEM OR NOT           #####")
 message (STATUS "###########################################################")
 
-include(FindZLIB-SGF)
+
 
 message(STATUS "ZLIB_INCLUDE_DIR: ${ZLIB_INCLUDE_DIR}")
 
@@ -330,6 +331,7 @@ else(PNG_FOUND)
     message(STATUS "LIB PNG NOT found to use for SDL2_image. I Will build PNG internally")
     set(PNG_LIBRARY "png_static")
     set(PNG_PNG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32")
+    message(STATUS "PNG_PNG_INCLUDE_DIR: ${PNG_PNG_INCLUDE_DIR}")
     set(PNG_INTERNAL ON)
 endif(PNG_FOUND)
 
@@ -350,7 +352,7 @@ if(NOT ANDROID)
         add_definitions(-DLOAD_TIF)
         #add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
         endif()
-        message(STATUS "LIB TIFF not found. I Will build tiff internally to use with SDL2_image.")
+        message(STATUS "LIB TIFF not found. I Will build tiff internally.")
         set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
         set(TIFF_LIBRARY "tiff")
         set(TIFF_INTERNAL ON)
@@ -634,7 +636,7 @@ include_directories(${ZLIB_INCLUDE_DIRS})
 
 
 
-
+message(STATUS "PNG_PNG_INCLUDE_DIR: ${PNG_PNG_INCLUDE_DIR}")
 if(PNG_INTERNAL)
     include_directories(${PNG_PNG_INCLUDE_DIR})
 else(PNG_INTERNAL)
@@ -1051,9 +1053,8 @@ if(NOT ANDROID)
     else(TIFF_INTERNAL)
 
     endif(TIFF_INTERNAL)
-
+else()
 set(TIFF_LIBRARY "")
-
 endif()
 #add_executable (test src/test.cpp)
 target_link_libraries(sgffabric ${ZLIB_LIBRARIES} webp ${PNG_LIBRARY} ${TIFF_LIBRARY} ${JPEG_LIBRARY})

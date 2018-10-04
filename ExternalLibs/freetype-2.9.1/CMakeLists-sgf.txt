@@ -84,6 +84,8 @@
 
 message(STATUS "=====ENTERING FREETYPE CMAKELISTS===================")
 message(STATUS " ZLIB FOUND HERE IS: ${ZLIB_FOUND}")
+message(STATUS " PNG FOUND HERE IS: ${PNG_FOUND}")
+message(STATUS " PNG INCLUDE HERE IS: ${PNG_PNG_INCLUDE_DIR}")
 message(STATUS "====================================================")
 
 set(FREE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
@@ -314,7 +316,7 @@ string(REPLACE
     "${NEW_HEADER_FILE}"
     NEW_FT2BUILD_H "${NEW_FT2BUILD_H}")
 
-endif(${FREE_SOURCE_DIR}/include/ft2build.h)
+endif()
 
 
 file(WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ft2build.h"

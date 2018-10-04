@@ -151,13 +151,13 @@ CTTFFont * CResource::getTTFont(const string & path,int ptsize) throw (Exception
 */
 CTTFFont * CResource::getDefaultFont(){
 
-	string font( "arial.ttf");
+    string font( WORKFONT);
 	return (CTTFFont *)my_resource->_getTTFont(font , 16,16);
 }
 
 CTTFFont * CResource::getDefaultFont(int x,int y){
 	// return getFont( "tmp/comic.ttf" );
-	return (CTTFFont *)my_resource->_getTTFont( "arial.ttf" ,x,y );
+    return (CTTFFont *)my_resource->_getTTFont( WORKFONT ,x,y );
 }
 
 CTTFFont * CResource::getTTFont(const string & path,int width, int height) throw (Exception::Filesystem::CNotFound){

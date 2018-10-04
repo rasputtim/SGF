@@ -338,7 +338,7 @@ bool CSDLManager::Init()
 	// verificar antes se o nr da fonte existe
 
 	try {
-			m_Text = CResource::getTTFont("arial.ttf",30,30);
+            m_Text = CResource::getTTFont(WORKFONT,30,30);
 
 			}catch (Exception::Filesystem::CNotFound &ex) {
 				 ostringstream out;

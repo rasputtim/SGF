@@ -534,7 +534,7 @@ TTF_Font *CTTFFont::LoadFont(string font, int ftSize) throw(CLoadException) {
         withpath=1;
 	}
 	if (font=="") {
-		font="arial.ttf";
+        font=WORKFONT;
         Debug::debug(Debug::resources,__FUNCTION__) << "Carregando a fonte Default : "<< font <<endl;
 	    }
 	if (withpath){
@@ -1869,7 +1869,7 @@ CTTFFont & CTTFFont::getFont( const string & name, const int x, const int y ){
 
 CTTFFont & CTTFFont::getDefaultFont(){
 	// return getFont( "tmp/comic.ttf" );
-	return getFont( "arial.ttf", 16, 16 );
+    return getFont( WORKFONT, 16, 16 );
 }
 */
 //==================================CFont===========================
@@ -1973,10 +1973,10 @@ const CFont & CFont::getFont( const string & name, const int x, const int y){
 
 
 const CFont & CFont::getDefaultFont(){
-    return CResource::getFont(Filesystem::CRelativePath(string(DEF_FONT_PATH)+"arial.ttf").path(), 16, 16);
+    return CResource::getFont(Filesystem::CRelativePath(string(DEF_FONT_PATH)+WORKFONT).path(), 16, 16);
 }
 const CFont & CFont::getDefaultFont(int width, int height){
-    return CResource::getFont(Filesystem::CRelativePath(string(DEF_FONT_PATH)+"arial.ttf").path(), width, height);
+    return CResource::getFont(Filesystem::CRelativePath(string(DEF_FONT_PATH)+WORKFONT).path(), width, height);
 }
 //==========================BMPFONT  ===================
 
@@ -2042,7 +2042,7 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
         withpath=1;
 	}
 	if (font=="") {
-		font="arial.ttf";
+        font=WORKFONT;
         Debug::debug(Debug::resources,__FUNCTION__) << "Carregando a fonte Default : "<< font <<endl;
 	    }
 	if (withpath){

@@ -195,7 +195,7 @@ bool isBST(TreeNode<ItemType> *node)
      static ItemType lastData;
      if(node == NULL) return false;
 
-      if((lastData =findMinValue) == ITEM_NOT_FOUND) return false;
+      if((lastData =this->findMinValue) == ITEM_NOT_FOUND) return false;
       else {
 	 
 	  isBST(node->left);

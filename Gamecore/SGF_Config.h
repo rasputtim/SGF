@@ -40,10 +40,17 @@
 #define SGF_DEBUG_CONFIG_FILE_NAME "sgf_debug_conf.xml"
 
 #ifndef WINDOWS
-#if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN64)
-#define WINDOWS
+    #if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN64)
+    #define WINDOWS
+    #endif
 #endif
+
+#ifndef LINUX
+    #if defined(__LINUX__)
+    #define LINUX
+    #endif
 #endif
+
 #define ENGINE_VERSION "SGF Game Fabric"
 //#ifdef  ENOTSOCK   //stupid perl definition
 //#undef  ENOTSOCK
@@ -112,6 +119,17 @@
 //Todo: verificar o caminho default das fontes no linux
 #define DEF_FONT_PATH "/usr/share/fonts/truetype"
 #endif
+
+
+#if defined(WINDOWS)
+#define WORKFONT "arial.ttf"
+#elif defined(LINUX)
+#define WORKFONT "/truetype/freefont/FreeSerif.ttf"
+//"truetype/msttcorefonts/arial.ttf"
+#else
+#define WORKFONT "arial.TTF"
+#endif
+
 
 #define	MAX_STRING_CHARS		1024		// max length of a string
 

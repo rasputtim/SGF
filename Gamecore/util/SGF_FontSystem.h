@@ -39,7 +39,7 @@
 
 
 //Define Game states ,MENU will have separate STATES
-#define WORKFONT "C:/WINDOWS/FONTS/arial.TTF"
+
 
 using namespace ::std;
 namespace SGF {

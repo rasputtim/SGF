@@ -143,10 +143,10 @@ void CBox::render( const CBitmap &work){
 void CBox::msgDialog(const CBitmap & bmp, const string & message, int radius){
 	CTTFFont *vFont;
     //Todo verificar se a fonte já foi carregada ou não
-	//vFont= new CTTFFont("arial.ttf",30);
+    //vFont= new CTTFFont(WORKFONT,30);
 
 			try {
-			 vFont= CResource::getTTFont("arial.ttf",30,30);
+             vFont= CResource::getTTFont(WORKFONT,30,30);
 			}catch (Exception::Filesystem::CNotFound &ex) {
 				 ostringstream out;
 				 out << "CFont not found " << ex.getTrace()<< endl;
