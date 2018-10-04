@@ -22,4 +22,4 @@ ${NETWORK_DIR}/SGF_Network.cpp
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (network_module ${NETWORK_SRC})
+add_library (network_module STATIC ${NETWORK_SRC})

@@ -31,7 +31,6 @@
 
 #include <ostream>
 #include <string>
-//#include "../ExternalLibs/SDL2-2.0.3/include/SDL_main.h"
 #include "util/SGF_FileSystem.h"
 
 #define STAMP __FILE__,__LINE__
@@ -55,55 +54,70 @@ extern const int ALLIANCE_ENEMY;
 extern const int ALLIANCE_FREE_FOR_ALL;
 
 
-namespace Global{
+class Global{
+    
+static int major_version;
+static int minor_version;
+static int micro_version;
+static int do_shutdown;
+public:    
 //contador de segundos
-extern volatile unsigned int second_counter;
-extern volatile unsigned int speed_counter;
-extern const unsigned int MagicId;
-extern const char * DEFAULT_FONT;
-extern const int BUILD_NUMBER;
-extern const Filesystem::CAbsolutePath DEFAULT_FONT2;
+static volatile unsigned int second_counter;
+static volatile unsigned int speed_counter;
 
-extern int TICS_PER_SECOND;
-extern int FRAMES_PER_SECOND;
-extern const int SKIP_TICKS;
+static const char * DEFAULT_FONT;
+static const int BUILD_NUMBER;
+static const Filesystem::CAbsolutePath DEFAULT_FONT2;
 
-const double LOGIC_MULTIPLIER = (double) 90 / (double) TICS_PER_SECOND;
-int getVersion();
+
+static const unsigned int MagicId;
+
+static int TICS_PER_SECOND;
+static int FRAMES_PER_SECOND;
+static const int SKIP_TICKS;
+static Uint32 nGameTicks;
+static FILE * pLogFile;
+static const double LOGIC_MULTIPLIER;
+
+
+
+static int getVersion();
 
 /* Turn some major.minor.micro into a single version number for comparisons */
-int getVersion(int major, int minor, int micro);
+static int getVersion(int major, int minor, int micro);
 
 
-string getVersionString();
-bool shutdown();
-void showTitleScreen();
-const string titleScreen();
-void InitLogFile();
-void PrintMessage(char *str,...);
-void PrintConsole(char *strText);
-//void Command_Handler(ConsoleInformation *console, char* command);
-void InitApp();
-void CloseGame();
-void ResetGameTimer();
-int GetGameTicks();
-void UpdateTimer();
+static string getVersionString();
+static bool shutdown();
+static const string titleScreen();
+static void InitLogFile();
+static void PrintMessage(char *str,...);
+static void PrintConsole(char *strText);
+static void ResetGameTimer();
+static int GetGameTicks();
+static void UpdateTimer();
+
 /*
 objetivo:    Função utilizada para settar variáveis de ambiente do sistema operacional
 parâmetros:  name = nome da variável a set settada
              value = valor da variável
 Comentários: Esta função funciona independentemente do sistema opracional utilizado for linux ou windows
 */
-int my_setenv (const char * name, const char * value);
-void ExcecaoInesperada();
-void TrataFalhaNoNew();
-void Encerra();
+static void ExcecaoInesperada();
+static int InitExceptions();
+static void Encerra();
+
+static void TrataFalhaNoNew();
 // retorna 0 se sucesso
 // retorna -1 se ocorreu erro
-int InitGettext();
+//int InitGettext();
+//void Command_Handler(ConsoleInformation *console, char* command);
+//void InitApp();
+//void CloseGame();
+//int my_setenv (const char * name, const char * value);
+//static void showTitleScreen();
 
-int InitExceptions();
 
-}
+};
 } // end sgf
 #endif

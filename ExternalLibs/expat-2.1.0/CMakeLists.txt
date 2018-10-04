@@ -66,7 +66,8 @@ else(BUILD_shared)
     set(_SHARED STATIC)
 endif(BUILD_shared)
 
-#sal add_library(expat ${_SHARED} ${expat_SRCS})
+#add_library(expat ${_SHARED} ${expat_SRCS})
+add_library(expat STATIC ${expat_SRCS})
 
 #sal install(TARGETS expat RUNTIME DESTINATION bin
 #sal                       LIBRARY DESTINATION lib

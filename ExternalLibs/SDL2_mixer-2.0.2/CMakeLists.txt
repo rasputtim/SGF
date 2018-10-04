@@ -53,7 +53,7 @@ include_directories(include ./)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (sdlmixer_module ${SDLMIXER_SRC})
+add_library (sdlmixer_module STATIC ${SDLMIXER_SRC})
 
 # -------------------------------------------------------
 #add_excutable (playmus.c )

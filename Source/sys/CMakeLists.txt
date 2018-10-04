@@ -22,4 +22,4 @@ ${SYS_DIR}/linux/SGF_Fpu.cpp
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#${SYS_SRC}add_library (system_module ${SYS_SRC})
+add_library (system_module STATIC ${SYS_SRC})

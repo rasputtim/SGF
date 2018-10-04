@@ -11,4 +11,4 @@ ${MINIZIP_DIR}/zip.c)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (minizip_module ${MINIZIP_SRC})
+add_library (minizip_module STATIC ${MINIZIP_SRC})

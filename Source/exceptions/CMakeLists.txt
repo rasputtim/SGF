@@ -24,4 +24,4 @@ ${EXCEPTIONS_DIR}/SGF_ScriptException.cpp)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (exceptions_module ${EXCEPTIONS_SRC})
+add_library (exceptions_module STATIC ${EXCEPTIONS_SRC})

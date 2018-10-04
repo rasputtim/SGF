@@ -24,4 +24,4 @@ ${GRAPHICS_DIR}/SGF_TransBitmap.cpp)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (graphics_module ${GRAPHICS_SRC})
+add_library (graphics_module STATIC ${GRAPHICS_SRC})

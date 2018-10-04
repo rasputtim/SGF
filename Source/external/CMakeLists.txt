@@ -25,4 +25,4 @@ ${EXTERNAL_DIR}/SDL_framerate.c)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (external_module  )
+add_library (external_module  STATIC ${EXTERNAL_SRC})

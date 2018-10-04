@@ -53,4 +53,5 @@ ${UTIL_DIR}/SGF_Xmltools.cpp
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (util_module ${UTIL_SRC})
+add_library (util_module STATIC  ${UTIL_SRC})
+target_link_libraries( util_module minizip_module 7zip_module sfl_module expat sdlmixer_module system_module math_module external_module graphics_module network_module hawknl_module exceptions_module)

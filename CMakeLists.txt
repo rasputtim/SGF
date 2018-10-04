@@ -887,11 +887,11 @@ message (STATUS "###########################################################")
 
 
 message(STATUS "Including files to build SDL: ${SDL2_SOURCE_FILES}")
-message(STATUS "Including files to build EXPAT: ${expat_SRCS}")
+#message(STATUS "Including files to build EXPAT: ${expat_SRCS}")
 message(STATUS "Including files to build AI module: ${AI_SRC}")
 message(STATUS "Including files to build Configuration Module: ${CONFIGURATION_SRC}")
 message(STATUS "Including files to build Envirownment Module: ${ENVIRONMENT_SRC}")
-message(STATUS "Including files to build Exceptions Module: ${EXCEPTIONS_SRC}")
+#message(STATUS "Including files to build Exceptions Module: ${EXCEPTIONS_SRC}")
 message(STATUS "Including files to build External Modue: ${EXTERNAL_SRC}")
 message(STATUS "Including files to build Game Module: ${GAME_SRC}")
 message(STATUS "Including files to build Graphics Module: ${GRAPHICS_SRC}")
@@ -967,6 +967,7 @@ message (STATUS "###########################################################")
 message (STATUS "########   ADDING TARGETS                             #####")
 message (STATUS "###########################################################")
 
+set(EXTRA_LIBS ${EXTRA_LIBS} 7zip_module minizip_module exceptions_module configuration_module util_module)
 
 message(STATUS "")
 message(STATUS " CFLAGS:        ${CMAKE_C_FLAGS}")
@@ -989,18 +990,20 @@ ${FREE_PUBLIC_CONFIG_HEADERS}
 ${FREE_BASE_SRCS}
 #end freetype
 ${COMPILERS_MUGEN_SRC}
-${expat_SRCS}
-${SDL2_SOURCE_FILES} ${CONFIGURATION_SRC} ${AI_SRC}  ${ENVIRONMENT_SRC} ${EXCEPTIONS_SRC} ${EXTERNAL_SRC}
-${GAME_SRC} ${GRAPHICS_SRC} ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
-${LISTS_SRC} ${MATH_SRC} ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC} ${NETWORK_SRC}
-${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
-${SYS_SRC} ${UTIL_SRC} ${WINDOWS_SRC}
- #external Libs
-${7ZIP_SRC} ${HAWKNL_SRC} ${MD5_SRC} ${PCRE_SRC} ${SGE_SRC} ${SHA_SRC} ${SFL_SRC}
-${MINIZIP_SRC} ${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
-${SDLIMAGE_SRC} ${SDLMIXER_SRC} ${SDLTTF_SRC} ${OGG_SRC} ${SFL_SRC}
-${JPEG_SRC}
 
+${SDL2_SOURCE_FILES} ${AI_SRC}  ${ENVIRONMENT_SRC}
+${GAME_SRC}  ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
+${LISTS_SRC}  ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC}
+${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
+ ${WINDOWS_SRC}
+ #external Libs
+  ${MD5_SRC} ${PCRE_SRC} ${SGE_SRC} ${SHA_SRC}
+${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
+${SDLIMAGE_SRC} ${SDLTTF_SRC} ${OGG_SRC}
+${JPEG_SRC}
+${CONFIGURATION_SRC}
+#${UTIL_SRC} ${MINIZIP_SRC} ${7ZIP_SRC} ${SFL_SRC} ${expat_SRCS} ${SDLMIXER_SRC} ${SFL_SRC}}
+${EXTERNAL_SRC} ${MATH_SRC} ${SYS_SRC} ${GRAPHICS_SRC} ${NETWORK_SRC} ${HAWKNL_SRC}
 )
 
 

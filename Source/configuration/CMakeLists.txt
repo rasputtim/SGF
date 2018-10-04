@@ -22,4 +22,4 @@ ${CONFIGURATION_DIR}/SGF_SysVar.cpp
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (configuration_module ${CONFIGURATION_SRC})
+add_library (configuration_module STATIC ${CONFIGURATION_SRC})

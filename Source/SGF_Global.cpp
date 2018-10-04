@@ -37,11 +37,8 @@
 using namespace std;
 
 
-static int major_version = 1;
-static int minor_version = 2;
-static int micro_version = 0;
 
-const int SGF::Global::BUILD_NUMBER = major_version * 1000 + minor_version * 100 + micro_version;
+
 
 
  
@@ -59,35 +56,51 @@ static string Fontcaminho= string(DEF_FONT_PATH)+string(WORKFONT);
 #elif defined(LINUX)
 static string Fontcaminho= string(DEF_FONT_PATH)+string(WORKFONT);
 #endif
-const char * SGF::Global::DEFAULT_FONT = Fontcaminho.c_str();//(string(DEF_FONT_PATH) + "arial.ttf").c_str();
-const SGF::Filesystem::CAbsolutePath SGF::Global::DEFAULT_FONT2 = SGF::Filesystem::CAbsolutePath(Fontcaminho);
 
-
-volatile unsigned int SGF::Global::second_counter=0;
-
-// contadores incrementados a cada millisegundo
-volatile unsigned int SGF::Global::speed_counter=0;
 
 namespace SGF{
-namespace Global{
-int do_shutdown = 0;
-int FRAMES_PER_SECOND = 40;
-int TICS_PER_SECOND = FRAMES_PER_SECOND;
-const int SKIP_TICKS = 1000 /TICS_PER_SECOND;
+//class  Global{
+
+int Global::major_version = 1;
+int Global::minor_version = 2;
+int Global::micro_version = 0;
+const int Global::BUILD_NUMBER = major_version * 1000 + minor_version * 100 + micro_version;
+
+
+const char * Global::DEFAULT_FONT = Fontcaminho.c_str();//(string(DEF_FONT_PATH) + "arial.ttf").c_str();
+const Filesystem::CAbsolutePath Global::DEFAULT_FONT2 = Filesystem::CAbsolutePath(Fontcaminho);
+
+
+volatile unsigned int Global::second_counter=0;
+
+// contadores incrementados a cada millisegundo
+volatile unsigned int Global::speed_counter=0;
 
 
 
+int Global::do_shutdown = 0;
+int Global::FRAMES_PER_SECOND = 40;
+int Global::TICS_PER_SECOND = FRAMES_PER_SECOND;
+const int Global::SKIP_TICKS = 1000 /TICS_PER_SECOND;
+const double Global::LOGIC_MULTIPLIER = (double) 90 / (double) Global::TICS_PER_SECOND;
 
 
-bool shutdown(){
+/* just some random number I picked out of thin air */
+const unsigned int MagicId = 0x0dff2110;
+
+FILE * Global::pLogFile=NULL;
+Uint32 Global::nGameTicks=0;
+
+
+bool Global::shutdown(){
     return do_shutdown > 0;
 }
 
-int getVersion(int major, int minor, int micro){
+int Global::getVersion(int major, int minor, int micro){
     return major * 1000 + minor * 100 + micro;
 }
 
-int getVersion(){
+int Global::getVersion(){
     return getVersion(major_version, minor_version, micro_version);
 }
 
@@ -95,7 +108,7 @@ int getVersion(){
 
 
 
-string getVersionString(){
+string Global::getVersionString(){
     ostringstream str;
     str << major_version << "." << minor_version << "." << micro_version;
     return str.str();
@@ -107,20 +120,18 @@ string getVersionString(){
     s.BlitToScreen();
 }
 */
-const string titleScreen(){
+const string Global::titleScreen(){
 	Filesystem::CRelativePath titleScreenPath("/menu/background.png");
 	if (titleScreenPath.exist()){
 		return  titleScreenPath.completePath();
 	}else return "";
 }
 
-/* just some random number I picked out of thin air */
-const unsigned int MagicId = 0x0dff2110;
 
-FILE *pLogFile=NULL;
-Uint32 nGameTicks;
 
-void InitLogFile()
+
+
+void Global::InitLogFile()
 {
    // usado no sistema de printmessage
    #ifdef _XBOX
@@ -133,14 +144,14 @@ void InitLogFile()
 
 }
 
-void PrintConsole(char *strText)
+void Global::PrintConsole(char *strText)
 {
 	//CON_Out(Global::mMainConsole,strText);
 
 }
 
 //Prints a formated string to the log file and to the console
-void PrintMessage(char *str,...)
+void Global::PrintMessage(char *str,...)
 {
   char string[255];                  // Temporary string
 
@@ -169,17 +180,17 @@ void PrintMessage(char *str,...)
 
 //extern ConsoleInformation *mMainConsole;
 
-void ResetGameTimer()
+void Global::ResetGameTimer()
 {
     nGameTicks=0;
 }
 
-int GetGameTicks()
+int Global::GetGameTicks()
 {
     return nGameTicks;
 }
 
-void UpdateTimer()
+void Global::UpdateTimer()
 {
     nGameTicks++;
 }
@@ -192,12 +203,13 @@ void Command_Handler(ConsoleInformation *console, char* command)
 
 
 
-void ExcecaoInesperada()
+void Global::ExcecaoInesperada()
 {
 Debug::debug(Debug::error) << "Encerrando por na tratar uma excessao inesperada\n";
 exit(1);
 }
-void TrataFalhaNoNew() {
+
+void Global::TrataFalhaNoNew() {
 Debug::debug(Debug::error) << "Falta de Memoria";
 Debug::debug(Debug::error) << "Fim...Saindo!!!" << endl;
 //pode tentar liberar memoria aqui se for o caso e depois retornar
@@ -208,7 +220,7 @@ Debug::debug(Debug::error) << "Fim...Saindo!!!" << endl;
 exit(1);
 
 }
-void Encerra() {
+void Global::Encerra() {
 Debug::debug(Debug::error) << "Encerrando por um motivo inesperado\n";
 exit(1);
 }
@@ -216,7 +228,7 @@ exit(1);
 // retorna -1 se ocorreu erro
 
 
-int InitExceptions() {
+int Global::InitExceptions() {
     //gerenciadores de excessoes padrao
 	//set_unexpected(Global::ExcecaoInesperada); // trata excecao inesperada
     set_new_handler(Global::TrataFalhaNoNew); // Isto impede o lancamento da
@@ -225,5 +237,5 @@ int InitExceptions() {
 	return 0;
 }
 
-} //end GLOBAL
+//} //end GLOBAL
 } //end SGF

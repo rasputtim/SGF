@@ -33,4 +33,4 @@ ${SFL_DIR}/sfluid.c
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (sfl_module ${SFL_SRC})
+add_library (sfl_module STATIC ${SFL_SRC})

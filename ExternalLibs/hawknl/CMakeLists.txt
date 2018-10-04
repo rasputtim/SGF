@@ -43,5 +43,5 @@ ${HAWKNL_DIR}/src/sock.cpp)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (hawknl_module ${HAWKNL_SRC})
+add_library (hawknl_module STATIC ${HAWKNL_SRC})
 

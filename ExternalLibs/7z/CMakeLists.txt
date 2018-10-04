@@ -30,4 +30,4 @@ ${7ZIP_DIR}/7zStream.c)
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (7zip_module ${7ZIP_SRC})
+add_library (7zip_module STATIC ${7ZIP_SRC})

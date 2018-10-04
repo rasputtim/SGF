@@ -32,4 +32,4 @@ ${MATH_DIR}/SGF_Vector.cpp
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (math_module ${MATH_SRC})
+add_library (math_module STATIC ${MATH_SRC})
