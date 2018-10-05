@@ -31,7 +31,7 @@
 #endif
 using namespace std;
 namespace SGF {
-
+	namespace Debug{
 
 #ifdef ANDROID
 android_ostream::android_ostream(bool enabled):
@@ -315,12 +315,65 @@ static nullcout_t nullcout;
 
 
 
-namespace Debug{
 
 
 
 
 
+#ifdef ANDROID
+        static stream_type & defaultStream(){
+            return android_ostream::stream;
+        }
+
+        static stream_type & getStream(){
+            return defaultStream();
+        }
+
+        void logToFile(){
+        }
+
+        void closeLog(){
+        }
+#elif defined(WII) && defined(DEBUG)
+static stream_type & defaultStream(){
+    return wii_ostream::stream;
+}
+
+static stream_type & getStream(){
+    return defaultStream();
+}
+
+void logToFile(){
+}
+
+void closeLog(){
+}
+#elif defined(NETWORK_DEBUG)
+static stream_type & defaultStream(){
+    return network_ostream::stream;
+}
+
+static stream_type & getStream(){
+    return defaultStream();
+}
+
+void logToFile(){
+}
+
+void closeLog(){
+}
+#else
+
+        static stream_type & defaultStream(){
+            return std::cout;
+        }
+static stream_type & getStream(){
+
+                return defaultStream();
+
+        }
+
+#endif
 
 
 
@@ -427,7 +480,7 @@ CLog::~CLog()
 
 
 
-std::ostream & debug(int i, const string & context){
+stream_type & debug(int i, const string & context){
 	bool debug=false;
 
 	switch (i) {
@@ -471,8 +524,9 @@ std::ostream & debug(int i, const string & context){
 			
 		} */
 		//if(i!=parsers)  cout.rdbuf(debug_buffers[1]);
-		cout << "[" << i << ":" << context << "] ";
-		return cout;
+        stream_type & out = getStream();
+        out << "[" << i << ":" << context << "] ";
+		return out;
 	}
 	return nullcout;
 }

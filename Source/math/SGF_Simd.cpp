@@ -4105,6 +4105,10 @@ void TestNegate() {
 idSIMD::Test_f
 ============
 */
+
+// criar um target so para os testes
+#if 0
+
 void idSIMD::Test_f( const CCMDLineArgs &args ) {
 
 #ifdef _WIN32
@@ -4229,4 +4233,5 @@ void idSIMD::Test_f( const CCMDLineArgs &args ) {
 	SetThreadPriority( GetCurrentThread(), THREAD_PRIORITY_NORMAL );
 #endif /* _WIN32 */
 }
+#endif
 } //end SGF

@@ -2086,8 +2086,9 @@ CBitmap * CBitmapFont::LoadFont(string font) throw(CLoadException)
 				int largeWidth = 0;
 				for (i=0;i<_my_font.bitmap->getWidth();i++) {
 					pi=_my_font.bitmap->getPixelSurface(i,0);
-					using std::ostream;
+
 					Debug::debug(Debug::font, __FUNCTION__) << "Pixel Color / R / G / B / A / - / "<< Colors::getRed(pi) << " / " << Colors::getGreen(pi) << " / " << Colors::getBlue(pi) << " / " << Colors::getAlpha(pi)<< " / "<<endl;
+
 
 					if (
 							(

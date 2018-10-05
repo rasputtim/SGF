@@ -4,7 +4,7 @@
 #define BYTEORDER 1234
 
 /* Define to 1 if you have the `bcopy' function. */
-#define HAVE_BCOPY
+/* #undef HAVE_BCOPY */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H

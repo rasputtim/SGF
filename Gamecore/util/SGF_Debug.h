@@ -32,7 +32,7 @@
 #endif
 #include "../SGF_Config.h"
 #include "../exceptions/all.h"
-
+#include "../../ExternalLibs/SDL2/include/SDL.h" //Uint8
 
 using namespace std;
 namespace SGF {
@@ -42,6 +42,7 @@ namespace SGF {
 
 namespace Debug
 {
+
 #ifdef ANDROID
 class android_ostream: public std::ostream {
 public:
@@ -59,6 +60,7 @@ android_ostream & operator<<(android_ostream & stream, const char * input);
 android_ostream & operator<<(android_ostream & stream, const char);
 android_ostream & operator<<(android_ostream & stream, const double);
 android_ostream & operator<<(android_ostream & stream, const int);
+android_ostream & operator<<(android_ostream & stream, const Uint8);
 android_ostream & operator<<(android_ostream & stream, const short int);
 android_ostream & operator<<(android_ostream & stream, const short unsigned int);
 android_ostream & operator<<(android_ostream & stream, const unsigned int);

@@ -54,7 +54,7 @@ include_directories(include ./)
 # module
 # -------------------------------------------------------
 add_library (sdlmixer_module STATIC ${SDLMIXER_SRC})
-
+target_link_libraries(sdlmixer_module sdl2_static)
 # -------------------------------------------------------
 #add_excutable (playmus.c )
 #add_excutable (playwave.c)

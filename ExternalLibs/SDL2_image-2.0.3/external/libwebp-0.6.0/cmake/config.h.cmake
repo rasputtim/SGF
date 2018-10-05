@@ -65,7 +65,7 @@ endif()
 # Find the standard image libraries.
 set(WEBP_DEP_IMG_LIBRARIES)
 set(WEBP_DEP_IMG_INCLUDE_DIRS)
-foreach(I_LIB PNG JPEG TIFF GIF)
+foreach(I_LIB PNG JPEG GIF)
   find_package(${I_LIB})
   set(WEBP_HAVE_${I_LIB} ${${I_LIB}_FOUND})
   if(${I_LIB}_FOUND)

@@ -33,3 +33,4 @@ ${MATH_DIR}/SGF_Vector.cpp
 # module
 # -------------------------------------------------------
 add_library (math_module STATIC ${MATH_SRC})
+target_link_libraries(math_module exceptions_module)

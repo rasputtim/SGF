@@ -49,7 +49,9 @@ public:
 	static void			Init();
 	static void			InitProcessor( const char *module, bool forceGeneric );
 	static void			Shutdown();
-	static void			Test_f( const class CCMDLineArgs &args );
+    //problemas de linkagem entre modulo.
+    //todo: solve
+    //static void			Test_f( const class CCMDLineArgs &args );
 };
 
 

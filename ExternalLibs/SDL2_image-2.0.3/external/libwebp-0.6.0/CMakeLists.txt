@@ -30,6 +30,7 @@ endif()
 ################################################################################
 # Android only.
 if(ANDROID)
+message(STATUS "SGF WILL BUILD LIBWEBP FOR ANDROID")
   include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
   add_library(cpufeatures STATIC
     ${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c

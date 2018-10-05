@@ -336,7 +336,7 @@ else(PNG_FOUND)
 endif(PNG_FOUND)
 
 
-if(NOT ANDROID)
+#if(NOT ANDROID)
     if(TIFF_FOUND)
         if(NOT ANDROID)
         add_definitions(-DLOAD_TIF)
@@ -357,7 +357,7 @@ if(NOT ANDROID)
         set(TIFF_LIBRARY "tiff")
         set(TIFF_INTERNAL ON)
     endif(TIFF_FOUND)
-endif()
+#endif()
 
 
 if(JPEG9_FOUND)
@@ -758,6 +758,7 @@ message (STATUS "########   INCLUDING CHILD CMakeFile.txt          #####")
 message (STATUS "###########################################################")
 
 
+
 message (STATUS "########   EXPAT   #####")
 
 #expat
@@ -798,20 +799,27 @@ include(${CMAKE_SOURCE_DIR}/Source/math/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/menu/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/mortal/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/mugen/CMakeLists.txt) #(get variables needed)
+
 include(${CMAKE_SOURCE_DIR}/Source/network/CMakeLists.txt) #(get variables needed)
+
 include(${CMAKE_SOURCE_DIR}/Source/objects/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/resource/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/script/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/Source/sprite/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/sys/CMakeLists.txt) #(get variables needed)
+
 include(${CMAKE_SOURCE_DIR}/Source/util/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/windows/CMakeLists.txt) #(get variables needed)
+if(NOT ANDROID)
+    include(${CMAKE_SOURCE_DIR}/Source/sys/CMakeLists.txt) #(get variables needed)
+    include(${CMAKE_SOURCE_DIR}/Source/windows/CMakeLists.txt) #(get variables needed)
+endif()
 include(${CMAKE_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
 
 message (STATUS "########   OTHER EXTERNAL LIBS    #####")
 
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/7z/CMakeLists.txt) #(get variables needed)
+if(NOT ANDROID)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/CMakeLists.txt) #(get variables needed)
+endif()
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/md5/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/pcre/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c/CMakeLists.txt) #(get variables needed)
@@ -829,6 +837,8 @@ include(${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variabl
 message (STATUS "########   SDL2    #####")
 message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
+add_library(sdl2_static STATIC ${SDL2_SOURCE_FILES})
+target_link_libraries(sdl2_static ${EXTRA_LIBS})
 
 message (STATUS "########   FREETYPE   #####")
 
@@ -836,7 +846,11 @@ message (STATUS "########   FREETYPE   #####")
 if(FREETYPE_INTERNAL)
 message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
 include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
-
+add_library( freetype_static STATIC
+    ${FREE_PRIVATE_HEADERS}
+    ${FREE_PUBLIC_HEADERS}
+    ${FREE_PUBLIC_CONFIG_HEADERS}
+    ${FREE_BASE_SRCS}    )
 #include_directories( PRIVATE "${FREE_SOURCE_DIR}/include")
 
 endif(FREETYPE_INTERNAL)
@@ -856,12 +870,12 @@ endif(OGG_INTERNAL)
 
 
 
-if(NOT ANDROID)
+#if(NOT ANDROID)
     message (STATUS "########   TIFF   #####")
     if(TIFF_INTERNAL)
         add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/)
     endif(TIFF_INTERNAL)
-endif()
+#endif()
 
  message (STATUS "########   PNG   #####")
 if(PNG_INTERNAL)
@@ -967,7 +981,7 @@ message (STATUS "###########################################################")
 message (STATUS "########   ADDING TARGETS                             #####")
 message (STATUS "###########################################################")
 
-set(EXTRA_LIBS ${EXTRA_LIBS} 7zip_module minizip_module exceptions_module configuration_module util_module)
+set(SGF_EXTRA_LIBS ${EXTRA_LIBS} freetype_static 7zip_module minizip_module exceptions_module configuration_module util_module)
 
 message(STATUS "")
 message(STATUS " CFLAGS:        ${CMAKE_C_FLAGS}")
@@ -976,22 +990,26 @@ message(STATUS " EXTRA_CFLAGS:  ${EXTRA_CFLAGS}")
 message(STATUS " EXTRA_CXXFLAGS:  ${EXTRA_CXXFLAGS}")
 message(STATUS " EXTRA_LDFLAGS: ${EXTRA_LDFLAGS}")
 message(STATUS " EXTRA_LIBS:    ${EXTRA_LIBS}")
+message(STATUS " SGF_EXTRA_LIBS:    ${SGF_EXTRA_LIBS}")
 message(STATUS "")
 message(STATUS " Build Shared Library: ${SGF_SHARED}")
 message(STATUS " Build Static Library: ${SGF_STATIC}")
+
+
+
 
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
 add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
 #for freetype
-${FREE_PRIVATE_HEADERS}
-${FREE_PUBLIC_HEADERS}
-${FREE_PUBLIC_CONFIG_HEADERS}
-${FREE_BASE_SRCS}
+#${FREE_PRIVATE_HEADERS}
+#${FREE_PUBLIC_HEADERS}
+#${FREE_PUBLIC_CONFIG_HEADERS}
+#${FREE_BASE_SRCS}
 #end freetype
 ${COMPILERS_MUGEN_SRC}
 
-${SDL2_SOURCE_FILES} ${AI_SRC}  ${ENVIRONMENT_SRC}
+ ${AI_SRC}  ${ENVIRONMENT_SRC}
 ${GAME_SRC}  ${GUI_SRC} ${INPUT_SRC} ${LEVEL_SRC}
 ${LISTS_SRC}  ${MENU_SRC} ${MORTAL_SRC} ${MUGEN_AST_SRC}
 ${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
@@ -1002,7 +1020,7 @@ ${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
 ${SDLIMAGE_SRC} ${SDLTTF_SRC} ${OGG_SRC}
 ${JPEG_SRC}
 ${CONFIGURATION_SRC}
-#${UTIL_SRC} ${MINIZIP_SRC} ${7ZIP_SRC} ${SFL_SRC} ${expat_SRCS} ${SDLMIXER_SRC} ${SFL_SRC}}
+#${UTIL_SRC} ${MINIZIP_SRC} ${7ZIP_SRC} ${SFL_SRC} ${expat_SRCS} ${SDLMIXER_SRC} ${SFL_SRC}}${SDL2_SOURCE_FILES}
 ${EXTERNAL_SRC} ${MATH_SRC} ${SYS_SRC} ${GRAPHICS_SRC} ${NETWORK_SRC} ${HAWKNL_SRC}
 )
 
@@ -1030,7 +1048,7 @@ endif()
 
 
 set(_INSTALL_LIBS "sgffabric" ${_INSTALL_LIBS})
-target_link_libraries(sgffabric ${EXTRA_LIBS} ${EXTRA_LDFLAGS})
+target_link_libraries(sgffabric sdl2_static ${SGF_EXTRA_LIBS} ${EXTRA_LDFLAGS})
 
 #libc for opendir
 
@@ -1084,6 +1102,8 @@ endif()
 include_directories(${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
 add_executable (createWindow ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
 target_link_libraries(createWindow sgffabric)
+
+
 #endif()
 
 

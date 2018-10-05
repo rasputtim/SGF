@@ -23,3 +23,4 @@ ${NETWORK_DIR}/SGF_Network.cpp
 # module
 # -------------------------------------------------------
 add_library (network_module STATIC ${NETWORK_SRC})
+target_link_libraries(network_module exceptions_module util_module)
