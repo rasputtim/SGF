@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(EXCEPTIONS_DIR ${CMAKE_SOURCE_DIR}/Source/exceptions)
+set(EXCEPTIONS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/exceptions)
 set(EXCEPTIONS_SRC
 ${EXCEPTIONS_DIR}/SGF_Error.cpp
 ${EXCEPTIONS_DIR}/SGF_Exception.cpp

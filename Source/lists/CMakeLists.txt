@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(LISTS_DIR ${CMAKE_SOURCE_DIR}/Source/lists)
+set(LISTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/lists)
 set(LISTS_SRC
 ${LISTS_DIR}/SGF_AirList.cpp
 ${LISTS_DIR}/SGF_ImageList.cpp

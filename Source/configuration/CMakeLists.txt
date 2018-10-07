@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(CONFIGURATION_DIR ${CMAKE_SOURCE_DIR}/Source/configuration)
+set(CONFIGURATION_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/configuration)
 set(CONFIGURATION_SRC
 ${CONFIGURATION_DIR}/SGF_CmdVars.cpp
 ${CONFIGURATION_DIR}/SGF_ConfigSystem.cpp

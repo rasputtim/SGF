@@ -42,7 +42,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 # -------------------------------------------------------
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-
+message (STATUS "SGF CMAKE_MODULE_PATH:  ${CMAKE_MODULE_PATH}")
 # -------------------------------------------------------
 # Add in uninstall target
 # -------------------------------------------------------
@@ -569,20 +569,24 @@ add_definitions(-DLOAD_XV)
 #----------------------------------------
 #add_definitions(-_CRT_SECURE_NO_WARNINGS)
 # SDL_Mixer definitions
+##To play MIDI files, you'll need to get a complete set of GUS patches
+##from: http://www.libsdl.org/projects/mixer/timidity/timidity.tar.gz
+##and unpack them in /usr/local/lib under UNIX, and C:\ under Win32.
+
+set (SUPPORT_TIMIDITY TRUE)
+
 add_definitions(-DWAV_MUSIC)
 add_definitions(-DMOD_MUSIC)
 #add_definitions(-MOD_DYNAMIC="mikmod.dll")
 add_definitions(-DMID_MUSIC)
-add_definitions(-DUSE_TIMIDITY_MIDI)
+
 #add this to use  FLUIDSYNTH_MIDI
 #add_definitions(-DUSE_FLUIDSYNTH_MIDI)
 add_definitions(-DUSE_NATIVE_MIDI)
 #add definition to bildcommand  supports an external command for playing music */
 add_definitions(-DCMD_MUSIC)
 #ifdef CMD_MUSIC
-##To play MIDI files, you'll need to get a complete set of GUS patches
-##from: http://www.libsdl.org/projects/mixer/timidity/timidity.tar.gz
-##and unpack them in /usr/local/lib under UNIX, and C:\ under Win32.
+
 
 add_definitions(-DOGG_MUSIC)
 add_definitions(-DOGG_USE_TREMOR)
@@ -656,7 +660,6 @@ ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/include
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
-${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
@@ -826,7 +829,6 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sha1-c/CMakeLists.txt) #(get va
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sge2d/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/zip/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/CMakeLists.txt) #(get variables needed)
@@ -1016,11 +1018,11 @@ ${OBJECTS_SRC} ${RESOURCES_SRC} ${SCRIPT_SRC} ${SPRITE_SRC} ${STRUCTURES_SRC}
  ${WINDOWS_SRC}
  #external Libs
   ${MD5_SRC} ${PCRE_SRC} ${SGE_SRC} ${SHA_SRC}
-${SDLGFX_SRC} ${TIMIDITY_SRC} ${NATIVE_MIDI_SRC}
+${SDLGFX_SRC} ${NATIVE_MIDI_SRC}
 ${SDLIMAGE_SRC} ${SDLTTF_SRC} ${OGG_SRC}
 ${JPEG_SRC}
 ${CONFIGURATION_SRC}
-#${UTIL_SRC} ${MINIZIP_SRC} ${7ZIP_SRC} ${SFL_SRC} ${expat_SRCS} ${SDLMIXER_SRC} ${SFL_SRC}}${SDL2_SOURCE_FILES}
+#${UTIL_SRC} ${MINIZIP_SRC} ${7ZIP_SRC} ${SFL_SRC} ${expat_SRCS} ${SDLMIXER_SRC} ${SFL_SRC}}${SDL2_SOURCE_FILES} ${TIMIDITY_SRC} 
 ${EXTERNAL_SRC} ${MATH_SRC} ${SYS_SRC} ${GRAPHICS_SRC} ${NETWORK_SRC} ${HAWKNL_SRC}
 )
 
@@ -1098,13 +1100,13 @@ endif()
 
 
 ################  EXAMPLES ##################################################
-#if(NOT ANDROID)
+if(NOT ANDROID)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
 add_executable (createWindow ${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
 target_link_libraries(createWindow sgffabric)
 
 
-#endif()
+endif()
 
 
 

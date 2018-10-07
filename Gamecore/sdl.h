@@ -51,9 +51,9 @@
 
 #ifndef _S_G_F_SDL
 #define _S_G_F_SDL
-#ifdef _WIN32
+
 #include "../ExternalLibs/SDL2/include/SDL.h"
 
-#endif
+
 #endif /* _SGF_H */
 

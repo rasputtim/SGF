@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(LEVEL_DIR ${CMAKE_SOURCE_DIR}/Source/level)
+set(LEVEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/level)
 set(LEVEL_SRC
 ${LEVEL_DIR}/SGF_LevelUtils.cpp
 )

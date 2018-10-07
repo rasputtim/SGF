@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(MORTAL_DIR ${CMAKE_SOURCE_DIR}/Source/mortal)
+set(MORTAL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/mortal)
 set(MORTAL_SRC
 ${MORTAL_DIR}/gfx.cpp
 )

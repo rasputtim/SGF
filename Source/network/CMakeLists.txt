@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(NETWORK_DIR ${CMAKE_SOURCE_DIR}/Source/network)
+set(NETWORK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/network)
 set(NETWORK_SRC
 ${NETWORK_DIR}/SGF_NetClient.cpp
 ${NETWORK_DIR}/SGF_NetServer.cpp

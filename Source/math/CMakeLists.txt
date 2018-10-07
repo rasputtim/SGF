@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(MATH_DIR ${CMAKE_SOURCE_DIR}/Source/math)
+set(MATH_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/math)
 set(MATH_SRC
 ${MATH_DIR}/SGF_Angles.cpp
 ${MATH_DIR}/SGF_Complex.cpp

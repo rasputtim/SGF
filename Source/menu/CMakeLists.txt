@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(MENU_DIR ${CMAKE_SOURCE_DIR}/Source/menu)
+set(MENU_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/menu)
 set(MENU_SRC
 ${MENU_DIR}/SGF_ActionFactory.cpp
 ${MENU_DIR}/SGF_ActionSpeed.cpp

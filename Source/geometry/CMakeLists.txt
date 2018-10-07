@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(GEOMETRY_DIR ${CMAKE_SOURCE_DIR}/Source/geometry)
+set(GEOMETRY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/geometry)
 set(GEOMETRY_SRC
 SGF_.cpp
 SGF_.cpp

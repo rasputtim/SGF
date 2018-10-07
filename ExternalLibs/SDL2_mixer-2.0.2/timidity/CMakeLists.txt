@@ -6,7 +6,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(TIMIDITY_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity)
+set(TIMIDITY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity)
 set(TIMIDITY_SRC
 ${TIMIDITY_DIR}/common.c
 ${TIMIDITY_DIR}/instrum.c
@@ -22,7 +22,7 @@ ${TIMIDITY_DIR}/timidity.c
 # -------------------------------------------------------
 # module
 # -------------------------------------------------------
-#add_library (timidity_module ${TIMIDITY_SRC})
+add_library (timidity STATIC ${TIMIDITY_SRC})
 
 # -------------------------------------------------------
 #add_excutable (playmus.c )

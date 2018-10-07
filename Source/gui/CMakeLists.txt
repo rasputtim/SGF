@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(GUI_DIR ${CMAKE_SOURCE_DIR}/Source/gui)
+set(GUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/gui)
 set(GUI_SRC
 ${GUI_DIR}/SGF_BoundBox.cpp
 ${GUI_DIR}/SGF_Box.cpp

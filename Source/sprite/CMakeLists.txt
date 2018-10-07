@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(SPRITE_DIR ${CMAKE_SOURCE_DIR}/Source/sprite)
+set(SPRITE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/sprite)
 set(SPRITE_SRC
 ${SPRITE_DIR}/SGF_Effects.cpp
 ${SPRITE_DIR}/SGF_MugenSprite.cpp

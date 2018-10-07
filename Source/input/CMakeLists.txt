@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(INPUT_DIR ${CMAKE_SOURCE_DIR}/Source/input)
+set(INPUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/input)
 set(INPUT_SRC
 ${INPUT_DIR}/SGF_ButtonMapping.cpp
 ${INPUT_DIR}/SGF_Events.cpp

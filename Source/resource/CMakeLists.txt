@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(RESOURCES_DIR ${CMAKE_SOURCE_DIR}/Source/resource)
+set(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/resource)
 set(RESOURCES_SRC
 ${RESOURCES_DIR}/SGF_Collector.cpp
 ${RESOURCES_DIR}/SGF_ResourceManager.cpp

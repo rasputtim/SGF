@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(GAME_DIR ${CMAKE_SOURCE_DIR}/Source/game)
+set(GAME_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/game)
 set(GAME_SRC
 ${GAME_DIR}/SGF_Console.cpp
 ${GAME_DIR}/SGF_Control.cpp

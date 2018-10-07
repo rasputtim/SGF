@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(SYS_DIR ${CMAKE_SOURCE_DIR}/Source/sys)
+set(SYS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/sys)
 set(SYS_SRC
 ${SYS_DIR}/SGF_System.cpp
 ${SYS_DIR}/linux/SGF_LinShared.cpp

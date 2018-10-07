@@ -8,10 +8,10 @@
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
 set(AI_SRC
-${CMAKE_SOURCE_DIR}/Source/ai/SGF_AstarHeap.cpp
-${CMAKE_SOURCE_DIR}/Source/ai/SGF_AstarLib.cpp
-${CMAKE_SOURCE_DIR}/Source/ai/SGF_Map.cpp
-${CMAKE_SOURCE_DIR}/Source/ai/SGF_PathFinder.cpp)
+${CMAKE_CURRENT_SOURCE_DIR}/Source/ai/SGF_AstarHeap.cpp
+${CMAKE_CURRENT_SOURCE_DIR}/Source/ai/SGF_AstarLib.cpp
+${CMAKE_CURRENT_SOURCE_DIR}/Source/ai/SGF_Map.cpp
+${CMAKE_CURRENT_SOURCE_DIR}/Source/ai/SGF_PathFinder.cpp)
 
 # -------------------------------------------------------
 # Include directory

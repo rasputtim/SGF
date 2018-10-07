@@ -6,7 +6,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(NATIVEMIDI_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi)
+set(NATIVEMIDI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi)
 set(NATIVE_MIDI_SRC
 ${NATIVEMIDI_DIR}/native_midi_common.c
 )

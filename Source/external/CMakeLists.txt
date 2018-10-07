@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(EXTERNAL_DIR ${CMAKE_SOURCE_DIR}/Source/external)
+set(EXTERNAL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/external)
 set(EXTERNAL_SRC
 ${EXTERNAL_DIR}/DT_drawtext.c
 ${EXTERNAL_DIR}/fastevents.c

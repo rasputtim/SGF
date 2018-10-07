@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(GRAPHICS_DIR ${CMAKE_SOURCE_DIR}/Source/graphics)
+set(GRAPHICS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/graphics)
 set(GRAPHICS_SRC
 ${GRAPHICS_DIR}/SGF_Bitmap.cpp
 ${GRAPHICS_DIR}/SGF_Color.cpp

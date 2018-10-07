@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(UTIL_DIR ${CMAKE_SOURCE_DIR}/Source/util)
+set(UTIL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Source/util)
 set(UTIL_SRC
 ${UTIL_DIR}/XmlNode/XmlNode.cpp
 ${UTIL_DIR}/SGF_ArgsCmdLine.cpp
