@@ -5025,6 +5025,17 @@ void CBitmap::SetDefColor(int R, int G, int B, int A){
 
 }
 
+/** @fn CBitmap::GetNumCircleSegments(float radius) const
+@brief Retorna o número aproximado de segmentos necessários para desenhar um círculo, ou arco
+@param radius: raio do arco
+@return número de segmentos necessários
+@warning cor padrão: falta implementart mecanismos de segurança caso sejam passados valores incoerentes
+*/
+    float CBitmap::GetNumCircleSegments(float radius) const{
+//
+        return 50 * sqrtf(radius);//change the 10 to a smaller/bigger number as needed
+    }
+
 #ifndef ANDROID
 
 //todo: add Gles (externalLibs ges 1.4) tocompile under android
@@ -5701,16 +5712,7 @@ void CBitmap::Star(const float x, const float y, const float startAngle, const f
   break;
 }
 }
-/** @fn CBitmap::GetNumCircleSegments(float radius) const
-@brief Retorna o número aproximado de segmentos necessários para desenhar um círculo, ou arco
-@param radius: raio do arco
-@return número de segmentos necessários
-@warning cor padrão: falta implementart mecanismos de segurança caso sejam passados valores incoerentes
-*/
-float CBitmap::GetNumCircleSegments(float radius) const{
-//
-	return 50 * sqrtf(radius);//change the 10 to a smaller/bigger number as needed
-}
+
 
 /** @fn CBitmap::Triangle(const float x1, const float y1, const float x2, const float y2,const float x3,const float y3,const int R, const int G, const int B)
 @brief Desenha um Triângulo
@@ -6325,43 +6327,6 @@ void CBitmap::DrawGLTexture(int filter, float rotate_x,float xspeed, float rotat
 }
 
 
-/* A general OpenGL initialization function.
- *Sets all of the initial parameters. */
-/** @fn CBitmap::InitGL
-@brief Inicialização Geral do OpenGL
-*determina todos os parâmetros iniciais
-@param Width: Largura da superfície a ser criada
-@param Height: Altura da superfície a ser criada
-@warning Devemos chamar esta função depois que a janela OpenGL for Criada
-**/
-void CBitmap::InitGL(int Width, int Height)	        //!< We call this right after our OpenGL window is created.
-{
-  glViewport(0, 0, Width, Height);
-  //! Esta função irá preencher o fundo em preto
-  glClearColor(0.0f, 0.0f, 0.0f, 0.0f);		// This Will Clear The Background Color To Black
-  //! Habilita a limpeza do buffer de profundidade
-  glClearDepth(1.0);				// Enables Clearing Of The Depth Buffer
-  //! O tipo de teste de profundidade a realizar
-  glDepthFunc(GL_LESS);				// The Type Of Depth Test To Do
-  //! Habilita teste de profundidade
-  glEnable(GL_DEPTH_TEST);			// Enables Depth Testing
-  //! Habilita Shading de cores suave
-  glShadeModel(GL_SMOOTH);			// Enables Smooth Color Shading
-
-  glMatrixMode(GL_PROJECTION);
-  //! Reseta a Matrix do projeto
-  glLoadIdentity();				// Reset The Projection Matrix
-  //! Calcula proporção da Janela
-  gluPerspective(45.0f,(GLfloat)Width/(GLfloat)Height,0.1f,100.0f);	// Calculate The Aspect Ratio Of The Window
-
-  glMatrixMode(GL_MODELVIEW);
-  //!avisa a classe que o openGL está habilitado
-
-  GL2D=false;
-  GL3D=true;
-
-
-}
 
 void CBitmap::ClearGL() const{
 	if(GL3D)
@@ -6381,6 +6346,44 @@ void CBitmap::BlitGLToScreen(){
  // SDL_GL_SwapBuffers();  // swap buffers to display, since we're double buffered.
 }
 #endif
+/* A general OpenGL initialization function.
+ *Sets all of the initial parameters. */
+/** @fn CBitmap::InitGL
+@brief Inicialização Geral do OpenGL
+*determina todos os parâmetros iniciais
+@param Width: Largura da superfície a ser criada
+@param Height: Altura da superfície a ser criada
+@warning Devemos chamar esta função depois que a janela OpenGL for Criada
+**/
+    void CBitmap::InitGL(int Width, int Height)	        //!< We call this right after our OpenGL window is created.
+    {
+#ifndef ANDROID
+        glViewport(0, 0, Width, Height);
+        //! Esta função irá preencher o fundo em preto
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);		// This Will Clear The Background Color To Black
+        //! Habilita a limpeza do buffer de profundidade
+        glClearDepth(1.0);				// Enables Clearing Of The Depth Buffer
+        //! O tipo de teste de profundidade a realizar
+        glDepthFunc(GL_LESS);				// The Type Of Depth Test To Do
+        //! Habilita teste de profundidade
+        glEnable(GL_DEPTH_TEST);			// Enables Depth Testing
+        //! Habilita Shading de cores suave
+        glShadeModel(GL_SMOOTH);			// Enables Smooth Color Shading
+
+        glMatrixMode(GL_PROJECTION);
+        //! Reseta a Matrix do projeto
+        glLoadIdentity();				// Reset The Projection Matrix
+        //! Calcula proporção da Janela
+        gluPerspective(45.0f,(GLfloat)Width/(GLfloat)Height,0.1f,100.0f);	// Calculate The Aspect Ratio Of The Window
+
+        glMatrixMode(GL_MODELVIEW);
+        //!avisa a classe que o openGL está habilitado
+
+        GL2D=false;
+        GL3D=true;
+#endif
+
+    }
 
 //! render the text to the surface
 void CBitmap::RenderToSurface(char *string,int x,int y, Colors::ColorDefinition textColor, CFont *fonte) const{

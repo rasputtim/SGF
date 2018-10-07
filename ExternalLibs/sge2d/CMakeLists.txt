@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(SGE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d)
+set(SGE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sge2d)
 set(SGE_SRC
 ${SGE_DIR}/src/sge_bm_text.cpp
 ${SGE_DIR}/src/sgearray.c

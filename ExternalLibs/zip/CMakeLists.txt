@@ -1,4 +1,4 @@
-set(MINIZIP_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/zip)
+set(MINIZIP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/zip)
 set(MINIZIP_SRC
 ${MINIZIP_DIR}/ioapi.c
 ${MINIZIP_DIR}/unzip.c

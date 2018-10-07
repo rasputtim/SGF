@@ -82,7 +82,11 @@ android_ostream & operator<<(android_ostream & stream, const bool input){
 stream.buffer << input;
 return stream;
 }
+android_ostream & operator<<(android_ostream & stream, const Uint8){
+	stream.buffer << input;
+	return stream;
 
+}
 android_ostream & operator<<(android_ostream & stream, const long int input){
 stream.buffer << input;
 return stream;

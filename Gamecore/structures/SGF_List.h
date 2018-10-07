@@ -769,12 +769,12 @@ SGF_INLINE_FORCED int CList<ItemType>::append( const CList<ItemType> &other ) {
 		resize( m_iGranularity );
 	}
 
-	int n = other.m_iNum();
+    int n = other.m_iNum;
 	for (int i = 0; i < n; i++) {
 		append(other[i]);
 	}
-
-	return m_iNum();
+    int my_n = m_iNum;
+    return my_n;
 }
 
 /*

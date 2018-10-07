@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(PCRE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/pcre)
+set(PCRE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre)
 set(PCRE_SRC
 ${PCRE_DIR}/pcre_chartables.c
 ${PCRE_DIR}/pcre_compile.c

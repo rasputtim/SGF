@@ -13,20 +13,20 @@
 # -------------------------------------------------------
 cmake_minimum_required(VERSION 3.4.1)
 
-if(EXISTS ${CMAKE_SOURCE_DIR}/CMakeCache.txt)
-	file(REMOVE ${CMAKE_SOURCE_DIR}/CMakeCache.txt)
-	file(REMOVE_RECURSE ${CMAKE_SOURCE_DIR}/CMakeFiles)
-endif(EXISTS ${CMAKE_SOURCE_DIR}/CMakeCache.txt)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
+        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
+        file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/CMakeFiles)
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
 if(EXISTS ${CMAKE_BINARY_DIR}/Makefile)
-	file(REMOVE ${CMAKE_BINARY_DIR}/Makefile)
+        file(REMOVE ${CMAKE_BINARY_DIR}/Makefile)
 endif(EXISTS ${CMAKE_BINARY_DIR}/Makefile)
-if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
-	if(UNIX AND NOT CYGWIN)
-		message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild && cd mybuild && cmake ../ && make\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in ${CMAKE_SOURCE_DIR} if you can't get rid of this error.")
-	else(UNIX AND NOT CYGWIN)
-		message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild; cd mybuild; cmakesetup ../\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in  ${CMAKE_SOURCE_DIR} if you can't get rid of this error.")
-	endif(UNIX AND NOT CYGWIN)
-endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+        if(UNIX AND NOT CYGWIN)
+                message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild && cd mybuild && cmake ../ && make\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in ${CMAKE_CURRENT_SOURCE_DIR} if you can't get rid of this error.")
+        else(UNIX AND NOT CYGWIN)
+                message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild; cd mybuild; cmakesetup ../\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in  ${CMAKE_CURRENT_SOURCE_DIR} if you can't get rid of this error.")
+        endif(UNIX AND NOT CYGWIN)
+endif(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 
 #enable incremental builiding
 set (CMAKE_SKIP_RULE_DEPENDENCY TRUE)
@@ -40,7 +40,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 # -------------------------------------------------------
 # Directory in which extra macros can be found
 # -------------------------------------------------------
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 
 # -------------------------------------------------------
@@ -53,8 +53,8 @@ configure_file(
 
 add_custom_target(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-  
-  
+
+
 
 # -------------------------------------------------------
 # project name
@@ -142,20 +142,20 @@ endif()
 
 if (ANDROID)
 message (STATUS "Build PNG SUPPORT FOR ANDROID")
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/libs/Android)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/libs/Android)
 #by default AndroidStudio save the binary file in the folder .externalNativeBuild
 #must create a configuration in gradle to copy it to the correct folder
 #check build.gradle(Project:KolUtils) file
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/Android)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin/Android)
 
 endif(ANDROID)
 
 if (LINUX)
 
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/libs/Linux)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/libs/Linux)
 #by default Qt Studio save the binary file in the folder build-KolossusUtils-Desktop-Default
 #you will also find project files in this folder
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/Linux)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin/Linux)
 
 endif(LINUX)
 
@@ -330,7 +330,7 @@ else(PNG_FOUND)
     add_definitions(-DHAVE_PNG)
     message(STATUS "LIB PNG NOT found to use for SDL2_image. I Will build PNG internally")
     set(PNG_LIBRARY "png_static")
-    set(PNG_PNG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32")
+    set(PNG_PNG_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32")
     message(STATUS "PNG_PNG_INCLUDE_DIR: ${PNG_PNG_INCLUDE_DIR}")
     set(PNG_INTERNAL ON)
 endif(PNG_FOUND)
@@ -353,7 +353,7 @@ endif(PNG_FOUND)
         #add_definitions(-LOAD_TIF_DYNAMIC="libtiff-5.dll")
         endif()
         message(STATUS "LIB TIFF not found. I Will build tiff internally.")
-        set(TIFF_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
+        set(TIFF_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/)
         set(TIFF_LIBRARY "tiff")
         set(TIFF_INTERNAL ON)
     endif(TIFF_FOUND)
@@ -369,7 +369,7 @@ else(JPEG9_FOUND)
     add_definitions(-DHAVE_JPEG)
     message(STATUS "LIB jpeg9 NOT found to use with SDL2_image. I Will build jpeg internally")
     set(JPEG_LIBRARY "jpeg_static")
-    set(JPEG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/")
+    set(JPEG_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/")
     set(JPEG_INTERNAL ON)
 endif(JPEG9_FOUND)
 
@@ -390,9 +390,9 @@ endif(WEBP_FOUND)
 
 
 
-if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
-        file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
-endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
+        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/ogg/config_types.h)
 
 if(OGG_FOUND)
     message(STATUS "LIB OGG found to use with SDL2_MIXER.")
@@ -404,7 +404,7 @@ if(OGG_FOUND)
 else(OGG_FOUND)
     message(STATUS "LIB OGG NOT found to use with SDL2_MIXER. I Will build ogg internally")
     #use internal ogg_module
-    set(OGG_INCLUDES ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/)
+    set(OGG_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/include/)
     set(OGG_LIBS "")
     set(OGG_INTERNAL ON)
     file(APPEND ${OGG_INCLUDES}/ogg/config_types.h "#ifndef __CONFIG_TYPES_H__ \n")
@@ -424,13 +424,13 @@ endif(OGG_FOUND)
 
     # SET Mixer definition
     if (MAD_FOUND)
-	add_definitions(-DMP3_MAD_MUSIC)
+        add_definitions(-DMP3_MAD_MUSIC)
     endif(MAD_FOUND)
 
     set(GRAPHICS_LIBRARIES sfl_module sprig_module sdl_stretch_module image_module mixer_module ${SDL_LIBRARY})
     set(GRAPHICS_INCLUDES ${SDL_INCLUDE_DIR})
     if (APPLE)
-	add_definitions(-DUSE_SDL_MAIN)
+        add_definitions(-DUSE_SDL_MAIN)
     endif(APPLE)
 #endif(USE_SDL)
 
@@ -440,16 +440,16 @@ if(MPG123_FOUND)
     set(MP3_INCLUDES ${MPG123_INCLUDE_DIR})
 else(MPG123_FOUND)
     if (SDL_FOUND)
-	# Try looking for libmad instead only if SDL is available
-	find_package(MAD)
-	if (MAD_FOUND)
-	    add_definitions(-DHAVE_MP3_MAD)
-	    set(MP3_LIBS ${MAD_LIBRARY})
-	    set(MP3_INCLUDES ${MAD_INCLUDE_DIR})
-	else(MAD_FOUND)
-	    set(MP3_LIBS "")
-	    set(MP3_INCLUDES "")
-	endif(MAD_FOUND)
+        # Try looking for libmad instead only if SDL is available
+        find_package(MAD)
+        if (MAD_FOUND)
+            add_definitions(-DHAVE_MP3_MAD)
+            set(MP3_LIBS ${MAD_LIBRARY})
+            set(MP3_INCLUDES ${MAD_INCLUDE_DIR})
+        else(MAD_FOUND)
+            set(MP3_LIBS "")
+            set(MP3_INCLUDES "")
+        endif(MAD_FOUND)
     endif (SDL_FOUND)
 endif(MPG123_FOUND)
 #PERL
@@ -480,11 +480,11 @@ endif(PERLLIBS_FOUND)
 
 # freetype
 if(NOT FREETYPE_FOUND)
-	message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
-        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
-            file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h  ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build-orig.h )
+        message(STATUS "LIB freetype not found. I Will build FREEtYPE internally.")
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h)
+            file(RENAME ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build.h  ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/ft2build-orig.h )
         endif()
-        set(FREETYPE_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include
+        set(FREETYPE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include
             ${PROJECT_BINARY_DIR}/include/freetype/config)
         #set(FREETYPE_INCLUDE_DIR ${PROJECT_BINARY_DIR}/include/freetype/config)
     set(FREETYPE_LIBS "")
@@ -504,14 +504,14 @@ message (STATUS "###########################################################")
 # -------------------------------------------------------
 
 if(MINGW OR CYGWIN)
-	# -------------------------------------------------------
-	# Take those user options and set the necessary compile time preprocessors
-	# -------------------------------------------------------
-	add_definitions(-DWINDOWS)
-	set(WIN_LIB -lgdi32 -luser32 -lwsock32)
-	 set(CMAKE_THREAD_LIBS_INIT -lpthreadGC2)
+        # -------------------------------------------------------
+        # Take those user options and set the necessary compile time preprocessors
+        # -------------------------------------------------------
+        add_definitions(-DWINDOWS)
+        set(WIN_LIB -lgdi32 -luser32 -lwsock32)
+         set(CMAKE_THREAD_LIBS_INIT -lpthreadGC2)
 else(MINGW OR CYGWIN)
-	 set(CMAKE_THREAD_LIBS_INIT -lpthread)
+         set(CMAKE_THREAD_LIBS_INIT -lpthread)
 
 
 remove_definitions(${CXXFLAGS})
@@ -524,11 +524,11 @@ endif(MINGW OR CYGWIN)
 # -------------------------------------------------------
 
 if(APPLE)
-	# -------------------------------------------------------
+        # -------------------------------------------------------
     # Added stuff for osx
-	# -------------------------------------------------------
-	set(WIN_LIB "-framework Carbon")
-	add_definitions(-DMACOSX)
+        # -------------------------------------------------------
+        set(WIN_LIB "-framework Carbon")
+        add_definitions(-DMACOSX)
 
         # Groups
         set(GROUP_START "-Wl,-all_load")
@@ -612,19 +612,19 @@ message (STATUS "###########################################################")
 # -------------------------------------------------------
 
 if (PERLLIBS_FOUND)
-include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/perl56
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/perl56
 ${PERL_INCLUDE_DIR}
 ${PERL_INCLUDE_DIRS}
 )
 endif()
 
 if(FREETYPE_INTERNAL)
-include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
 ${FREETYPE_INCLUDE_DIR})
 endif()
 
 if(WEBP_INTERNAL)
-    include_directories(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src)
 else(WEBP_INTERNAL)
     include_directories(${WEBP_INCLUDE_DIR})
 endif(WEBP_INTERNAL)
@@ -644,38 +644,38 @@ else(PNG_INTERNAL)
 endif(PNG_INTERNAL)
 
 
-include_directories(${CMAKE_SOURCE_DIR}/Gamecore
-${CMAKE_SOURCE_DIR}/Gamecore/compiler
-${CMAKE_SOURCE_DIR}/Header
-${CMAKE_SOURCE_DIR}/ExternalLibs/7z
-${CMAKE_SOURCE_DIR}/ExternalLibs/hawkln
-${CMAKE_SOURCE_DIR}/ExternalLibs/md5
-${CMAKE_SOURCE_DIR}/ExternalLibs/pcre
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_SGF
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/include
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
-${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src
-${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/include
-${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c
-${CMAKE_SOURCE_DIR}/ExternalLibs/zip
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Gamecore
+${CMAKE_CURRENT_SOURCE_DIR}/Gamecore/compiler
+${CMAKE_CURRENT_SOURCE_DIR}/Header
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawkln
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/md5
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_SGF
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/include
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SFL2.0src
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sge2d/include
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sha1-c
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/zip
 ${GRAPHICS_INCLUDES}
 ${OGG_INCLUDES}
 ${MP3_INCLUDES}
 ${JPEG_INCLUDE_DIR}
 ${TIFF_INCLUDE_DIR}# todo: Build the library
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libvorbisidec-1.2.1
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/smpeg2-2.0.0
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
-${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libmikmod-3.1.12/include/
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libvorbisidec-1.2.1
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/smpeg2-2.0.0
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libmikmod-3.1.12/include/
 #expat
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/
-${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
 )
 
 # -------------------------------------------------------
@@ -697,12 +697,12 @@ if(!ZLIB_FOUND)
     if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
         # If we're doing an out of source build and the user has a zconf.h
         # in their source tree...
-        if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
             message(STATUS "Renaming")
-            message(STATUS "    ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h")
+            message(STATUS "    ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h")
             message(STATUS "to 'zconf.h.included' because this file is included with zlib")
             message(STATUS "but CMake generates it automatically in the build directory.")
-            file(RENAME ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h.included)
+            file(RENAME ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h.included)
       endif()
     endif()
 endif(!ZLIB_FOUND)
@@ -717,7 +717,7 @@ endif(!ZLIB_FOUND)
 # -------------------------------------------------------
 
 ## For compiling MUGEN COmpilers
-set(COMPILERS_MUGEN_DIR ${CMAKE_SOURCE_DIR}/Gamecore/compiler )
+set(COMPILERS_MUGEN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Gamecore/compiler )
 set(COMPILERS_MUGEN_HDR
 ${COMPILERS_MUGEN_DIR}/AirCompiler/airparser.tab.h
 ${COMPILERS_MUGEN_DIR}/AirCompiler/air_driver.h
@@ -762,81 +762,81 @@ message (STATUS "###########################################################")
 message (STATUS "########   EXPAT   #####")
 
 #expat
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/ConfigureChecks.cmake)
+#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/ConfigureChecks.cmake)
 message("ADDING expat_config.h")
-configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h.cmake ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/expat_config.h)
 add_definitions(-DHAVE_EXPAT_CONFIG_H)
 add_definitions(-DHAVE_MEMMOVE)
 
 message (STATUS "########   SDL_IMAGE   #####")
 
-if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
-        file(REMOVE ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
-endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
 message (STATUS "WILL BUILD FREETYPE")
-#add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
+#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
 
 
 message (STATUS "########   SGF INTERNAL   #####")
 
-include(${CMAKE_SOURCE_DIR}/Source/ai/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/configuration/CMakeLists.txt) #(get variables needed)
-#include(${CMAKE_SOURCE_DIR}/Source/environment/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/exceptions/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/external/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/game/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/geometry/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/graphics/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/gui/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/input/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/level/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/lists/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/math/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/menu/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/mortal/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/mugen/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/ai/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/configuration/CMakeLists.txt) #(get variables needed)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/Source/environment/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/exceptions/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/external/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/game/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/geometry/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/graphics/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/gui/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/input/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/level/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/lists/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/math/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/menu/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/mortal/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/mugen/CMakeLists.txt) #(get variables needed)
 
-include(${CMAKE_SOURCE_DIR}/Source/network/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/network/CMakeLists.txt) #(get variables needed)
 
-include(${CMAKE_SOURCE_DIR}/Source/objects/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/resource/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/script/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/Source/sprite/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/objects/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/resource/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/script/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/sprite/CMakeLists.txt) #(get variables needed)
 
-include(${CMAKE_SOURCE_DIR}/Source/util/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/util/CMakeLists.txt) #(get variables needed)
 if(NOT ANDROID)
-    include(${CMAKE_SOURCE_DIR}/Source/sys/CMakeLists.txt) #(get variables needed)
-    include(${CMAKE_SOURCE_DIR}/Source/windows/CMakeLists.txt) #(get variables needed)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/Source/sys/CMakeLists.txt) #(get variables needed)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/Source/windows/CMakeLists.txt) #(get variables needed)
 endif()
-include(${CMAKE_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/structures/CMakeLists.txt) #(get variables needed)
 
 message (STATUS "########   OTHER EXTERNAL LIBS    #####")
 
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/7z/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z/CMakeLists.txt) #(get variables needed)
 if(NOT ANDROID)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawknl/CMakeLists.txt) #(get variables needed)
 endif()
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/md5/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/pcre/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/sha1-c/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/sge2d/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/zip/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/md5/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sha1-c/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sge2d/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/zip/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/timidity/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variables needed)
 
 message (STATUS "########   SDL2    #####")
 message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
 add_library(sdl2_static STATIC ${SDL2_SOURCE_FILES})
 target_link_libraries(sdl2_static ${EXTRA_LIBS})
 
@@ -845,7 +845,7 @@ message (STATUS "########   FREETYPE   #####")
 
 if(FREETYPE_INTERNAL)
 message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
-include(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/CMakeLists-sgf.txt) #(get variables needed)
 add_library( freetype_static STATIC
     ${FREE_PRIVATE_HEADERS}
     ${FREE_PUBLIC_HEADERS}
@@ -864,7 +864,7 @@ endif(JPEG_INTERNAL)
 
  message (STATUS "########   OGG   #####")
 if(OGG_INTERNAL)
-    include(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libogg-1.3.2/CMakeLists.txt) #(get variables needed from ogg)
 endif(OGG_INTERNAL)
 
 
@@ -873,7 +873,7 @@ endif(OGG_INTERNAL)
 #if(NOT ANDROID)
     message (STATUS "########   TIFF   #####")
     if(TIFF_INTERNAL)
-        add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/)
+        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/)
     endif(TIFF_INTERNAL)
 #endif()
 
@@ -885,7 +885,7 @@ endif(PNG_INTERNAL)
  message (STATUS "########   WEBP   #####")
 
 if(WEBP_INTERNAL)
-add_subdirectory(${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/)
 endif(WEBP_INTERNAL)
 
 
@@ -1000,7 +1000,7 @@ message(STATUS " Build Static Library: ${SGF_STATIC}")
 
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
-add_library (sgffabric STATIC ${CMAKE_SOURCE_DIR}/Source/SGF_Global.cpp
+add_library (sgffabric STATIC ${CMAKE_CURRENT_SOURCE_DIR}/Source/SGF_Global.cpp
 #for freetype
 #${FREE_PRIVATE_HEADERS}
 #${FREE_PUBLIC_HEADERS}
@@ -1064,12 +1064,12 @@ endif(OGG_INTERNAL)
 if(NOT ANDROID)
     if(TIFF_INTERNAL)
             #set(TIFF_LIBRARY "tiff_module")
-            #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-            #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-            #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
-            #if(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-            #        file(REMOVE ${CMAKE_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
-            #endif(EXISTS ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+            #if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tif_config.h)
+            #if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+            #        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
+            #endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/tiff-4.0.8/libtiff/tiffconf.h)
 
     else(TIFF_INTERNAL)
 
@@ -1098,9 +1098,9 @@ endif()
 
 
 ################  EXAMPLES ##################################################
-#if(!ANDROID)
-include_directories(${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
-add_executable (createWindow ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
+#if(NOT ANDROID)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src)
+add_executable (createWindow ${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/main.cpp ${CMAKE_CURRENT_SOURCE_DIR}/Exemplos/Tutorial_01-CriarJanela/src/Game.cpp)
 target_link_libraries(createWindow sgffabric)
 
 
@@ -1166,4 +1166,3 @@ endif()
 #    target_link_libraries(mugentest ${GROUP_START} base_module level_module factory_module object_module util_module loadpng_module
 #        menu_module env_module network_module gui_module script_module game_module mugen_module ogg_module trigger_module pcre_module dumb_module hawknl_module gme_module ${GROUP_END} ${REQUIRED_LIBS})
 #endif (NOT USE_SDL)
-

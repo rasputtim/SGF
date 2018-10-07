@@ -61,6 +61,7 @@ android_ostream & operator<<(android_ostream & stream, const char);
 android_ostream & operator<<(android_ostream & stream, const double);
 android_ostream & operator<<(android_ostream & stream, const int);
 android_ostream & operator<<(android_ostream & stream, const Uint8);
+
 android_ostream & operator<<(android_ostream & stream, const short int);
 android_ostream & operator<<(android_ostream & stream, const short unsigned int);
 android_ostream & operator<<(android_ostream & stream, const unsigned int);

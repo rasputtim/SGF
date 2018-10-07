@@ -6,7 +6,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(7ZIP_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/7z)
+set(7ZIP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z)
 set(7ZIP_SRC
 ${7ZIP_DIR}/7zAlloc.c
 ${7ZIP_DIR}/7zBuf.c

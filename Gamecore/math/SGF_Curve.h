@@ -1600,11 +1600,11 @@ SGF_INLINE_FORCED int idCurve_KochanekBartelsSpline<type>::AddValue( const float
 	int i;
 
 	i = this->IndexForTime( time );
-	this->times.Insert( time, i );
-	this->values.Insert( value, i );
-	this->tension.Insert( tension, i );
-	this->continuity.Insert( continuity, i );
-	this->bias.Insert( bias, i );
+    this->times.insert( time, i );
+    this->values.insert( value, i );
+    this->tension.insert( tension, i );
+    this->continuity.insert( continuity, i );
+    this->bias.insert( bias, i );
 	return i;
 }
 

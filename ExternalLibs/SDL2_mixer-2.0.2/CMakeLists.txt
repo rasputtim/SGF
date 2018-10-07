@@ -18,7 +18,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(SDLMIXER_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2)
+set(SDLMIXER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2)
 
 set(SDLMIXER_SRC
 ${SDLMIXER_DIR}/music.c

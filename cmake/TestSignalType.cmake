@@ -4,7 +4,7 @@
   MESSAGE(STATUS "Check for signal return type in <signal.h>")
   TRY_COMPILE(CMAKE_TEST_SIGNAL_TYPE
     ${CMAKE_BINARY_DIR}
-    ${CMAKE_SOURCE_DIR}/cmake/TestSignalType.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/TestSignalType.c
     OUTPUT_VARIABLE OUTPUT)
   IF (CMAKE_TEST_SIGNAL_TYPE)
     MESSAGE(STATUS "Check for signal handler return type type void  - found")
@@ -25,7 +25,7 @@
   ENDIF (CMAKE_TEST_SIGNAL_TYPE)
 
 IF(REGSIGTYPE_VOID)
-file(APPEND ${CMAKE_SOURCE_DIR}/config.h "#define RETSIGTYPE void\n" )
+file(APPEND ${CMAKE_CURRENT_SOURCE_DIR}/config.h "#define RETSIGTYPE void\n" )
 ELSE(REGSIGTYPE_VOID)
-file(APPEND ${CMAKE_SOURCE_DIR}/config.h "#define RETSIGTYPE int\n" )
+file(APPEND ${CMAKE_CURRENT_SOURCE_DIR}/config.h "#define RETSIGTYPE int\n" )
 ENDIF(REGSIGTYPE_VOID)

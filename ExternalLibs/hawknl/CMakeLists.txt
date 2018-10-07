@@ -18,7 +18,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(HAWKNL_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/hawknl)
+set(HAWKNL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawknl)
 
 set(HAWKNL_SRC
 ${HAWKNL_DIR}/src/crc.cpp

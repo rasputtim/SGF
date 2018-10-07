@@ -9,14 +9,14 @@ find_path(JPEG9_INCLUDE_DIR
     NAMES
       jconfig.h jpeglib.h
     PATHS
-    ${CMAKE_SOURCE_DIR}/ExternalLibs/jpeg-9/
+    ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/jpeg-9b/
    )
   
 find_library(JPEG9_LIBRARY
     NAMES
     jpeg jpeglib
     PATHS
-    ${CMAKE_SOURCE_DIR}/ExternalLibs/jpeg-9/.libs/
+    ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/jpeg-9b/.libs/
 )
   
 if (JPEG9_LIBRARY)

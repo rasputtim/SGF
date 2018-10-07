@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(JPEG_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/)
+set(JPEG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/jpeg-9b/)
 set(JPEG_SRC
 ${JPEG_DIR}/jcapimin.c
 ${JPEG_DIR}/jcapistd.c

@@ -7,7 +7,7 @@
 # -------------------------------------------------------
 # Source directories containing all the necessary .cpp files
 # -------------------------------------------------------
-set(SDLTTF_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12)
+set(SDLTTF_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12)
 
 set(SDLTTF_SRC
 ${SDLTTF_DIR}/SDL_ttf.c

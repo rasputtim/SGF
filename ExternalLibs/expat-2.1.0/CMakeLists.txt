@@ -37,10 +37,10 @@ if(BUILD_tests)
     enable_testing()
 endif(BUILD_tests)
 
-message (STATUS "EXPAT SOURCE DIR:  ${CMAKE_SOURCE_DIR}")
+message (STATUS "EXPAT SOURCE DIR:  ${CMAKE_CURRENT_SOURCE_DIR}")
 
-include(${CMAKE_SOURCE_DIR}/cmake/ConfigureChecksExpat.cmake)
-set (EXPAT_SOURCE_DIR  ${CMAKE_SOURCE_DIR}/ExternalLibs/expat-2.1.0 )
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/ConfigureChecksExpat.cmake)
+set (EXPAT_SOURCE_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0 )
 
 
 include_directories(${CMAKE_BINARY_DIR} ${EXPAT_SOURCE_DIR}/lib)

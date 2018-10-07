@@ -32,23 +32,32 @@ include(CheckStructHasMember)
 include(CMakeDependentOption)
 include(FindPkgConfig)
 include(GNUInstallDirs)
+
+
+message(STATUS "Adjusting SDL2 path")
+if(ANDROID)
+
+set (SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2)
+else(ANDROID)
 set (SDL2_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/SDL2)
+endif(ANDROID)
+
 message(STATUS "===============================")
-message(STATUS ${SDL2_SOURCE_DIR})
+message(STATUS "SDL2 SURCE DIR: ${SDL2_SOURCE_DIR}")
 
 set(CMAKE_MODULE_PATH "${SDL2_SOURCE_DIR}/cmake")
 message(STATUS "===============================")
-message(STATUS ${CMAKE_MODULE_PATH})
+message(STATUS "SDL2 CMAKE MODULE PATH: ${CMAKE_MODULE_PATH}")
 message(STATUS "===============================RUN MACROS.CMAKE======")
 
 include(${SDL2_SOURCE_DIR}/cmake/macros.cmake)
-message(STATUS "===============================RUN MACROS.CMAKE======")
-message(STATUS "===============================RUN SDLCHECKS.CMAKE======")
+message(STATUS "===========================SDL2 RUN MACROS.CMAKE======")
+message(STATUS "===========================SDL2 RUN SDLCHECKS.CMAKE======")
 include(${SDL2_SOURCE_DIR}/cmake/sdlchecks.cmake)
-message(STATUS "===============================END RUN SDLCHECKS.CMAKE======")
+message(STATUS "===========================SDL2 END RUN SDLCHECKS.CMAKE======")
 
-message(STATUS "=========BINARY DIR======================")
-message(STATUS ${SDL2_BINARY_DIR})
+message(STATUS "=========SDL2 BINARY DIR======================")
+message(STATUS "SDL2 BINARY DIR: ${SDL2_BINARY_DIR}")
 message(STATUS "===============================")
 
 # General settings

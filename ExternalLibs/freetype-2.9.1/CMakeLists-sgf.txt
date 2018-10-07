@@ -88,7 +88,18 @@ message(STATUS " PNG FOUND HERE IS: ${PNG_FOUND}")
 message(STATUS " PNG INCLUDE HERE IS: ${PNG_PNG_INCLUDE_DIR}")
 message(STATUS "====================================================")
 
+
+message(STATUS "Adjusting FREETYPE path")
+if(ANDROID)
+set(FREE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
+else(ANDROID)
 set(FREE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1)
+endif(ANDROID)
+set(CMAKE_MODULE_PATH "${FREE_SOURCE_DIR}/build/cmake")
+message(STATUS "===============================")
+message(STATUS "FREETYPE CMAKE MODULE PATH: ${CMAKE_MODULE_PATH}")
+
+
 
 cmake_minimum_required(VERSION 2.8.12)
 
@@ -276,8 +287,8 @@ file(WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h"
 set(NEW_OPTTION_FILE ${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h)
 set(NEW_HEADER_FILE ${PROJECT_BINARY_DIR}/include/freetype/config/fheader.h)
 message(STATUS "WRITING ftoption.h to: ${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h")
-configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/freetype/config/ftmodule.h ${PROJECT_BINARY_DIR}/include/freetype/config/ftmodule.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/ExternalLibs/freetype-2.9.1/include/freetype/config/ftstdlib.h ${PROJECT_BINARY_DIR}/include/freetype/config/ftstdlib.h COPYONLY)
+configure_file(${FREE_SOURCE_DIR}/include/freetype/config/ftmodule.h ${PROJECT_BINARY_DIR}/include/freetype/config/ftmodule.h COPYONLY)
+configure_file(${FREE_SOURCE_DIR}/include/freetype/config/ftstdlib.h ${PROJECT_BINARY_DIR}/include/freetype/config/ftstdlib.h COPYONLY)
 
 
 
@@ -460,9 +471,9 @@ if (PNG_FOUND)
   list(APPEND PKG_CONFIG_REQUIRED_PRIVATE libpng)
 endif ()
 if (HARFBUZZ_FOUND)
-  target_link_libraries(freetype PRIVATE ${HARFBUZZ_LIBRARIES})
-  target_include_directories(freetype PRIVATE ${HARFBUZZ_INCLUDE_DIRS})
-  list(APPEND PKG_CONFIG_REQUIRED_PRIVATE harfbuzz)
+ # target_link_libraries(freetype PRIVATE ${HARFBUZZ_LIBRARIES})
+ # target_include_directories(freetype PRIVATE ${HARFBUZZ_INCLUDE_DIRS})
+ # list(APPEND PKG_CONFIG_REQUIRED_PRIVATE harfbuzz)
 endif ()
 
 
