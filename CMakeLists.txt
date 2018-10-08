@@ -997,12 +997,14 @@ message(STATUS "")
 message(STATUS " Build Shared Library: ${SGF_SHARED}")
 message(STATUS " Build Static Library: ${SGF_STATIC}")
 
-
-
-
+if(NOT ANDROID)
+set(SGF_BUILD_TYPE STATIC)
+else()
+set(SGF_BUILD_TYPE SHARED)
+endif()
 #sgffabric library
 # The extension is already found. Any number of sources could be listed here.
-add_library (sgffabric STATIC ${CMAKE_CURRENT_SOURCE_DIR}/Source/SGF_Global.cpp
+add_library (sgffabric ${SGF_BUILD_TYPE} ${CMAKE_CURRENT_SOURCE_DIR}/Source/SGF_Global.cpp
 #for freetype
 #${FREE_PRIVATE_HEADERS}
 #${FREE_PUBLIC_HEADERS}
