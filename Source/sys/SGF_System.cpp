@@ -112,40 +112,80 @@ double CSysLocal::GetClockTicks() {
 #endif
 }
 
-double CSysLocal::ClockTicksPerSecond() {
-	return System::getClockTicksPerSecond();
-}
+    double CSysLocal::ClockTicksPerSecond() {
+#ifndef ANDROID
+        return System::getClockTicksPerSecond();
+#else
+        return 0.0;
+#endif
+    }
 
-cpuid_t CSysLocal::GetProcessorId() {
-	return System::getProcessorId();
-}
+    cpuid_t CSysLocal::GetProcessorId() {
 
-const char *CSysLocal::GetProcessorString() {
-	return System::getProcessorString();
-}
+#ifndef ANDROID
+        return System::getProcessorId();
+#else
+        return CPUID_NONE;
+#endif
+    }
 
-const char *CSysLocal::FPU_GetState() {
+    const char *CSysLocal::GetProcessorString() {
+#ifndef ANDROID
+        return System::getProcessorString();
+#else
+        return NULL;
+#endif
+
+    }
+
+        const char *CSysLocal::FPU_GetState() {
+#ifndef ANDROID
 	return Sys_FPU_GetState();
+#else
+return NULL;
+#endif
 }
 
 bool CSysLocal::FPU_StackIsEmpty() {
+#ifndef ANDROID
 	return fpu_StackIsEmpty();
+#else
+    return false;
+#endif
+
 }
 
 void CSysLocal::FPU_SetFTZ( bool enable ) {
+#ifndef ANDROID
 	System::fpu_SetFTZ( enable );
+#else
+    return ;
+#endif
+
 }
 
 void CSysLocal::FPU_SetDAZ( bool enable ) {
+#ifndef ANDROID
 	System::fpu_SetDAZ( enable );
+#else
+	return ;
+#endif
 }
 
 bool CSysLocal::LockMemory( void *ptr, int bytes ) {
+#ifndef ANDROID
 	return System::lockMemory( ptr, bytes );
+#else
+	return false;
+#endif
 }
 
 bool CSysLocal::UnlockMemory( void *ptr, int bytes ) {
+#ifndef ANDROID
 	return System::unlockMemory( ptr, bytes );
+#else
+	return false;
+#endif
 }
 /*
 void CSysLocal::GetCallStack( address_t *callStack, const int callStackSize ) {
@@ -210,7 +250,9 @@ void CSysLocal::DLL_GetFileName( const char *baseName, char *dllName, int maxLen
 
 
 void CSysLocal::FPU_EnableExceptions( int exceptions ) {
+#ifndef ANDROID
 	fpu_EnableExceptions( exceptions );
+#endif
 }
 
 /*

@@ -313,7 +313,7 @@ int nlWSAFDIsSet(SOCKET fd, fd_set *set)
 }
 
 #else
-#define sock_bind bind
+#define sock_bind ::bind  //to avoid android error calling std::bind instead
 #define sock_connect connect
 #endif /* HL_WINDOWS_APP */
 

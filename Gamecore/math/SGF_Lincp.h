@@ -20,11 +20,13 @@
 
 #ifndef __MATH_LCP_H__
 #define __MATH_LCP_H__
+
+
 #include "../SGF_Config.h"
 namespace SGF{
 	class CMatrizXD;
 	class CVectorXD;
-/*
+	/*
 ===============================================================================
 
   Box Constrained Mixed Linear Complementarity Problem solver

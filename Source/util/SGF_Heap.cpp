@@ -1169,7 +1169,11 @@ Mem_ClearedAlloc
 */
 void *Mem_ClearedAlloc( const int size ) {
 	void *mem = Mem_Alloc( size );
+#ifndef ANDROID
 	SIMDProcessor->Memset( mem, 0, size );
+#else
+	memset(mem,0,size);
+#endif
 	return mem;
 }
 

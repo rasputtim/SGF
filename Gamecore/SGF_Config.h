@@ -81,9 +81,9 @@
 #endif
 //#define SGF_PHYTON_SCRIPTING  //you have to have python installed //deve ter instalado phyton
 #endif
-#define SGF_USE_INTERNAL_TIMER // usa o timer interno ao invés do SDL
+#define SGF_USE_INTERNAL_TIMER // usa o timer interno ao invï¿½s do SDL
 
-#define USE_FASTEVENTS // utiliza as funções de eventos do FastEvents, que são thread safe, ao invés de usar a biblioteca normal do SDL
+#define USE_FASTEVENTS // utiliza as funï¿½ï¿½es de eventos do FastEvents, que sï¿½o thread safe, ao invï¿½s de usar a biblioteca normal do SDL
 
 #ifndef SGF_INLINE
 #ifdef WINDOWS
@@ -364,8 +364,9 @@ http://stackoverflow.com/questions/1018853/why-is-alloca-not-considered-good-pra
 ////////////////////////////////////////////////////////////
 //  MATH
 ///////////////////////////////////////////////////////////
+#ifndef ANDROID
 #define VECX_SIMD  //use SIMD instructions to math vector calculations
-
+#endif
 ////////////////////////////////////////////////////////////
 // Define portable import / export macros
 ////////////////////////////////////////////////////////////

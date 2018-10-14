@@ -65,7 +65,7 @@ static Bool  path_delimiter      (char delim);
     after each call to open_dir and read_dir.  You should then call
     free_dir() to release each DIRST when you are finished.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 Bool
 open_dir (
     DIRST *dir,
@@ -152,6 +152,7 @@ open_dir (
 #endif
 }
 
+#endif
 
 /*  -------------------------------------------------------------------------
  *  populate_entry -- internal
@@ -708,7 +709,7 @@ free_dir (DIRST *dir)
     </TABLE>
     If the sort string is NULL, no sort is carried out.
     ---------------------------------------------------------------------[>]-*/
-
+#ifndef ANDROID
 NODE *
 load_dir_list (
     const char *dir_name,
@@ -744,7 +745,7 @@ load_dir_list (
     return (file_list);
 }
 
-
+#endif
 /*  ---------------------------------------------------------------------[<]-
     Function: free_dir_list
 
@@ -1438,7 +1439,7 @@ coprintf (lpMsgBuf);
 #endif
 }
 
-
+#ifndef ANDROID
 /*  ---------------------------------------------------------------------[<]-
     Function: dir_usage
 
@@ -1478,6 +1479,7 @@ dir_usage (const char *path, Bool recurse)
     return (usage);
 }
 
+#endif
 
 /*  ---------------------------------------------------------------------[<]-
     Function: dir_files

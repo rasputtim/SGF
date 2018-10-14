@@ -54,7 +54,7 @@ void COptionQuit::logic(){
 }
 
 void COptionQuit::run(const Menu::CContext & context){
-    throw CShutdownException();
+    throw Exception::CShutdownException();
 }
 }
 } //end SGF

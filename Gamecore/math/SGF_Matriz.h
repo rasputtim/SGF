@@ -1778,8 +1778,9 @@ SGF_INLINE_FORCED float *CMatriz6D::ToFloatPtr() {
 #define MATX_CLEAREND()		int s = numRows * numColumns; while( s < ( ( s + 3 ) & ~3 ) ) { mat[s++] = 0.0f; }
 #define MATX_ALLOCA( n )	( (float *) _alloca16( MATX_QUAD( n ) ) )
 #define MATX_ALLOCAFLOAT( n )	( (float *) _allocafloat16( MATX_QUAD( n ) ) )
+#ifndef ANDROID
 #define MATX_SIMD
-
+#endif
 class CMatrizXD {
 public:
 					CMatrizXD();

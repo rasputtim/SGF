@@ -27,6 +27,7 @@
 
 #ifndef _WIN32
 #include <sys/mman.h>
+#include <stdio.h>
 #else
 #include <Windows.h>
 #endif

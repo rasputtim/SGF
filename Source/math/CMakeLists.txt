@@ -20,11 +20,16 @@ ${MATH_DIR}/SGF_Pluecker.cpp
 ${MATH_DIR}/SGF_Polynomial.cpp
 ${MATH_DIR}/SGF_Quat.cpp
 ${MATH_DIR}/SGF_Rotation.cpp
-${MATH_DIR}/SGF_Simd.cpp
 ${MATH_DIR}/SGF_Simd_Generic.cpp
 ${MATH_DIR}/SGF_Vector.cpp
 )
 
+if( NOT ANDROID)
+set(MATH_SRC
+${MATH_SRC}
+${MATH_DIR}/SGF_Simd.cpp
+)
+endif()
 # -------------------------------------------------------
 # Include directory
 # -------------------------------------------------------

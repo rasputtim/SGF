@@ -39,6 +39,7 @@ ${MENU_DIR}/SGF_OptionSelectFontV2.cpp
 ${MENU_DIR}/SGF_OptionSpeed.cpp
 ${MENU_DIR}/SGF_OptionTabMenu.cpp
 ${MENU_DIR}/SGF_OptionVersus.cpp
+${MENU_DIR}/SGF_OptionQuit.cpp
 )
 
 # -------------------------------------------------------

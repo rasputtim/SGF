@@ -47,7 +47,7 @@ class CTimer
     			//! tempo atual para comparar com o tempo inicial
     			unsigned long long currentTime;
 #endif
-#if defined (SGE_ON_LINUX)
+#if defined (SGE_ON_LINUX) || defined(ANDROID)
 
 			//! tempo inicial para o timer
     			timeval startTime;

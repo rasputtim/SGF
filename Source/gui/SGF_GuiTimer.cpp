@@ -91,7 +91,7 @@ namespace Gui {
 
 	}
 #endif
-#if defined (SGE_ON_LINUX)
+#if defined (SGE_ON_LINUX) || defined(ANDROID)
 
 unsigned int CTimer::usecs()
 	{

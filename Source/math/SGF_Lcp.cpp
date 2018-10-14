@@ -17,7 +17,7 @@
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
   */
-
+#ifndef ANDROID
 #include "math/SGF_Lincp.h"
 #include "math/SGF_Vector.h"
 #include "math/SGF_Matriz.h"
@@ -1641,3 +1641,4 @@ int CLinCP::GetMaxIterations() {
 	return maxIterations;
 }
 } //ens SGF
+#endif

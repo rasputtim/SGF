@@ -248,8 +248,11 @@ CBoundBox::FromPoints
   Most tight bounds for a point set.
 ============
 */
+
 void CBoundBox::FromPoints( const CVector3D *points, const int numPoints ) {
+#ifndef ANDROID
 	SIMDProcessor->MinMax( b[0], b[1], points, numPoints );
+#endif
 }
 
 /*
