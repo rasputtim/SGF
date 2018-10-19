@@ -22,8 +22,8 @@ set(SDLMIXER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2)
 
 
 if(SUPPORT_FLAC)
-set(FLAC_LIBRARY_PATH)
-endif(SUPPORT_FLAC external/flac-1.3.2)
+set(FLAC_LIBRARY_PATH external/flac-1.3.2)
+endif(SUPPORT_FLAC)
 
 if(SUPPORT_OGG)
 set(OGG_LIBRARY_PATH external/libogg-1.3.2)
