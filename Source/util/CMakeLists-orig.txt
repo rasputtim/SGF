@@ -12,7 +12,6 @@ set(UTIL_SRC
 ${UTIL_DIR}/XmlNode/XmlNode.cpp
 ${UTIL_DIR}/SGF_ArgsCmdLine.cpp
 ${UTIL_DIR}/SGF_AudioSystem.cpp
-${UTIL_DIR}/SGF_Debug.cpp
 ${UTIL_DIR}/SGF_Directory.cpp
 ${UTIL_DIR}/SGF_Ebox.cpp
 ${UTIL_DIR}/SGF_FilesystemBase.cpp

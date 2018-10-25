@@ -51,8 +51,7 @@ configure_file(
   "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
   IMMEDIATE @ONLY)
 
-add_custom_target(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+  
 
 
 
@@ -127,6 +126,9 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Android")
    set (ANDROID ON)
 else()
    set (ANDROID OFF)
+   add_custom_target(uninstall
+  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -655,7 +657,6 @@ ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawkln
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/md5
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre
-${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_SGF
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/include
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
 ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
@@ -802,7 +803,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/Source/math/CMakeLists.txt) #(get variables 
 include(${CMAKE_CURRENT_SOURCE_DIR}/Source/menu/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/Source/mortal/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/Source/mugen/CMakeLists.txt) #(get variables needed)
-
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/util/debug/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/Source/network/CMakeLists.txt) #(get variables needed)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/Source/objects/CMakeLists.txt) #(get variables needed)
@@ -836,12 +837,13 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12/CMakeLists.txt) #(get variables needed)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SFL2.0src/CMakeLists.txt) #(get variables needed)
 
+if(NOT ANDROID)
 message (STATUS "########   SDL2    #####")
 message(STATUS "ZLIB_FOUND HERE is:  ${ZLIB_FOUND}")
 include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/CMakeLists.txt) #(get variables needed)
-add_library(sdl2_static STATIC ${SDL2_SOURCE_FILES})
-target_link_libraries(sdl2_static ${EXTRA_LIBS})
-
+add_library(SDL2 STATIC ${SDL2_SOURCE_FILES})
+target_link_libraries(SDL2 ${EXTRA_LIBS})
+endif()
 message (STATUS "########   FREETYPE   #####")
 
 
@@ -1051,7 +1053,7 @@ endif()
 
 
 set(_INSTALL_LIBS "sgffabric" ${_INSTALL_LIBS})
-target_link_libraries(sgffabric sdl2_static ${SGF_EXTRA_LIBS} ${EXTRA_LDFLAGS})
+target_link_libraries(sgffabric SDL2 debug_module ${SGF_EXTRA_LIBS} ${EXTRA_LDFLAGS})
 
 #libc for opendir
 

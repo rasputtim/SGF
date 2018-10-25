@@ -72,13 +72,9 @@ typedef unsigned int uintptr_t;
 #endif /* !_STDINT_H_ && !HAVE_STDINT_H */
 
 #ifdef _WIN64
-#ifndef SIZEOF_VOIDP
 # define SIZEOF_VOIDP 8
-#endif
 #else
-#ifndef SIZEOF_VOIDP
 # define SIZEOF_VOIDP 4
-#endif
 #endif
 
 #define HAVE_DDRAW_H 1

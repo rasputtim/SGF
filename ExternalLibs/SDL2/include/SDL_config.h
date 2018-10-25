@@ -47,7 +47,7 @@
 #endif /* platform config */
 
 #ifdef USING_GENERATED_CONFIG_H
-#include "SDL_config_generated.h"
+#error Wrong SDL_config.h, check your include path?
 #endif
 
 #endif /* SDL_config_h_ */

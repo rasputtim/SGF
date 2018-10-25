@@ -1,0 +1,268 @@
+ 
+# -------------------------------------------------------
+# Sgffabric cmake build script. Creates makefiles for unix
+# based systems, cygwin(sp?) or mingw
+#
+# Written by: Salvatore
+# Modified: 08/27/2018
+# -------------------------------------------------------
+
+# -------------------------------------------------------
+# Ensure that we are doing an out of source build
+# Prevents any mishaps
+# Also remove the makefile to regenerate the filelist
+# -------------------------------------------------------
+cmake_minimum_required(VERSION 3.4.1)
+
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
+        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
+        file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/CMakeFiles)
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeCache.txt)
+if(EXISTS ${CMAKE_BINARY_DIR}/Makefile)
+        file(REMOVE ${CMAKE_BINARY_DIR}/Makefile)
+endif(EXISTS ${CMAKE_BINARY_DIR}/Makefile)
+if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+        if(UNIX AND NOT CYGWIN)
+                message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild && cd mybuild && cmake ../ && make\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in ${CMAKE_CURRENT_SOURCE_DIR} if you can't get rid of this error.")
+        else(UNIX AND NOT CYGWIN)
+                message(FATAL_ERROR "Oops. Don't do an in-source build. Create an extra directory change into it and run cmake pointing to the base directory. IE: \nmkdir mybuild; cd mybuild; cmakesetup ../\nYou may need to remove CMakeCache.txt and the CMakeFiles directory in  ${CMAKE_CURRENT_SOURCE_DIR} if you can't get rid of this error.")
+        endif(UNIX AND NOT CYGWIN)
+endif(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+
+#enable incremental builiding
+set (CMAKE_SKIP_RULE_DEPENDENCY TRUE)
+
+# -------------------------------------------------------
+# Directory in which extra macros can be found
+# -------------------------------------------------------
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+
+# -------------------------------------------------------
+# Directory in which extra macros can be found
+# -------------------------------------------------------
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+message (STATUS "SGF CMAKE_MODULE_PATH:  ${CMAKE_MODULE_PATH}")
+# -------------------------------------------------------
+# Add in uninstall target
+# -------------------------------------------------------
+configure_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+  IMMEDIATE @ONLY)
+
+if (NOT ANDROID)  
+add_custom_target(uninstall
+  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+endif()
+
+
+# -------------------------------------------------------
+# project name
+# -------------------------------------------------------
+project (sgffabric)
+
+
+set(PNG_FOUND FALSE)
+set(FREETYPE_FOUND FALSE)
+set(ZLIB_FOUND FALSE)
+
+
+
+# -------------------------------------------------------
+# generated Header Files
+# -------------------------------------------------------
+if(NOT ZLIB_FOUND)
+    set(ZLIB_INCLUDE_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/)
+    message(STATUS "Setting ZLIB_INCLUDE_DIR: ${ZLIB_INCLUDE_DIR}")
+            
+    if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
+        # If we're doing an out of source build and the user has a zconf.h
+        # in their source tree...
+        if(EXISTS ${ZLIB_INCLUDE_DIR}/zconf.h)
+            message(STATUS "Renaming")
+            message(STATUS "    ${ZLIB_INCLUDE_DIR}/zconf.h")
+            message(STATUS "to 'zconf.h.included' because this file is included with zlib")
+            message(STATUS "but CMake generates it automatically in the build directory.")
+            file(RENAME ${ZLIB_INCLUDE_DIR}/zconf.h ${ZLIB_INCLUDE_DIR}/zconf.h.included)
+      endif()
+    endif()
+    set (ZLIB_INTERNAL ON)
+endif(NOT ZLIB_FOUND)
+
+
+if(PNG_FOUND)
+    message(STATUS "LIB PNG found to use with SDL2_image.")
+    add_definitions(-DHAVE_PNG)
+    set(PNG_DEFINITIONS "")
+    message (STATUS "PNG FOUND VERSION: ${PNG_VERSION_STRING}")
+else(PNG_FOUND)
+    add_definitions(-DHAVE_PNG)
+    message(STATUS "LIB PNG NOT found to use for SDL2_image. I Will build PNG internally")
+    set(PNG_LIBRARY "png_static")
+    set(PNG_PNG_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libpng-1.6.32")
+    message(STATUS "PNG_PNG_INCLUDE_DIR: ${PNG_PNG_INCLUDE_DIR}")
+    set(PNG_INTERNAL ON)
+endif(PNG_FOUND)
+
+
+
+message (STATUS "###########################################################")
+message (STATUS "########   INCLUDING FOLDERS AND FILES                #####")
+message (STATUS "###########################################################")
+
+
+# -------------------------------------------------------
+# Include directory & Files
+# List of preprocessor include file search directories.
+# -------------------------------------------------------
+
+
+if(ZLIB_INTERNAL)
+
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+        file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+endif(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11/zconf.h)
+include_directories(${ZLIB_INCLUDE_DIR})
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/zlib-1.2.11)
+
+endif()
+
+
+if (PERLLIBS_FOUND)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/perl56
+${PERL_INCLUDE_DIR}
+${PERL_INCLUDE_DIRS}
+)
+endif()
+
+if(FREETYPE_INTERNAL)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/ExternalLibs/freetype-2.9.1/include/
+${FREETYPE_INCLUDE_DIR})
+endif()
+
+if(WEBP_INTERNAL)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/external/libwebp-0.6.0/src)
+else(WEBP_INTERNAL)
+    include_directories(${WEBP_INCLUDE_DIR})
+endif(WEBP_INTERNAL)
+
+
+
+
+# ZLIB
+
+
+
+
+
+
+if(PNG_INTERNAL)
+    message(STATUS "PNG_PNG_INCLUDE_DIR: ${PNG_PNG_INCLUDE_DIR}")
+    include_directories(${PNG_PNG_INCLUDE_DIR})
+else(PNG_INTERNAL)
+    include_directories(${PNG_PNG_INCLUDE_DIR})
+endif(PNG_INTERNAL)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Gamecore
+${CMAKE_CURRENT_SOURCE_DIR}/Gamecore/compiler
+${CMAKE_CURRENT_SOURCE_DIR}/Header
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawkln
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/md5
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_SGF
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2/include
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_ttf-2.0.12
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SFL2.0src
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sge2d/include
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sha1-c
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/zip
+${GRAPHICS_INCLUDES}
+${OGG_INCLUDES}
+${MP3_INCLUDES}
+${JPEG_INCLUDE_DIR}
+${TIFF_INCLUDE_DIR}# todo: Build the library
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libvorbisidec-1.2.1
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/smpeg2-2.0.0
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/flac-1.2.1
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/external/libmikmod-3.1.12/include/
+#expat
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/lib/
+${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/expat-2.1.0/
+)
+
+
+message (STATUS "###########################################################")
+message (STATUS "########   ADDING SUB DIRECTORIES                 #####")
+message (STATUS "########   INCLUDING CHILD CMakeFile.txt          #####")
+message (STATUS "###########################################################")
+
+message (STATUS "########   INCLUDING INDEPENDENT MODULES          #####")
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/md5/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/pcre/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/sha1-c/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL_gfx-2.0.24/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_image-2.0.3/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/SDL2_mixer-2.0.2/native_midi/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/util/debug/CMakeLists.txt) #(get variables needed)
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/7z/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/ExternalLibs/hawknl/CMakeLists.txt) #(get variables needed)
+include(${CMAKE_CURRENT_SOURCE_DIR}/Source/exceptions/CMakeLists.txt) #(get variables needed)
+
+message(STATUS "SOURCE FILES MD5 MODULE: ${MD5_SRC}")
+message(STATUS "SOURCE FILES PCRE MODULE: ${PCRE_SRC}")
+message(STATUS "Including files to build SHA module: ${SHA_SRC}")
+message(STATUS "Including files to build SDL_GFX Module: ${SDLGFX_SRC}")
+message(STATUS "Including files to build SDL2_image Modue: ${SDLIMAGE_SRC}")
+message(STATUS "Including files to build Native Midi: ${NATIVE_MIDI_SRC}")
+message(STATUS "Including files to build SGE Module: ${SGE_SRC}")
+
+
+
+
+#ADDED SUB DIRECTORIES
+ message (STATUS "########   PNG   #####")
+if(PNG_INTERNAL)
+add_subdirectory(${PNG_PNG_INCLUDE_DIR})
+endif(PNG_INTERNAL)
+
+
+
+
+
+
+
+if(NOT ANDROID)
+set(SGF_BUILD_TYPE STATIC)
+else()
+set(SGF_BUILD_TYPE SHARED)
+endif()
+#sgffabric library
+# The extension is already found. Any number of sources could be listed here.
+add_library (sgffabric ${SGF_BUILD_TYPE} #${CMAKE_CURRENT_SOURCE_DIR}/Source/SGF_Global.cpp
+${PCRE_SRC} 
+${MD5_SRC}
+${SHA_SRC}
+${SDLIMAGE_SRC} 
+${SDLGFX_SRC}
+${SDLIMAGE_SRC}
+${NATIVE_MIDI_SRC}
+${DEBUG_SRC}
+#${NETWORK_SRC} #depends on Hawknl
+)
+
+target_link_libraries(sgffabric SDL2 7zip_module
+hawknl_module
+exceptions_module
+png_static
+)

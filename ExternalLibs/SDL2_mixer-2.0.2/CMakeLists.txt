@@ -102,7 +102,7 @@ include_directories(include ./)
 # module
 # -------------------------------------------------------
 add_library (sdlmixer_module STATIC ${SDLMIXER_SRC})
-target_link_libraries(sdlmixer_module sdl2_static ${MIXER_LOCAL_STATIC_LIBRARIES})
+target_link_libraries(sdlmixer_module SDL2 ${MIXER_LOCAL_STATIC_LIBRARIES})
 # -------------------------------------------------------
 
 if(NOT ANDROID)

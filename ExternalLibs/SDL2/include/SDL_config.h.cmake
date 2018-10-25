@@ -19,8 +19,8 @@
   3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef SDL_config_h_gen
-#define SDL_config_h_gen
+#ifndef SDL_config_h_
+#define SDL_config_h_
 
 /**
  *  \file SDL_config.h.in

@@ -12,7 +12,6 @@ set(UTIL_SRC
 ${UTIL_DIR}/XmlNode/XmlNode.cpp
 ${UTIL_DIR}/SGF_ArgsCmdLine.cpp
 ${UTIL_DIR}/SGF_AudioSystem.cpp
-${UTIL_DIR}/SGF_Debug.cpp
 ${UTIL_DIR}/SGF_Directory.cpp
 ${UTIL_DIR}/SGF_Ebox.cpp
 ${UTIL_DIR}/SGF_FilesystemBase.cpp
@@ -54,7 +53,7 @@ ${UTIL_DIR}/SGF_Xmltools.cpp
 # module
 # -------------------------------------------------------
 add_library (util_module STATIC  ${UTIL_SRC})
-target_link_libraries(util_module minizip_module 7zip_module sfl_module expat sdlmixer_module  math_module external_module graphics_module network_module  exceptions_module sdl2_static)
+target_link_libraries(util_module minizip_module 7zip_module sfl_module expat sdlmixer_module  math_module external_module graphics_module network_module  exceptions_module SDL2)
 if(NOT ANDROID)
 target_link_libraries(util_module hawknl_module system_module)
 endif()
